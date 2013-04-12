@@ -1,0 +1,700 @@
+
+<Objects>
+	<Object type="0x0d90" id="Septavius the Ghost God">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar216x16</File><Index>0x30</Index></Texture>
+		<HitSound>monster/ghost_god_hit</HitSound>
+		<DeathSound>monster/ghost_god_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>8000</MaxHitPoints>
+		<Defense>12</Defense>
+		<Flying/>
+		<Quest/>
+		<God/>
+		<StasisImmune/>
+		<Level>1</Level>
+		<XpMult>0.7</XpMult>
+		<NoArticle/>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>80</Speed>
+			<Damage>75</Damage>
+			<Size>25</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<ArmorPiercing/>
+			<MultiHit/>
+		</Projectile>		
+		<Projectile id="1">
+			<ObjectId>Brown Magic</ObjectId>
+			<Speed>90</Speed>
+			<MinDamage>40</MinDamage>
+			<MaxDamage>45</MaxDamage>
+			<Size>40</Size>
+			<LifetimeMS>2600</LifetimeMS>
+			<MultiHit/>
+			<Boomerang/>
+			<Amplitude>2</Amplitude>
+			<Frequency>2.5</Frequency>
+			<ConditionEffect duration="1">Quiet</ConditionEffect>
+		</Projectile>			
+		<Projectile id="2">
+			<ObjectId>Yellow Star</ObjectId>
+			<Speed>57</Speed>
+			<Damage>65</Damage>
+			<Size>80</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+			<ConditionEffect duration="1.5">Confused</ConditionEffect>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>40</Speed>
+			<Damage>160</Damage>
+			<Size>80</Size>
+			<LifetimeMS>4000</LifetimeMS>
+			<MultiHit/>		
+		</Projectile>		
+		<Projectile id="5">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>70</Speed>
+			<Damage>60</Damage>
+			<Size>60</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<MultiHit/>		
+		</Projectile>		
+		
+			
+
+
+					
+
+		
+		
+		
+
+
+
+		
+	</Object>	
+	
+	<Object type="0x0d91" id="Lair Skeleton">
+		<Group>Lair Skeletons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x60</Index></Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>350</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>30</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d92" id="Lair Skeleton Swordsman">
+		<Group>Lair Skeletons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x61</Index></Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>2</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>35</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d93" id="Lair Skeleton Veteran">
+		<Group>Lair Skeletons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x62</Index></Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>450</MaxHitPoints>
+		<Defense>4</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>40</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d94" id="Lair Skeleton Mage">
+		<Group>Lair Skeletons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x63</Index></Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>45</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d95" id="Lair Skeleton King">
+		<Group>Lair Skeletons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x64</Index></Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>50</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d96" id="Lair Mummy">
+		<Group>Lair Mummies</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6a</Index></Texture>
+		<HitSound>monster/mummies_hit</HitSound>
+		<DeathSound>monster/mummies_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>40</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d97" id="Lair Mummy King">
+		<Group>Lair Mummies</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6b</Index></Texture>
+		<HitSound>monster/mummies_hit</HitSound>
+		<DeathSound>monster/mummies_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d98" id="Lair Mummy Pharaoh">
+		<Group>Lair Mummies</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6c</Index></Texture>
+		<HitSound>monster/mummies_hit</HitSound>
+		<DeathSound>monster/mummies_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>60</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d99" id="Lair Construct Giant">
+		<Group>Lair Constructs</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x4c</Index></Texture>
+		<HitSound>monster/dwarf_god_hit</HitSound>
+		<DeathSound>monster/dwarf_god_death</DeathSound>
+		<Size>110</Size>
+		<MaxHitPoints>700</MaxHitPoints>
+		<Defense>20</Defense>
+		<Projectile id="0">
+			<ObjectId>White Bolt</ObjectId>
+			<Damage>80</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+			<Size>120</Size>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Star</ObjectId>
+			<Damage>0</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9a" id="Lair Construct Titan">
+		<Group>Lair Constructs</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x4d</Index></Texture>
+		<HitSound>monster/dwarf_god_hit</HitSound>
+		<DeathSound>monster/dwarf_god_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>800</MaxHitPoints>
+		<Defense>20</Defense>
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>50</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Star</ObjectId>
+			<Damage>0</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9b" id="Lair Big Black Slime">
+		<Group>Lair Slimes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xb0</Index></Texture>
+		<HitSound>monster/slimes_hit</HitSound>
+		<DeathSound>monster/slimes_death</DeathSound>
+		<Size>150</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Black Magic</ObjectId>
+			<Damage>100</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9c" id="Lair Medium Black Slime">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xb0</Index></Texture>
+		<HitSound>monster/slimes_hit</HitSound>
+		<DeathSound>monster/slimes_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>150</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Black Magic</ObjectId>
+			<Damage>80</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9d" id="Lair Little Black Slime">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xb0</Index></Texture>
+		<HitSound>monster/slimes_hit</HitSound>
+		<DeathSound>monster/slimes_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>50</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Black Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9e" id="Lair Big Brown Slime">
+		<Group>Lair Slimes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xb1</Index></Texture>
+		<HitSound>monster/slimes_hit</HitSound>
+		<DeathSound>monster/slimes_death</DeathSound>
+		<Size>150</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Brown Magic</ObjectId>
+			<Damage>100</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0d9f" id="Lair Little Brown Slime">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xb1</Index></Texture>
+		<HitSound>monster/slimes_hit</HitSound>
+		<DeathSound>monster/slimes_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>150</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Brown Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da0" id="Lair Brown Bat">
+		<Group>Lair Bats</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xce</Index></Texture>
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		<Size>50</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>0</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da1" id="Lair Ghost Bat">
+		<Group>Lair Bats</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x79</Index></Texture>
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		<Size>50</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>30</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da2" id="Lair Burst Trap">
+		<Group>Lair Traps</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiEnvironment</File><Index>0x61</Index></Texture>
+		<HitSound>monster/traps_hit</HitSound>
+		<DeathSound>monster/traps_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Defense>0</Defense>
+		<DrawOnGround/>
+		<NoMiniMap/>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>100</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da3" id="Lair Blast Trap">
+		<Group>Lair Traps</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiEnvironment</File><Index>0x51</Index></Texture>
+		<HitSound>monster/traps_hit</HitSound>
+		<DeathSound>monster/traps_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Defense>0</Defense>
+		<DrawOnGround/>
+		<NoMiniMap/>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>100</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da4" id="Lair Reaper">
+		<Group>Lair Reapers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6d</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>800</MaxHitPoints>
+		<Defense>20</Defense>
+		<Projectile id="0">
+			<ObjectId>Fire Bolt</ObjectId>
+			<Damage>40</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da5" id="Lair Vampire">
+		<Group>Lair Vampires</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6e</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Green Star</ObjectId>
+			<Damage>80</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Slowed</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Green Bolt</ObjectId>
+			<Damage>100</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da6" id="Lair Vampire King">
+		<Group>Lair Vampires</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x6f</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Grey Star</ObjectId>
+			<Damage>80</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Quiet</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Green Bolt</ObjectId>
+			<Damage>120</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da7" id="Lair Grey Spectre">
+		<Group>Lair Spectres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x76</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>0</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Pink Bolt</ObjectId>
+			<Damage>100</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da8" id="Lair Blue Spectre">
+		<Group>Lair Spectres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x77</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>115</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>0</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Pink Bolt</ObjectId>
+			<Damage>120</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0da9" id="Lair White Spectre">
+		<Group>Lair Spectres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x78</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>130</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>0</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Pink Bolt</ObjectId>
+			<Damage>140</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0daa" id="Lair Ghost Archer">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7a</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>700</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blue Arrow</ObjectId>
+			<Damage>60</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>2500</LifetimeMS>
+			<Size>110</Size>
+		</Projectile>
+	</Object>
+	<Object type="0x0dab" id="Lair Ghost Warrior">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7b</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>35</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0dac" id="Lair Ghost Mage">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7c</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>40</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0dad" id="Lair Ghost Rogue">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7d</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>30</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0dae" id="Lair Ghost Paladin">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7e</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>40</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0daf" id="Lair Ghost Knight">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7f</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>50</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0db0" id="Ghost Warrior of Septavius">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7b</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>20</Defense>
+		<XpMult>0</XpMult>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>35</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0db1" id="Ghost Mage of Septavius">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7c</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>20</Defense>
+		<XpMult>0</XpMult>
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>40</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x0db2" id="Ghost Rogue of Septavius">
+		<Group>Lair Ghosts</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0x7d</Index></Texture>
+		<HitSound>monster/ghosts_hit</HitSound>
+		<DeathSound>monster/ghosts_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>20</Defense>
+		<XpMult>0</XpMult>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>30</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+</Objects>

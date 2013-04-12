@@ -1,0 +1,88 @@
+<Objects>
+	
+	<Object type="0x0802" id="South Tutorial Gun">
+		<Class>GameObject</Class>
+		<Model>Tower</Model>
+		<Enemy/>
+		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
+
+		<Projectile>
+			<ObjectId>Green Blob</ObjectId>
+			<Speed>40</Speed>
+			<Damage>5</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+
+	</Object>
+	<Object type="0x0803" id="North Tutorial Gun">
+		<Class>GameObject</Class>
+		<Model>Tower</Model>
+		<Enemy/>
+		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
+
+		<Projectile>
+			<ObjectId>Green Blob</ObjectId>
+			<Speed>40</Speed>
+			<Damage>5</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+
+	</Object>
+	<Object type="0x0804" id="East Tutorial Gun">
+		<Class>GameObject</Class>
+		<Model>Tower</Model>
+		<Enemy/>
+		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
+
+		<Projectile>
+			<ObjectId>Green Blob</ObjectId>
+			<Speed>40</Speed>
+			<Damage>5</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+
+	</Object>
+	<Object type="0x0805" id="West Tutorial Gun">
+		<Class>GameObject</Class>
+		<Model>Tower</Model>
+		<Enemy/>
+		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
+
+		<Projectile>
+			<ObjectId>Green Blob</ObjectId>
+			<Speed>40</Speed>
+			<Damage>5</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+
+	</Object>
+	<Object type="0x0806" id="Tutorial Loot Bag">
+		<Class>Container</Class>
+		<Container/>
+		<Loot/>
+		<Texture><File>lofiObj</File><Index>0x08</Index></Texture>
+		<Size>75</Size>
+		<SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0x0a4f, -1, -1, -1, -1, -1, -1, -1</Equipment>
+	</Object>
+	<Object type="0x0808" id="Up Arrow">
+		<Class>GameObject</Class>
+		<Texture><File>lofiObj2</File><Index>0x14</Index></Texture>
+		<DrawOnGround/>
+	</Object>
+	<Object type="0x0809" id="UpLeft Arrow">
+		<Class>GameObject</Class>
+		<Texture><File>lofiObj2</File><Index>0x15</Index></Texture>
+		<DrawOnGround/>
+	</Object>
+	<Object type="0x080a" id="UpRight Arrow">
+		<Class>GameObject</Class>
+		<Texture><File>lofiObj2</File><Index>0x16</Index></Texture>
+		<DrawOnGround/>
+	</Object>
+    <Object type="0x080b" id="Grey Up Arrow">
+        <Class>GameObject</Class>
+        <Texture><File>lofiObj2</File><Index>0x17</Index></Texture>
+        <DrawOnGround/>
+    </Object>
+</Objects>

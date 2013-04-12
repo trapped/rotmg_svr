@@ -1,0 +1,333 @@
+<Objects>
+	<Object type="0x0e28" id="Snakepit Guard Spawner">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>39</Index></AnimatedTexture>
+
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		<MaxHitPoints>100</MaxHitPoints>
+	    <StasisImmune/>
+		
+	</Object>
+
+	<Object type="0x0e27" id="Snakepit Button">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<DrawOnGround/>
+	    <StasisImmune/>
+		
+		<Texture><File>lofiObj3</File><Index>0x08</Index></Texture>
+		
+		<AltTexture id="1">
+			<Texture><File>lofiObj3</File><Index>0x09</Index></Texture> 
+		</AltTexture>
+
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>0</ShadowSize>
+		
+	</Object>
+
+	<Object type="0x0e26" id="Snakepit Guard">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>39</Index></AnimatedTexture>
+
+		<HitSound>monster/greater_pit_snakes_death</HitSound>
+		<DeathSound>monster/scorpions_death</DeathSound>
+
+		<XpMult>1.0</XpMult>
+   		<Size>0</Size>
+		<MaxHitPoints>5500</MaxHitPoints>
+		<Defense>50</Defense>
+		
+   		<Projectile id="0">
+			<ObjectId>Snake Spit</ObjectId>
+			<Speed>45</Speed>
+			<Damage>65</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+   			<Size>100</Size>
+		</Projectile>
+		
+   		<Projectile id="1">
+			<ObjectId>Snake Spinner</ObjectId>
+			<Speed>45</Speed>
+			<Damage>55</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+   			<Size>100</Size>
+			<ConditionEffect duration="2">Dazed</ConditionEffect>
+		</Projectile>
+		
+   		<Projectile id="2">
+			<ObjectId>Snake Ball Spinner</ObjectId>
+			<Speed>30</Speed>
+			<Damage>100</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+   			<Size>150</Size>
+			<ConditionEffect duration="4">Dazed</ConditionEffect>
+		</Projectile>
+		
+		
+		
+		
+		
+	</Object>
+
+
+	<Object type="0x0e25" id="Snakepit Dart Thrower">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<Texture><File>lofiObj3</File><Index>0x0a</Index></Texture>
+
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		<ShadowSize>0</ShadowSize>
+	    <StasisImmune/>
+   		
+   		<Projectile>
+			<ObjectId>Snakepit Dart</ObjectId>
+			<Speed>50</Speed>
+			<Damage>40</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+   			<Size>100</Size>
+			<ConditionEffect duration="4">Bleeding</ConditionEffect>
+		</Projectile>
+		
+		
+	</Object>
+	
+	
+	
+
+	<Object type="0x0917" id="Stheno the Snake Queen">
+		<Class>Character</Class>
+		<Texture><File>lofiChar216x16</File><Index>0x33</Index></Texture>
+		<HitSound>monster/snake_queen_hit</HitSound>
+		<DeathSound>monster/snake_queen_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>7500</MaxHitPoints>
+		<Defense>19</Defense>
+		<Enemy/>
+		<God/>
+		<StasisImmune/>
+		<Quest/>
+		<Level>1</Level>
+		<XpMult>0.7</XpMult>
+		<NoArticle/>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Speed>70</Speed>
+			<Damage>100</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="1">					
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>62</Speed>
+			<Damage>60</Damage>
+			<Size>60</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="1.4">Blind</ConditionEffect>
+			<MultiHit/>
+		</Projectile>
+		
+
+
+	</Object>
+	
+
+
+
+	<Object type="0x0918" id="Stheno Pet">
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars16x16dEncounters</File><Index>2</Index></AnimatedTexture>
+		<HitSound>monster/snakes_hit</HitSound>
+		<DeathSound>monster/snakes_death</DeathSound>
+		<Size>70</Size>
+		<MaxHitPoints>5000</MaxHitPoints>
+		<Defense>7</Defense>
+		<Enemy/>
+		<Level>1</Level>
+		<XpMult>0.1</XpMult>
+		
+		<Projectile id="0">
+			<ObjectId>Aqua Missile</ObjectId>
+			<Speed>60</Speed>
+			<Damage>75</Damage>
+			<Size>100</Size>
+			<LifetimeMS>900</LifetimeMS>
+			<ConditionEffect duration="2">Slowed</ConditionEffect>
+			<MultiHit/>
+		</Projectile>
+		
+	
+		
+	</Object>
+	
+
+
+	<Object type="0x0919" id="Stheno Swarm">
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>3</Index></AnimatedTexture>
+		<HitSound>monster/snakes_hit</HitSound>
+		<DeathSound>monster/snakes_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Defense>4</Defense>
+		<Enemy/>
+		<Level>1</Level>
+		<XpMult>0.1</XpMult>
+		
+		<Projectile id="0">
+			<ObjectId>Aqua Missile</ObjectId>
+			<Speed>60</Speed>
+			<Damage>40</Damage>
+			<Size>70</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+			
+
+	</Object>
+	
+
+
+
+	<Object type="0x0223" id="Pit Snake">
+		<Group>Pit Snakes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xc5</Index></Texture>
+		<HitSound>monster/pit_snakes_hit</HitSound>
+		<DeathSound>monster/pit_snakes_death</DeathSound>
+		<Size>80</Size>
+		<MaxHitPoints>5</MaxHitPoints>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+		<Projectile>
+			<ObjectId>Green Magic</ObjectId>
+			<Speed>60</Speed>
+			<Damage>10</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x0224" id="Pit Viper">
+		<Group>Pit Snakes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xc4</Index></Texture>
+		<HitSound>monster/pit_snakes_hit</HitSound>
+		<DeathSound>monster/pit_snakes_death</DeathSound>
+		<Size>80</Size>
+		<MaxHitPoints>5</MaxHitPoints>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+		<Projectile>
+			<ObjectId>Purple Magic</ObjectId>
+			<Speed>60</Speed>
+			<Damage>20</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x0225" id="Fire Python">
+		<Group>Pythons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xed</Index></Texture>
+		<HitSound>monster/pythons_hit</HitSound>
+		<DeathSound>monster/pythons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>5</Defense>
+		<Projectile>
+			<ObjectId>Red Fire</ObjectId>
+			<Speed>80</Speed>
+			<Damage>25</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x0226" id="Brown Python">
+		<Group>Pythons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xee</Index></Texture>
+		<HitSound>monster/pythons_hit</HitSound>
+		<DeathSound>monster/pythons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>20</Defense>
+		<Projectile>
+			<ObjectId>Blue Magic</ObjectId>
+			<Speed>80</Speed>
+			<Damage>25</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x0227" id="Yellow Python">
+		<Group>Pythons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar8x8</File><Index>0xef</Index></Texture>
+		<HitSound>monster/pythons_hit</HitSound>
+		<DeathSound>monster/pythons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>5</Defense>
+		<Projectile>
+			<ObjectId>Green Bolt</ObjectId>
+			<Speed>80</Speed>
+			<Damage>25</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+
+	<Object type="0x0228" id="Greater Pit Snake">
+		<Group>Greater Pit Snakes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x8</File><Index>0x7f</Index></Texture>
+		<HitSound>monster/greater_pit_snakes_hit</HitSound>
+		<DeathSound>monster/greater_pit_snakes_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>10</Defense>
+		<Projectile>
+			<ObjectId>Green Magic</ObjectId>
+			<Speed>80</Speed>
+			<Damage>50</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+
+	<Object type="0x0229" id="Greater Pit Viper">
+		<Group>Greater Pit Snakes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar216x8</File><Index>0x58</Index></Texture>
+		<HitSound>monster/greater_pit_snakes_hit</HitSound>
+		<DeathSound>monster/greater_pit_snakes_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>10</Defense>
+		<Projectile>
+			<ObjectId>Purple Magic</ObjectId>
+			<Speed>60</Speed>
+			<Damage>50</Damage>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+
+</Objects>

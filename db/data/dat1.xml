@@ -1,0 +1,783 @@
+
+<Objects>
+	<Object type="0x0d70" id="Destructible Castle Wall">
+		<Class>Wall</Class>
+        <Texture><File>lofiEnvironment</File><Index>0x23</Index></Texture>
+        <Top><Texture><File>lofiEnvironment</File><Index>0x26</Index></Texture></Top>
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<MaxHitPoints>3000</MaxHitPoints>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<Enemy/>
+		<XpMult>0.0</XpMult>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x0d71" id="Suit of Armor">
+		<Class>GameObject</Class>
+		<Texture><File>lofiChar216x16</File><Index>0x07</Index></Texture> 
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Size>80</Size>
+		<StasisImmune/>
+		<Static/>
+		<OccupySquare/>
+		<Enemy/>
+		<XpMult>0.0</XpMult>
+	</Object>
+	
+	<Object type="0x0d72" id="Suit of Armor Sm">
+		<DisplayId>Suit of Armor</DisplayId>
+		<Class>GameObject</Class>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>14</Index></AnimatedTexture> 
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Size>120</Size>
+		<Static/>
+		<OccupySquare/>
+		<Enemy/>
+		<XpMult>0.0</XpMult>
+	</Object>
+
+	<Object type="0x0d73" id="CastleArch Wall Flame">
+		<DisplayId>Castle Arch Wall</DisplayId>
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x5f</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x62</Index></Texture></Top>
+		
+        <AltTexture id="1">
+		<Texture><File>lofiEnvironment2</File><Index>0x63</Index></Texture> 
+		</AltTexture>
+        <AltTexture id="2">
+		<Texture><File>lofiEnvironment2</File><Index>0x64</Index></Texture> 
+		</AltTexture>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x0d74" id="CastleArch Wall">
+		<DisplayId>Castle Arch Wall</DisplayId>
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x65</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x62</Index></Texture></Top>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x0d75" id="Castle Wall Blank">
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x66</Index></Texture> 
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x62</Index></Texture></Top>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x0d76" id="Castle Brick Wall2">
+		<DisplayId>Brick Castle Wall</DisplayId>
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x67</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x62</Index></Texture></Top>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x0d77" id="Castle Brick Wall3">
+		<DisplayId>Brick Castle Wall</DisplayId>
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x68</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x62</Index></Texture></Top>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	
+	<Object type="0x0d78" id="Oryx Stone Guardian Right">
+		<DisplayId>Stone Guardian</DisplayId>
+		<Group>Oryx Minions</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<StasisImmune/>
+	    <Quest/>
+		<Level>20</Level>
+	    
+		
+	        
+	 	<AnimatedTexture><File>chars16x16dEncounters</File><Index>20</Index></AnimatedTexture>
+	        
+		<AltTexture id="1"> 
+			<AnimatedTexture><File>chars16x16dEncounters</File><Index>21</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="2"> 
+			<AnimatedTexture><File>chars16x16dEncounters</File><Index>22</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="3"> 
+			<AnimatedTexture><File>chars16x16dEncounters</File><Index>23</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="4"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>0</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="5"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>1</Index></AnimatedTexture>
+		</AltTexture>
+		
+		<HitSound>monster/stone_walls_death</HitSound>
+		<DeathSound>monster/flying_brain_death</DeathSound>
+	        
+		<MaxHitPoints>60000</MaxHitPoints>
+	        
+		<Projectile id="0">
+			<ObjectId>Purple Blast</ObjectId>
+			<Speed>60</Speed>
+			<Damage>75</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Super Blast Purple</ObjectId>
+			<Speed>60</Speed>
+			<Damage>120</Damage>
+			<Size>140</Size>
+			<LifetimeMS>900</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="2">
+			<ObjectId>Small White Blast</ObjectId>
+			<Speed>40</Speed>
+			<Damage>50</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	        
+		<Size>120</Size>
+		<Defense>100</Defense>
+		<XpMult>0.135</XpMult>
+	        
+	        
+		
+		
+		
+	        	
+		
+		
+		
+	        
+			
+		
+			
+	</Object> 
+
+	<Object type="0x0d79" id="Oryx Stone Guardian Left">
+		<DisplayId>Stone Guardian</DisplayId>
+		<Group>Oryx Minions</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<StasisImmune/>
+	    <Quest/>
+		<Level>20</Level>
+	        
+	    
+	        
+	 	<AnimatedTexture><File>chars16x16dEncounters2</File><Index>2</Index></AnimatedTexture>
+	        
+		<AltTexture id="1"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>3</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="2"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>4</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="3"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>5</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="4"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>6</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="5"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>1</Index></AnimatedTexture>
+		</AltTexture>
+		
+		<HitSound>monster/stone_walls_death</HitSound>
+		<DeathSound>monster/flying_brain_death</DeathSound>
+	        
+		<MaxHitPoints>60000</MaxHitPoints>
+	        
+		<Projectile id="0">
+			<ObjectId>Red Blast</ObjectId>
+			<Speed>60</Speed>
+			<Damage>75</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Super Blast Red</ObjectId>
+			<Speed>60</Speed>
+			<Damage>120</Damage>
+			<Size>140</Size>
+			<LifetimeMS>900</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="2">
+			<ObjectId>Small White Blast</ObjectId>
+			<Speed>40</Speed>
+			<Damage>50</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	        
+		<Size>120</Size>
+		<Defense>100</Defense>
+		<XpMult>0.135</XpMult>
+	        
+	        
+		
+		
+		
+	        	
+		
+		
+		
+	        
+			
+	
+			
+	</Object> 
+
+	<Object type="0x0d7a" id="Oryx Guardian TaskMaster">
+		<Group>Oryx Minions</Group>
+		<Class>Character</Class>
+		<StasisImmune/>
+		<NoMiniMap/>
+		
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+	     
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dwarves_death</DeathSound>
+	        
+		<MaxHitPoints>100</MaxHitPoints>
+	        
+		<Size>0</Size>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+		  
+	    
+	        
+	    
+	    
+	</Object>
+	
+	<Object type="0x0d7b" id="Oryx's Chamber Portal">
+		<Class>Portal</Class>
+		<IntergamePortal/>
+		<DungeonName>Oryx's Chamber</DungeonName>
+		<Texture><File>lofiEnvironment</File><Index>0x7c</Index></Texture>
+	</Object>
+	
+	<Object type="0x0d7c" id="Oryx Guardian Sword">
+		<DisplayId>Stone Guardian Sword</DisplayId>
+		<Group>Oryx Minions</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<StasisImmune/>
+		
+	 	<AnimatedTexture><File>chars8x8dEncounters</File><Index>16</Index></AnimatedTexture>
+	       
+		<HitSound>monster/ents_hit</HitSound>
+		<DeathSound>monster/traps_hit</DeathSound>
+	        
+		<MaxHitPoints>20000</MaxHitPoints>
+	        
+		<Projectile id="0">
+			<ObjectId>Lightning Spiral</ObjectId>
+			<Speed>35</Speed>
+			<Damage>100</Damage>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="1.5">Paralyzed</ConditionEffect>
+		</Projectile>
+	        
+		<Size>120</Size>
+		<Defense>40</Defense>
+		<XpMult>0.0</XpMult>
+		
+			
+	        
+			 
+	        
+			
+	</Object> 
+
+	<Object type="0x0d7d" id="Oryx Armor Spawner">
+        <Group>Oryx Minions</Group>
+        <Class>Character</Class>
+        <StasisImmune/>
+        <NoMiniMap/>
+        
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+        
+        <HitSound>monster/skeletons_hit</HitSound>
+        <DeathSound>monster/dwarves_death</DeathSound>
+        
+        <MaxHitPoints>100</MaxHitPoints>
+        <Size>0</Size>
+        <Defense>20</Defense>
+        <XpMult>0.0</XpMult>
+        
+	</Object>
+
+	<Object type="0x0d7e" id="Oryx Suit of Armor">
+		<DisplayId>Haunted Armor</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>11</Index></AnimatedTexture>
+        
+        <AltTexture id="1">
+			<AnimatedTexture><File>chars8x8rEncounters</File><Index>12</Index></AnimatedTexture>
+		</AltTexture>
+        <AltTexture id="2">
+			<Texture><File>invisible</File><Index>0</Index></Texture>
+		</AltTexture>
+		
+        
+        <HitSound>monster/traps_hit</HitSound>
+        <DeathSound>monster/stone_walls_death</DeathSound>
+        
+        <MaxHitPoints>3000</MaxHitPoints>
+        
+        
+        <Projectile id="0">
+            <ObjectId>Armor Sword Attack</ObjectId>
+            <Speed>55</Speed>
+            <Damage>65</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Armor Creation</ObjectId>
+            <Speed>20</Speed>
+            <Damage>1</Damage>
+            <Size>120</Size>
+            <LifetimeMS>400</LifetimeMS>
+        </Projectile>
+        
+        <Size>120</Size>
+        <Defense>20</Defense>
+        <XpMult>0.0</XpMult>
+        
+        
+      
+        
+        
+		
+		
+        
+	</Object> 
+
+	<Object type="0x0d7f" id="Oryx Insect Commander">
+		<DisplayId>Commander of Oryx</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+	    <StasisImmune/>
+        
+        <AnimatedTexture><File>chars16x16dEncounters2</File><Index>7</Index></AnimatedTexture>
+        	
+        <HitSound>monster/medusa_hit</HitSound>
+        <DeathSound>monster/snake_queen_death</DeathSound>
+        
+        <MaxHitPoints>3500</MaxHitPoints>
+		<Flying/>
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Knight Swipe</ObjectId>
+            <Speed>65</Speed>
+            <Damage>65</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>120</Size>
+        <Defense>30</Defense>
+        
+		
+        
+        
+		
+		
+    </Object> 
+
+	<Object type="0x0d80" id="Oryx Insect Minion">
+		<DisplayId>Insect Minion</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>14</Index></AnimatedTexture>
+        <AltTexture id="1">
+			<AnimatedTexture><File>chars8x8rEncounters</File><Index>14</Index></AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="2">
+			<AnimatedTexture><File>chars8x8rEncounters</File><Index>15</Index></AnimatedTexture>
+		</AltTexture>
+        	
+        
+        <HitSound>monster/snake_queen_hit</HitSound>
+        <DeathSound>monster/snakes_hit</DeathSound>
+        
+        <MaxHitPoints>500</MaxHitPoints>
+		<Flying/>
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Insect Sting</ObjectId>
+            <Speed>65</Speed>
+            <Damage>55</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Oryx Insect Sting Status</ObjectId>
+            <Speed>50</Speed>
+            <Damage>60</Damage>
+            <Size>120</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>10</Defense>
+        <XpMult>0.2</XpMult>
+        
+        
+        
+        
+		
+    </Object> 
+    
+	<Object type="0x0d81" id="Oryx Eye Warrior">
+		<DisplayId>Warrior of Oryx</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8dEncounters</File><Index>18</Index></AnimatedTexture>
+        
+        <HitSound>monster/slimes_death</HitSound>
+        <DeathSound>monster/trees_hit</DeathSound>
+        
+        <MaxHitPoints>1500</MaxHitPoints>
+        
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Eye Warrior Swipe</ObjectId>
+            <Speed>40</Speed>
+            <Damage>60</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Oryx Knight Blast Sm</ObjectId>
+            <Speed>70</Speed>
+            <Damage>45</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>20</Defense>
+        <XpMult>0.4</XpMult>
+        
+		
+        
+        
+        
+        
+		
+    </Object> 
+    
+	<Object type="0x0d82" id="Oryx Brute">
+		<DisplayId>Brute of Oryx</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        <StasisImmune/>
+        
+        <AnimatedTexture><File>chars16x16dEncounters2</File><Index>8</Index></AnimatedTexture>
+        <AltTexture id="1">
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>9</Index></AnimatedTexture> 
+		</AltTexture>
+        
+        
+        <HitSound>monster/ogres_hit</HitSound>
+        <DeathSound>monster/ogres_death</DeathSound>
+        
+        <MaxHitPoints>7000</MaxHitPoints>
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Brute Rush</ObjectId>
+            <Speed>45</Speed>
+            <Damage>65</Damage>
+            <Size>200</Size>
+            <LifetimeMS>400</LifetimeMS>
+            <MultiHit/>
+            <PassesCover/>
+			<ConditionEffect duration="4">Armor Broken</ConditionEffect>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Oryx Brute Line</ObjectId>
+            <Speed>65</Speed>
+            <Damage>55</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="2">
+            <ObjectId>Oryx Knight Blast Sm</ObjectId>
+            <Speed>35</Speed>
+            <Damage>60</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>30</Defense>
+        <XpMult>0.7</XpMult>
+        
+        
+        
+		
+		
+		
+		
+		
+		
+    </Object> 
+
+	<Object type="0x0d83" id="Oryx Knight">
+		<DisplayId>Knight of Oryx</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>16</Index></AnimatedTexture>
+        
+        <HitSound>monster/dwarves_hit</HitSound>
+        <DeathSound>monster/dragons_hit</DeathSound>
+        
+        <MaxHitPoints>2500</MaxHitPoints>
+        
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Knight Swipe Spin</ObjectId>
+            <Speed>65</Speed>
+            <Damage>55</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="3">Slowed</ConditionEffect>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Oryx Bubble</ObjectId>
+            <Speed>0.02</Speed>
+            <Damage>100</Damage>
+            <Size>160</Size>
+            <LifetimeMS>400</LifetimeMS>
+            <MultiHit/>
+            <PassesCover/>
+        </Projectile>
+        <Projectile id="2">
+            <ObjectId>Oryx Knight Blast Sm</ObjectId>
+            <Speed>35</Speed>
+            <Damage>60</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="3">
+            <ObjectId>Oryx Knight Line</ObjectId>
+            <Speed>55</Speed>
+            <Damage>55</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1200</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>20</Defense>
+        
+		
+        
+		
+        
+        
+		
+		
+		
+		
+    </Object> 
+    
+	<Object type="0x0d84" id="Oryx Pet">
+		<DisplayId>Pet of Oryx</DisplayId>
+        <Group>Oryx Minions</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>17</Index></AnimatedTexture>
+        
+        <HitSound>monster/night_elves_hit</HitSound>
+        <DeathSound>monster/medusa_hit</DeathSound>
+        
+        <MaxHitPoints>750</MaxHitPoints>
+        
+        <Projectile id="0">
+            <ObjectId>Pet Bubble</ObjectId>
+            <Speed>0.02</Speed>
+            <Damage>60</Damage>
+            <Size>80</Size>
+            <LifetimeMS>400</LifetimeMS>
+            <MultiHit/>
+            <PassesCover/>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>15</Defense>
+        <XpMult>0.2</XpMult>
+        
+        
+		
+    </Object> 
+
+	<Object type="0x0d85" id="Oryx's Living Floor Fire Down">
+		<DisplayId>Oryx's Living Floor</DisplayId>
+		<Group>Oryx's Minions</Group>
+		<Class>GameObject</Class>
+		<Enemy/>
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<MaxHitPoints>2600</MaxHitPoints>
+		
+		<DrawOnGround/>
+		 
+		<Texture><File>lofiEnvironment3</File><Index>0x1d</Index></Texture>
+		<AltTexture id="1">
+			<Texture><File>lofiEnvironment3</File><Index>0x1e</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2">
+			<Texture><File>lofiEnvironment3</File><Index>0x1f</Index></Texture>
+		</AltTexture>
+		
+		<Projectile id="0">
+			<ObjectId>Mute Spell</ObjectId>
+			<Speed>50</Speed>
+			<MinDamage>10</MinDamage>
+			<MaxDamage>20</MaxDamage>
+			<Size>80</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="5">Quiet</ConditionEffect>
+			<MultiHit/>
+		</Projectile>
+	
+		
+		
+	</Object>
+	
+	<Object type="0x0d86" id="Quiet Bomb">
+		<Group>Oryx's Minions</Group>
+	    <Class>Character</Class>
+	    <StasisImmune/>
+		<Enemy/>
+		<NoMiniMap/>
+		
+		<MaxHitPoints>100</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>90</Size>
+		<Defense>0</Defense>
+		
+		<Texture><File>lofiEnvironment3</File><Index>0x22</Index></Texture>
+		<AltTexture id="1">
+			<Texture><File>lofiEnvironment3</File><Index>0x23</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2">
+			<Texture><File>lofiEnvironment3</File><Index>0x24</Index></Texture>
+		</AltTexture>
+	        	
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skull_shrine_hit</DeathSound>
+		
+		<Projectile id="0">
+			<ObjectId>Mute Spell</ObjectId>
+			<Speed>50</Speed>
+			<MinDamage>10</MinDamage>
+			<MaxDamage>20</MaxDamage>
+			<Size>80</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="5">Quiet</ConditionEffect>
+			<MultiHit/>
+		</Projectile>
+		
+		
+	</Object>
+		
+	<Object type="0x0d87" id="Oryx's Living Floor">
+		<Group>Oryx's Minions</Group>
+		<Class>GameObject</Class>
+		<Enemy/>
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<MaxHitPoints>2600</MaxHitPoints>
+		<DrawOnGround/>
+		
+		<Texture><File>lofiEnvironment3</File><Index>0x1d</Index></Texture>
+		<AltTexture id="1">
+			<Texture><File>lofiEnvironment3</File><Index>0x1e</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2">
+			<Texture><File>lofiEnvironment3</File><Index>0x1f</Index></Texture>
+		</AltTexture>
+		
+		<Projectile id="0">
+			<ObjectId>Mute Spell</ObjectId>
+			<Speed>50</Speed>
+			<MinDamage>10</MinDamage>
+			<MaxDamage>20</MaxDamage>
+			<Size>80</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="5">Quiet</ConditionEffect>
+			<MultiHit/>
+		</Projectile>
+	
+	
+		
+	</Object>
+</Objects>

@@ -1,0 +1,374 @@
+<Objects>
+    
+
+    
+
+    <Object type="0x5e19" id="SampleGenerator">
+        <Class>GameObject</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <ShadowSize>0</ShadowSize>
+        <Effect>CustomParticles</Effect>
+    </Object>
+
+    <Object type="0x5e20" id="MadLabGreenBubbles">
+        <Class>GameObject</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <ShadowSize>0</ShadowSize>
+        <Effect color="0x00FF00" rate="70" life=".3" lifeVariance=".1" speed="0" speedVariance=".5" size="3" rise="2" riseVariance=".1" rangeX="3.5" rangeY="1.5">CustomParticles</Effect>
+    </Object>
+
+    <Object type="0x5e21" id="MadLabBlueBubbles">
+        <Class>GameObject</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <ShadowSize>0</ShadowSize>
+        <Effect color="0x0000FF" rate="70" life=".3" lifeVariance=".1" speed="0" speedVariance="1" size="3" rise="3" riseVariance=".1" rangeX="3.5" rangeY="1.5">CustomParticles</Effect>
+    </Object>
+    
+
+    <Object type="0x0e5b" id="Snow Bat Mama">
+		<Enemy/>
+		<Class>Character</Class>
+        <RemoteTexture><Instance>testing</Instance><Id>7776164</Id></RemoteTexture>
+        
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>3000</MaxHitPoints>
+		<Defense>50</Defense>
+		<XpMult>1</XpMult>
+		<Z>0.14</Z>
+		<Flying/>
+   		<Size>120</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Sonic Bat Boom</ObjectId>
+			<Damage>60</Damage>
+			<Speed>80</Speed>
+			<Size>200</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Sonic Bat Boom</ObjectId>
+			<Damage>50</Damage>
+			<Speed>70</Speed>
+			<Size>150</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Sonic Bat Boom</ObjectId>
+			<Damage>40</Damage>
+			<Speed>60</Speed>
+			<Size>100</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+        
+		<Projectile id="3">
+			<ObjectId>Sonic Bat Spinner</ObjectId>
+			<Damage>20</Damage>
+			<Speed>65</Speed>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+		
+        
+	</Object>
+    
+    <Object type="0x0e5a" id="Snow Bat">
+		<Enemy/>
+		<Class>Character</Class>
+        <RemoteTexture><Instance>testing</Instance><Id>7776165</Id></RemoteTexture>
+        
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>125</MaxHitPoints>
+		<Defense>25</Defense>
+		<XpMult>1</XpMult>
+		<Z>0.24</Z>
+		<Flying/>
+   		<Size>80</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Invisible</ObjectId>
+			<Damage>40</Damage>
+			<Speed>0</Speed>
+			<Size>80</Size>
+			<LifetimeMS>100</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+		
+	</Object>
+    
+    <Object type="0x0e59" id="Mini Yeti">
+		<Enemy/>
+		<Class>Character</Class>
+        
+		<RemoteTexture><Instance>testing</Instance><Id>7766504</Id><Right/></RemoteTexture>
+		
+		<HitSound>monster/default_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+		<Size>100</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>2000</MaxHitPoints>
+		<Defense>100</Defense>
+		
+	</Object>
+    
+    <Object type="0x0e58" id="Big Yeti">
+		<Enemy/>
+		<Class>Character</Class>
+        
+		<RemoteTexture><Instance>testing</Instance><Id>7775062</Id><Right/></RemoteTexture>
+		
+		<HitSound>monster/default_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+		<Size>120</Size>
+		<ShadowSize>80</ShadowSize>
+		<MaxHitPoints>2000</MaxHitPoints>
+		<Defense>100</Defense>
+		
+	</Object>
+    
+	<Object type="0x0e16" id="LavaBomb">
+		<Class>Character</Class>
+		
+		<RemoteTexture><Instance>testing</Instance><Id>4798003</Id><Right/></RemoteTexture>
+		
+		<Animation prob="1" period="0">
+			<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4798003</Id><Right/></RemoteTexture></Frame>
+			
+			<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4805001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4798004</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4806001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4807001</Id><Right/></RemoteTexture></Frame>
+			
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4808001</Id><Right/></RemoteTexture></Frame>
+			<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4762010</Id><Right/></RemoteTexture></Frame>
+			
+			<Frame time="2"><Texture><File>invisible</File><Index>0</Index></Texture></Frame>
+		</Animation>
+		
+		
+		<Projectile id="0">
+			<ObjectId>LavaBombBlast</ObjectId>
+			<Speed>55</Speed>
+			<Damage>160</Damage>
+			<Size>200</Size>
+			<LifetimeMS>1200</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.3</XpMult>
+   		<Size>100</Size>
+   		
+
+	</Object>
+
+	<Object type="0x0e15" id="TemporaryLavaLonger">
+		<Class>Character</Class>
+		
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.3</XpMult>
+   		<Size>0</Size>
+   		
+		
+		
+	</Object>
+
+	<Object type="0x0e14" id="FireMakerUp">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+			
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>1</XpMult>
+		<Size>140</Size>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		
+		
+	</Object>
+
+	<Object type="0x0e13" id="FireMakerDn">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+			
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>1</XpMult>
+		<Size>140</Size>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		
+		
+	</Object>
+
+	<Object type="0x0e12" id="FireMakerLf">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+			
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>1</XpMult>
+		<Size>140</Size>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		
+		
+	</Object>
+
+	<Object type="0x0e11" id="FireMakerRt">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+			
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>1</XpMult>
+		<Size>140</Size>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		
+		
+	</Object>
+
+	<Object type="0x0e10" id="TestFire">
+		<Class>Character</Class>
+		<Enemy/>
+		<RemoteTexture><Instance>testing</Instance><Id>4759176</Id><Right/></RemoteTexture>
+		
+			<Animation prob="1" period="0">
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4759176</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4774177</Id><Right/></RemoteTexture></Frame>
+				
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4774178</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4776161</Id><Right/></RemoteTexture></Frame>
+				
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4804019</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4804021</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4758169</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.1"><RemoteTexture><Instance>testing</Instance><Id>4759176</Id><Right/></RemoteTexture></Frame>
+				
+				<Frame time="2"><Texture><File>invisible</File><Index>0</Index></Texture></Frame>
+			</Animation>
+			
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>1</XpMult>
+		<Size>140</Size>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		
+		
+	</Object>
+
+	<Object type="0x0e09" id="Guild Pet">
+		<Group>Sheep</Group>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rBeach</File><Index>0</Index></AnimatedTexture>
+		<Size>100</Size>
+		<XpMult>0.0</XpMult>
+		
+	</Object>
+
+	<Object type="0x0e0a" id="TemporaryLava">
+		<Class>Character</Class>
+		
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.3</XpMult>
+   		<Size>0</Size>
+   		
+		
+		
+	</Object>
+
+	<Object type="0x0e0b" id="Sparkle">
+		<Class>GameObject</Class>
+		
+				<RandomTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4630001</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4631001</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4630002</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4630003</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4631002</Id><Right/></RemoteTexture>
+					
+					<RemoteTexture><Instance>testing</Instance><Id>4629002</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4630004</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4629003</Id><Right/></RemoteTexture>
+					<RemoteTexture><Instance>testing</Instance><Id>4627002</Id><Right/></RemoteTexture>
+				</RandomTexture>
+		
+		<NoMiniMap/>
+		<Size>80</Size>
+		<ShadowSize>0</ShadowSize>
+		<Z>0.2</Z>
+		<Flying/>
+	</Object>
+
+	<Object type="0x0e0f" id="Eyeball">
+		<Class>Character</Class>
+		<Enemy/>
+		<RemoteTexture><Instance>testing</Instance><Id>4627022</Id><Right/></RemoteTexture>
+		
+			<Animation prob="1" period="0">
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4627020</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4631015</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4627021</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4623020</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4631016</Id><Right/></RemoteTexture></Frame>
+				
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4623021</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4623021</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4628019</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4627022</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4633011</Id><Right/></RemoteTexture></Frame>
+				
+				<Frame time="0.2"><RemoteTexture><Instance>testing</Instance><Id>4623022</Id><Right/></RemoteTexture></Frame>
+			</Animation>
+		
+			<Animation prob="0" period="0">
+				<Frame time="0.4"><RemoteTexture><Instance>testing</Instance><Id>4631017</Id><Right/></RemoteTexture></Frame>
+				<Frame time="0.4"><RemoteTexture><Instance>testing</Instance><Id>4629015</Id><Right/></RemoteTexture></Frame>
+			</Animation>
+		
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>50</Defense>
+		<XpMult>1</XpMult>
+		<Size>100</Size>
+		<ShadowSize>30</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>		
+			<Speed>15</Speed>
+			<Damage>4</Damage>
+			<Size>80</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+			<Wavy/>
+		</Projectile>
+		
+	</Object>
+
+
+
+
+</Objects>

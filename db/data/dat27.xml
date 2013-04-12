@@ -1,0 +1,393 @@
+<Objects>
+
+
+
+	<Object type="0x0908" id="Malphas Protector">
+		<Group>Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x13</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>900</MaxHitPoints>
+		<Defense>7</Defense>
+		<XpMult>0.1</XpMult>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>50</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		
+		
+	</Object>
+
+
+	
+	<Object type="0x0909" id="Malphas Missile">
+		<Group>Missiles</Group>
+		<Enemy/>
+		<Class>Character</Class>
+
+			
+        <Texture><File>lofiObj2</File><Index>0x47</Index></Texture>
+
+		
+		<Projectile id="0">
+			<ObjectId>Red Star</ObjectId>
+			<Speed>66</Speed>
+			<Damage>40</Damage>
+			<Size>100</Size>
+			<LifetimeMS>760</LifetimeMS>
+			<MultiHit/>
+		</Projectile>		
+
+			
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Size>140</Size>
+		<Defense>30</Defense>
+		<XpMult>0.0</XpMult>
+
+					
+
+		
+	</Object>
+	
+
+	
+	<Object type="0x090a" id="Archdemon Malphas">
+		<Group>Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Flying/>
+		<Quest/>
+		<God/>
+		<StasisImmune/>
+
+			
+		<AnimatedTexture><File>chars16x16dEncounters</File><Index>0</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+
+			
+		<MaxHitPoints>10000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>20</Defense>
+		<XpMult>0.7</XpMult>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>75</Speed>
+			<Damage>60</Damage>
+			<Size>60</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<ArmorPiercing/>
+			<MultiHit/>
+		</Projectile>				
+		<Projectile id="2">
+			<ObjectId>Silver Shield</ObjectId>
+			<Speed>42</Speed>
+			<Damage>65</Damage>
+			<Size>65</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+			<ConditionEffect duration="4">Weak</ConditionEffect>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>40</Speed>
+			<Damage>150</Damage>
+			<Size>150</Size>
+			<LifetimeMS>4000</LifetimeMS>
+			<MultiHit/>		
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Silver Shield</ObjectId>
+			<Speed>60</Speed>
+			<Damage>110</Damage>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+			<ConditionEffect duration="4">Weak</ConditionEffect>
+		</Projectile>
+		
+			
+
+
+					
+		
+	</Object>	
+
+
+	<Object type="0x090b" id="Malphas Flamer">
+		<Group>Flamers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+
+			
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>1</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Flame</ObjectId>
+			<Speed>80</Speed>
+			<Damage>20</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<MultiHit/>
+			<Amplitude>0.3</Amplitude>
+			<Frequency>0.5</Frequency>	
+		</Projectile>		
+
+			
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>6</Defense>
+		<XpMult>0.0</XpMult>
+		
+			
+		
+	</Object>	
+	
+	
+
+
+	<Object type="0x1733" id="Archdemon Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1734" id="Archdemon GroundShot">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+		
+	</Object>
+
+	<Object type="0x1735" id="Archdemon SafeGround">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+		
+	</Object>
+	
+
+	
+	<Object type="0x66d" id="Imp of the Abyss">
+		<Group>Abyss Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x20</Index></Texture>
+		<HitSound>monster/abyss_demons_hit</HitSound>
+		<DeathSound>monster/abyss_demons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>30</Defense>
+		<Flying/>
+		<Projectile id="0">
+			<ObjectId>Fire Bolt</ObjectId>
+			<Damage>60</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x66e" id="Demon of the Abyss">
+		<Group>Abyss Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x21</Index></Texture>
+		<HitSound>monster/abyss_demons_hit</HitSound>
+		<DeathSound>monster/abyss_demons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>30</Defense>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>120</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+			<Size>140</Size>
+		</Projectile>
+	</Object>
+	<Object type="0x66f" id="Demon Warrior of the Abyss">
+		<Group>Abyss Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x22</Index></Texture>
+		<HitSound>monster/abyss_demons_hit</HitSound>
+		<DeathSound>monster/abyss_demons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>30</Defense>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>80</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x670" id="Demon Mage of the Abyss">
+		<Group>Abyss Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x23</Index></Texture>
+		<HitSound>monster/abyss_demons_hit</HitSound>
+		<DeathSound>monster/abyss_demons_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>350</MaxHitPoints>
+		<Defense>30</Defense>
+		<Projectile id="0">
+			<ObjectId>Red Fire</ObjectId>
+			<Damage>80</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x671" id="Brute of the Abyss">
+		<Group>Abyss Brutes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x24</Index></Texture>
+		<HitSound>monster/abyss_brutes_hit</HitSound>
+		<DeathSound>monster/abyss_brutes_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>30</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>80</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x672" id="Brute Warrior of the Abyss">
+		<Group>Abyss Brutes</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar28x8</File><Index>0x25</Index></Texture>
+		<HitSound>monster/abyss_brutes_hit</HitSound>
+		<DeathSound>monster/abyss_brutes_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>30</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>80</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+
+
+	<Object type="0x0e1e" id="AbyssIdolDead">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		<MaxHitPoints>10</MaxHitPoints>
+		
+	</Object>
+
+	<Object type="0x0e1d" id="Abyss Idol">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture><File>lofiObjBig</File><Index>0x2c</Index></Texture>
+
+		<MaxHitPoints>25000</MaxHitPoints>
+		<XpMult>0.35</XpMult>
+   		<Size>120</Size>
+		<StasisImmune/>
+		<Defense>30</Defense>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_hit</DeathSound>
+   		
+   		
+		<Projectile id="0">
+			<ObjectId>Idol Wave</ObjectId>
+			<Speed>30</Speed>
+			<Damage>65</Damage>
+			<LifetimeMS>400</LifetimeMS>
+   			<Size>140</Size>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Idol Blast</ObjectId>
+			<Speed>50</Speed>
+			<Damage>100</Damage>
+			<LifetimeMS>1600</LifetimeMS>
+   			<Size>160</Size>
+			<ConditionEffect duration=".8">Paralyzed</ConditionEffect>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Idol Blast</ObjectId>
+			<Speed>60</Speed>
+			<Damage>70</Damage>
+			<LifetimeMS>1600</LifetimeMS>
+   			<Size>100</Size>
+		</Projectile>
+   		
+		
+		
+	</Object>
+
+	<Object type="0x0e1c" id="AbyssExitGuarder">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		<MaxHitPoints>10</MaxHitPoints>
+		
+		
+		
+	</Object>
+
+	<Object type="0x0e1b" id="LavaTrigger">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		<MaxHitPoints>10</MaxHitPoints>
+
+	</Object>
+
+	<Object type="0x0e1a" id="AbyssTreasureLavaBomb">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+
+		<MaxHitPoints>10</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+   		<Size>0</Size>
+		
+	
+	</Object>
+</Objects>

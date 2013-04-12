@@ -1,0 +1,969 @@
+<Objects>
+	
+	
+	<Object type="0x646" id="Minotaur">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x48</Index></Texture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>850</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighSand</Terrain>
+		<God/>
+		<SpawnProb>0.7</SpawnProb>
+		<XpMult>0.8</XpMult>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>52</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blade</ObjectId>
+			<Damage>28</Damage>
+			<Speed>90</Speed>
+			<Size>100</Size>
+			<LifetimeMS>430</LifetimeMS>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Blade</ObjectId>
+			<Damage>28</Damage>
+			<Speed>90</Speed>
+			<Size>100</Size>
+			<LifetimeMS>430</LifetimeMS>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>			
+		
+
+		
+	</Object>
+
+	<Object type="0x647" id="Flayer">
+		<Group>Flayers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0b</Index></AnimatedTexture>
+		<HitSound>monster/flayers_hit</HitSound>
+		<DeathSound>monster/flayers_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>140</MaxHitPoints>
+		<Defense>8</Defense>
+		<Terrain>HighSand</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>40</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2700</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x648" id="Flayer Veteran">
+		<Group>Flayers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0c</Index></AnimatedTexture>
+		<HitSound>monster/flayers_hit</HitSound>
+		<DeathSound>monster/flayers_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>280</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>HighSand</Terrain>
+		<Projectile id="0">
+			<ObjectId>Purple Magic</ObjectId>
+			<Damage>50</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x649" id="Flayer God">
+		<Group>Flayers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x51</Index></Texture>
+		<HitSound>monster/flayers_hit</HitSound>
+		<DeathSound>monster/flayers_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>1400</MaxHitPoints>
+		<Defense>12</Defense>
+		<Terrain>HighSand</Terrain>
+		<SpawnProb>1.0</SpawnProb>
+		<God/>
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>60</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2200</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Grey Star</ObjectId>
+			<Damage>0</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>2200</LifetimeMS>
+			<ConditionEffect duration="10">Quiet</ConditionEffect>
+		</Projectile>
+
+
+
+
+	</Object>
+
+	<Object type="0x0903" id="Flamer King">
+		<Group>Flamers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+
+			
+		<AnimatedTexture><File>chars8x8rMid</File><Index>26</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Flame</ObjectId>
+			<Speed>80</Speed>
+			<Damage>29</Damage>
+			<Size>105</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<MultiHit/>
+			<Amplitude>0.6</Amplitude>
+			<Frequency>0.5</Frequency>	
+		</Projectile>		
+
+			
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>7</Defense>
+		<XpMult>0.4</XpMult>
+		<SpawnProb>1.0</SpawnProb>
+		<Terrain>HighSand</Terrain>
+		
+			
+		
+			
+		
+		
+	</Object>
+
+	<Object type="0x0904" id="Flamer">
+		<Group>Flamers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+
+			
+		<AnimatedTexture><File>chars8x8rMid</File><Index>25</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Flame</ObjectId>
+			<Speed>80</Speed>
+			<Damage>29</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<MultiHit/>
+			<Amplitude>0.3</Amplitude>
+			<Frequency>0.5</Frequency>	
+		</Projectile>		
+
+			
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>12</Defense>
+		<XpMult>0.05</XpMult>
+		<Terrain>HighSand</Terrain>
+		
+			
+		
+			
+		
+		
+	</Object>
+
+	
+	
+	<Object type="0x63a" id="Undead Dwarf Warrior">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x00</Index></AnimatedTexture>
+		<HitSound>monster/undead_dwarves_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>250</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighPlains</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>40</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+	</Object>
+	
+	<Object type="0x63b" id="Undead Dwarf Axebearer">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x01</Index></AnimatedTexture>
+		<HitSound>monster/undead_dwarves_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>260</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighPlains</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>50</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+	</Object>
+
+	<Object type="0x63c" id="Undead Dwarf Mage">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x02</Index></AnimatedTexture>
+		<HitSound>monster/undead_dwarves_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>210</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>HighPlains</Terrain>
+
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>29</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2400</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+
+
+	</Object>
+
+	<Object type="0x63e" id="Undead Dwarf King">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x04</Index></AnimatedTexture>
+		<HitSound>monster/undead_dwarves_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighPlains</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>55</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+	</Object>
+
+	<Object type="0x63f" id="Soulless Dwarf">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x05</Index></AnimatedTexture>
+		<HitSound>monster/undead_dwarves_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>250</MaxHitPoints>
+		<Defense>11</Defense>
+		<Terrain>HighPlains</Terrain>
+
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>55</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1700</LifetimeMS>
+		</Projectile>
+
+
+
+	</Object>
+
+	<Object type="0x640" id="Undead Dwarf God">
+		<Group>Undead Dwarves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x4b</Index></Texture>
+		<HitSound>monster/dwarf_god_hit</HitSound>
+		<DeathSound>monster/dwarf_god_death</DeathSound>
+		<Size>90</Size>
+		<MaxHitPoints>800</MaxHitPoints>
+		<Defense>11</Defense>
+		<Terrain>HighPlains</Terrain>
+		<SpawnProb>1.0</SpawnProb>
+
+		<Projectile id="0">
+			<ObjectId>Pink Bolt</ObjectId>
+			<Damage>30</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1700</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Star</ObjectId>
+			<Damage>0</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>2200</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+
+
+
+
+
+	</Object>
+	
+	<Object type="0x0900" id="Shield Orc Key">
+		<Group>Shield Orcs</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<DisplayId>Shield Orc Queen</DisplayId>
+
+			
+		<AnimatedTexture><File>chars8x8rMid</File><Index>23</Index></AnimatedTexture>
+		<HitSound>monster/orcs_hit</HitSound>
+		<DeathSound>monster/orcs_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>30</Speed>
+			<Damage>40</Damage>
+			<Size>30</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>		
+
+			
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>0</Defense>
+		<XpMult>0.5</XpMult>
+		<Terrain>HighPlains</Terrain>
+		<SpawnProb>1.0</SpawnProb>
+
+			
+
+					
+
+		
+
+		
+	</Object>
+
+	<Object type="0x0901" id="Shield Orc Flooder">
+		<Group>Shield Orcs</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<DisplayId>Shield Orc King</DisplayId>
+
+			
+		<AnimatedTexture><File>chars8x8rMid</File><Index>24</Index></AnimatedTexture>
+		<HitSound>monster/orcs_hit</HitSound>
+		<DeathSound>monster/orcs_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>60</Speed>
+			<Damage>40</Damage>
+			<Size>30</Size>
+			<LifetimeMS>700</LifetimeMS>
+			<MultiHit/>
+		</Projectile>		
+
+			
+		<MaxHitPoints>2000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>60</Defense>
+		<XpMult>0.0</XpMult>
+		<Terrain>HighPlains</Terrain>
+
+			
+
+					
+
+
+	</Object>
+
+	<Object type="0x0902" id="Shield Orc Shield">
+		<Group>Shield Orcs</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<DisplayId>Shield Orc Warrior</DisplayId>
+
+			
+		<AnimatedTexture><File>chars8x8rMid</File><Index>22</Index></AnimatedTexture>
+		<HitSound>monster/orcs_hit</HitSound>
+		<DeathSound>monster/orcs_death</DeathSound>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>60</Speed>
+			<Damage>40</Damage>
+			<Size>30</Size>
+			<LifetimeMS>700</LifetimeMS>
+			<MultiHit/>
+		</Projectile>		
+
+			
+		<MaxHitPoints>5000</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+		<Terrain>HighPlains</Terrain>
+
+			
+
+					
+
+
+	</Object>
+	
+	<Object type="0x0957" id="Urgle">
+		<Group>Traptossers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Terrain>HighPlains</Terrain>
+
+			
+		<AnimatedTexture><File>chars16x16dEncounters</File><Index>9</Index></AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+
+			
+		<MaxHitPoints>1600</MaxHitPoints>
+		<Size>100</Size>
+		<Defense>9</Defense>
+		<XpMult>0.5</XpMult>
+		<SpawnProb>1.0</SpawnProb>
+
+		
+		<Projectile id="0">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>70</Speed>
+			<Damage>48</Damage>
+			<Size>80</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		
+		
+		
+			
+		
+
+	</Object>
+
+	<Object type="0x0958" id="Left Horizontal Trap">
+		<DisplayId>Trap Element</DisplayId>
+		<Group>AttackType</Group>
+		<Class>Character</Class>
+		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>7</Index></AnimatedTexture>
+		<Size>100</Size>
+		<StasisImmune/>
+		<Enemy/>
+
+				
+		
+		<Projectile id="1">
+			<ObjectId>Web Thread</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="6">Weak</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Web Thread 2</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="2">Blind</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Web Thread 3</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>		
+		
+		
+		
+	</Object>
+
+	<Object type="0x0959" id="Top Vertical Trap">
+		<DisplayId>Trap Element</DisplayId>
+		<Group>AttackType</Group>
+		<Class>Character</Class>
+		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>7</Index></AnimatedTexture>
+		<Size>100</Size>
+		<StasisImmune/>
+		<Enemy/>
+
+				
+		
+		<Projectile id="1">
+			<ObjectId>Web Thread</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="6">Weak</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Web Thread 2</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="2">Blind</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Web Thread 3</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>1450</LifetimeMS>
+			<ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>		
+		
+		
+		
+	</Object>
+
+	<Object type="0x0960" id="45-225 Diagonal Trap">
+		<DisplayId>Trap Element</DisplayId>
+		<Group>AttackType</Group>
+		<Class>Character</Class>
+		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>7</Index></AnimatedTexture>
+		<Size>100</Size>
+		<StasisImmune/>
+		<Enemy/>
+
+				
+
+		<Projectile id="1">
+			<ObjectId>Web Thread</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="6">Weak</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Web Thread 2</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="2">Blind</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Web Thread 3</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>		
+		
+		
+		
+	</Object>
+	
+	<Object type="0x0961" id="135-315 Diagonal Trap">
+		<DisplayId>Trap Element</DisplayId>
+		<Group>AttackType</Group>
+		<Class>Character</Class>
+		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>7</Index></AnimatedTexture>
+		<Size>100</Size>
+		<StasisImmune/>
+		<Enemy/>
+
+				
+
+		<Projectile id="1">
+			<ObjectId>Web Thread</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="6">Weak</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Web Thread 2</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="2">Blind</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Web Thread 3</ObjectId>
+			<Damage>20</Damage>
+			<Size>210</Size>
+			<Speed>70</Speed>
+			<LifetimeMS>370</LifetimeMS>
+			<ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+			<MultiHit/>
+			<PassesCover/>
+		</Projectile>		
+		
+		
+		
+	</Object>
+	
+	
+	<Object type="0x642" id="Ogre Mage">
+		<Group>Ogres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x07</Index></AnimatedTexture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>38</Damage>
+			<Speed>67</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+		</Projectile>
+		
+		
+	</Object>
+	
+	<Object type="0x643" id="Ogre Warrior">
+		<Group>Ogres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x08</Index></AnimatedTexture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>270</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>48</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+		
+		
+		
+	</Object>
+	
+	<Object type="0x644" id="Ogre Wizard">
+		<Group>Ogres</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x09</Index></AnimatedTexture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Green Bolt</ObjectId>
+			<Damage>42</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2200</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+		
+		
+
+	</Object>
+	
+	<Object type="0x645" id="Ogre King">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0a</Index></AnimatedTexture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>500</MaxHitPoints>
+		<Defense>7</Defense>
+		<Terrain>HighForest</Terrain>
+		<SpawnProb>1.0</SpawnProb>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>50</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+
+		
+
+
+	</Object>
+	
+	<Object type="0x64a" id="Night Elf Archer">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0d</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>240</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>HighForest</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blue Arrow</ObjectId>
+			<Damage>36</Damage>
+			<Speed>75</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x64b" id="Night Elf Warrior">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0e</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>280</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>HighForest</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>40</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x64c" id="Night Elf Mage">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x0f</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>220</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>HighForest</Terrain>
+		<Projectile id="0">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>40</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+	</Object>
+	<Object type="0x64d" id="Night Elf Veteran">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x10</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>4</Defense>
+		<Terrain>HighForest</Terrain>
+		<Projectile id="0">
+			<ObjectId>Gold Arrow</ObjectId>
+			<Damage>52</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>120</Size>
+			<MultiHit/>
+		</Projectile>
+	</Object>
+	<Object type="0x64f" id="Night Elf King">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rHigh</File><Index>0x12</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>180</MaxHitPoints>
+		<Defense>5</Defense>
+		<Terrain>HighForest</Terrain>
+		<Projectile id="0">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>60</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+	</Object>
+
+	<Object type="0x650" id="Lizard God">
+		<Group>Night Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiChar16x16</File><Index>0x49</Index></Texture>
+		<HitSound>monster/lizard_god_hit</HitSound>
+		<DeathSound>monster/lizard_god_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>900</MaxHitPoints>
+		<Defense>12</Defense>
+		<Terrain>HighForest</Terrain>
+		<God/>
+		<SpawnProb>1.0</SpawnProb>
+
+		<Projectile id="0">
+			<ObjectId>Green Bolt</ObjectId>
+			<Damage>30</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+
+
+
+
+
+	</Object>
+
+	<Object type="0x0206" id="Dragon Egg">
+		<Class>Character</Class>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xe5</Index>
+		</Texture>
+		<HitSound>monster/eggs_hit</HitSound>
+		<DeathSound>monster/eggs_death</DeathSound>
+		<MaxHitPoints>75</MaxHitPoints>
+		<Enemy/>
+		<BloodProb>0.5</BloodProb>
+		<BloodColor>0x50d71b</BloodColor>
+		<Terrain>HighForest</Terrain>
+		<SpawnProb>1.0</SpawnProb>
+	</Object>
+	
+	<Object type="0x0207" id="White Dragon Whelp">
+		<Class>Character</Class>
+		<Size>65</Size>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xe4</Index>
+		</Texture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>240</MaxHitPoints>
+		<Enemy/>
+		<BloodProb>0.5</BloodProb>
+		<BloodColor>0x50d71b</BloodColor>
+		<Terrain>HighForest</Terrain>
+
+		<Projectile>
+			<ObjectId>Red Fire</ObjectId>
+			<Speed>70</Speed>
+			<Damage>30</Damage>
+			<Size>80</Size>
+			<LifetimeMS>2300</LifetimeMS>
+		</Projectile>
+
+
+	</Object>
+	
+	<Object type="0x0208" id="Juvenile White Dragon">
+		<Class>Character</Class>
+		<Size>90</Size>
+		<Texture>
+			<File>lofiChar16x8</File>
+			<Index>0x7c</Index>
+		</Texture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Enemy/>
+		<BloodProb>0.5</BloodProb>
+		<BloodColor>0x50d71b</BloodColor>
+		<Terrain>HighForest</Terrain>
+
+		<Projectile>
+			<ObjectId>Red Fire</ObjectId>
+			<Speed>70</Speed>
+			<Damage>43</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2200</LifetimeMS>
+		</Projectile>
+
+
+
+	</Object>
+
+	<Object type="0x0209" id="Adult White Dragon">
+		<Class>Character</Class>
+		<Size>120</Size>
+		<Texture>
+			<File>lofiChar16x16</File>
+			<Index>0x47</Index>
+		</Texture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Terrain>HighForest</Terrain>
+		<Enemy/>
+
+		<Projectile>
+			<ObjectId>Red Fire</ObjectId>
+			<Speed>70</Speed>
+			<Damage>60</Damage>
+			<Size>120</Size>
+			<LifetimeMS>2200</LifetimeMS>
+		</Projectile>
+
+
+
+	</Object>
+</Objects>

@@ -1,0 +1,904 @@
+<Objects>
+    <Object type="0x0975" id="Mad Scientist Summoner">
+        <Class>Character</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <Size>0</Size>
+        <StasisImmune/>
+    </Object>
+
+    
+    <Object type="0x0976" id="Dr Terrible">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>40</Index></AnimatedTexture>
+
+        <AltTexture id="1">
+            <Texture><File>invisible</File><Index>0</Index></Texture>
+        </AltTexture>
+
+
+        <HitSound>monster/dark_elves_hit</HitSound>
+        <DeathSound>monster/dark_elves_death</DeathSound>
+        <Size>150</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>90000</MaxHitPoints>
+        <Defense>70</Defense>
+        <XpMult>0.7</XpMult>
+        <StasisImmune/>
+
+        <Projectile id="0">
+            <ObjectId>Blade</ObjectId>
+            <Damage>150</Damage>
+            <Speed>50</Speed>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+
+
+ 
+        
+        
+    </Object>
+
+    
+
+    <Object type="0x0892" id="Monster Cage">
+        <Class>GameObject</Class>
+        <OccupySquare/>
+        <ShadowSize>0</ShadowSize>
+        <Z>-0.40</Z>
+        <Texture><File>lofiObjBig</File><Index>0x57</Index></Texture>
+        <AltTexture id="1">
+            <Texture><File>lofiObjBig</File><Index>0x57</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="2">
+            <Texture><File>lofiObjBig</File><Index>0x58</Index></Texture>
+        </AltTexture>
+
+        <StasisImmune/>
+
+
+
+
+
+
+
+
+    </Object>
+
+    
+    <Object type="0x0997" id="Mad Gas Controller">
+        <Class>Character</Class>
+        <Enemy/>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>0</Size>
+        
+
+        <StasisImmune/>
+
+
+    </Object>
+
+    <Object type="0x0993" id="Red Gas Spawner UL">
+        <Class>Character</Class>
+        <Enemy/>
+        
+        <Model>GasEmitter</Model>
+        <Texture><File>lofiObjBig</File><Index>0x3e</Index></Texture>
+        <NoMiniMap/>
+        <OccupySquare/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>100</Size>
+        <StasisImmune/>
+
+        <Projectile id="0">
+            <ObjectId>Red Gas</ObjectId>
+            <Damage>150</Damage>
+            <Speed>10</Speed>
+            <Size>100</Size>
+            <LifetimeMS>6000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+    </Object>
+
+    <Object type="0x0994" id="Red Gas Spawner UR">
+        <Class>Character</Class>
+        <Enemy/>
+        
+        <Model>GasEmitter</Model>
+        <Texture><File>lofiObjBig</File><Index>0x3e</Index></Texture>
+        <NoMiniMap/>
+        <OccupySquare/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>100</Size>
+        <StasisImmune/>
+
+        <Projectile id="0">
+            <ObjectId>Red Gas</ObjectId>
+            <Damage>150</Damage>
+            <Speed>10</Speed>
+            <Size>100</Size>
+            <LifetimeMS>5000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+    </Object>
+
+    <Object type="0x0995" id="Red Gas Spawner LL">
+        <Class>Character</Class>
+        <Enemy/>
+        
+        <Model>GasEmitter</Model>
+        <Texture><File>lofiObjBig</File><Index>0x3e</Index></Texture>
+        <NoMiniMap/>
+        <OccupySquare/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>100</Size>
+        <StasisImmune/>
+
+        <Projectile id="0">
+            <ObjectId>Red Gas</ObjectId>
+            <Damage>150</Damage>
+            <Speed>10</Speed>
+            <Size>100</Size>
+            <LifetimeMS>5000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+    </Object>
+
+    <Object type="0x0996" id="Red Gas Spawner LR">
+        <Class>Character</Class>
+        <Enemy/>
+        
+        <Model>GasEmitter</Model>
+        <Texture><File>lofiObjBig</File><Index>0x3e</Index></Texture>
+        <NoMiniMap/>
+        <OccupySquare/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>100</Size>
+        <StasisImmune/>
+
+        <Projectile id="0">
+            <ObjectId>Red Gas</ObjectId>
+            <Damage>150</Damage>
+            <Speed>10</Speed>
+            <Size>100</Size>
+            <LifetimeMS>5000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+    </Object>
+
+
+
+    <Object type="0x0978" id="Green Potion">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <Texture><File>lofiObj3</File><Index>0x1a8</Index></Texture>
+
+        <HitSound>monster/cubes_hit</HitSound>
+        <DeathSound>monster/cubes_death</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>75</ShadowSize>
+        <MaxHitPoints>1000</MaxHitPoints>
+        <Defense>10</Defense>
+        <XpMult>0.0</XpMult>
+
+        <Projectile id="0">
+            <ObjectId>Green Gas</ObjectId>
+            <Damage>200</Damage>
+            <Speed>25</Speed>
+            <Size>75</Size>
+            <LifetimeMS>4000</LifetimeMS>
+        </Projectile>
+
+    </Object>
+
+    <Object type="0x12aa" id="Turret Attack">
+        <Enemy/>
+        <Model>Tower</Model>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <Texture><File>lofiObj3</File><Index>0x1a9</Index></Texture>
+
+        <HitSound>monster/eggs_hit</HitSound>
+        <DeathSound>monster/eggs_death</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>6000</MaxHitPoints>
+        <Defense>10</Defense>
+        <StasisImmune/>
+        <XpMult>0.1</XpMult>
+
+        <Projectile id="0">
+            <ObjectId>Science Fire Ball</ObjectId>
+            <Damage>150</Damage>
+            <Speed>50</Speed>
+            <Size>75</Size>
+            <LifetimeMS>2000</LifetimeMS>
+            
+        </Projectile>
+
+
+    </Object>
+
+
+    
+
+    <Object type="0x0979" id="Mini Bot">
+    <Enemy/>
+    <Class>Character</Class>
+    <Group>Mad Lab</Group>
+    <AnimatedTexture><File>chars8x8rEncounters</File><Index>38</Index></AnimatedTexture>
+
+    <HitSound>monster/cubes_hit</HitSound>
+    <DeathSound>monster/cubes_death</DeathSound>
+    <Size>100</Size>
+    <ShadowSize>50</ShadowSize>
+    <MaxHitPoints>1500</MaxHitPoints>
+    <Defense>20</Defense>
+
+    <Projectile id="0">
+        <ObjectId>Purple Energy Shot</ObjectId>
+        <Damage>80</Damage>
+        <Speed>50</Speed>
+        <Size>100</Size>
+        <LifetimeMS>2000</LifetimeMS>
+        <ConditionEffect duration=".5">Confused</ConditionEffect>
+    </Projectile>
+
+
+
+
+    </Object>
+
+    <Object type="0x1e25" id="Dr Terrible Mini Bot">
+        <Enemy/>
+        <DisplayId>Mini Bot</DisplayId>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>38</Index></AnimatedTexture>
+
+        <HitSound>monster/cubes_hit</HitSound>
+        <DeathSound>monster/cubes_death</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>1500</MaxHitPoints>
+        <Defense>20</Defense>
+        <XpMult>0.1</XpMult>
+
+        <Projectile id="0">
+            <ObjectId>Purple Energy Shot</ObjectId>
+            <Damage>80</Damage>
+            <Speed>50</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+            <ConditionEffect duration=".5">Confused</ConditionEffect>
+        </Projectile>
+
+
+
+
+    </Object>
+
+    
+
+    <Object type="0x0980" id="Rampage Cyborg">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>39</Index></AnimatedTexture>
+
+        <HitSound>monster/ghosts_hit</HitSound>
+        <DeathSound>monster/ghosts_death</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2000</MaxHitPoints>
+        <Defense>25</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Yellow Energy Shot</ObjectId>
+            <Damage>80</Damage>
+            <Speed>50</Speed>
+            <Size>75</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="1">
+            <ObjectId>Yellow Energy Shot</ObjectId>
+            <Damage>100</Damage>
+            <Speed>60</Speed>
+            <Size>150</Size>
+            
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="2">
+            <ObjectId>Directed Explosion</ObjectId>
+            <Damage>150</Damage>
+            <Speed>100</Speed>
+            <Size>100</Size>
+            
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+    </Object>
+
+    <Object type="0x1e24" id="Dr Terrible Rampage Cyborg">
+        <Enemy/>
+        <DisplayId>Rampage Cyborg</DisplayId>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>39</Index></AnimatedTexture>
+
+        <HitSound>monster/ghosts_hit</HitSound>
+        <DeathSound>monster/ghosts_death</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2000</MaxHitPoints>
+        <Defense>25</Defense>
+        <XpMult>0.1</XpMult>
+
+        <Projectile id="0">
+            <ObjectId>Yellow Energy Shot</ObjectId>
+            <Damage>80</Damage>
+            <Speed>50</Speed>
+            <Size>75</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="1">
+            <ObjectId>Yellow Energy Shot</ObjectId>
+            <Damage>100</Damage>
+            <Speed>60</Speed>
+            <Size>150</Size>
+            
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="2">
+            <ObjectId>Directed Explosion</ObjectId>
+            <Damage>150</Damage>
+            <Speed>100</Speed>
+            <Size>100</Size>
+            
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+    </Object>
+
+    
+
+    <Object type="0x0981" id="Escaped Experiment">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>41</Index></AnimatedTexture>
+
+        <HitSound>monster/medusa_death</HitSound>
+        <DeathSound>monster/medusa_hit</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2750</MaxHitPoints>
+        <Defense>30</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Robot Attack</ObjectId>
+            <Damage>100</Damage>
+            <Speed>50</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+
+
+    </Object>
+
+    <Object type="0x1e23" id="Dr Terrible Escaped Experiment">
+        <Enemy/>
+        <DisplayId>Escaped Experiment</DisplayId>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>41</Index></AnimatedTexture>
+
+        <HitSound>monster/medusa_death</HitSound>
+        <DeathSound>monster/medusa_hit</DeathSound>
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2750</MaxHitPoints>
+        <Defense>30</Defense>
+        <XpMult>0.1</XpMult>
+
+        <Projectile id="0">
+            <ObjectId>Robot Attack</ObjectId>
+            <Damage>100</Damage>
+            <Speed>50</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+
+
+    </Object>
+
+    
+    <Object type="0x0982" id="Enforcer Bot 3000">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>42</Index></AnimatedTexture>
+
+        <HitSound>monster/flaming_skulls_hit</HitSound>
+        <DeathSound>monster/flaming_skulls_death</DeathSound>
+        <Size>150</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>3500</MaxHitPoints>
+        <Defense>40</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Lightning Spiral</ObjectId>
+            <Damage>150</Damage>
+            <Speed>70</Speed>
+            <Size>75</Size>
+            <LifetimeMS>3000</LifetimeMS>
+            <ConditionEffect duration="1">Stunned</ConditionEffect>
+        </Projectile>
+
+        <Projectile id="1">
+            <ObjectId>Lightning Blast</ObjectId>
+            <Damage>100</Damage>
+            <Speed>30</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+
+
+
+    </Object>
+
+
+    
+    <Object type="0x0983" id="Crusher Abomination">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>43</Index></AnimatedTexture>
+
+        <HitSound>monster/dwarf_god_hit</HitSound>
+        <DeathSound>monster/dwarf_god_death</DeathSound>
+        <Size>150</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>4000</MaxHitPoints>
+        <Defense>60</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Shockwave Blast</ObjectId>
+            <Damage>80</Damage>
+            <Speed>75</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="1">
+            <ObjectId>Shockwave Blast</ObjectId>
+            <Damage>100</Damage>
+            <Speed>80</Speed>
+            <Size>100</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="2">
+            <ObjectId>Shockwave Blast</ObjectId>
+            <Damage>150</Damage>
+            <Speed>90</Speed>
+            <Size>150</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+        <Projectile id="3">
+            <ObjectId>Shockwave Blast</ObjectId>
+            <Damage>180</Damage>
+            <Speed>100</Speed>
+            <Size>175</Size>
+            <LifetimeMS>2000</LifetimeMS>
+        </Projectile>
+
+
+
+
+
+
+    </Object>
+
+    
+
+    <Object type="0x0990" id="West Automated Defense Turret">
+        <Class>GameObject</Class>
+        <Enemy/>
+        <Model>Tower</Model>
+        <Texture><File>lofiObj3</File><Index>0x1aa</Index></Texture>
+        <StasisImmune/>
+
+        <Projectile>
+            <ObjectId>Green Star</ObjectId>
+            <Speed>40</Speed>
+            <Damage>0</Damage>
+            <LifetimeMS>5000</LifetimeMS>
+            <ConditionEffect duration=".5">Confused</ConditionEffect>
+        </Projectile>
+    </Object>
+
+    <Object type="0x0991" id="East Automated Defense Turret">
+        <Class>GameObject</Class>
+        <Enemy/>
+        <Model>Tower</Model>
+        <Texture><File>lofiObj3</File><Index>0x1aa</Index></Texture>
+        <StasisImmune/>
+
+        <Projectile>
+            <ObjectId>Green Star</ObjectId>
+            <Speed>40</Speed>
+            <Damage>0</Damage>
+            <LifetimeMS>5000</LifetimeMS>
+            <ConditionEffect duration=".5">Confused</ConditionEffect>
+        </Projectile>
+    </Object>
+
+    
+
+    <Object type="0x0992" id="Mad Lab Open Wall">
+        <DisplayId>Horrific Creation</DisplayId>
+        <Class>Character</Class>
+        <Enemy/>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <Size>0</Size>
+        <StasisImmune/>
+        
+
+
+
+    </Object>
+
+
+    
+
+
+    <Object type="0x1e19" id="Horrific Creation Summoner">
+        <Class>Character</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <MaxHitPoints>10</MaxHitPoints>
+        <Size>0</Size>
+        <StasisImmune/>
+        
+    </Object>
+
+    <Object type="0x5e1c" id="Horrific Creation">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>44</Index></AnimatedTexture>
+        
+        <AltTexture id="1"> 
+            <AnimatedTexture><File>chars16x16rEncounters</File><Index>45</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="2">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x00</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="3">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x02</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="4">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x04</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="5">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x09</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="6">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x03</Index></AnimatedTexture>
+        </AltTexture>
+        
+        <AltTexture id="7">
+            <AnimatedTexture><File>chars8x8rPets1</File><Index>0x08</Index></AnimatedTexture>
+        </AltTexture>
+        
+        
+        <HitSound>monster/demons_hit</HitSound>
+        <DeathSound>monster/demons_death</DeathSound>
+        <Size>200</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>80000</MaxHitPoints>
+        <Defense>70</Defense>
+        <XpMult>0.8</XpMult>
+        <StasisImmune/>
+
+        <Projectile id="1">
+            <ObjectId>H Creation Wave</ObjectId>
+            <Speed>75</Speed>
+            <Damage>150</Damage>
+            <LifetimeMS>1500</LifetimeMS>
+            <Size>160</Size>
+        </Projectile>
+        
+        <Projectile id="2">
+            <ObjectId>White Ball</ObjectId>
+            <Speed>50</Speed>
+            <Damage>100</Damage>
+            <LifetimeMS>20000</LifetimeMS>
+            <Size>200</Size>
+        </Projectile>
+        
+        <Projectile id="3">
+            <ObjectId>Invisible</ObjectId>
+            <Size>0</Size>
+            <Speed>100</Speed>
+            <Damage>0</Damage>
+            <LifetimeMS>1000</LifetimeMS>
+            <ConditionEffect duration="2">Slowed</ConditionEffect>
+        </Projectile>
+        
+        <Projectile id="4">
+            <ObjectId>H Creation Energy</ObjectId>
+            <Size>280</Size>
+            <Speed>55</Speed>
+            <Damage>200</Damage>
+            <LifetimeMS>3000</LifetimeMS>
+        </Projectile>
+        
+        <Projectile id="5">
+            <ObjectId>H Creation Shockwave</ObjectId>
+            <Size>180</Size>
+            <Speed>50</Speed>
+            <Damage>85</Damage>
+            <LifetimeMS>400</LifetimeMS>
+            <ConditionEffect duration="3.5">Slowed</ConditionEffect>
+        </Projectile>
+        
+        <Projectile id="6">
+            <ObjectId>H Creation Blast</ObjectId>
+            <Size>280</Size>
+            <Speed>85</Speed>
+            <Damage>200</Damage>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+        
+    </Object>
+
+    
+
+    <Object type="0x099a" id="F.E.R.A.L.">
+        <Enemy/>
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>46</Index></AnimatedTexture>
+
+        <AltTexture id="1">
+            <Texture><File>invisible</File><Index>0</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="2">
+            <AnimatedTexture><File>chars16x16rEncounters</File><Index>46</Index></AnimatedTexture>
+        </AltTexture>
+
+        <AltTexture id="3">
+            <Texture><File>lofiObjBig</File><Index>0x59</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="4">
+            <Texture><File>lofiObjBig</File><Index>0x5a</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="5">
+            <Texture><File>lofiObjBig</File><Index>0x5b</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="6">
+            <Texture><File>lofiObjBig</File><Index>0x5c</Index></Texture>
+        </AltTexture>
+
+
+        <HitSound>monster/slimes_death</HitSound>
+        <DeathSound>monster/flying_brain_death</DeathSound>
+        <Size>150</Size>
+        <ShadowSize>0</ShadowSize>
+        <MaxHitPoints>8000</MaxHitPoints>
+        <Defense>30</Defense>
+        <Flying/>
+        <Z>1</Z>
+
+        <Projectile id="1">
+            <ObjectId>Goo Attack</ObjectId>
+            <Speed>50</Speed>
+            <Damage>1</Damage>
+            <LifetimeMS>1500</LifetimeMS>
+            <Size>100</Size>
+        </Projectile>
+
+        <Projectile id="2">
+            <ObjectId>Psychic Attack</ObjectId>
+            <Speed>50</Speed>
+            <Damage>1</Damage>
+            <LifetimeMS>1500</LifetimeMS>
+            <Size>100</Size>
+        </Projectile>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </Object>
+
+    <Object type="0x0890" id="Mad Lab Portal">
+        <Class>Portal</Class>
+        <IntergamePortal/>
+        <DungeonName>Mad Lab</DungeonName>
+        <Texture><File>lofiObj3</File><Index>0x1ab</Index></Texture>
+        <Animation prob="1" period="1">
+            <Frame time="0.25"><Texture><File>lofiObj3</File><Index>0x1ac</Index></Texture></Frame>
+            <Frame time="0.25"><Texture><File>lofiObj3</File><Index>0x1ad</Index></Texture></Frame>
+            <Frame time="0.25"><Texture><File>lofiObj3</File><Index>0x1ae</Index></Texture></Frame>
+            <Frame time="0.25"><Texture><File>lofiObj3</File><Index>0x1ad</Index></Texture></Frame>
+        </Animation>
+    </Object>
+
+
+    <Object type="0x0891" id="FERAL Controller">
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+
+
+
+
+
+    </Object>
+
+
+    <Object type="0x1e20" id="FERAL Death">
+        <Class>Character</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+
+        <Size>0</Size>
+        <ShadowSize>0</ShadowSize>
+        <NoMiniMap/>
+
+
+
+
+    </Object>
+
+    
+
+    <Object type="0x1e15" id="Hexxer">
+        <Class>Character</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+
+        <Size>0</Size>
+        <ShadowSize>0</ShadowSize>
+        <NoMiniMap/>
+        <StasisImmune/>
+        <Effect color="0x00c631" rate="20" life=".45" lifeVariance=".1" speed="0" speedVariance=".5" size="5" rise="1" riseVariance=".1" rangeX="1.9" rangeY="1.9">CustomParticles</Effect>
+    </Object>
+
+    <Object type="0x1e16" id="DeHexxer">
+        <Class>Character</Class>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <Size>0</Size>
+        <ShadowSize>0</ShadowSize>
+        <StasisImmune/>
+        <Effect color="0x0079eb" rate="20" life=".45" lifeVariance=".1" speed="0" speedVariance=".5" size="5" rise="1" riseVariance=".1" rangeX="1.9" rangeY="1.9">CustomParticles</Effect>
+    </Object>
+
+    <Object type="0x1e22" id="Dr Terrible Bubble">
+        <Class>GameObject</Class>
+        <Enemy/>
+        <Size>125</Size>
+        <HitSound>monster/djinn_hit</HitSound>
+        <Texture><File>lofiObjBig</File><Index>0x54</Index></Texture>
+
+        <AltTexture id="1">
+            <Texture><File>lofiObjBig</File><Index>0x55</Index></Texture>
+        </AltTexture>
+
+        <AltTexture id="2">
+            <Texture><File>lofiObjBig</File><Index>0x56</Index></Texture>
+        </AltTexture>
+
+        <StasisImmune/>
+
+
+
+    </Object>
+
+    
+
+
+</Objects>

@@ -1,0 +1,196 @@
+<Objects>
+	<Object type="0x0e19" id="TestChicken Small">
+		<DisplayId>Chicken</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>29</Index></AnimatedTexture>
+		<Defense>35</Defense>
+		<XpMult>0</XpMult>
+		<Size>120</Size>
+		
+		<HitSound>monster/chicken_hit</HitSound>
+		<DeathSound>monster/chicken_death</DeathSound>
+		
+		<MaxHitPoints>1100</MaxHitPoints>
+		<XpMult>0.3</XpMult>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Rainbow Magic</ObjectId>
+			<Damage>80</Damage>
+			<Speed>45</Speed>
+			<Size>120</Size>
+			<LifetimeMS>300</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Pink Dot</ObjectId>
+			<Damage>70</Damage>
+			<Speed>65</Speed>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Rainbow Blaster</ObjectId>
+			<Damage>100</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Rainbow Blaster</ObjectId>
+			<Damage>70</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Pink Dot</ObjectId>
+			<Damage>70</Damage>
+			<Speed>65</Speed>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		
+		
+		
+		
+		
+	</Object>
+
+	<Object type="0x0e18" id="Test Egg">
+		<DisplayId>Egg</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<Texture><File>lofiObjBig</File><Index>0x27</Index></Texture>
+		
+		<AltTexture id="1">
+			<Texture><File>lofiObjBig</File><Index>0x28</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2">
+			<Texture><File>lofiObjBig</File><Index>0x29</Index></Texture>
+		</AltTexture>
+		<AltTexture id="3">
+			<Texture><File>lofiObjBig</File><Index>0x2a</Index></Texture>
+		</AltTexture>
+		<AltTexture id="4">
+			<Texture><File>lofiObjBig</File><Index>0x2b</Index></Texture>
+		</AltTexture>
+		
+		<HitSound>monster/eggs_hit</HitSound>
+		<DeathSound>monster/eggs_death</DeathSound>
+		
+		<MaxHitPoints>650000</MaxHitPoints>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+   		<Size>130</Size>
+		<ShadowSize>100</ShadowSize>
+		
+	</Object>
+
+	<Object type="0x0e17" id="TestChicken 2">
+		<DisplayId>Giant Chicken</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>22</Index></AnimatedTexture>
+	
+		<MaxHitPoints>65000</MaxHitPoints>
+		<Defense>55</Defense>
+		<XpMult>0.35</XpMult>
+		
+		<Size>40</Size>
+		<ShadowSize>80</ShadowSize>
+
+
+		
+		<HitSound>monster/chicken_hit</HitSound>
+		<DeathSound>monster/chicken_death</DeathSound>
+		
+		<Projectile id="0">
+			<ObjectId>Pink Dot</ObjectId>
+			<Damage>100</Damage>
+			<Speed>65</Speed>
+			<Size>120</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Rainbow Magic</ObjectId>
+			<Damage>150</Damage>
+			<Speed>40</Speed>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Rainbow Magic Star Super</ObjectId>
+			<Damage>300</Damage>
+			<Speed>20</Speed>
+			<Size>200</Size>
+			<LifetimeMS>3500</LifetimeMS>
+			<MultiHit/>
+			<ConditionEffect duration="5">Confused</ConditionEffect>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Rainbow Magic Star</ObjectId>
+			<Damage>150</Damage>
+			<Speed>50</Speed>
+			<Size>100</Size>
+			<LifetimeMS>2250</LifetimeMS>
+			<MultiHit/>
+			<ConditionEffect duration="2.5">Confused</ConditionEffect>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Rainbow Blaster</ObjectId>
+			<Damage>100</Damage>
+			<Speed>75</Speed>
+			<Size>140</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="5">
+			<ObjectId>Pink Dot</ObjectId>
+			<Damage>100</Damage>
+			<Speed>45</Speed>
+			<Size>140</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="6">
+			<ObjectId>Feather</ObjectId>
+			<Damage>0</Damage>
+			<Speed>30</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1200</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="7">
+			<ObjectId>Rainbow Baller</ObjectId>
+			<Damage>100</Damage>
+			<Speed>65</Speed>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		<Projectile id="8">
+			<ObjectId>Rainbow Baller</ObjectId>
+			<Damage>150</Damage>
+			<Speed>40</Speed>
+			<Size>140</Size>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		
+		
+		
+		
+		
+		
+		
+	</Object>
+</Objects>

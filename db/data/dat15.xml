@@ -1,0 +1,650 @@
+
+<Objects>
+	<Object type="0x1700" id="Fishman Warrior">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>10</Index></AnimatedTexture>  
+	     
+		<HitSound>monster/elves_death</HitSound>
+		<DeathSound>monster/flaming_skulls_death</DeathSound>
+	        
+		<MaxHitPoints>10000</MaxHitPoints>
+	        
+		<Projectile id="0">
+			<ObjectId>FishWarrior Spear</ObjectId>
+	        <Speed>50</Speed>
+	        <Damage>65</Damage>
+	        <Size>120</Size>
+	        <LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Fishman Boomerang</ObjectId>
+	        <Speed>50</Speed>
+	        <Damage>80</Damage>
+	        <Size>130</Size>
+	        <LifetimeMS>2200</LifetimeMS>
+			<ConditionEffect duration="3.4">Confused</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Coral Shot</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>45</Damage>
+	        <Size>110</Size>
+	        <LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		
+		<Size>100</Size>
+		<Defense>52</Defense>
+	        
+		
+	        
+			
+	</Object> 
+	
+	<Object type="0x1701" id="Deep Sea Beast Spawner">
+		<Group>Ocean Trench</Group>
+	    <Class>Character</Class>
+	    <StasisImmune/>
+		<ShadowSize>0</ShadowSize>
+		<Size>0</Size>
+		<Enemy/>
+		<NoMiniMap/>
+		
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+	        	
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dwarves_death</DeathSound>
+	        
+		<MaxHitPoints>8000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>110</Size>
+		<Defense>50</Defense>
+		
+	
+		
+	</Object>
+	
+	<Object type="0x1702" id="Coral Bomb Big">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>15</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+	        
+		<MaxHitPoints>1000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>120</Size>
+		<Defense>200</Defense>
+	        
+		<Projectile id="0">
+			<ObjectId>Coral Spike</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>40</Damage>
+	        <Size>100</Size>
+	        <LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		
+	        
+	</Object>
+	
+	<Object type="0x1703" id="Coral Bomb Small">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8dEncounters</File><Index>17</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+	        
+		<MaxHitPoints>1000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>60</Size>
+		<Defense>200</Defense>
+	        
+		<Projectile id="0">
+			<ObjectId>Coral Spike</ObjectId>
+	        <Speed>45</Speed>
+	        <Damage>40</Damage>
+	        <Size>80</Size>
+	        <LifetimeMS>800</LifetimeMS>
+		</Projectile>
+	        
+	</Object>
+	
+	<Object type="0x1704" id="Thessal the Mermaid Goddess Wounded">
+		<DisplayId>Thessal the Mermaid Goddess</DisplayId>
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<StasisImmune/>
+		
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>18</Index></AnimatedTexture>
+		
+		<AltTexture id="1">
+				<AnimatedTexture><File>chars16x16dEncounters2</File><Index>19</Index></AnimatedTexture>
+		</AltTexture>
+	        	
+		<HitSound>monster/medusa_hit</HitSound>
+		<DeathSound>monster/medusa_death</DeathSound>
+	        
+		<MaxHitPoints>10000</MaxHitPoints>
+		<ShadowSize>0</ShadowSize>
+		<God/>
+		<Quest/>
+		<PerRealmMax>1</PerRealmMax>
+		<Level>20</Level>
+		<XpMult>0.0</XpMult>
+		<Size>140</Size>
+		<Defense>60</Defense>
+		<NoArticle/>
+	        
+		<Projectile id="0">
+			<ObjectId>Thunder Swirl</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>100</Damage>
+	        <Size>110</Size>
+	        <LifetimeMS>1600</LifetimeMS>
+	       <ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Trident</ObjectId>
+	        <Speed>70</Speed>
+	        <Damage>65</Damage>
+	        <Size>100</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Super Trident</ObjectId>
+	        <Speed>60</Speed>
+	        <Damage>100</Damage>
+	        <Size>110</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Yellow Wall</ObjectId>
+	        <Speed>60</Speed>
+	        <Damage>120</Damage>
+	        <Size>160</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		
+	
+	
+	
+		
+		
+		
+		
+	</Object>
+	
+	<Object type="0x1705" id="Coral Gift">
+		<Group>Ocean Trench</Group>
+	    <Class>Character</Class>
+	    <StasisImmune/>
+		<Enemy/>
+		<NoMiniMap/>
+		
+		<MaxHitPoints>1200</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>90</Size>
+		<Defense>5</Defense>
+		
+		<Texture><File>lofiEnvironment3</File><Index>0x22</Index></Texture>
+		<AltTexture id="1">
+			<Texture><File>lofiEnvironment3</File><Index>0x23</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2">
+			<Texture><File>lofiEnvironment3</File><Index>0x24</Index></Texture>
+		</AltTexture>
+	        	
+		<HitSound>monster/djinn_hit</HitSound>
+		<DeathSound>monster/flaming_skulls_death</DeathSound>
+		
+		
+	</Object>
+
+	<Object type="0x1706" id="Thessal the Mermaid Goddess">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>16</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/medusa_hit</HitSound>
+		<DeathSound>monster/medusa_death</DeathSound>
+	        
+		<MaxHitPoints>69000</MaxHitPoints>
+		<ShadowSize>0</ShadowSize>
+		<God/>
+		<StasisImmune/>
+		<Quest/>
+		<PerRealmMax>1</PerRealmMax>
+		<Level>20</Level>
+		<XpMult>0.22</XpMult>
+		<Size>140</Size>
+		<Defense>60</Defense>
+		<NoArticle/>
+	        
+		<Projectile id="0">
+			<ObjectId>Thunder Swirl</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>100</Damage>
+	        <Size>110</Size>
+	        <LifetimeMS>1600</LifetimeMS>
+	       <ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Trident</ObjectId>
+	        <Speed>70</Speed>
+	        <Damage>65</Damage>
+	        <Size>100</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Super Trident</ObjectId>
+	        <Speed>60</Speed>
+	        <Damage>100</Damage>
+	        <Size>110</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Yellow Wall</ObjectId>
+	        <Speed>60</Speed>
+	        <Damage>120</Damage>
+	        <Size>160</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		
+	        
+		
+		
+		
+		
+	        
+		
+		
+		
+		
+			
+		
+	</Object>
+	
+	<Object type="0x1707" id="Deep Sea Beast">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>10</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/abyss_demons_hit</HitSound>
+		<DeathSound>monster/abyss_brutes_death</DeathSound>
+	        
+		<MaxHitPoints>15000</MaxHitPoints>
+		<ShadowSize>0</ShadowSize>
+		<StasisImmune/>
+		<PerRealmMax>1</PerRealmMax>
+		<XpMult>0.3</XpMult>
+		<Size>60</Size>
+		<Defense>60</Defense>
+	        
+		<Projectile id="0">
+			<ObjectId>Deep Sea Blast</ObjectId>
+	        <Speed>30</Speed>
+	        <Damage>12</Damage>
+	        <Size>60</Size>
+	        <LifetimeMS>600</LifetimeMS>
+	        <MultiHit/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Deep Sea Blast</ObjectId>
+	        <Speed>42</Speed>
+	        <Damage>21</Damage>
+	        <Size>88</Size>
+	        <LifetimeMS>600</LifetimeMS>
+	        <MultiHit/>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Deep Sea Blast</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>37</Damage>
+	        <Size>154</Size>
+	        <LifetimeMS>600</LifetimeMS>
+	        <MultiHit/>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Deep Sea Blast</ObjectId>
+	        <Speed>70</Speed>
+	        <Damage>64</Damage>
+	        <Size>270</Size>
+	        <LifetimeMS>600</LifetimeMS>
+	        <MultiHit/>
+		</Projectile>
+	    
+	        
+		
+		
+		
+	        
+			
+	</Object>
+	
+	<Object type="0x1708" id="Fishman">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>13</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/flaming_skulls_death</DeathSound>
+	        
+		<MaxHitPoints>2500</MaxHitPoints>
+	        
+		<Projectile id="0">
+			<ObjectId>Fishman Spear</ObjectId>
+	        <Speed>55</Speed>
+	        <Damage>50</Damage>
+	        <Size>100</Size>
+	        <LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Fishman Boomerang</ObjectId>
+	        <Speed>70</Speed>
+	        <Damage>65</Damage>
+	        <Size>100</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="1.8">Confused</ConditionEffect>
+		</Projectile>
+		
+		<Size>100</Size>
+		<Defense>40</Defense>
+	    
+	        
+		
+		
+	        
+			
+	</Object> 
+	
+	<Object type="0x1709" id="Sea Horse">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>18</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/elves_death</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+	        
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Flying/>
+		<Z>0.26</Z>
+		<ShadowSize>80</ShadowSize>
+	        
+		<Projectile id="0">
+			<ObjectId>Bubble</ObjectId>
+	        <Speed>35</Speed>
+	        <Damage>40</Damage>
+	        <Size>60</Size>
+	        <LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	        
+		<Size>60</Size>
+		<Defense>20</Defense>
+	        
+	        
+	        
+			
+	</Object> 
+	
+	<Object type="0x170a" id="Sea Mare">
+		<Group>Ocean Trench</Group>
+		<Enemy/>
+		<Class>Character</Class>
+	        
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>13</Index></AnimatedTexture>
+	        	
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/medusa_death</DeathSound>
+	        
+		<MaxHitPoints>6000</MaxHitPoints>
+		 
+		<Projectile id="0">
+			<ObjectId>Squid Shot</ObjectId>
+	   		<Speed>50</Speed>
+			<Damage>40</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1400</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Sea Horse Spinner</ObjectId>
+	        <Speed>35</Speed>
+	        <Damage>100</Damage>
+	        <Size>120</Size>
+	        <LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="1.6">Paralyzed</ConditionEffect>
+		</Projectile>
+		
+		<Size>100</Size>
+		<Defense>60</Defense>
+	        
+		
+		
+	
+		
+		
+	</Object> 
+	
+	<Object type="0x170b" id="Ink Bubble">
+        <Group>Ocean Trench</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8dEncounters</File><Index>19</Index></AnimatedTexture>
+        
+        <HitSound>monster/slimes_hit</HitSound>
+        <DeathSound>monster/slimes_death</DeathSound>
+        
+        <MaxHitPoints>2000</MaxHitPoints>
+		<Flying/>
+        
+        <Projectile id="0">
+            <ObjectId>Ink Blot</ObjectId>
+            <Speed>10</Speed>
+            <Damage>50</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1200</LifetimeMS>
+            <MultiHit/>
+			<ConditionEffect duration="3">Blind</ConditionEffect>
+        </Projectile>
+        
+        <Size>120</Size>
+        <Defense>40</Defense>
+        <XpMult>0</XpMult>
+        
+       
+        
+    </Object> 
+
+	<Object type="0x170c" id="Giant Squid">
+        <Group>Ocean Trench</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars16x16dEncounters2</File><Index>17</Index></AnimatedTexture>
+        	
+        <HitSound>monster/spider_queen_hit</HitSound>
+        <DeathSound>monster/scorpions_death</DeathSound>
+        
+        <MaxHitPoints>6000</MaxHitPoints>
+        
+        <Projectile id="0">
+            <ObjectId>Squid Sucker</ObjectId>
+            <Speed>0</Speed>
+            <Damage>85</Damage>
+            <Size>80</Size>
+            <LifetimeMS>3000</LifetimeMS>
+            <MultiHit/>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Squid Shot</ObjectId>
+            <Speed>55</Speed>
+            <Damage>50</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>120</Size>
+        <Defense>40</Defense>
+        
+        
+		
+		
+		
+		
+    </Object> 
+
+	<Object type="0x170d" id="Sea Slurp Home">
+        <Group>Ocean Trench</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        <Texture><File>lofiChar216x16</File><Index>0x0b</Index></Texture>
+        	
+        <AltTexture id="1">
+			<Texture><File>lofiEnvironment2</File><Index>0x6d</Index></Texture> 
+		</AltTexture>
+        	
+        <HitSound>monster/trees_hit</HitSound>
+        <DeathSound>monster/stone_walls_hit</DeathSound>
+        
+        <MaxHitPoints>5000</MaxHitPoints>
+        
+        <Projectile id="0">
+            <ObjectId>Oryx Insect Sting</ObjectId>
+            <Speed>65</Speed>
+            <Damage>55</Damage>
+            <Size>100</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Oryx Insect Sting Status</ObjectId>
+            <Speed>50</Speed>
+            <Damage>60</Damage>
+            <Size>120</Size>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>120</Size>
+        <Defense>40</Defense>
+        
+        
+        
+        
+        
+		
+    </Object> 
+	
+	<Object type="0x170e" id="Grey Sea Slurp">
+        <Group>Ocean Trench</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rEncounters</File><Index>19</Index></AnimatedTexture>
+        	
+        <HitSound>monster/cubes_hit</HitSound>
+        <DeathSound>monster/blobs_death</DeathSound>
+        
+        <MaxHitPoints>1000</MaxHitPoints>
+        
+        <Projectile id="0">
+            <ObjectId>Purple Spit</ObjectId>
+            <Speed>60</Speed>
+            <Damage>40</Damage>
+            <Size>80</Size>
+            <LifetimeMS>1400</LifetimeMS>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Yellow Wave</ObjectId>
+            <Speed>60</Speed>
+            <Damage>40</Damage>
+            <Size>100</Size>
+            <LifetimeMS>800</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>20</Defense>
+        <XpMult>0.05</XpMult>
+        
+        
+        
+        
+        
+		
+    </Object> 
+	
+	<Object type="0x170f" id="OceanRock">
+		<Class>GameObject</Class>
+		<RandomTexture>
+			<Texture><File>lofiEnvironment2</File><Index>0x6e</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x6f</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x74</Index></Texture>
+		</RandomTexture>
+		<Size>80</Size>
+		<Static/>
+	</Object>
+	
+	<Object type="0x1710" id="Seaweed">
+		<Class>GameObject</Class>
+		<RandomTexture>
+			<Texture><File>lofiEnvironment2</File><Index>0x75</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x76</Index></Texture>
+		</RandomTexture>
+		<Size>80</Size>
+		<Static/>
+	</Object>
+	
+	<Object type="0x1711" id="Coral">
+		<Class>GameObject</Class>
+		<RandomTexture>
+			<Texture><File>lofiEnvironment2</File><Index>0x77</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x78</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x79</Index></Texture>
+			<Texture><File>lofiEnvironment2</File><Index>0x7a</Index></Texture>
+		</RandomTexture>
+		<Size>80</Size>
+		<Static/>
+	</Object>
+
+	<Object type="0x1712" id="Ocean Wall2">
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x7b</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x7c</Index></Texture></Top>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+	
+	<Object type="0x1713" id="Ocean Wall">
+		<Class>Wall</Class>
+		<Texture><File>lofiEnvironment2</File><Index>0x7d</Index></Texture>
+		<Top><Texture><File>lofiEnvironment2</File><Index>0x7c</Index></Texture></Top>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+</Objects>

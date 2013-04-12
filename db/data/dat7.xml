@@ -1,0 +1,683 @@
+<Objects>
+	
+	
+	<Object type="0x60a" id="Sandsman Archer">
+		<Group>Sandsmen</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x05</Index></AnimatedTexture>
+		<HitSound>monster/dark_elves_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>30</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowSand</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Green Arrow</ObjectId>
+			<Damage>8</Damage>
+			<Speed>85</Speed>
+			<LifetimeMS>1400</LifetimeMS>
+		</Projectile>
+		
+		
+		
+	</Object>
+
+	<Object type="0x60c" id="Sandsman Sorcerer">
+		<Group>Sandsmen</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x07</Index></AnimatedTexture>
+		<HitSound>monster/dark_elves_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>88</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowSand</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Purple Mystic Shot</ObjectId>
+			<Damage>13</Damage>
+			<Speed>8</Speed>
+			<LifetimeMS>10000</LifetimeMS>
+			<PassesCover/>
+			<Parametric/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Dark Blue Magic</ObjectId>
+			<Damage>17</Damage>
+			<Speed>80</Speed>
+			<LifetimeMS>300</LifetimeMS>
+		</Projectile>		
+		
+		
+		
+	</Object>
+
+	<Object type="0x60d" id="Sandsman King">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x17</Index></AnimatedTexture>
+		<HitSound>monster/dark_elves_hit</HitSound>
+		<DeathSound>monster/dark_elves_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>270</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowSand</Terrain>
+		<Quest/>
+		<Level>4</Level>
+		<XpMult>1.6</XpMult>
+		<SpawnProb>0.75</SpawnProb>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>15</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+
+		
+
+		
+	</Object>
+
+	<Object type="0x6c4" id="Giant Crab">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars16x16dEncounters</File><Index>7</Index></AnimatedTexture>
+		<HitSound>monster/scorpions_hit</HitSound>
+		<DeathSound>monster/scorpions_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>300</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowSand</Terrain>
+		<Quest/>
+		<Level>3</Level>
+		<XpMult>1.45</XpMult>	
+		<SpawnProb>0.75</SpawnProb>	
+
+		<Projectile id="0">
+			<ObjectId>Beam</ObjectId>
+			<Damage>1</Damage>
+			<Speed>20</Speed>
+			<Size>60</Size>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Beam</ObjectId>
+			<Damage>4</Damage>
+			<Speed>40</Speed>
+			<Size>100</Size>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Beam</ObjectId>
+			<Damage>7</Damage>
+			<Speed>60</Speed>
+			<Size>140</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Beam</ObjectId>
+			<Damage>11</Damage>
+			<Speed>80</Speed>
+			<Size>180</Size>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="4">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>10</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1800</LifetimeMS>
+			<Size>90</Size>
+		</Projectile>		
+
+
+
+	</Object>	
+
+	<Object type="0x6c7" id="Sand Devil">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rMid2</File><Index>4</Index></AnimatedTexture>
+		<HitSound>monster/scorpions_hit</HitSound>
+		<DeathSound>monster/scorpions_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Defense>1</Defense>
+		<Terrain>LowSand</Terrain>
+		<XpMult>0.4</XpMult>		
+		<SpawnProb>1.0</SpawnProb>
+
+		<Projectile id="0">
+			<ObjectId>Dark Gray Spinner</ObjectId>
+			<Damage>10</Damage>
+			<Speed>65</Speed>
+			<Size>68</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<Wavy/>
+			<ConditionEffect duration="1">Confused</ConditionEffect>
+		</Projectile>		
+
+
+	</Object>
+
+	
+	
+	<Object type="0x615" id="Hobbit Rogue">
+		<Group>Hobbits</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0c</Index></AnimatedTexture>
+		<HitSound>monster/hobbits_hit</HitSound>
+		<DeathSound>monster/hobbits_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>26</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowPlains</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>13</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		
+		
+	</Object>
+
+	<Object type="0x616" id="Hobbit Archer">
+		<Group>Hobbits</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0d</Index></AnimatedTexture>
+		<HitSound>monster/hobbits_hit</HitSound>
+		<DeathSound>monster/hobbits_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>22</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowPlains</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Green Arrow</ObjectId>
+			<Damage>8</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		
+		
+	</Object>
+
+	<Object type="0x617" id="Hobbit Mage">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0e</Index></AnimatedTexture>
+		<HitSound>monster/hobbits_hit</HitSound>
+		<DeathSound>monster/hobbits_death</DeathSound>
+		<Size>88</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowPlains</Terrain>
+		<Quest/>
+		<Level>3</Level>
+		<XpMult>1.6</XpMult>
+		<SpawnProb>1.0</SpawnProb>
+		
+		<Projectile id="0">
+			<ObjectId>Dark Blue Magic</ObjectId>
+			<Damage>10</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>10</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Cyan Magic</ObjectId>
+			<Damage>10</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>		
+
+
+		
+
+	</Object>
+
+	<Object type="0x618" id="Undead Hobbit Rogue">
+		<Group>Undead Hobbits</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0f</Index></AnimatedTexture>
+		<HitSound>monster/undead_hobbits_hit</HitSound>
+		<DeathSound>monster/undead_hobbits_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>34</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowPlains</Terrain>
+
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>16</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		
+
+	</Object>
+
+	<Object type="0x619" id="Undead Hobbit Archer">
+		<Group>Undead Hobbits</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x10</Index></AnimatedTexture>
+		<HitSound>monster/undead_hobbits_hit</HitSound>
+		<DeathSound>monster/undead_hobbits_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>28</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowPlains</Terrain>
+
+		<Projectile id="0">
+			<ObjectId>Green Arrow</ObjectId>
+			<Damage>12</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		
+
+	</Object>
+
+	<Object type="0x61a" id="Undead Hobbit Mage">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x11</Index></AnimatedTexture>
+		<HitSound>monster/undead_hobbits_hit</HitSound>
+		<DeathSound>monster/undead_hobbits_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>270</MaxHitPoints>
+		<Defense>5</Defense>
+		<Terrain>LowPlains</Terrain>
+		<Quest/>
+		<Level>4</Level>
+		<XpMult>1.6</XpMult>
+		<SpawnProb>0.75</SpawnProb>
+
+		<Projectile id="0">
+			<ObjectId>Yellow Missile</ObjectId>
+			<Damage>13</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Fire Missile</ObjectId>
+			<Damage>13</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Violet Missile</ObjectId>
+			<Damage>13</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>340</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="3">
+			<ObjectId>Salmon Missile</ObjectId>
+			<Damage>20</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>1100</LifetimeMS>
+			<Size>150</Size>
+		</Projectile>
+		
+
+
+		
+
+	</Object>
+
+	<Object type="0x7F00" id="Sumo Master">
+        <Group>Sumo</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>5</Index></AnimatedTexture> 
+        <AltTexture id="1">
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>6</Index></AnimatedTexture> 
+		</AltTexture>
+        <AltTexture id="2">
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>7</Index></AnimatedTexture> 
+		</AltTexture>
+        <AltTexture id="3">
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>8</Index></AnimatedTexture> 
+		</AltTexture>
+        <AltTexture id="4">
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>9</Index></AnimatedTexture> 
+		</AltTexture>
+		
+		
+		<Level>4</Level>
+		<SpawnProb>0.45</SpawnProb>
+        <Terrain>LowPlains</Terrain>
+        
+        <HitSound>monster/ogres_hit</HitSound>
+        <DeathSound>monster/ogres_death</DeathSound>
+        <MaxHitPoints>340</MaxHitPoints>
+        <Projectile id="0">
+            <ObjectId>Red BigBullet</ObjectId>
+            <Speed>70</Speed>
+            <Damage>15</Damage>
+            <Size>120</Size>
+            <LifetimeMS>500</LifetimeMS>
+        </Projectile>
+       
+        <Projectile id="1">
+            <ObjectId>Gold Bullet</ObjectId>
+            <Speed>100</Speed>
+            <Damage>25</Damage>
+            <Size>150</Size>
+            <MultiHit/>
+            <PassesCover/>
+            <LifetimeMS>1000</LifetimeMS>
+        </Projectile>
+        
+        <Size>100</Size>
+        <Defense>5</Defense>
+        <XpMult>1.65</XpMult>
+        
+        
+		
+		
+		
+		
+			
+			
+		
+    </Object> 
+	
+	<Object type="0x7F01" id="Lil Sumo">
+        <Group>Sumo</Group>
+        <Enemy/>
+        <Class>Character</Class>
+        
+        <AnimatedTexture><File>chars8x8rLow2</File><Index>7</Index></AnimatedTexture>
+        
+        <HitSound>monster/ogres_hit</HitSound>
+        <DeathSound>monster/ogres_death</DeathSound>
+        <MaxHitPoints>55</MaxHitPoints>
+        <Projectile id="0">
+            <ObjectId>Red Bullet</ObjectId>
+            <Speed>50</Speed>
+            <Damage>10</Damage>
+            <Size>50</Size>
+            <LifetimeMS>3000</LifetimeMS>
+        </Projectile>
+       
+        <Size>100</Size>
+        <Defense>4</Defense>
+        <XpMult>2.0</XpMult>
+        
+		
+    </Object> 
+
+
+	
+
+	<Object type="0x605" id="Elf Archer">
+		<Group>Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x00</Index></AnimatedTexture>
+		<HitSound>monster/elves_hit</HitSound>
+		<DeathSound>monster/elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>22</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Green Arrow</ObjectId>
+			<Damage>9</Damage>
+			<Speed>65</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		
+		
+	</Object>
+
+	<Object type="0x606" id="Elf Swordsman">
+		<Group>Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x01</Index></AnimatedTexture>
+		<HitSound>monster/elves_hit</HitSound>
+		<DeathSound>monster/elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>26</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>13</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+		
+		
+		
+	</Object>
+
+	<Object type="0x607" id="Elf Mage">
+		<Group>Elves</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x02</Index></AnimatedTexture>
+		<HitSound>monster/elves_hit</HitSound>
+		<DeathSound>monster/elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>22</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Cyan Magic</ObjectId>
+			<Damage>4</Damage>
+			<Speed>65</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+		</Projectile>
+		
+		
+		
+	</Object>
+
+	<Object type="0x609" id="Elf Wizard">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x04</Index></AnimatedTexture>
+		<HitSound>monster/elves_hit</HitSound>
+		<DeathSound>monster/elves_death</DeathSound>
+		<Size>140</Size>
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowForest</Terrain>
+		<Quest/>
+		<Level>3</Level>
+		<XpMult>1.6</XpMult>
+		<SpawnProb>0.75</SpawnProb>
+		
+		<Projectile id="0">
+			<ObjectId>Blue Bolt</ObjectId>
+			<Damage>5</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>90</Size>
+		</Projectile>
+
+				
+
+	</Object>
+
+	<Object type="0x612" id="Goblin Rogue">
+		<Group>Goblins</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x09</Index></AnimatedTexture>
+		<HitSound>monster/goblins_hit</HitSound>
+		<DeathSound>monster/goblins_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>25</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>10</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		
+
+		
+	</Object>
+
+	<Object type="0x613" id="Goblin Warrior">
+		<Group>Goblins</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0a</Index></AnimatedTexture>
+		<HitSound>monster/goblins_hit</HitSound>
+		<DeathSound>monster/goblins_death</DeathSound>
+		<Size>75</Size>
+		<MaxHitPoints>25</MaxHitPoints>
+		<Defense>2</Defense>
+		<Terrain>LowForest</Terrain>
+		
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>12</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		
+
+
+
+	</Object>
+
+	<Object type="0x614" id="Goblin Mage">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow1</File><Index>0x0b</Index></AnimatedTexture>
+		<HitSound>monster/goblins_hit</HitSound>
+		<DeathSound>monster/goblins_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>280</MaxHitPoints>
+		<Defense>0</Defense>
+		<Quest/>
+		<Level>4</Level>
+		<XpMult>1.4</XpMult>
+		<SpawnProb>0.75</SpawnProb>
+		<Terrain>LowForest</Terrain>
+
+		<Projectile id="0">
+			<ObjectId>Cyan Magic</ObjectId>
+			<Damage>14</Damage>
+			<Speed>35</Speed>
+			<Size>90</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<Wavy/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Dark Blue Magic</ObjectId>
+			<Damage>16</Damage>
+			<Speed>75</Speed>
+			<Size>130</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>		
+
+
+		
+	</Object>
+	
+	<Object type="0x6c8" id="Easily Enraged Bunny">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow2</File><Index>4</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>40</MaxHitPoints>
+		<Defense>0</Defense>
+		<Terrain>LowForest</Terrain>
+		<XpMult>0</XpMult>
+		<SpawnProb>0.7</SpawnProb>
+
+
+	</Object>	
+
+	<Object type="0x6c9" id="Enraged Bunny">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow2</File><Index>5</Index></AnimatedTexture>
+		<HitSound>monster/night_elves_hit</HitSound>
+		<DeathSound>monster/night_elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>130</MaxHitPoints>
+		<Defense>1</Defense>
+		<XpMult>0.5</XpMult>
+
+		<Projectile id="0">
+			<ObjectId>Fire Missile</ObjectId>
+			<Damage>12</Damage>
+			<Speed>70</Speed>
+			<Size>90</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+
+
+		
+
+	</Object>
+
+	<Object type="0x6d1" id="Forest Nymph">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rLow2</File><Index>6</Index></AnimatedTexture>
+		<HitSound>monster/elves_hit</HitSound>
+		<DeathSound>monster/elves_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>120</MaxHitPoints>
+		<Defense>1</Defense>
+		<Terrain>LowForest</Terrain>
+		<XpMult>0.5</XpMult>	
+		<SpawnProb>1.0</SpawnProb>
+
+		<Projectile id="0">
+			<ObjectId>Purple Boomerang</ObjectId>
+			<Damage>14</Damage>
+			<Speed>55</Speed>
+			<Size>70</Size>
+			<LifetimeMS>2900</LifetimeMS>
+			<Boomerang/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Boomerang</ObjectId>
+			<Damage>10</Damage>
+			<Speed>50</Speed>
+			<Size>70</Size>
+			<LifetimeMS>2900</LifetimeMS>
+			<Boomerang/>
+		</Projectile>
+
+
+
+	</Object>
+</Objects>

@@ -1,0 +1,130 @@
+<Objects>
+    
+
+    <Object type="0x1e17" id="Treasure Thief">
+         <Class>Character</Class>
+        <Enemy/>
+        <RemoteTexture><Instance>testing</Instance><Id>8255999</Id><Right/></RemoteTexture>
+
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>10000</MaxHitPoints>
+        <Defense>10</Defense>
+        <XpMult>0.7</XpMult>
+
+
+
+
+    </Object>
+
+    <Object type="0x1e18" id="Treasure Dropper">
+        <Class>Character</Class>
+        <Enemy/>
+        <Texture><File>invisible</File><Index>0</Index></Texture>
+        <NoMiniMap/>
+        <ShadowSize>0</ShadowSize>
+
+        
+
+
+    </Object>
+
+    <Object type="0x1e40" id="Treasure Pile">
+       <Class>GameObject</Class>
+        <RandomTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8260802</Id><Right/></RemoteTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8256991</Id><Right/></RemoteTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8268477</Id><Right/></RemoteTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8265703</Id><Right/></RemoteTexture>
+        </RandomTexture>
+        <OccupySquare/>
+        <NoMiniMap/>
+        <Static/>
+    </Object>
+
+    <Object type="0x1e41" id="Treasure Chests">
+        <Class>GameObject</Class>
+        <RandomTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8259893</Id><Right/></RemoteTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8258881</Id><Right/></RemoteTexture>
+            <RemoteTexture><Instance>testing</Instance><Id>8262851</Id><Right/></RemoteTexture>
+        </RandomTexture>
+        <OccupySquare/>
+        <NoMiniMap/>
+        <Static/>
+    </Object>
+
+    <Object type="0x1e42" id="Treasure Enemy">
+        <Class>Character</Class>
+        <Enemy/>
+        <RemoteTexture><Instance>testing</Instance><Id>8263960</Id><Right/></RemoteTexture>
+
+        <Size>100</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2000</MaxHitPoints>
+        <Defense>10</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Gold Arrow</ObjectId>
+            <Speed>50</Speed>
+            <Damage>1</Damage>
+            <LifetimeMS>1000</LifetimeMS>
+            <Size>100</Size>
+        </Projectile>
+
+
+
+    </Object>
+
+    <Object type="0x1e43" id="Log Trap">
+        <Class>Character</Class>
+        <Enemy/>
+        <RemoteTexture><Instance>testing</Instance><Id>8265729</Id><Right/></RemoteTexture>
+
+        <AltTexture id="1">
+            <RemoteTexture><Instance>testing</Instance><Id>8267701</Id><Right/></RemoteTexture>
+        </AltTexture>
+
+        <Size>150</Size>
+        <ShadowSize>50</ShadowSize>
+        <MaxHitPoints>2000</MaxHitPoints>
+        <Defense>10</Defense>
+
+        <Projectile id="0">
+            <ObjectId>Invisible</ObjectId>
+            <Speed>100</Speed>
+            <Damage>100</Damage>
+            <LifetimeMS>100</LifetimeMS>
+            <Size>0</Size>
+        </Projectile>
+
+
+
+
+    </Object>
+
+
+    
+    <Object type="0x099b" id="Jeebs">
+        <Class>Character</Class>
+        <Group>Mad Lab</Group>
+        <RemoteTexture><Instance>testing</Instance><Id>7632526</Id><Right/></RemoteTexture>
+
+        <HitSound>monster/slimes_death</HitSound>
+        <DeathSound>monster/flying_brain_death</DeathSound>
+        <Size>200</Size>
+        <ShadowSize>50</ShadowSize>
+        <Defense>10</Defense>
+
+
+
+
+
+
+
+
+
+
+    </Object>
+
+</Objects>

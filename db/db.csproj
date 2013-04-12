@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5D0743E-5120-4D35-8EBE-9B063C7A73CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>db</RootNamespace>
+    <AssemblyName>db</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zlib">
+      <HintPath>..\Ionic.Zlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data\Descriptors.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="data\XmlDatas.cs" />
+    <Compile Include="FameStats.cs" />
+    <Compile Include="Models.cs" />
+    <Compile Include="NReader.cs" />
+    <Compile Include="NWriter.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeakDictionary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data\addition.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="struct.sql" />
+    <EmbeddedResource Include="data\dat0.xml" />
+    <EmbeddedResource Include="data\dat1.xml" />
+    <EmbeddedResource Include="data\dat10.xml" />
+    <EmbeddedResource Include="data\dat11.xml" />
+    <EmbeddedResource Include="data\dat12.xml" />
+    <EmbeddedResource Include="data\dat13.xml" />
+    <EmbeddedResource Include="data\dat14.xml" />
+    <EmbeddedResource Include="data\dat15.xml" />
+    <EmbeddedResource Include="data\dat16.xml" />
+    <EmbeddedResource Include="data\dat17.xml" />
+    <EmbeddedResource Include="data\dat18.xml" />
+    <EmbeddedResource Include="data\dat19.xml" />
+    <EmbeddedResource Include="data\dat2.xml" />
+    <EmbeddedResource Include="data\dat20.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\dat21.xml" />
+    <EmbeddedResource Include="data\dat22.xml" />
+    <EmbeddedResource Include="data\dat23.xml" />
+    <EmbeddedResource Include="data\dat24.xml" />
+    <EmbeddedResource Include="data\dat3.xml" />
+    <EmbeddedResource Include="data\dat4.xml" />
+    <EmbeddedResource Include="data\dat5.xml" />
+    <EmbeddedResource Include="data\dat6.xml" />
+    <EmbeddedResource Include="data\dat7.xml" />
+    <EmbeddedResource Include="data\dat8.xml" />
+    <EmbeddedResource Include="data\dat9.xml" />
+    <EmbeddedResource Include="data\dat25.xml" />
+    <EmbeddedResource Include="data\dat26.xml" />
+    <EmbeddedResource Include="data\dat27.xml" />
+    <EmbeddedResource Include="data\dat28.xml" />
+    <EmbeddedResource Include="data\dat29.xml" />
+    <EmbeddedResource Include="data\dat30.xml" />
+    <EmbeddedResource Include="data\dat31.xml" />
+    <EmbeddedResource Include="data\dat32.xml" />
+    <EmbeddedResource Include="data\dat33.xml" />
+    <EmbeddedResource Include="data\dat34.xml" />
+    <EmbeddedResource Include="data\dat35.xml" />
+    <Content Include="objects.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySql.Data\MySql.Data.csproj">
+      <Project>{E9DF5ED1-4CBD-4226-B931-9A51610AC14D}</Project>
+      <Name>MySql.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

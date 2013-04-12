@@ -1,0 +1,537 @@
+
+<Objects>
+	<Object type="0x1720" id="Lord Ruthven">
+		<Enemy/>
+		<Class>Character</Class>
+		<Group>Vampires</Group>
+		
+		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>34</Index></AnimatedTexture>
+		
+		<AltTexture id="1">
+			<Texture><File>invisible</File><Index>0</Index></Texture>
+		</AltTexture>
+		<AltTexture id="2"> 
+			<AnimatedTexture><File>chars16x16dEncounters2</File><Index>35</Index></AnimatedTexture>
+		</AltTexture>
+		
+		<HitSound>monster/slimes_death</HitSound>
+		<DeathSound>monster/flying_brain_death</DeathSound>
+		<Size>120</Size>
+		<ShadowSize>40</ShadowSize>
+		<Z>0.2</Z>
+		<Flying/>
+		<MaxHitPoints>15000</MaxHitPoints>
+		<Defense>95</Defense>
+		<XpMult>0.9</XpMult>
+		<LeachHealth/>
+		
+		<God/>
+		<StasisImmune/>
+		<Quest/>
+		<Level>1</Level>
+		
+		<Projectile id="0">
+			<ObjectId>Dagger</ObjectId>
+			<Damage>100</Damage>
+			<Speed>50</Speed>
+			<Size>100</Size>
+			<LifetimeMS>2400</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Ruthven Shot</ObjectId>
+			<Damage>90</Damage>
+			<Speed>65</Speed>
+			<Size>100</Size>
+			<LifetimeMS>3400</LifetimeMS>
+			<MultiHit/>
+		</Projectile>
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</Object>
+
+	<Object type="0x1721" id="Vampire Bat">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>25</Defense>
+		<XpMult>0.0</XpMult>
+		<Z>0.24</Z>
+		<Flying/>
+   		<Size>80</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Invisible</ObjectId>
+			<Damage>40</Damage>
+			<Speed>0</Speed>
+			<Size>80</Size>
+			<LifetimeMS>100</LifetimeMS>
+			<ConditionEffect duration="3.6">Confused</ConditionEffect>
+		</Projectile>
+		
+		
+	</Object>
+	
+	<Object type="0x1722" id="Coffin Creature">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiObjBig</File><Index>0x22</Index></Texture>
+		
+		<Animation prob="1" period="0">
+			<Frame time="0.4"><Texture><File>lofiObjBig</File><Index>0x22</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x23</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x24</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x25</Index></Texture></Frame>
+			<Frame time="3"><Texture><File>lofiObjBig</File><Index>0x26</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x25</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x24</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObjBig</File><Index>0x23</Index></Texture></Frame>
+		</Animation>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Defense>75</Defense>
+		<XpMult>0</XpMult>
+   		<Size>120</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Coffin Bullet</ObjectId>
+			<Damage>65</Damage>
+			<Speed>60</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		
+		
+		
+		
+		
+	</Object>
+	
+	<Object type="0x1723" id="Bat Swarm 1">
+		<DisplayId>Bat Swarm</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		
+		<MaxHitPoints>125</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Flying/>
+   		<Size>0</Size>
+		
+		
+		
+		
+		
+		
+	</Object>
+
+	<Object type="0x1724" id="Vampire Bat Swarmer 1">
+		<DisplayId>Vampire Bat Swarmer</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>25</Defense>
+		<XpMult>0</XpMult>
+		<Z>0.24</Z>
+		<Flying/>
+   		<Size>80</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Invisible</ObjectId>
+			<Damage>40</Damage>
+			<Speed>0</Speed>
+			<Size>80</Size>
+			<LifetimeMS>100</LifetimeMS>
+			<ConditionEffect duration="3.6">Confused</ConditionEffect>
+		</Projectile>
+		
+	</Object>
+
+	<Object type="0x1725" id="Bat Swarm 2">
+		<DisplayId>Bat Swarm</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		<MaxHitPoints>125</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Flying/>
+   		<Size>0</Size>
+		
+		
+		
+		
+		
+		
+	</Object>
+
+	<Object type="0x1726" id="Vampire Bat Swarmer 2">
+		<DisplayId>Vampire Bat Swarmer</DisplayId>
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>200</MaxHitPoints>
+		<Defense>25</Defense>
+		<XpMult>0.0</XpMult>
+		<Z>0.24</Z>
+		<Flying/>
+   		<Size>80</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Invisible</ObjectId>
+			<Damage>40</Damage>
+			<Speed>0</Speed>
+			<Size>80</Size>
+			<LifetimeMS>100</LifetimeMS>
+			<ConditionEffect duration="3.6">Confused</ConditionEffect>
+		</Projectile>
+		
+		
+	</Object>
+
+	<Object type="0x1727" id="Vampire Bat Swarmer">
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
+		<HitSound>monster/bats_hit</HitSound>
+		<DeathSound>monster/bats_death</DeathSound>
+		
+		<MaxHitPoints>125</MaxHitPoints>
+		<Defense>25</Defense>
+		<XpMult>1</XpMult>
+		<Z>0.24</Z>
+		<Flying/>
+   		<Size>80</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Invisible</ObjectId>
+			<Damage>40</Damage>
+			<Speed>0</Speed>
+			<Size>80</Size>
+			<LifetimeMS>100</LifetimeMS>
+			<ConditionEffect duration="3">Confused</ConditionEffect>
+		</Projectile>
+		
+	</Object>
+
+	<Object type="0x1728" id="Nosferatu">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>19</Index></AnimatedTexture>
+		
+		<HitSound>monster/mummies_death</HitSound>
+		<DeathSound>monster/cyclops_death</DeathSound>
+		
+		<MaxHitPoints>1100</MaxHitPoints>
+		<Defense>55</Defense>
+		<XpMult>0.75</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>60</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Bone Swipe</ObjectId>
+			<Damage>80</Damage>
+			<Speed>40</Speed>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Weak</ConditionEffect>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Vampire Magic</ObjectId>
+			<Damage>60</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		
+		
+	</Object>
+
+	<Object type="0x1729" id="Armor Guard">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>20</Index></AnimatedTexture>
+		
+		<HitSound>monster/elves_death</HitSound>
+		<DeathSound>monster/golems_death</DeathSound>
+		
+		<MaxHitPoints>900</MaxHitPoints>
+		<Defense>55</Defense>
+		<XpMult>1</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>60</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>ArmorGuard Attack</ObjectId>
+			<Damage>90</Damage>
+			<Speed>35</Speed>
+			<Size>100</Size>
+			<LifetimeMS>3400</LifetimeMS>
+		</Projectile>
+		
+		<Projectile id="1">
+			<ObjectId>Rockbomb Spike</ObjectId>
+			<Damage>65</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1400</LifetimeMS>
+		</Projectile>
+		
+		
+		
+		
+		
+		
+	</Object>
+
+	<Object type="0x172a" id="RockBomb">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiObj2</File><Index>0x4d</Index></Texture>
+		
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>130</Defense>
+		<XpMult>0</XpMult>
+   		<Size>80</Size>
+		<ShadowSize>60</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Rockbomb Spike</ObjectId>
+			<Damage>55</Damage>
+			<Speed>55</Speed>
+			<Size>90</Size>
+			<LifetimeMS>1400</LifetimeMS>
+		</Projectile>
+		
+	</Object>
+
+	<Object type="0x172b" id="Hellhound">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars16x16rEncounters</File><Index>21</Index></AnimatedTexture>
+		
+		<HitSound>monster/abyss_brutes_hit</HitSound>
+		<DeathSound>monster/abyss_brutes_death</DeathSound>
+		
+		<MaxHitPoints>600</MaxHitPoints>
+		<Defense>35</Defense>
+		<XpMult>1</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>60</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>HellHoundAttack</ObjectId>
+			<Damage>65</Damage>
+			<Speed>80</Speed>
+			<Size>100</Size>
+			<LifetimeMS>1200</LifetimeMS>
+			<ConditionEffect duration="3.6">Bleeding</ConditionEffect>
+		</Projectile>
+		
+		
+	</Object>
+
+	<Object type="0x172c" id="Lesser Bald Vampire">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>27</Index></AnimatedTexture>
+		
+		<HitSound>monster/medusa_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_hit</DeathSound>
+		
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>15</Defense>
+		<XpMult>1</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>100</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Vampire Magic Ball</ObjectId>
+			<Damage>50</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		
+	</Object>
+
+	<Object type="0x172d" id="Helmet Head">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<Texture><File>lofiObj2</File><Index>0x4e</Index></Texture>
+		
+		<Animation prob="1" period="0">
+			<Frame time="0.1"><Texture><File>lofiObj2</File><Index>0x4e</Index></Texture></Frame>
+			<Frame time="0.1"><Texture><File>lofiObj2</File><Index>0x4f</Index></Texture></Frame>
+			<Frame time="0.2"><Texture><File>lofiObj2</File><Index>0x5a</Index></Texture></Frame>
+			<Frame time="0.1"><Texture><File>lofiObj2</File><Index>0x5b</Index></Texture></Frame>
+			<Frame time="0.1"><Texture><File>lofiObj2</File><Index>0x5c</Index></Texture></Frame>
+		</Animation>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		
+		<MaxHitPoints>350</MaxHitPoints>
+		<Defense>30</Defense>
+		<XpMult>1</XpMult>
+   		<Size>80</Size>
+		<ShadowSize>60</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>HellHoundAttack</ObjectId>
+			<Damage>40</Damage>
+			<Speed>60</Speed>
+			<Size>100</Size>
+			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+		
+	</Object>
+
+	<Object type="0x172e" id="Mixcoatl Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x172f" id="Thessal Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1730" id="Septavius Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1731" id="Stheno Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1732" id="Arachna Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1736" id="Vampire Summoner">
+		<Class>Character</Class>
+		<Texture><File>invisible</File><Index>0</Index></Texture>
+		<NoMiniMap/>
+		<MaxHitPoints>10</MaxHitPoints>
+   		<Size>0</Size>
+		
+	</Object>
+
+	<Object type="0x1737" id="Coffin">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture><File>lofiObjBig</File><Index>0x22</Index></Texture>
+		
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		
+		<MaxHitPoints>20000</MaxHitPoints>
+		<Defense>25</Defense>
+   		<Size>120</Size>
+		<ShadowSize>80</ShadowSize>
+		
+		
+
+		
+		
+		
+	</Object>
+
+	<Object type="0x1738" id="Lil Feratu">
+		<Enemy/>
+		<Class>Character</Class>
+		
+		<AnimatedTexture><File>chars8x8rEncounters</File><Index>28</Index></AnimatedTexture>
+		
+		<HitSound>monster/medusa_hit</HitSound>
+		<DeathSound>monster/undead_dwarves_hit</DeathSound>
+		
+		<MaxHitPoints>550</MaxHitPoints>
+		<Defense>35</Defense>
+		<XpMult>0</XpMult>
+   		<Size>100</Size>
+		<ShadowSize>100</ShadowSize>
+		
+		<Projectile id="0">
+			<ObjectId>Vampire Magic</ObjectId>
+			<Damage>65</Damage>
+			<Speed>55</Speed>
+			<Size>80</Size>
+			<LifetimeMS>1600</LifetimeMS>
+		</Projectile>
+		
+	</Object>
+</Objects>

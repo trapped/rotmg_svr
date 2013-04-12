@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D791B2A2-F79D-4872-B6FF-EF5B4FE52ADA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wServer</RootNamespace>
+    <AssemblyName>wServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zlib, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ionic.Zlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="svrMonitor">
+      <HintPath>..\svrMonitor\bin\Debug\svrMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientProcessor.cs" />
+    <Compile Include="cliPackets\ClientPacket.cs" />
+    <Compile Include="cliPackets\ChooseNamePacket.cs" />
+    <Compile Include="cliPackets\BuyPacket.cs" />
+    <Compile Include="cliPackets\CancelTradePacket.cs" />
+    <Compile Include="cliPackets\AOEAckPacket.cs" />
+    <Compile Include="cliPackets\CheckCreditsPacket.cs" />
+    <Compile Include="cliPackets\GroundDamagePacket.cs" />
+    <Compile Include="cliPackets\EditAccountListPacket.cs" />
+    <Compile Include="cliPackets\GotoAckPacket.cs" />
+    <Compile Include="cliPackets\TeleportPacket.cs" />
+    <Compile Include="cliPackets\PlayerTextPacket.cs" />
+    <Compile Include="cliPackets\UsePortalPacket.cs" />
+    <Compile Include="cliPackets\PlayerHitPacket.cs" />
+    <Compile Include="cliPackets\OtherHitPacket.cs" />
+    <Compile Include="cliPackets\SquareHitPacket.cs" />
+    <Compile Include="cliPackets\ShootAckPacket.cs" />
+    <Compile Include="cliPackets\UseItemPacket.cs" />
+    <Compile Include="cliPackets\InvDropPacket.cs" />
+    <Compile Include="cliPackets\InvSwapPacket.cs" />
+    <Compile Include="cliPackets\EnemyHitPacket.cs" />
+    <Compile Include="cliPackets\PlayerShootPacket.cs" />
+    <Compile Include="cliPackets\MovePacket.cs" />
+    <Compile Include="cliPackets\FailurePacket.cs" />
+    <Compile Include="cliPackets\LoadPacket.cs" />
+    <Compile Include="cliPackets\CreatePacket.cs" />
+    <Compile Include="cliPackets\HelloPacket.cs" />
+    <Compile Include="cliPackets\PongPacket.cs" />
+    <Compile Include="Empty.cs" />
+    <Compile Include="logic\attack\AngleAttack.cs" />
+    <Compile Include="logic\attack\AngleMultiAttack.cs" />
+    <Compile Include="logic\attack\PredictiveRingAttack.cs" />
+    <Compile Include="logic\attack\PredictiveAttack.cs" />
+    <Compile Include="logic\attack\PredictiveMultiAttack.cs" />
+    <Compile Include="logic\attack\TossEnemy.cs" />
+    <Compile Include="logic\attack\HealGroup.cs" />
+    <Compile Include="logic\attack\Heal.cs" />
+    <Compile Include="logic\attack\MultiAttack.cs" />
+    <Compile Include="logic\CondEffects.cs" />
+    <Compile Include="logic\cond\PentaractStar.cs" />
+    <Compile Include="logic\cond\GolemSatellites.cs" />
+    <Compile Include="logic\cond\NexusHealMp.cs" />
+    <Compile Include="logic\cond\GrayBlob.cs" />
+    <Compile Include="logic\cond\NexusHealHp.cs" />
+    <Compile Include="logic\cond\Shambling.cs" />
+    <Compile Include="logic\cond\SumoMaster.cs" />
+    <Compile Include="logic\db\BehaviorDb.RedDemon.cs" />
+    <Compile Include="logic\db\BehaviorDb.CubeGod.cs" />
+    <Compile Include="logic\db\BehaviorDb.SkullShrine.cs" />
+    <Compile Include="logic\db\BehaviorDb.Pentaract.cs" />
+    <Compile Include="logic\db\BehaviorDb.Sphinx.cs" />
+    <Compile Include="logic\SetAltTexture.cs" />
+    <Compile Include="logic\db\BehaviorDb.Misc.cs" />
+    <Compile Include="logic\db\BehaviorDb.Highland.cs" />
+    <Compile Include="logic\db\BehaviorDb.Mountain.cs" />
+    <Compile Include="logic\db\BehaviorDb.ForbiddenJungle.cs" />
+    <Compile Include="logic\db\BehaviorDb.EntAncient.cs" />
+    <Compile Include="logic\db\BehaviorDb.Lich.cs" />
+    <Compile Include="logic\db\BehaviorDb.Deathmage.cs" />
+    <Compile Include="logic\db\BehaviorDb.Cyclops.cs" />
+    <Compile Include="logic\db\BehaviorDb.GhostKing.cs" />
+    <Compile Include="logic\db\BehaviorDb.Oasis.cs" />
+    <Compile Include="logic\db\BehaviorDb.Phoenix.cs" />
+    <Compile Include="logic\loot\LootDef.cs" />
+    <Compile Include="logic\movement\ChasingGroup.cs" />
+    <Compile Include="logic\movement\AngleMove.cs" />
+    <Compile Include="logic\movement\ReturnSpawn.cs" />
+    <Compile Include="logic\movement\Swirling.cs" />
+    <Compile Include="logic\movement\StrictCircling.cs" />
+    <Compile Include="logic\movement\MaintainDist.cs" />
+    <Compile Include="logic\movement\StrictCirclingGroup.cs" />
+    <Compile Include="logic\movement\Tangential.cs" />
+    <Compile Include="logic\Events.cs" />
+    <Compile Include="logic\Order.cs" />
+    <Compile Include="logic\SetSize.cs" />
+    <Compile Include="logic\taunt\RandomTaunt.cs" />
+    <Compile Include="logic\Transmute.cs" />
+    <Compile Include="logic\db\BehaviorDb.Lowland.cs" />
+    <Compile Include="logic\db\BehaviorDb.Midland.cs" />
+    <Compile Include="logic\DeathTransmute.cs" />
+    <Compile Include="logic\Flashing.cs" />
+    <Compile Include="logic\movement\Charge.cs" />
+    <Compile Include="logic\movement\Planewalk.cs" />
+    <Compile Include="logic\movement\TimedChasing.cs" />
+    <Compile Include="logic\movement\Retracting.cs" />
+    <Compile Include="logic\Reproduce.cs" />
+    <Compile Include="logic\SpawnMinionImmediate.cs" />
+    <Compile Include="logic\attack\ThrowAttack.cs" />
+    <Compile Include="logic\attack\RingAttack.cs" />
+    <Compile Include="logic\attack\SimpleAttack.cs" />
+    <Compile Include="logic\SpawnMinion.cs" />
+    <Compile Include="logic\attack\TutorialTower.cs" />
+    <Compile Include="logic\Behavior.cs" />
+    <Compile Include="logic\BehaviorDb.cs" />
+    <Compile Include="logic\DamageCounter.cs" />
+    <Compile Include="logic\db\BehaviorDb.Tutorial.cs" />
+    <Compile Include="logic\db\BehaviorDb.Shore.cs" />
+    <Compile Include="logic\loot\EvilLoots.cs" />
+    <Compile Include="logic\loot\Loot.cs" />
+    <Compile Include="logic\loot\LootBehavior.cs" />
+    <Compile Include="logic\movement\Circling.cs" />
+    <Compile Include="logic\movement\Chasing.cs" />
+    <Compile Include="logic\movement\Escaping.cs" />
+    <Compile Include="logic\movement\SimpleWandering.cs" />
+    <Compile Include="logic\movement\SmoothWandering.cs" />
+    <Compile Include="logic\taunt\ChefTaunt.cs" />
+    <Compile Include="logic\taunt\SimpleTaunt.cs" />
+    <Compile Include="PacketIds.cs" />
+    <Compile Include="realm\entities\Character.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="realm\entities\Container.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="realm\entities\ConnectedObject.cs" />
+    <Compile Include="realm\entities\Placeholder.cs" />
+    <Compile Include="realm\entities\Decoy.cs" />
+    <Compile Include="realm\entities\player\Player.Ground.cs" />
+    <Compile Include="realm\entities\player\Player.Chat.cs" />
+    <Compile Include="realm\entities\player\Player.Effects.cs" />
+    <Compile Include="realm\entities\player\Player.Trade.cs" />
+    <Compile Include="realm\entities\player\Player.Buy.cs" />
+    <Compile Include="realm\entities\SellableObject.cs" />
+    <Compile Include="realm\entities\player\Player.Leveling.cs" />
+    <Compile Include="realm\entities\player\Player.List.cs" />
+    <Compile Include="realm\entities\Portal.cs" />
+    <Compile Include="realm\entities\player\Player.Inventory.cs" />
+    <Compile Include="realm\entities\player\Player.UseItem.cs" />
+    <Compile Include="realm\entities\Sign.cs" />
+    <Compile Include="realm\entities\player\Player.Projectiles.cs" />
+    <Compile Include="realm\entities\player\Player.Update.cs" />
+    <Compile Include="realm\entities\Enemy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="realm\entities\player\Player.cs" />
+    <Compile Include="realm\entities\Projectile.cs" />
+    <Compile Include="realm\entities\StaticObject.cs" />
+    <Compile Include="realm\entities\Trap.cs" />
+    <Compile Include="realm\entities\Wall.cs" />
+    <Compile Include="realm\setpieces\Building.cs" />
+    <Compile Include="realm\setpieces\Castle.cs" />
+    <Compile Include="realm\setpieces\CubeGod.cs" />
+    <Compile Include="realm\setpieces\Sphinx.cs" />
+    <Compile Include="realm\setpieces\Pentaract.cs" />
+    <Compile Include="realm\setpieces\Noise.cs" />
+    <Compile Include="realm\setpieces\SkullShrine.cs" />
+    <Compile Include="realm\setpieces\LavaFissure.cs" />
+    <Compile Include="realm\setpieces\Pyre.cs" />
+    <Compile Include="realm\setpieces\Oasis.cs" />
+    <Compile Include="realm\setpieces\Graveyard.cs" />
+    <Compile Include="realm\setpieces\Grove.cs" />
+    <Compile Include="realm\setpieces\LichyTemple.cs" />
+    <Compile Include="realm\setpieces\TempleB.cs" />
+    <Compile Include="realm\setpieces\Temple.cs" />
+    <Compile Include="realm\setpieces\TempleA.cs" />
+    <Compile Include="realm\setpieces\ISetPiece.cs" />
+    <Compile Include="realm\setpieces\SetPieces.cs" />
+    <Compile Include="realm\setpieces\Tower.cs" />
+    <Compile Include="realm\terrain\Json2Wmap.cs" />
+    <Compile Include="realm\terrain\JsonMapExporter.cs" />
+    <Compile Include="realm\terrain\TerrainTile.cs" />
+    <Compile Include="realm\terrain\WorldMapExporter.cs" />
+    <Compile Include="realm\worlds\RandRealm.cs" />
+    <Compile Include="realm\WorldTimer.cs" />
+    <Compile Include="realm\Entity.cs" />
+    <Compile Include="logic\FameCounter.cs" />
+    <Compile Include="realm\Oryx.cs" />
+    <Compile Include="realm\RealmPortalMonitor.cs" />
+    <Compile Include="realm\Sight.cs" />
+    <Compile Include="realm\SpatialStorage.cs" />
+    <Compile Include="realm\RealmManager.cs" />
+    <Compile Include="realm\Stats.cs" />
+    <Compile Include="realm\StatsManager.cs" />
+    <Compile Include="realm\Tile.cs" />
+    <Compile Include="realm\Wmap.cs" />
+    <Compile Include="realm\World.cs" />
+    <Compile Include="realm\worlds\Vault.cs" />
+    <Compile Include="realm\worlds\GameWorld.cs" />
+    <Compile Include="realm\worlds\NexusLimbo.cs" />
+    <Compile Include="realm\worlds\Kitchen.cs" />
+    <Compile Include="realm\worlds\Tutorial.cs" />
+    <Compile Include="realm\worlds\Test.cs" />
+    <Compile Include="realm\worlds\Nexus.cs" />
+    <Compile Include="Structures.cs" />
+    <Compile Include="cliPackets\EscapePacket.cs" />
+    <Compile Include="svrPackets\AOEPacket.cs" />
+    <Compile Include="svrPackets\RawPacket.cs" />
+    <Compile Include="svrPackets\DeathPacket.cs" />
+    <Compile Include="svrPackets\TradeDonePacket.cs" />
+    <Compile Include="svrPackets\TradeAcceptedPacket.cs" />
+    <Compile Include="svrPackets\AccountListPacket.cs" />
+    <Compile Include="svrPackets\BuyResultPacket.cs" />
+    <Compile Include="cliPackets\ChangeTradePacket.cs" />
+    <Compile Include="cliPackets\AcceptTradePacket.cs" />
+    <Compile Include="cliPackets\RequestTradePacket.cs" />
+    <Compile Include="svrPackets\TradeChangedPacket.cs" />
+    <Compile Include="svrPackets\TradeRequestedPacket.cs" />
+    <Compile Include="svrPackets\TradeStartPacket.cs" />
+    <Compile Include="svrPackets\GotoPacket.cs" />
+    <Compile Include="svrPackets\NameResultPacket.cs" />
+    <Compile Include="svrPackets\QuestObjIdPacket.cs" />
+    <Compile Include="svrPackets\GlobalNotificationPacket.cs" />
+    <Compile Include="svrPackets\NotificationPacket.cs" />
+    <Compile Include="svrPackets\TextPacket.cs" />
+    <Compile Include="svrPackets\ShowEffectPacket.cs" />
+    <Compile Include="svrPackets\MultiShootPacket.cs" />
+    <Compile Include="svrPackets\ShootPacket.cs" />
+    <Compile Include="svrPackets\DamagePacket.cs" />
+    <Compile Include="svrPackets\InvResultPacket.cs" />
+    <Compile Include="svrPackets\AllyShootPacket.cs" />
+    <Compile Include="svrPackets\ReconnectPacket.cs" />
+    <Compile Include="svrPackets\NewTickPacket.cs" />
+    <Compile Include="svrPackets\PingPacket.cs" />
+    <Compile Include="svrPackets\MapInfoPacket.cs" />
+    <Compile Include="svrPackets\CreateSuccessPacket.cs" />
+    <Compile Include="svrPackets\FailurePacket.cs" />
+    <Compile Include="svrPackets\ServerPacket.cs" />
+    <Compile Include="svrPackets\UpdatePacket.cs" />
+    <Compile Include="Packet.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RC4.cs" />
+    <Compile Include="RSA.cs" />
+    <Compile Include="Vector2.cs" />
+    <Compile Include="wRandom.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\db\db.csproj">
+      <Project>{D5D0743E-5120-4D35-8EBE-9B063C7A73CE}</Project>
+      <Name>db</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySql.Data\MySql.Data.csproj">
+      <Project>{E9DF5ED1-4CBD-4226-B931-9A51610AC14D}</Project>
+      <Name>MySql.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="realm\entities\player\Player.KeepAlive.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <EmbeddedResource Include="realm\worlds\kitchen.wmap" />
+    <EmbeddedResource Include="realm\worlds\nexus.wmap" />
+    <EmbeddedResource Include="realm\worlds\nexusLimbo.wmap" />
+    <EmbeddedResource Include="realm\worlds\tutorial.wmap" />
+    <EmbeddedResource Include="realm\worlds\vault.wmap" />
+    <EmbeddedResource Include="realm\worlds\world1.wmap" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

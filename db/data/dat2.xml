@@ -1,0 +1,373 @@
+<Objects>
+	
+	<Object type="0x0300" id="Rogue">
+		<Class>Player</Class>
+		<Description>The rogue relies on his speed to deal damage at medium range while avoiding attacks.</Description>
+		<AnimatedTexture><File>players</File><Index>0</Index></AnimatedTexture>
+		<HitSound>player/rogue_hit</HitSound>
+		<DeathSound>player/rogue_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>2, 13, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa14, 0xa56, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="720">150</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="50">10</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="75">15</Speed>
+		<Dexterity max="75">15</Dexterity>
+		<HpRegen max="40">15</HpRegen>
+		<MpRegen max="50">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="5">Archer</UnlockLevel>
+	</Object>
+	<Object type="0x0307" id="Archer">
+		<Class>Player</Class>
+		<Description>The archer has a long-range attack and can acquire very powerful weapons.</Description>
+		<AnimatedTexture><File>players</File><Index>1</Index></AnimatedTexture>
+		<HitSound>player/archer_hit</HitSound>
+		<DeathSound>player/archer_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>3, 15, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa1a, 0xa61, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="700">130</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="75">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">12</Speed>
+		<Dexterity max="50">12</Dexterity>
+		<HpRegen max="40">12</HpRegen>
+		<MpRegen max="50">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="5">Priest</UnlockLevel>
+	</Object>
+	<Object type="0x030e" id="Wizard">
+		<Class>Player</Class>
+		<Description>The wizard deals damage from a long distance and blasts enemies with powerful spells.</Description>
+		<AnimatedTexture><File>players</File><Index>2</Index></AnimatedTexture>
+		<HitSound>player/wizard_hit</HitSound>
+		<DeathSound>player/wizard_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>17, 11, 14, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa97, 0xa2e, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="670">100</MaxHitPoints>
+		<MaxMagicPoints max="385">100</MaxMagicPoints>
+		<Attack max="75">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">10</Speed>
+		<Dexterity max="75">15</Dexterity>
+		<HpRegen max="40">12</HpRegen>
+		<MpRegen max="60">12</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+	</Object>
+	<Object type="0x0310" id="Priest">
+		<Class>Player</Class>
+		<Description>The priest attacks at long range and can heal himself and his allies.</Description>
+		<AnimatedTexture><File>players</File><Index>3</Index></AnimatedTexture>
+		<HitSound>player/priest_hit</HitSound>
+		<DeathSound>player/priest_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>8, 4, 14, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa04, 0xa31, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="670">100</MaxHitPoints>
+		<MaxMagicPoints max="385">100</MaxMagicPoints>
+		<Attack max="50">10</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">12</Speed>
+		<Dexterity max="50">12</Dexterity>
+		<HpRegen max="40">10</HpRegen>
+		<MpRegen max="75">15</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="5">Wizard</UnlockLevel>
+	</Object>
+	<Object type="0x031d" id="Warrior">
+		<Class>Player</Class>
+		<Description>The warrior wears strong armor and uses his magic helmet to inspire his allies in battle.</Description>
+		<AnimatedTexture><File>players</File><Index>4</Index></AnimatedTexture>
+		<HitSound>player/warrior_hit</HitSound>
+		<DeathSound>player/warrior_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>1, 16, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa00, 0x0a66, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="770">200</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="75">15</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">7</Speed>
+		<Dexterity max="50">10</Dexterity>
+		<HpRegen max="75">10</HpRegen>
+		<MpRegen max="50">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="5">Rogue</UnlockLevel>
+	</Object>
+	<Object type="0x031e" id="Knight">
+		<Class>Player</Class>
+		<Description>The knight fights at close range, wears very heavy armor, and uses his shield to stun enemies.</Description>
+		<AnimatedTexture><File>players</File><Index>5</Index></AnimatedTexture>
+		<HitSound>player/knight_hit</HitSound>
+		<DeathSound>player/knight_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>1, 5, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa00, 0x0a08, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="770">200</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="50">15</Attack>
+		<Defense max="40">0</Defense>
+		<Speed max="50">7</Speed>
+		<Dexterity max="50">10</Dexterity>
+		<HpRegen max="75">10</HpRegen>
+		<MpRegen max="50">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Warrior</UnlockLevel>
+	</Object>
+	<Object type="0x031f" id="Paladin">
+		<Class>Player</Class>
+		<Description>The paladin can deal damage at close range, wear armor and heal himself and his allies.</Description>
+		<AnimatedTexture><File>players</File><Index>6</Index></AnimatedTexture>
+		<HitSound>player/paladin_hit</HitSound>
+		<DeathSound>player/paladin_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>1, 12, 7, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa00, 0xa52, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="770">200</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="50">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">7</Speed>
+		<Dexterity max="50">10</Dexterity>
+		<HpRegen max="40">10</HpRegen>
+		<MpRegen max="75">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Knight</UnlockLevel>
+		<UnlockLevel level="20">Priest</UnlockLevel>
+	</Object>
+	<Object type="0x0320" id="Assassin">
+		<Class>Player</Class>
+		<Description>The assassin fights from medium range and uses poison to damage his enemies over time.</Description>
+		<AnimatedTexture><File>players</File><Index>7</Index></AnimatedTexture>
+		<HitSound>player/rogue_hit</HitSound>
+		<DeathSound>player/rogue_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>2, 18, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa14, 0xaa3, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="720">150</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="60">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="75">15</Speed>
+		<Dexterity max="75">15</Dexterity>
+		<HpRegen max="40">15</HpRegen>
+		<MpRegen max="60">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Rogue</UnlockLevel>
+		<UnlockLevel level="20">Wizard</UnlockLevel>
+	</Object>
+	<Object type="0x0321" id="Necromancer">
+		<Class>Player</Class>
+		<Description>The necromancer drains life from his enemies to heal himself and his allies.</Description>
+		<AnimatedTexture><File>players</File><Index>8</Index></AnimatedTexture>
+		<HitSound>player/wizard_hit</HitSound>
+		<DeathSound>player/wizard_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>17, 19, 14, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa97, 0xaaa, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="670">100</MaxHitPoints>
+		<MaxMagicPoints max="385">100</MaxMagicPoints>
+		<Attack max="60">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">10</Speed>
+		<Dexterity max="60">15</Dexterity>
+		<HpRegen max="30">10</HpRegen>
+		<MpRegen max="75">12</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Wizard</UnlockLevel>
+		<UnlockLevel level="20">Priest</UnlockLevel>
+	</Object>
+	<Object type="0x0322" id="Huntress">
+		<Class>Player</Class>
+		<Description>The huntress uses arrows and traps to defeat her enemies.</Description>
+		<AnimatedTexture><File>players</File><Index>9</Index></AnimatedTexture>
+		<HitSound>player/archer_hit</HitSound>
+		<DeathSound>player/archer_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>3, 20, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa1a, 0xab1, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="700">130</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="75">12</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="50">12</Speed>
+		<Dexterity max="50">12</Dexterity>
+		<HpRegen max="40">12</HpRegen>
+		<MpRegen max="50">10</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Rogue</UnlockLevel>
+		<UnlockLevel level="20">Archer</UnlockLevel>
+	</Object>
+	<Object type="0x0323" id="Mystic">
+		<Class>Player</Class>
+		<Description>The mystic fights with a staff and uses her crystal orb to bind enemies to a distant plane. </Description>
+		<AnimatedTexture><File>players</File><Index>10</Index></AnimatedTexture>
+		<HitSound>player/wizard_hit</HitSound>
+		<DeathSound>player/wizard_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>17, 21, 14, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa97, 0xae4, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="670">100</MaxHitPoints>
+		<MaxMagicPoints max="385">100</MaxMagicPoints>
+		<Attack max="60">10</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="60">12</Speed>
+		<Dexterity max="50">10</Dexterity>
+		<HpRegen max="40">15</HpRegen>
+		<MpRegen max="75">15</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Huntress</UnlockLevel>
+		<UnlockLevel level="20">Necromancer</UnlockLevel>
+	</Object>
+	<Object type="0x0324" id="Trickster">
+		<Class>Player</Class>
+		<Description>The trickster fights with a dagger while using her magical prism to distract enemies.</Description>
+		<AnimatedTexture><File>players</File><Index>11</Index></AnimatedTexture>
+		<HitSound>player/rogue_hit</HitSound>
+		<DeathSound>player/rogue_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>2, 22, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa14, 0xae3, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="720">150</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="65">10</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="75">12</Speed>
+		<Dexterity max="75">15</Dexterity>
+		<HpRegen max="40">12</HpRegen>
+		<MpRegen max="60">12</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Assassin</UnlockLevel>
+		<UnlockLevel level="20">Paladin</UnlockLevel>
+	</Object>
+	<Object type="0x0325" id="Sorcerer">
+		<Class>Player</Class>
+		<Description>The sorcerer uses his scepter to fire blasts of chain lightning at his enemies.</Description>
+		<AnimatedTexture><File>players</File><Index>12</Index></AnimatedTexture>
+		<HitSound>player/priest_hit</HitSound>
+		<DeathSound>player/priest_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>8, 23, 14, 9, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa04, 0xae5, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="670">100</MaxHitPoints>
+		<MaxMagicPoints max="385">100</MaxMagicPoints>
+		<Attack max="60">10</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="60">12</Speed>
+		<Dexterity max="60">12</Dexterity>
+		<HpRegen max="75">10</HpRegen>
+		<MpRegen max="60">15</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+		<UnlockLevel level="20">Necromancer</UnlockLevel>
+		<UnlockLevel level="20">Assassin</UnlockLevel>
+	</Object>
+</Objects>

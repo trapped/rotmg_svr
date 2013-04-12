@@ -1,0 +1,1919 @@
+<Objects>
+
+  <Object type="0x1200" id="Large Purple Pinstripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000000</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1300" id="Small Purple Pinstripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000000</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1201" id="Large Brown Lined Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000001</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1301" id="Small Brown Lined Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000001</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1202" id="Large Blue Striped Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000000</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1302" id="Small Blue Striped Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000000</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1203" id="Large Black Striped Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000001</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1303" id="Small Black Striped Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000001</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1204" id="Large Rainbow Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000000</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1304" id="Small Rainbow Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000000</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1205" id="Large Starry Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000001</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1305" id="Small Starry Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000001</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1206" id="Large Brown Stitch Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000000</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1306" id="Small Brown Stitch Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000000</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1207" id="Large Tan Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000001</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1307" id="Small Tan Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000001</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1208" id="Large Green Weave Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000002</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1308" id="Small Green Weave Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000002</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1209" id="Large Blue Wave Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000003</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1309" id="Small Blue Wave Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000003</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120a" id="Large Yellow Wire Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000004</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130a" id="Small Yellow Wire Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000004</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120b" id="Large Futuristic Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000005</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130b" id="Small Futuristic Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000005</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120c" id="Large Stony Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000006</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130c" id="Small Stony Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000006</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120d" id="Large Heart Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000007</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130d" id="Small Heart Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000007</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120e" id="Large Skull Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000008</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130e" id="Small Skull Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000008</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x120f" id="Large Red Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000009</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x130f" id="Small Red Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000009</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1210" id="Large Jester Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000a</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1310" id="Small Jester Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000a</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1211" id="Large Crossbox Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000b</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1311" id="Small Crossbox Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000b</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1212" id="Large White Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000c</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1312" id="Small White Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000c</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1213" id="Large Grey Scaly Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000d</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1313" id="Small Grey Scaly Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000d</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1214" id="Large Red Spotted Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000e</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1314" id="Small Red Spotted Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000e</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1215" id="Large Smiley Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00000f</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1315" id="Small Smiley Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00000f</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1216" id="Large Bold Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000010</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1316" id="Small Bold Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000010</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1217" id="Large Blue Lace Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000002</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1317" id="Small Blue Lace Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000002</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1218" id="Large Loud Spotted Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000003</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1318" id="Small Loud Spotted Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000003</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1219" id="Large Red Weft Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000004</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1319" id="Small Red Weft Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000004</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121a" id="Large Pink Sparkly Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000005</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131a" id="Small Pink Sparkly Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000005</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121b" id="Large Red Lace Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000006</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131b" id="Small Red Lace Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000006</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121c" id="Large Pink Maze Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000007</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131c" id="Small Pink Maze Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000007</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121d" id="Large Yellow Dot Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000002</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131d" id="Small Yellow Dot Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000002</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121e" id="Large Cloud Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000008</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131e" id="Small Cloud Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000008</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x121f" id="Large Glowthread Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000002</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x131f" id="Small Glowthread Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000002</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1220" id="Large Sweater Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000003</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1320" id="Small Sweater Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000003</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1221" id="Large Bee Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000004</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1321" id="Small Bee Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000004</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1222" id="Large Western Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000003</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1322" id="Small Western Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000003</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1223" id="Large Blue Point Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000004</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1323" id="Small Blue Point Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000004</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1224" id="Large Robber Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000005</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1324" id="Small Robber Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000005</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1225" id="Large Chainmail Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000006</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1325" id="Small Chainmail Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000006</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1226" id="Large Dark Blue Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x4000007</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1326" id="Small Dark Blue Stripe Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x4000007</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1227" id="Large Vine Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000011</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1327" id="Small Vine Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000011</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1228" id="Large Party Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000012</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1328" id="Small Party Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000012</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1229" id="Large Viva Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000013</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1329" id="Small Viva Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000013</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122a" id="Large Nautical Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000014</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132a" id="Small Nautical Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000014</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122b" id="Large Cactus Zag Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000015</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132b" id="Small Cactus Zag Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000015</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122c" id="Large Big-Stripe Blue Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000016</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132c" id="Small Big-Stripe Blue Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000016</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122d" id="Large Big-Stripe Red Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000017</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132d" id="Small Big-Stripe Red Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000017</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122e" id="Large Starry Night Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000018</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132e" id="Small Starry Night Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000018</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x122f" id="Large Lemon-Lime Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000019</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x132f" id="Small Lemon-Lime Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000019</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1230" id="Large Floral Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001a</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1330" id="Small Floral Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001a</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1231" id="Large Pink Dot Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001b</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1331" id="Small Pink Dot Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001b</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1232" id="Large Dark Eyes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001c</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1332" id="Small Dark Eyes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001c</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1233" id="Large Wind Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001d</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1333" id="Small Wind Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001d</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1234" id="Large Shamrock Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x9000009</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1334" id="Small Shamrock Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x9000009</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1235" id="Large Bright Stripes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001e</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1335" id="Small Bright Stripes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001e</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1236" id="Large USA Flag Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00001f</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1336" id="Small USA Flag Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00001f</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1237" id="Large Flannel Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000020</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1337" id="Small Flannel Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000020</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1238" id="Large Cow Print Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000021</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1338" id="Small Cow Print Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000021</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1239" id="Large Lush Camo Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000022</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1339" id="Small Lush Camo Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000022</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123a" id="Large Dark Camo Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000023</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133a" id="Small Dark Camo Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000023</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123b" id="Large Teal Crystal Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000024</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133b" id="Small Teal Crystal Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000024</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123c" id="Large Blue Fireworks Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000025</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133c" id="Small Blue Fireworks Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000025</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123d" id="Large Crisscross Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000026</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133d" id="Small Crisscross Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000026</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123e" id="Large Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000027</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133e" id="Small Diamond Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000027</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x123f" id="Large Egyptian Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000028</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x133f" id="Small Egyptian Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000028</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1240" id="Large Purple Bones Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa000029</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1340" id="Small Purple Bones Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa000029</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1241" id="Large Plaid Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0xa00002a</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1341" id="Small Plaid Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0xa00002a</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1242" id="Large Red USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x900000a</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1342" id="Small Red USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x900000a</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1243" id="Large Blue USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x900000b</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1343" id="Small Blue USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x900000b</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1244" id="Large USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x900000c</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1344" id="Small USA Star Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x900000c</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1245" id="Large Purple Stripes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000005</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1345" id="Small Purple Stripes Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000005</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+
+  <Object type="0x1246" id="Large Bright Floral Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1b</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1c</Index></Mask>
+    <Tex1>0x5000006</Tex1>
+    <SlotType>10</SlotType>
+    <Description>A large bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+  <Object type="0x1346" id="Small Bright Floral Cloth">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture><File>lofiObj3</File><Index>0x1d</Index></Texture>
+    <Mask><File>lofiObj3</File><Index>0x1e</Index></Mask>
+    <Tex2>0x5000006</Tex2>
+    <SlotType>10</SlotType>
+    <Description>A small bolt of cloth.</Description>
+    <Activate>Dye</Activate>
+    <Sound>use_potion</Sound>
+    <Consumable/>
+    <Soulbound/>
+  </Object>
+</Objects>
