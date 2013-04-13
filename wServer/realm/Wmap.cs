@@ -75,13 +75,13 @@ namespace wServer.realm
                         case "conn":
                             stats.Add(new KeyValuePair<StatsType, object>(StatsType.ObjectConnection, Utils.FromString(kv[1]))); break;
                         //case "mtype":
-                        //    entity.Stats[StatsType.MerchantMerchandiseType] = Utils.FromString(kv[1]); break;
+                        //    Entity.stats[StatsType.MerchantMerchandiseType] = Utils.FromString(kv[1]); break;
                         //case "mcount":
-                        //    entity.Stats[StatsType.MerchantRemainingCount] = Utils.FromString(kv[1]); break;
+                        //    Entity.stats[StatsType.MerchantRemainingCount] = Utils.FromString(kv[1]); break;
                         //case "mtime":
-                        //    entity.Stats[StatsType.MerchantRemainingMinute] = Utils.FromString(kv[1]); break;
+                        //    Entity.stats[StatsType.MerchantRemainingMinute] = Utils.FromString(kv[1]); break;
                         //case "nstar":
-                        //    entity.Stats[StatsType.NameChangerStar] = Utils.FromString(kv[1]); break;
+                        //    Entity.stats[StatsType.NameChangerStar] = utils.fromstring(kv[1]); break;
                     }
                 }
             return new ObjectDef()

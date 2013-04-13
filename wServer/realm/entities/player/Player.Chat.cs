@@ -277,35 +277,61 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("setStat", StringComparison.OrdinalIgnoreCase))
-            {
-                Char chr = psr.Character;
+            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase))
                 try
                 {
-                    if (args.Length == 0)
-                    {
-                        chr.Attack = chr.Attack + 100;//hp0 mp1 att2 def3 spd4 dex5 vit6 wis7
-                        chr.Defense = chr.Defense + 100;
-                        chr.Speed = chr.Speed + 100;
-                        chr.Dexterity = chr.Dexterity + 100;
-                        chr.HpRegen = chr.HpRegen + 100;
-                        chr.MpRegen = chr.MpRegen + 100;
-                        UpdateCount++;
-                    }
+                    Inventory[0] = XmlDatas.ItemDescs[3840];
+                    Inventory[1] = XmlDatas.ItemDescs[3843];
+                    Inventory[2] = XmlDatas.ItemDescs[3841];
+                    Inventory[3] = XmlDatas.ItemDescs[3845];
+                    UpdateCount++;
+                    return;
                 }
                 catch
                 {
-
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Error!"
+                    });
                 }
-            }
-            else
-                psr.SendPacket(new TextPacket()
-                {
-                    BubbleTime = 0,
-                    Stars = -1,
-                    Name = "",
-                    Text = "Unknown command!"
-                });
+            //else if (cmd.Equals("setStat", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    Char chr = psr.Character;
+            //    try
+            //    {
+            //        if (args.Length == 0)
+            //        {
+            //            chr.Attack = chr.Attack + 100;//hp0 mp1 att2 def3 spd4 dex5 vit6 wis7
+            //            chr.Defense = chr.Defense + 100;
+            //            chr.Speed = chr.Speed + 100;
+            //            chr.Dexterity = chr.Dexterity + 100;
+            //            chr.HpRegen = chr.HpRegen + 100;
+            //            chr.MpRegen = chr.MpRegen + 100;
+            //            UpdateCount++;
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        psr.SendPacket(new TextPacket()
+            //        {
+            //            BubbleTime = 0,
+            //            Stars = -1,
+            //            Name = "",
+            //            Text = "Error!"
+            //        });
+            //    }
+            //}
+            //else
+            //    psr.SendPacket(new TextPacket()
+            //    {
+            //        BubbleTime = 0,
+            //        Stars = -1,
+            //        Name = "",
+            //        Text = "Unknown command!"
+            //    });
         }
     }
 }

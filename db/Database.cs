@@ -98,10 +98,10 @@ AND characters.charId=death.chrId;";
                 Admin = false,
                 BeginnerPackageTimeLeft = 0,
                 Converted = false,
-                Credits = 1000000,
+                Credits = 100,
                 Guild = null,
                 NameChosen = false,
-                NextCharSlotPrice = 10,
+                NextCharSlotPrice = 600,
                 VerifiedEmail = false,
                 Stats = new Stats()
                 {
@@ -268,7 +268,7 @@ SELECT fame FROM stats WHERE accId=@accId;";
                 }
                 else
                 {
-                    acc.Credits = 1000;
+                    acc.Credits = 100;
                     acc.Stats = new Stats()
                     {
                         Fame = 0,
