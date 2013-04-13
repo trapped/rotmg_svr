@@ -91,9 +91,10 @@ namespace wServer.realm
         }
         public float GetMPRegen()
         {
+            var wis = GetStats(6);
             if (player.HasConditionEffect(ConditionEffects.Quiet))
                 return 0;
-            return 0.6f + GetStats(6) / 125f;
+            return 0.6f + wis / 15f; //was 125f
         }
         public float GetDex()
         {
