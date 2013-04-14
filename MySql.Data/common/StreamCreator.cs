@@ -49,7 +49,7 @@ namespace MySql.Data.Common
     {
       hostList = hosts;
       if (hostList == null || hostList.Length == 0)
-        hostList = "localhost";
+        hostList = "localhost";//localhost
       this.port = port;
       this.pipeName = pipeName;
       this.keepalive = keepalive;

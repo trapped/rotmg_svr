@@ -5,6 +5,8 @@ using System.Text;
 using wServer.cliPackets;
 using wServer.svrPackets;
 using wServer.realm.setpieces;
+using db;
+
 
 namespace wServer.realm.entities
 {
@@ -278,6 +280,7 @@ namespace wServer.realm.entities
                 }
             }
             else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
                 try
                 {
                     Inventory[0] = XmlDatas.ItemDescs[3840];
@@ -297,6 +300,129 @@ namespace wServer.realm.entities
                         Text = "Error!"
                     });
                 }
+            }
+            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase) && args.Length > 0)
+            {
+                DateTime date1 = DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                String date2 = date1.ToString();
+                Console.WriteLine(date2);
+                try
+                {
+                    using (var database1 = new Database())
+                    {
+                        if (args.Length == 3)
+                        {
+                            var mysqlcommand = database1.CreateQuery();
+                            mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
+                            mysqlcommand.Parameters.AddWithValue("@icon", "info");
+                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", args[1]);
+                            mysqlcommand.Parameters.AddWithValue("@link", args[2]);
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            if (mysqlcommand.ExecuteNonQuery() > 0)
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Success!"
+                                });
+                            }
+                            else
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Database error!"
+                                });
+                            }
+                        }
+                        else if (args.Length == 2)
+                        {
+                            var mysqlcommand = database1.CreateQuery();
+                            mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
+                            mysqlcommand.Parameters.AddWithValue("@icon", "info");
+                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", args[1]);
+                            mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            if (mysqlcommand.ExecuteNonQuery() > 0)
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Success!"
+                                });
+                            }
+                            else
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Database error!"
+                                });
+                            }
+                        }
+                        else if (args.Length == 1)
+                        {
+                            var mysqlcommand = database1.CreateQuery();
+                            mysqlcommand.Parameters.AddWithValue("@icon", "info");
+                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", "Ciuffoboss");
+                            mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
+                            if (mysqlcommand.ExecuteNonQuery() > 0)
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Success!"
+                                });
+                            }
+                            else
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Name = "",
+                                    Text = "Database error!"
+                                });
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Error!"
+                    });
+                }
+            }
+            else
+            {
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Stars = -1,
+                    Name = "",
+                    Text = "Unknown command!"
+                });
+            }
             //else if (cmd.Equals("setStat", StringComparison.OrdinalIgnoreCase))
             //{
             //    Char chr = psr.Character;
@@ -324,14 +450,6 @@ namespace wServer.realm.entities
             //        });
             //    }
             //}
-            //else
-            //    psr.SendPacket(new TextPacket()
-            //    {
-            //        BubbleTime = 0,
-            //        Stars = -1,
-            //        Name = "",
-            //        Text = "Unknown command!"
-            //    });
         }
     }
 }

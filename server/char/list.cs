@@ -37,7 +37,7 @@ namespace server.@char
                             Name = "EUSouth",
                             Lat = 22.28,
                             Long = 114.16,
-                            DNS = "127.0.0.1",
+                            DNS = "localhost", //127.0.0.1
                             Usage = 0.2,
                             AdminOnly = false
                         }

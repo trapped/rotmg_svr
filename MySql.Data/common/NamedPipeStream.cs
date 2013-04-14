@@ -240,7 +240,7 @@ namespace MySql.Data.Common
     internal static Stream Create(string pipeName, string hostname, uint timeout)
     {
       string pipePath;
-      if (0 == String.Compare(hostname, "localhost", true))
+      if (0 == String.Compare(hostname, "localhost", true))//localhost
         pipePath = @"\\.\pipe\" + pipeName;
       else
         pipePath = String.Format(@"\\{0}\pipe\{1}", hostname, pipeName);
