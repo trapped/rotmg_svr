@@ -84,17 +84,37 @@ namespace wServer.realm
         }
         public float GetHPRegen()
         {
+            float dis;
             var vit = GetStats(5);
             if (player.HasConditionEffect(ConditionEffects.Sick))
                 vit = 0;
-            return 1 + vit / 8f;
+            if (player.ObjectType == 797)
+            {
+                dis = 2.5f;
+                return 1 + vit / dis;
+            }
+            else if (player.ObjectType == 798)
+            {
+                dis = 2.5f;
+                return 1 + vit / dis;
+            }
+            else if (player.ObjectType == 805)
+            {
+                dis = 3f;
+                return 1 + vit / dis;
+            }
+            else
+            {
+                dis = 8f;
+                return 1 + vit / dis;
+            }
         }
         public float GetMPRegen()
         {
             var wis = GetStats(6);
             if (player.HasConditionEffect(ConditionEffects.Quiet))
                 return 0;
-            return 0.6f + wis / 15f; //was 125f
+            return 0.6f + wis / 16.7f; //was 125f
         }
         public float GetDex()
         {
