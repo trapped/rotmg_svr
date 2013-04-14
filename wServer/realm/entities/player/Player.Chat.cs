@@ -41,8 +41,8 @@ namespace wServer.realm.entities
                 {
                     BubbleTime = 0,
                     Stars = -1,
-                    Name = "*Error*",
-                    Text = "No permission!"
+                    Name = "",
+                    Text = "You are not an admin!"
                 });
                 return false;
             }
@@ -52,6 +52,7 @@ namespace wServer.realm.entities
         }
         void ProcessCmd(string cmd, string[] args)
         {
+            Console.WriteLine(cmd);
             if (cmd.Equals("tutorial", StringComparison.OrdinalIgnoreCase))
                 psr.Reconnect(new ReconnectPacket()
                 {
@@ -279,33 +280,11 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
             {
-                try
-                {
-                    Inventory[0] = XmlDatas.ItemDescs[3840];
-                    Inventory[1] = XmlDatas.ItemDescs[3843];
-                    Inventory[2] = XmlDatas.ItemDescs[3841];
-                    Inventory[3] = XmlDatas.ItemDescs[3845];
-                    UpdateCount++;
-                    return;
-                }
-                catch
-                {
-                    psr.SendPacket(new TextPacket()
-                    {
-                        BubbleTime = 0,
-                        Stars = -1,
-                        Name = "",
-                        Text = "Error!"
-                    });
-                }
-            }
-            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase) && args.Length > 0)
-            {
-                DateTime date1 = DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                String date2 = date1.ToString();
-                Console.WriteLine(date2);
+                //DateTime date1 = DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                //String date2 = date1.ToString();
+                //Console.WriteLine(date2);
                 try
                 {
                     using (var database1 = new Database())
@@ -318,7 +297,7 @@ namespace wServer.realm.entities
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
                             mysqlcommand.Parameters.AddWithValue("@text", args[1]);
                             mysqlcommand.Parameters.AddWithValue("@link", args[2]);
-                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
                                 psr.SendPacket(new TextPacket()
@@ -348,7 +327,7 @@ namespace wServer.realm.entities
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
                             mysqlcommand.Parameters.AddWithValue("@text", args[1]);
                             mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
-                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
                                 psr.SendPacket(new TextPacket()
@@ -377,7 +356,7 @@ namespace wServer.realm.entities
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
                             mysqlcommand.Parameters.AddWithValue("@text", "Ciuffoboss");
                             mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
-                            mysqlcommand.Parameters.AddWithValue("@date", date2);
+                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
@@ -400,7 +379,39 @@ namespace wServer.realm.entities
                                 });
                             }
                         }
+                        else
+                        {
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Database error!"
+                            });
+                        }
                     }
+                }
+                catch
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Error!"
+                    });
+                }
+            }
+            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                try
+                {
+                    Inventory[0] = XmlDatas.ItemDescs[3840];
+                    Inventory[1] = XmlDatas.ItemDescs[3843];
+                    Inventory[2] = XmlDatas.ItemDescs[3841];
+                    Inventory[3] = XmlDatas.ItemDescs[3845];
+                    UpdateCount++;
+                    return;
                 }
                 catch
                 {
