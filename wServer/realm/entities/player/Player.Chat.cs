@@ -52,7 +52,6 @@ namespace wServer.realm.entities
         }
         void ProcessCmd(string cmd, string[] args)
         {
-            Console.WriteLine(cmd);
             if (cmd.Equals("tutorial", StringComparison.OrdinalIgnoreCase))
                 psr.Reconnect(new ReconnectPacket()
                 {
@@ -81,6 +80,13 @@ namespace wServer.realm.entities
                     var entity = Entity.Resolve(objType);
                     entity.Move(X, Y);
                     Owner.EnterWorld(entity);
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
+                    });
                 }
             }
             else if (cmd.Equals("spawnx", StringComparison.OrdinalIgnoreCase) &&
@@ -106,6 +112,13 @@ namespace wServer.realm.entities
                         entity.Move(X, Y);
                         Owner.EnterWorld(entity);
                     }
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
+                    });
                 }
             }
             else if (cmd.Equals("addEff", StringComparison.OrdinalIgnoreCase) &&
@@ -117,6 +130,13 @@ namespace wServer.realm.entities
                     {
                         Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), args[0].Trim()),
                         DurationMS = -1
+                    });
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
                     });
                 }
                 catch
@@ -139,6 +159,13 @@ namespace wServer.realm.entities
                     {
                         Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), args[0].Trim()),
                         DurationMS = 0
+                    });
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
                     });
                 }
                 catch
@@ -173,7 +200,13 @@ namespace wServer.realm.entities
                     {
                         Inventory[i] = XmlDatas.ItemDescs[objType];
                         UpdateCount++;
-                        return;
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Success!"
+                        });
                     }
             }
             else if (cmd.Equals("tp", StringComparison.OrdinalIgnoreCase) &&
@@ -217,6 +250,13 @@ namespace wServer.realm.entities
                     ISetPiece piece = (ISetPiece)Activator.CreateInstance(Type.GetType(
                         "wServer.realm.setpieces." + args[0]));
                     piece.RenderSetPiece(Owner, new IntPoint((int)X + 1, (int)Y + 1));
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
+                    });
                 }
                 catch
                 {
@@ -237,6 +277,13 @@ namespace wServer.realm.entities
                     {
                         Effect = ConditionEffectIndex.Paused,
                         DurationMS = -1
+                    });
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
                     });
                 }
                 catch
@@ -260,6 +307,13 @@ namespace wServer.realm.entities
                         psr.Player.Level = psr.Player.Level + 1;
                         psr.Player.CheckLevelUp();
                         UpdateCount++;
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Success!"
+                        });
                     }
                     else if (args.Length == 1)
                     {
@@ -267,6 +321,13 @@ namespace wServer.realm.entities
                         psr.Player.Level = int.Parse(args[0]);
                         psr.Player.CheckLevelUp();
                         UpdateCount++;
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Success!"
+                        });
                     }
                 }
                 catch
@@ -282,9 +343,8 @@ namespace wServer.realm.entities
             }
             else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
             {
-                //DateTime date1 = DateTime.ParseExact(DateTime.Now.ToString(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                //String date2 = date1.ToString();
-                //Console.WriteLine(date2);
+                DateTime date1 = DateTime.Parse(DateTime.Now.ToString());
+                String date2 = date1.Year.ToString() + "-" + date1.Month.ToString() + "-" + date1.Day.ToString() + " " + date1.Hour.ToString() + ":" + date1.Minute.ToString() + ":" + date1.Second.ToString();
                 try
                 {
                     using (var database1 = new Database())
@@ -297,7 +357,7 @@ namespace wServer.realm.entities
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
                             mysqlcommand.Parameters.AddWithValue("@text", args[1]);
                             mysqlcommand.Parameters.AddWithValue("@link", args[2]);
-                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
                                 psr.SendPacket(new TextPacket()
@@ -315,7 +375,7 @@ namespace wServer.realm.entities
                                     BubbleTime = 0,
                                     Stars = -1,
                                     Name = "",
-                                    Text = "Database error!"
+                                    Text = "Error!"
                                 });
                             }
                         }
@@ -326,8 +386,8 @@ namespace wServer.realm.entities
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
                             mysqlcommand.Parameters.AddWithValue("@text", args[1]);
-                            mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
-                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
+                            mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
                                 psr.SendPacket(new TextPacket()
@@ -345,7 +405,7 @@ namespace wServer.realm.entities
                                     BubbleTime = 0,
                                     Stars = -1,
                                     Name = "",
-                                    Text = "Database error!"
+                                    Text = "Error!"
                                 });
                             }
                         }
@@ -354,9 +414,9 @@ namespace wServer.realm.entities
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
                             mysqlcommand.Parameters.AddWithValue("@title", args[0]);
-                            mysqlcommand.Parameters.AddWithValue("@text", "Ciuffoboss");
-                            mysqlcommand.Parameters.AddWithValue("@link", "http://dn-rotmg.forumfree.it/");
-                            mysqlcommand.Parameters.AddWithValue("@date", "2013-04-13 00:00:00");
+                            mysqlcommand.Parameters.AddWithValue("@text", "Default news text");
+                            mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
+                            mysqlcommand.Parameters.AddWithValue("@date", date2);
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
@@ -375,7 +435,7 @@ namespace wServer.realm.entities
                                     BubbleTime = 0,
                                     Stars = -1,
                                     Name = "",
-                                    Text = "Database error!"
+                                    Text = "Error!"
                                 });
                             }
                         }
@@ -402,7 +462,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
             {
                 try
                 {
@@ -411,7 +471,13 @@ namespace wServer.realm.entities
                     Inventory[2] = XmlDatas.ItemDescs[3841];
                     Inventory[3] = XmlDatas.ItemDescs[3845];
                     UpdateCount++;
-                    return;
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Success!"
+                    });
                 }
                 catch
                 {
