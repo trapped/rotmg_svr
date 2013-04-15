@@ -200,13 +200,7 @@ namespace wServer.realm.entities
                     {
                         Inventory[i] = XmlDatas.ItemDescs[objType];
                         UpdateCount++;
-                        psr.SendPacket(new TextPacket()
-                        {
-                            BubbleTime = 0,
-                            Stars = -1,
-                            Name = "",
-                            Text = "Success!"
-                        });
+                        return;
                     }
             }
             else if (cmd.Equals("tp", StringComparison.OrdinalIgnoreCase) &&
