@@ -203,7 +203,9 @@ namespace wServer.realm
                 case "Portal":
                     return new Portal(id, null);
                 case "ClosedVaultChest":
-
+                    //return new StaticObject(id, null, false, false, false);
+                case "VaultChest":
+                    //return new StaticObject(id, null, false, false, false);
                 case "GuildMerchant":
                     return new SellableObject(id);
 
