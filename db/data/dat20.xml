@@ -5893,7 +5893,7 @@
     <Object type="0xc30" id="Scepter of Fulmination">
 		<Class>Equipment</Class>
 		<Item/>
-        <Texture><File>lofiObj3</File><Index>0x1af</Index></Texture>
+    <Texture><File>lofiObj3</File><Index>0x1af</Index></Texture>
 		<SlotType>23</SlotType>
 		<Description>This scepter's blast is so powerful it will slow opponents.</Description>
 		<Sound>spell/magic_nova</Sound>
@@ -5903,8 +5903,7 @@
 		<BagType>2</BagType>
 		<FameBonus>4</FameBonus>
 		<MpCost>65</MpCost>
-		
-        <Activate totalDamage="180" maxTargets="7" condEffect="Slowed" condDuration="3" color="0xff9933">Lightning</Activate>
+		<Activate totalDamage="180" maxTargets="7" condEffect="Slowed" condDuration="3" color="0xff9933">Lightning</Activate>
 	</Object>
 	
 	<Object type="0xc31" id="Experimental Ring">

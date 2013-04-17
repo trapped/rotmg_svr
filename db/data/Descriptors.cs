@@ -77,7 +77,7 @@ public class ConditionEffect
     public ConditionEffect(XElement elem)
     {
         Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Value.Replace(" ", ""));
-        if (elem.Attribute("duration") != null)
+        if (elem.Attribute("condDuration") != null)
             DurationMS = (int)(float.Parse(elem.Attribute("duration").Value) * 1000); //error: wrong parse input
         if (elem.Attribute("range") != null)
             Range = float.Parse(elem.Attribute("range").Value);

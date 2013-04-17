@@ -5,6 +5,7 @@ using System.Text;
 using wServer.cliPackets;
 using wServer.svrPackets;
 using wServer.logic;
+using System.Xml;
 
 namespace wServer.realm.entities
 {
@@ -81,7 +82,7 @@ namespace wServer.realm.entities
             {
                 Effect = ConditionEffectIndex.Hexed,
                 DurationMS = 0
-            }
+            },
         };
 
         public void UseItem(RealmTime time, UseItemPacket pkt)
@@ -137,7 +138,7 @@ namespace wServer.realm.entities
                 });
                 pkts.Add(new NotificationPacket()
                 {
-                    Color = new ARGB(0xff9000ff),
+                    Color = new ARGB(0xFFFFFFFF), //was 0xff9000ff
                     ObjectId = player.Id,
                     Text = "+" + (newMp - player.MP)
                 });
@@ -531,7 +532,7 @@ namespace wServer.realm.entities
                                     {
                                         ObjectId = enemy.Id,
                                         Color = new ARGB(0xffff0000),
-                                        Text = "Statis"
+                                        Text = "Stasis"
                                     });
                                 }
                             });
@@ -582,7 +583,10 @@ namespace wServer.realm.entities
                             {
                                 if (targets[i] == null) break;
                                 Entity prev = i == 0 ? (Entity)this : targets[i - 1];
-                                targets[i].Damage(this, time, eff.TotalDamage, false);
+                                //int z;
+                                //if (item.ActivateEffects[ConditionEffects] = ConditionEffects.Slowed)
+
+                                targets[i].Damage(this, time, eff.TotalDamage, false/*, condeff*/); //gotta add something here to make it apply condition effects declared in the xmls
                                 pkts.Add(new ShowEffectPacket()
                                 {
                                     EffectType = EffectType.Lightning,

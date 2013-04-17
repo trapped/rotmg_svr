@@ -16,7 +16,7 @@ namespace wServer.logic
         static _ Misc = Behav()
             .Init(0x01c7, Behaves("White Fountain",
                     MagicEye.Instance,
-                    Cooldown.Instance(250,
+                    Cooldown.Instance(600,
                     new NexusHealHp()
                         /*IfNot.Instance(
                             new NexusHealHp(),

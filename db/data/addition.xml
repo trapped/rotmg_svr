@@ -165,4 +165,22 @@
 		<Soulbound/>
 		<Activate id="Dreamscape Labyrinth Portal">Create</Activate>
 	</Object>
+  <Object type="0xc30" id="Scepter of Derping">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x1af</Index>
+    </Texture>
+    <SlotType>23</SlotType>
+    <Description>This scepter's blast is so powerful it will make opponents go derp away.</Description>
+    <Sound>spell/magic_nova</Sound>
+    <ActivateOnEquip stat="20" amount="2">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="27" amount="2">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>2</BagType>
+    <FameBonus>4</FameBonus>
+    <MpCost>65</MpCost>
+    <Activate totalDamage="180" maxTargets="7" condEffect="Slowed" condDuration="3" color="0xff9933">Lightning</Activate>
+  </Object>
 </Addition>
