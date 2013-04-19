@@ -42,6 +42,7 @@ namespace wServer.realm
             Worlds[World.VAULT_ID] = new Vault(true);
             Worlds[World.TEST_ID] = new Test();
             Worlds[World.RAND_REALM] = new RandomRealm();
+            Worlds[World.BANANA_ID] = new Banana();
 
             Monitor = new RealmPortalMonitor(Worlds[World.NEXUS_ID] as Nexus);
             

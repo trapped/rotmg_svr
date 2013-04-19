@@ -10,7 +10,10 @@ namespace terrain
     class Test
     {
         [STAThread]
-        static void Main() { Terrain.Generate(); }
+        static void Main()
+        {
+            Terrain.Generate();
+        }
 
         public static void Show(Image img)
         {

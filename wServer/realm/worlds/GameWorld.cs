@@ -24,6 +24,20 @@ namespace wServer.realm.worlds
             else
                 Overseer = null;
         }
+        public GameWorld(String mapName, string name, bool oryxPresent)
+        {
+            Name = name;
+            Background = 0;
+            base.FromWorldMap(typeof(RealmManager).Assembly.GetManifestResourceStream("wServer.realm.worlds." + mapName + ".wmap"));
+            SetPieces.ApplySetPieces(this);
+            if (oryxPresent)
+            {
+                Overseer = new Oryx(this);
+                Overseer.Init();
+            }
+            else
+                Overseer = null;
+        }
 
         public Oryx Overseer { get; private set; }
 

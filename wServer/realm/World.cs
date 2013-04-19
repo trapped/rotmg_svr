@@ -16,6 +16,7 @@ namespace wServer.realm
         public const int NEXUS_LIMBO = -4;
         public const int VAULT_ID = -5;
         public const int TEST_ID = -6;
+        public const int BANANA_ID = -10;
 
         protected World()
         {

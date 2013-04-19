@@ -6,6 +6,7 @@ using wServer.cliPackets;
 using wServer.svrPackets;
 using wServer.realm.setpieces;
 using db;
+using wServer.realm;
 
 
 namespace wServer.realm.entities
@@ -490,6 +491,10 @@ namespace wServer.realm.entities
                         Text = "Error!"
                     });
                 }
+            }
+            else if (cmd.Equals("portal",StringComparison.OrdinalIgnoreCase))
+            {
+                RealmManager.AddWorld(new worlds.GameWorld("banana","Banana",false));
             }
             else
             {

@@ -373,6 +373,8 @@ namespace wServer.realm.entities
                         world = RealmManager.GetWorld(World.VAULT_ID); break;
                     case 0x071e:
                         world = RealmManager.AddWorld(new Kitchen()); break;
+                    case 0x233D:
+                        world = RealmManager.AddWorld(new Banana()); break;
                 }
                 entity.WorldInstance = world;
             }

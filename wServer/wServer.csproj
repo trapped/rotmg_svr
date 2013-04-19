@@ -247,6 +247,7 @@
     <Compile Include="realm\terrain\JsonMapExporter.cs" />
     <Compile Include="realm\terrain\TerrainTile.cs" />
     <Compile Include="realm\terrain\WorldMapExporter.cs" />
+    <Compile Include="realm\worlds\Banana.cs" />
     <Compile Include="realm\worlds\RandRealm.cs" />
     <Compile Include="realm\WorldTimer.cs" />
     <Compile Include="realm\Entity.cs" />
@@ -352,6 +353,7 @@
     <EmbeddedResource Include="realm\worlds\tutorial.wmap" />
     <EmbeddedResource Include="realm\worlds\vault.wmap" />
     <EmbeddedResource Include="realm\worlds\world1.wmap" />
+    <EmbeddedResource Include="realm\worlds\banana.wmap" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

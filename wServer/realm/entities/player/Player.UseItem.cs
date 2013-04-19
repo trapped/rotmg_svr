@@ -583,10 +583,13 @@ namespace wServer.realm.entities
                             {
                                 if (targets[i] == null) break;
                                 Entity prev = i == 0 ? (Entity)this : targets[i - 1];
-                                //int z;
-                                //if (item.ActivateEffects[ConditionEffects] = ConditionEffects.Slowed)
-
-                                targets[i].Damage(this, time, eff.TotalDamage, false/*, condeff*/); //gotta add something here to make it apply condition effects declared in the xmls
+                                targets[i].Damage(this, time, eff.TotalDamage, false);
+                                if (eff.ConditionEffect != null) //Start of the code made by ossimc82
+                                    targets[i].ApplyConditionEffect(new ConditionEffect()
+                                    {
+                                        Effect = eff.ConditionEffect.Value,
+                                        DurationMS = (int)(eff.EffectDuration * 1000)
+                                    });//End of the code made by ossimc82
                                 pkts.Add(new ShowEffectPacket()
                                 {
                                     EffectType = EffectType.Lightning,

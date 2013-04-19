@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C400FDD3-6250-4F9B-9516-B3463D6761F5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>terrain</RootNamespace>
     <AssemblyName>terrain</AssemblyName>
@@ -36,7 +36,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>terrain.Test</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GeoAPI">
@@ -69,6 +69,7 @@
     <Compile Include="Decoration.cs" />
     <Compile Include="Json2Wmap.cs" />
     <Compile Include="JsonMapExporter.cs" />
+    <Compile Include="jsonwmapexporter.cs" />
     <Compile Include="MapFeatures.cs" />
     <Compile Include="PolygonMap.cs" />
     <Compile Include="Rasterizer.cs" />
