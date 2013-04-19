@@ -24,7 +24,7 @@ namespace wServer.realm.entities
                     BubbleTime = 0,
                     Stars = -1,
                     Name = "",
-                    Text = "Unique name is required to trade with other!"
+                    Text = "Unique name is required to trade with others!"
                 });
                 return;
             }
@@ -118,7 +118,7 @@ namespace wServer.realm.entities
                     BubbleTime = 0,
                     Stars = -1,
                     Name = "",
-                    Text = "You have sent a trade request to " + target.Name + "!"
+                    Text = "Sent trade request to " + target.Name
                 });
                 return;
             }
@@ -290,12 +290,12 @@ namespace wServer.realm.entities
             this.psr.SendPacket(new TradeDonePacket()
             {
                 Result = 1,
-                Message = "Trade done!"
+                Message = "Trade successful!"
             });
             tradeTarget.psr.SendPacket(new TradeDonePacket()
              {
                  Result = 1,
-                 Message = "Trade done!"
+                 Message = "Trade successful!"
              });
 
             tradeTarget.tradeTarget = null;
