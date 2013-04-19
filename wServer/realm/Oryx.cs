@@ -531,15 +531,15 @@ namespace wServer.realm
                     "Pathetic fools! My Lord of the Lost Lands will crush you all!",
                     "My Lord of the Lost Lands will make short work of you!"
                 },
-                //numberOfEnemies = new string[] {
-                //    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
-                //    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
-                //    "My Grand Sphinxes will bewitch you with their beauty!"
-                //},
-                //final = new string[] {
-                //    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
-                //    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
-                //},
+                numberOfEnemies = new string[] {
+                    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
+                    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
+                    "My Grand Sphinxes will bewitch you with their beauty!"
+                },
+                final = new string[] {
+                    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
+                    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
+                },
                 killed = new string[] {
                     "How dare you foul-mouthed hooligans treat my Lord of the Lost Lands with such indignity!",
                     "What trickery is this?! My Lord of the Lost Lands was invincible!"
@@ -550,15 +550,15 @@ namespace wServer.realm
                 spawn = new string[] {
                     "My Hermit God's thousand tentacles shall drag you to a watery grave!"
                 },
-                //numberOfEnemies = new string[] {
-                //    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
-                //    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
-                //    "My Grand Sphinxes will bewitch you with their beauty!"
-                //},
-                //final = new string[] {
-                //    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
-                //    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
-                //},
+                numberOfEnemies = new string[] {
+                    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
+                    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
+                    "My Grand Sphinxes will bewitch you with their beauty!"
+                },
+                final = new string[] {
+                    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
+                    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
+                },
                 killed = new string[] {
                     "My Hermit God was more than you'll ever be, {PLAYER}. I will kill you myself!",
                     "You naive imbecile, {PLAYER}! Without my Hermit God, Dreadstump is free to roam the seas without fear!"
@@ -570,15 +570,15 @@ namespace wServer.realm
                     "My Ghost Ship will terrorize you pathetic peasants!",
                     "A Ghost Ship has entered the Realm."
                 },
-                //numberOfEnemies = new string[] {
-                //    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
-                //    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
-                //    "My Grand Sphinxes will bewitch you with their beauty!"
-                //},
-                //final = new string[] {
-                //    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
-                //    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
-                //},
+                numberOfEnemies = new string[] {
+                    "You dull-spirited apes! You shall pose no challenge for {COUNT} Grand Sphinxes!",
+                    "Regret your choices, blasphemers! My {COUNT} Grand Sphinxes will teach you respect!",
+                    "My Grand Sphinxes will bewitch you with their beauty!"
+                },
+                final = new string[] {
+                    "You festering rat-catchers! A Grand Sphinx will make you doubt your purpose!",
+                    "Gaze upon the beauty of the Grand Sphinx and feel your last hopes drain away."
+                },
                 killed = new string[] {
                     "How could a creature like {PLAYER} defeat my dreaded Ghost Ship?!",
                     "{PLAYER}, has crossed me for the last time! My Ghost Ship shall be avenged.",
@@ -673,9 +673,9 @@ namespace wServer.realm
             Tuple.Create("Skull Shrine", (ISetPiece) new SkullShrine()),
             Tuple.Create("Pentaract", (ISetPiece) new Pentaract()),
             Tuple.Create("Grand Sphinx", (ISetPiece) new Sphinx()),
-            //"Lord of the Lost Lands",
-            //"Hermit God",
-            //"Ghost Ship",
+            Tuple.Create("Lord of the Lost Lands", (ISetPiece) new Sphinx()),
+            Tuple.Create("Hermit God", (ISetPiece) new Sphinx()),
+            Tuple.Create("Ghost Ship", (ISetPiece) new Sphinx()),
             Tuple.Create("Cube God", (ISetPiece) new CubeGod()),
         };
         public void OnEnemyKilled(Enemy enemy, Player killer)

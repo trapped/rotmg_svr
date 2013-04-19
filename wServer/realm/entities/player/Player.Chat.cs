@@ -12,12 +12,16 @@ namespace wServer.realm.entities
 {
     partial class Player
     {
+        string[] y;
         public void PlayerText(RealmTime time, PlayerTextPacket pkt)
         {
             if (pkt.Text[0] == '/')
             {
                 string[] x = pkt.Text.Trim().Split(' ');
+                string[] z = pkt.Text.Trim().Split('|');
+                y = z.Skip(1).ToArray();
                 ProcessCmd(x[0].Trim('/'), x.Skip(1).ToArray());
+                
             }
             else
                 Owner.BroadcastPacket(new TextPacket()
@@ -337,20 +341,23 @@ namespace wServer.realm.entities
             }
             else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
             {
+                string[] args2 = y;
+                Console.WriteLine(y.ToString());
+                return;
                 DateTime date1 = DateTime.Parse(DateTime.Now.ToString());
                 String date2 = date1.Year.ToString() + "-" + date1.Month.ToString() + "-" + date1.Day.ToString() + " " + date1.Hour.ToString() + ":" + date1.Minute.ToString() + ":" + date1.Second.ToString();
                 try
                 {
                     using (var database1 = new Database())
                     {
-                        if (args.Length == 3)
+                        if (args2.Length == 3)
                         {
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
-                            mysqlcommand.Parameters.AddWithValue("@text", args[1]);
-                            mysqlcommand.Parameters.AddWithValue("@link", args[2]);
+                            mysqlcommand.Parameters.AddWithValue("@title", args2[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", args2[1]);
+                            mysqlcommand.Parameters.AddWithValue("@link", args2[2]);
                             mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
@@ -378,8 +385,8 @@ namespace wServer.realm.entities
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
-                            mysqlcommand.Parameters.AddWithValue("@text", args[1]);
+                            mysqlcommand.Parameters.AddWithValue("@title", args2[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", args2[1]);
                             mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
                             mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
@@ -407,7 +414,7 @@ namespace wServer.realm.entities
                         {
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args[0]);
+                            mysqlcommand.Parameters.AddWithValue("@title", args2[0].ToString());
                             mysqlcommand.Parameters.AddWithValue("@text", "Default news text");
                             mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
                             mysqlcommand.Parameters.AddWithValue("@date", date2);

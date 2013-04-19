@@ -48,7 +48,7 @@ namespace wServer.realm
             AddWorld(new GameWorld(1, "Medusa", true));
         }
 
-        public const int MAX_CLIENT = 100;
+        public const int MAX_CLIENT = 10;
 
         static int nextWorldId = 0;
         public static readonly ConcurrentDictionary<int, World> Worlds = new ConcurrentDictionary<int, World>();
@@ -171,8 +171,8 @@ namespace wServer.realm
         {
             foreach (var i in Worlds.Values.Distinct())
                 i.Tick(t);
-            //if (EnableMonitor)
-            //    svrMonitor.Mon.Tick(t);
+            if (EnableMonitor)
+                svrMonitor.Mon.Tick(t);
         }
 
         static void TickWorlds2(RealmTime t)    //Discrete simulation
