@@ -312,15 +312,14 @@ namespace wServer
 
             bool ok = true;
             cmd = db.CreateQuery();
-            cmd.CommandText = @"INSERT INTO characters(accId, charId, charType, level, exp, fame, items, hp, mp, stats, dead, pet)
- VALUES(@accId, @charId, @charType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1);";
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
             cmd.Parameters.AddWithValue("@charId", nextCharId);
             cmd.Parameters.AddWithValue("@charType", pkt.ObjectType);
             cmd.Parameters.AddWithValue("@items", character._Equipment);
             cmd.Parameters.AddWithValue("@stats", Utils.GetCommaSepString(stats));
-            //int v = cmd.ExecuteNonQuery();
-            int v = 1;
+            cmd.CommandText = "INSERT INTO characters (accId, charId, charType, level, exp, fame, items, hp, mp, stats, dead, pet) VALUES (@accId, @charId, @charType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1);";
+            int v = cmd.ExecuteNonQuery();
+            //int v = 1;
             ok = v > 0;
 
             Console.WriteLine("in create packet 3: "+ok);

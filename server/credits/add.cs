@@ -26,7 +26,7 @@ namespace server.credits
                 {
                     int amount = int.Parse(query["jwt"]);
                     cmd = db.CreateQuery();
-                    cmd.CommandText = "UPDATE stats SET fame = fame + @amount WHERE accId=@accId";
+                    cmd.CommandText = "UPDATE stats SET credits = credits + @amount WHERE accId=@accId";
                     cmd.Parameters.AddWithValue("@accId", (int)id);
                     cmd.Parameters.AddWithValue("@amount", amount);
                     int result = (int)cmd.ExecuteNonQuery();
