@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using wServer.realm.entities;
+using wServer.logic;
 
 namespace wServer.realm
 {
     class StatsManager
     {
         Player player;
+        float damagereceived;
         public StatsManager(Player player)
         {
             this.player = player;
@@ -69,6 +71,7 @@ namespace wServer.realm
             if (player.HasConditionEffect(ConditionEffects.Invulnerable) ||
                 player.HasConditionEffect(ConditionEffects.Invincible))
                 ret = 0;
+            AddRage(dmg);
             return ret;
         }
         public float GetSpeed()
@@ -112,9 +115,29 @@ namespace wServer.realm
         public float GetMPRegen()
         {
             var wis = GetStats(6);
+            float dis;
             if (player.HasConditionEffect(ConditionEffects.Quiet))
                 return 0;
-            return 0.6f + wis / 16.7f; //was 125f
+            if (player.ObjectType == 784)
+            {
+                dis = 8f;
+                return 0.6f + wis / dis;
+            }
+            else if (player.ObjectType == 799)
+            {
+                dis = 8f;
+                return 0.6f + wis / dis;
+            }
+            else if (player.ObjectType == 798)
+            {
+                dis = 16.7f;
+                return 0.6f + wis / dis;
+            }
+            else
+            {
+                dis = 16.7f;
+                return 0.6f + wis / dis;
+            }
         }
         public float GetDex()
         {
@@ -157,6 +180,63 @@ namespace wServer.realm
                 case 6: return "MpRegen";
                 case 7: return "Dexterity";
             } return null;
+        }
+        public float GetRageRegen()
+        {
+            var wis = GetStats(6);
+            int degenvalue = -5;
+            float regen;
+            if (HasEnemyNearby(player) == true) //seems bugged
+            {
+                regen = (wis / 10);
+            }
+            else
+            {
+                regen = degenvalue;
+            }
+            Console.WriteLine("int regen = " + regen.ToString());
+            return regen;
+        }
+        public static bool HasEnemyNearby(Entity entity)
+        {
+            foreach (var i in entity.Owner.EnemiesCollision.HitTest(entity.X, entity.Y, 16))
+            {
+                var d = logic.Behavior.Dist(i, entity);
+                if (d < 16 * 16)
+                return true;
+            }
+            return false;
+        }
+        public int getgainmultiplier(int multiplier, int value)
+        {
+            return (value / 100) * multiplier;
+        }
+        public void AddRage(float dmg)
+        {
+            int gainmultiplied = CalculateRage(dmg);
+            player.MP = player.MP + gainmultiplied;
+            player.UpdateCount++;
+        }
+        public int CalculateRage(float dmg)
+        {
+            int gainmultiplied = 0;
+            if (HasEnemyNearby(player) == true)
+            {
+                int gainmultiplier = 10;
+                return gainmultiplied = getgainmultiplier(gainmultiplier, (int)dmg);
+            }
+            else
+            {
+                int gainmultiplier = 0;
+                return gainmultiplied = getgainmultiplier(gainmultiplier, (int)dmg);
+            }
+        }
+        public void DegenMana(int degenvalue, RealmTime time)
+        {
+            player.MP = player.MP - degenvalue;
+            if (player.MP < 0)
+                player.MP = 0;
+            player.UpdateCount++;
         }
     }
 }

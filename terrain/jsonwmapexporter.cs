@@ -14,7 +14,7 @@ namespace terrain
         static String filepath = null;
         static void Main()
         {
-            byte[] dis = Convert(File.ReadAllText("C:/map1.jm"));
+            byte[] dis = Convert(File.ReadAllText("C:/map.jm"));
             File.WriteAllBytes("C:/Users/Ospite/Desktop/map.wmap", dis);
         }
         private struct obj
