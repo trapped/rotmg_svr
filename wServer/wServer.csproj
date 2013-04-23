@@ -131,6 +131,7 @@
     <Compile Include="logic\cond\NexusHealHp.cs" />
     <Compile Include="logic\cond\Shambling.cs" />
     <Compile Include="logic\cond\SumoMaster.cs" />
+    <Compile Include="logic\db\BehaviorDb.Oryx2.cs" />
     <Compile Include="logic\db\BehaviorDb.RedDemon.cs" />
     <Compile Include="logic\db\BehaviorDb.CubeGod.cs" />
     <Compile Include="logic\db\BehaviorDb.SkullShrine.cs" />
