@@ -5,7 +5,7 @@
 *.pydevproject
 .project
 .metadata
-bin/
+##bin/
 tmp/
 *.tmp
 *.bak
@@ -50,7 +50,7 @@ local.properties
 #*.meta
 #*.obj
 #*.pch
-#*.pdb
+*.pdb
 #*.pgc
 #*.pgd
 #*.rsp
@@ -63,6 +63,12 @@ local.properties
 .builds
 *.dotCover
 #*.exe
+*.csproj.FileListAbsolute.txt
+NuGet.exe
+*.tlog
+*.manifest
+*.vshost.exe
+*.resources
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -98,8 +104,8 @@ DocProject/Help/html
 publish
 
 # Others
-[Bb]in
-[Oo]bj
+#[Bb]in
+#[Oo]bj
 sql
 TestResults
 *.Cache
@@ -141,7 +147,7 @@ dist
 build
 eggs
 parts
-bin
+#bin
 var
 sdist
 develop-eggs
