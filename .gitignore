@@ -42,27 +42,27 @@ local.properties
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
-[Rr]elease/
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
+#[Dd]ebug/
+#[Rr]elease/
+#*_i.c
+#*_p.c
+#*.ilk
+#*.meta
+#*.obj
+#*.pch
+#*.pdb
+#*.pgc
+#*.pgd
+#*.rsp
+#*.sbr
+#*.tlb
+#*.tli
+#*.tlh
 *.tmp
 *.vspscc
 .builds
 *.dotCover
-*.exe
+#*.exe
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
