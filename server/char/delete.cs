@@ -30,10 +30,12 @@ namespace server.@char
                 else
                 {
                     var cmd = db.CreateQuery();
-                    cmd.CommandText = @"DELETE FROM characters WHERE accId = @accId AND charId = @charId;";
+                    cmd.CommandText = "DELETE FROM characters WHERE accId = @accId AND charId = @charId;";
                     cmd.Parameters.AddWithValue("@accId", acc.AccountId);
                     cmd.Parameters.AddWithValue("@charId", query["charId"]);
                     if (cmd.ExecuteNonQuery() > 0)
+                        status = Encoding.UTF8.GetBytes("<Success />");
+                    else if (cmd.ExecuteNonQuery() == -1)
                         status = Encoding.UTF8.GetBytes("<Success />");
                     else
                         status = Encoding.UTF8.GetBytes("<Error>Internal Error</Error>");
