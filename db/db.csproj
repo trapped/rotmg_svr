@@ -73,6 +73,7 @@
     <Compile Include="data\Descriptors.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="data\XmlDatas.cs" />
+    <Compile Include="dyes-hextointmod.cs" />
     <Compile Include="FameStats.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="NReader.cs" />
@@ -94,7 +95,9 @@
     <EmbeddedResource Include="data\dat13.xml" />
     <EmbeddedResource Include="data\dat14.xml" />
     <EmbeddedResource Include="data\dat15.xml" />
-    <EmbeddedResource Include="data\dat16.xml" />
+    <EmbeddedResource Include="data\dat16.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="data\dat17.xml" />
     <EmbeddedResource Include="data\dat18.xml" />
     <EmbeddedResource Include="data\dat19.xml" />

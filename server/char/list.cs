@@ -37,7 +37,7 @@ namespace server.@char
                             Name = "EUSouth",
                             Lat = 22.28,
                             Long = 114.16,
-                            DNS = "127.0.0.1", //127.0.0.1, CHANGE THIS TO LET YOUR FRIENDS CONNECT
+                            DNS = "25.83.248.169", //127.0.0.1, CHANGE THIS TO LET YOUR FRIENDS CONNECT
                             Usage = 0.2,
                             AdminOnly = false
                         }

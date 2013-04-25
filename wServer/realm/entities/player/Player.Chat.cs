@@ -14,11 +14,13 @@ namespace wServer.realm.entities
     partial class Player
     {
         string[] y;
+        String AnnounceText;
         public void PlayerText(RealmTime time, PlayerTextPacket pkt)
         {
             if (pkt.Text[0] == '/')
             {
                 string[] x = pkt.Text.Trim().Split(' ');
+                AnnounceText = pkt.Text.Substring(10);
                 string[] z = pkt.Text.Trim().Split('|');
                 y = z.Skip(1).ToArray();
                 ProcessCmd(x[0].Trim('/'), x.Skip(1).ToArray());
@@ -495,6 +497,44 @@ namespace wServer.realm.entities
             else if (cmd.Equals("portal",StringComparison.OrdinalIgnoreCase))
             {
                 RealmManager.AddWorld(new worlds.GameWorld("banana","Banana",false));
+            }
+            else if (cmd.Equals("dyeconvert", StringComparison.OrdinalIgnoreCase))
+            {
+                String converted = dyes_hextointmod.hextoint(args[0].ToString(),false).ToString();
+                Console.WriteLine(converted);
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Stars = -1,
+                    Name = "",
+                    Text = converted
+                });
+            }
+            else if (cmd.Equals("clothconvert", StringComparison.OrdinalIgnoreCase))
+            {
+                String converted = dyes_hextointmod.hextoint(args[0].ToString(), true).ToString();
+                Console.WriteLine(converted);
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Stars = -1,
+                    Name = "",
+                    Text = converted
+                });
+            }
+            else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase))
+            {
+                
+                foreach (var i in RealmManager.Clients.Values)
+                {
+                    i.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "@Announcement",
+                        Text = AnnounceText.ToString()
+                    });
+                }
             }
             else
             {
