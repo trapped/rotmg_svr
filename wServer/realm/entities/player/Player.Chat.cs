@@ -15,12 +15,14 @@ namespace wServer.realm.entities
     {
         string[] y;
         String AnnounceText;
+        String ChatMessage;
         public void PlayerText(RealmTime time, PlayerTextPacket pkt)
         {
             if (pkt.Text[0] == '/')
             {
                 string[] x = pkt.Text.Trim().Split(' ');
                 AnnounceText = pkt.Text.Substring(10);
+                ChatMessage = pkt.Text;
                 string[] z = pkt.Text.Trim().Split('|');
                 y = z.Skip(1).ToArray();
                 ProcessCmd(x[0].Trim('/'), x.Skip(1).ToArray());
@@ -522,9 +524,60 @@ namespace wServer.realm.entities
                     Text = converted
                 });
             }
+            else if (cmd.Equals("who", StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var i in RealmManager.Clients.Values)
+                    Console.WriteLine(i.ToString());
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Stars = -1,
+                    Name = "",
+                    Text = RealmManager.Clients.Values.ToString()
+                });
+            }
+            else if (cmd.Equals("tell", StringComparison.OrdinalIgnoreCase))
+            {
+                String TellText = ChatMessage.Substring(6 + args[0].Length + 1);
+                String Recipient = args[0];
+                if (args.Length > 0)
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 10,
+                        Stars = psr.Player.Stars,
+                        Name = psr.Player.Name,
+                        Text = TellText,
+                        Recipient = Recipient
+                    });
+                    foreach (var i in RealmManager.Clients.Values)
+                    {
+                        if (psr.Player.Name == Recipient)
+                        {
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = psr.Player.Stars,
+                                Name = psr.Player.Name,
+                                Text = TellText
+                            });
+                        }
+                    }
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "Error!"
+                    });
+                }
+            }
             else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase))
             {
-                
+
                 foreach (var i in RealmManager.Clients.Values)
                 {
                     i.SendPacket(new TextPacket()
@@ -536,6 +589,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
+
             else
             {
                 psr.SendPacket(new TextPacket()
