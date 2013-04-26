@@ -321,7 +321,7 @@ namespace wServer.realm.entities
                         {
                             Behavior.AOE(Owner, this, eff.Range / 2, true, player =>
                             {
-                                ApplyConditionEffect(new ConditionEffect()
+                                player.ApplyConditionEffect(new ConditionEffect()
                                 {
                                     Effect = eff.ConditionEffect.Value,
                                     DurationMS = eff.DurationMS
