@@ -32,6 +32,8 @@ namespace server.credits
                     int result = (int)cmd.ExecuteNonQuery();
                     if (result > 0)
                         status = "Your purchase was successful!";
+                    else if (result == -1)
+                        status = "Your purchase was successful!";
                     else
                         status = "Internal error!";
                 }

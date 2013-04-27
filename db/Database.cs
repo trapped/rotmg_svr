@@ -53,11 +53,7 @@ namespace db
             }
             if (acc != null)
             {
-                cmd.CommandText = @"SELECT charId, characters.charType, level, death.totalFame, time
-FROM characters, death
-WHERE dead = TRUE AND
-characters.accId=@accId AND death.accId=@accId
-AND characters.charId=death.chrId;";
+                cmd.CommandText = "SELECT charId, characters.charType, level, death.totalFame, time FROM characters, death WHERE dead = TRUE AND characters.accId=@accId AND death.accId=@accId AND characters.charId=death.chrId;";
                 cmd.Parameters.AddWithValue("@accId", acc.AccountId);
                 using (var rdr = cmd.ExecuteReader())
                 {
@@ -225,8 +221,7 @@ AND characters.charId=death.chrId;";
                 cmd.ExecuteNonQuery();
                 cmd = CreateQuery();
             }
-            cmd.CommandText = @"UPDATE stats SET credits = credits + (@amount) WHERE accId=@accId;
-SELECT credits FROM stats WHERE accId=@accId;";
+            cmd.CommandText = "UPDATE stats SET credits = credits + (@amount) WHERE accId=@accId; SELECT credits FROM stats WHERE accId=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@amount", amount);
             return (int)cmd.ExecuteScalar();
@@ -242,8 +237,7 @@ SELECT credits FROM stats WHERE accId=@accId;";
                 cmd.ExecuteNonQuery();
                 cmd = CreateQuery();
             }
-            cmd.CommandText = @"UPDATE stats SET fame = fame + (@amount) WHERE accId=@accId;
-SELECT fame FROM stats WHERE accId=@accId;";
+            cmd.CommandText = "UPDATE stats SET fame = fame + (@amount) WHERE accId=@accId; SELECT fame FROM stats WHERE accId=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@amount", amount);
             return (int)cmd.ExecuteScalar();
@@ -346,8 +340,7 @@ SELECT fame FROM stats WHERE accId=@accId;";
         public VaultChest CreateChest(Account acc)
         {
             var cmd = CreateQuery();
-            cmd.CommandText = @"INSERT INTO vaults(accId, items) VALUES(@accId, '-1, -1, -1, -1, -1, -1, -1, -1');
-SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
+            cmd.CommandText = "INSERT INTO vaults(accId, items) VALUES(@accId, '-1, -1, -1, -1, -1, -1, -1, -1'); SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             return new VaultChest()
             {
@@ -531,10 +524,7 @@ SELECT MAX(chestId) FROM vaults WHERE accId = @accId;";
         public void Death(Account acc, Char chr, string killer)    //Save first
         {
             var cmd = CreateQuery();
-            cmd.CommandText = @"UPDATE characters SET 
-dead=TRUE, 
-deathTime=NOW() 
-WHERE accId=@accId AND charId=@charId;";
+            cmd.CommandText = "UPDATE characters SET dead=TRUE, deathTime=NOW() WHERE accId=@accId AND charId=@charId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@charId", chr.CharacterId);
             cmd.ExecuteNonQuery();
@@ -543,17 +533,13 @@ WHERE accId=@accId AND charId=@charId;";
             var finalFame = chr.FameStats.CalculateTotal(acc, chr, chr.CurrentFame, out firstBorn);
 
             cmd = CreateQuery();
-            cmd.CommandText = @"UPDATE stats SET 
-fame=fame+@amount, 
-totalFame=totalFame+@amount 
-WHERE accId=@accId;";
+            cmd.CommandText = "UPDATE stats SET fame=fame+@amount, totalFame=totalFame+@amount WHERE accId=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@amount", finalFame);
             cmd.ExecuteNonQuery();
 
             cmd = CreateQuery();
-            cmd.CommandText = @"INSERT INTO death(accId, chrId, name, charType, tex1, tex2, items, fame, fameStats, totalFame, firstBorn, killer) 
-VALUES(@accId, @chrId, @name, @objType, @tex1, @tex2, @items, @fame, @fameStats, @totalFame, @firstBorn, @killer);";
+            cmd.CommandText = "INSERT INTO death(accId, chrId, name, charType, tex1, tex2, items, fame, fameStats, totalFame, firstBorn, killer) VALUES(@accId, @chrId, @name, @objType, @tex1, @tex2, @items, @fame, @fameStats, @totalFame, @firstBorn, @killer);";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
             cmd.Parameters.AddWithValue("@chrId", chr.CharacterId);
             cmd.Parameters.AddWithValue("@name", acc.Name);

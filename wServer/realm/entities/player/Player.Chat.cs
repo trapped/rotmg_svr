@@ -507,29 +507,165 @@ namespace wServer.realm.entities
             {
                 RealmManager.AddWorld(new worlds.GameWorld("banana", "Banana", false));
             }
-            else if (cmd.Equals("dyeconvert", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("dye1", StringComparison.OrdinalIgnoreCase))
             {
-                String converted = dyes_hextointmod.hextoint(args[0].ToString(), false).ToString();
-                Console.WriteLine(converted);
-                psr.SendPacket(new TextPacket()
+                int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
+                using (var db1 = new Database())
                 {
-                    BubbleTime = 0,
-                    Stars = -1,
-                    Name = "",
-                    Text = converted
-                });
+                    using (var mysqlcommand = db1.CreateQuery())
+                    {
+                        mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
+                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                        mysqlcommand.Parameters.AddWithValue("@tex1", converted);
+                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+                        if (mysqlcommand.ExecuteNonQuery() > 0)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified dye!"
+                            });
+                        else if (mysqlcommand.ExecuteNonQuery() == -1)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified dye!"
+                            });
+                        else
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Error!"
+                            });
+                    }
+                };
+                psr.Player.Texture1 = converted;
+                UpdateCount++;
             }
-            else if (cmd.Equals("clothconvert", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("cloth1", StringComparison.OrdinalIgnoreCase))
             {
-                String converted = dyes_hextointmod.hextoint(args[0].ToString(), true).ToString();
-                Console.WriteLine(converted);
-                psr.SendPacket(new TextPacket()
+                int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
+                using (var db1 = new Database())
                 {
-                    BubbleTime = 0,
-                    Stars = -1,
-                    Name = "",
-                    Text = converted
-                });
+                    using (var mysqlcommand = db1.CreateQuery())
+                    {
+                        mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
+                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                        mysqlcommand.Parameters.AddWithValue("@tex1", converted);
+                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+                        if (mysqlcommand.ExecuteNonQuery() > 0)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified cloth!"
+                            });
+                        else if (mysqlcommand.ExecuteNonQuery() == -1)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified cloth!"
+                            });
+                        else
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Error!"
+                            });
+                    }
+                };
+                psr.Player.Texture1 = converted;
+                UpdateCount++;
+            }
+            else if (cmd.Equals("dye2", StringComparison.OrdinalIgnoreCase))
+            {
+                int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
+                using (var db1 = new Database())
+                {
+                    using (var mysqlcommand = db1.CreateQuery())
+                    {
+                        mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
+                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                        mysqlcommand.Parameters.AddWithValue("@tex2", converted);
+                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+                        if (mysqlcommand.ExecuteNonQuery() > 0)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified dye!"
+                            });
+                        else if (mysqlcommand.ExecuteNonQuery() == -1)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified dye!"
+                            });
+                        else
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Error!"
+                            });
+                    }
+                };
+                psr.Player.Texture2 = converted;
+                UpdateCount++;
+            }
+            else if (cmd.Equals("cloth2", StringComparison.OrdinalIgnoreCase))
+            {
+                int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
+                using (var db1 = new Database())
+                {
+                    using (var mysqlcommand = db1.CreateQuery())
+                    {
+                        mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
+                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                        mysqlcommand.Parameters.AddWithValue("@tex2", converted);
+                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+                        if (mysqlcommand.ExecuteNonQuery() > 0)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified cloth!"
+                            });
+                        else if (mysqlcommand.ExecuteNonQuery() == -1)
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Modified cloth!"
+                            });
+                        else
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Stars = -1,
+                                Name = "",
+                                Text = "Error!"
+                            });
+                    }
+                };
+                psr.Player.Texture2 = converted;
+                UpdateCount++;
             }
             else if (cmd.Equals("who", StringComparison.OrdinalIgnoreCase))
             {

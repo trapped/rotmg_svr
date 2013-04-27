@@ -44,6 +44,8 @@ namespace server.account
                         cmd.Parameters.AddWithValue("@name", query["name"]);
                         if (cmd.ExecuteNonQuery() > 0)
                             status = Encoding.UTF8.GetBytes("<Success />");
+                        else if (cmd.ExecuteNonQuery() == -1)
+                            status = Encoding.UTF8.GetBytes("<Success />");
                         else
                             status = Encoding.UTF8.GetBytes("<Error>Internal error</Error>");
                     }
