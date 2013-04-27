@@ -21,12 +21,14 @@ namespace wServer.realm.entities
             if (pkt.Text[0] == '/')
             {
                 string[] x = pkt.Text.Trim().Split(' ');
-                AnnounceText = pkt.Text.Substring(10);
+                if (x.Length > 1)
+                {
+                    AnnounceText = pkt.Text.Substring(10);
+                }
                 ChatMessage = pkt.Text;
                 string[] z = pkt.Text.Trim().Split('|');
                 y = z.Skip(1).ToArray();
                 ProcessCmd(x[0].Trim('/'), x.Skip(1).ToArray());
-                
             }
             else
                 Owner.BroadcastPacket(new TextPacket()
@@ -57,7 +59,7 @@ namespace wServer.realm.entities
             }
             else
              */
-                return true;
+            return true;
         }
         void ProcessCmd(string cmd, string[] args)
         {
@@ -272,9 +274,9 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("pause", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("pause", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
             {
-                try
+                if (psr.Player.HasConditionEffect(ConditionEffects.Paused) == false)
                 {
                     ApplyConditionEffect(new ConditionEffect()
                     {
@@ -286,17 +288,22 @@ namespace wServer.realm.entities
                         BubbleTime = 0,
                         Stars = -1,
                         Name = "",
-                        Text = "Success!"
+                        Text = "Game paused."
                     });
                 }
-                catch
+                else if (psr.Player.HasConditionEffect(ConditionEffects.Paused) == true)
                 {
+                    ApplyConditionEffect(new ConditionEffect()
+                    {
+                        Effect = ConditionEffectIndex.Paused,
+                        DurationMS = 0
+                    });
                     psr.SendPacket(new TextPacket()
                     {
                         BubbleTime = 0,
                         Stars = -1,
                         Name = "",
-                        Text = "Invalid effect!"
+                        Text = "Game resumed."
                     });
                 }
             }
@@ -347,7 +354,7 @@ namespace wServer.realm.entities
             else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
             {
                 string[] args2 = y;
-                Console.WriteLine(y.ToString());
+                Console.WriteLine(y);
                 return;
                 DateTime date1 = DateTime.Parse(DateTime.Now.ToString());
                 String date2 = date1.Year.ToString() + "-" + date1.Month.ToString() + "-" + date1.Day.ToString() + " " + date1.Hour.ToString() + ":" + date1.Minute.ToString() + ":" + date1.Second.ToString();
@@ -496,13 +503,13 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("portal",StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("portal", StringComparison.OrdinalIgnoreCase))
             {
-                RealmManager.AddWorld(new worlds.GameWorld("banana","Banana",false));
+                RealmManager.AddWorld(new worlds.GameWorld("banana", "Banana", false));
             }
             else if (cmd.Equals("dyeconvert", StringComparison.OrdinalIgnoreCase))
             {
-                String converted = dyes_hextointmod.hextoint(args[0].ToString(),false).ToString();
+                String converted = dyes_hextointmod.hextoint(args[0].ToString(), false).ToString();
                 Console.WriteLine(converted);
                 psr.SendPacket(new TextPacket()
                 {
@@ -630,3 +637,4 @@ namespace wServer.realm.entities
         }
     }
 }
+

@@ -111,7 +111,9 @@
     <EmbeddedResource Include="data\dat24.xml" />
     <EmbeddedResource Include="data\dat3.xml" />
     <EmbeddedResource Include="data\dat4.xml" />
-    <EmbeddedResource Include="data\dat5.xml" />
+    <EmbeddedResource Include="data\dat5.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="data\dat6.xml" />
     <EmbeddedResource Include="data\dat7.xml" />
     <EmbeddedResource Include="data\dat8.xml" />
