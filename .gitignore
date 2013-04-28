@@ -64,7 +64,6 @@ local.properties
 *.dotCover
 #*.exe
 *.csproj.FileListAbsolute.txt
-NuGet.exe
 *.tlog
 *.manifest
 *.vshost.exe
