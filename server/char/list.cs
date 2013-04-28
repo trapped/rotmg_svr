@@ -15,6 +15,7 @@ namespace server.@char
 {
     class list : IRequestHandler
     {
+        Chars chrs;
         public void HandleRequest(HttpListenerContext context)
         {
             NameValueCollection query;
@@ -24,7 +25,7 @@ namespace server.@char
             using (var db = new Database())
             {
 
-                Chars chrs = new Chars()
+                chrs = new Chars()
                 {
                     Characters = new List<Char>() { },
                     NextCharId = 2,
@@ -73,6 +74,24 @@ namespace server.@char
                 XmlWriter xtw = XmlWriter.Create(context.Response.OutputStream, xws);
                 serializer.Serialize(xtw, chrs, chrs.Namespaces);
             }
+        }
+        void getservers()
+        {
+            String line;
+            StreamReader readergg = new StreamReader("server.cfg");
+            while((line = readergg.ReadLine()) != null)
+                {
+                    string[] linearray = line.Split(',');
+                    chrs.Servers.Add(new ServerItem()
+                    {
+                        Name = linearray[0],
+                        Lat = 22.28,
+                        Long = 114.16,
+                        DNS = linearray[1],
+                        Usage = 0.2,
+                        AdminOnly = bool.Parse(linearray[2])
+                     });
+                }
         }
     }
 }
