@@ -503,9 +503,16 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("portal", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("banana", StringComparison.OrdinalIgnoreCase))
             {
-                RealmManager.AddWorld(new worlds.GameWorld("banana", "Banana", false));
+                psr.Reconnect(new ReconnectPacket()
+                {
+                    Host = "",
+                    Port = 2050,
+                    GameId = World.BANANA_ID,
+                    Name = "Banana",
+                    Key = Empty<byte>.Array,
+                });
             }
             else if (cmd.Equals("dye1", StringComparison.OrdinalIgnoreCase))
             {
@@ -732,7 +739,20 @@ namespace wServer.realm.entities
                     });
                 }
             }
-
+            else if (cmd.Equals("killall", StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var i in RealmManager.Worlds)
+                {
+                    World world = i.Value;
+                    if (i.Key != 0)
+                    {
+                        foreach (var e in world.Enemies)
+                        {
+                            //TODO
+                        }
+                    }
+                }
+            }
             else
             {
                 psr.SendPacket(new TextPacket()

@@ -677,9 +677,46 @@ namespace wServer.realm.entities
                             UpdateCount++;
                         } break;
                     case ActivateEffects.Pet:
-                    case ActivateEffects.Create:
+                    case ActivateEffects.Create: //portals
+                        {              
+                            short objType;
+                            if (!XmlDatas.IdToType.TryGetValue(eff.Id, out objType))
+                                /*!XmlDatas.PortalDescs.ContainsKey(objType))*/
+                                break;// object not found, ignore
+                        var entity = Entity.Resolve(objType);
+                        entity.Move(X, Y);
+                        int TimeoutTime = 20;//XmlDatas.PortalDescs[objType].TimeoutTime;
+                        
+                        Owner.EnterWorld(entity);
+                        World w = RealmManager.GetWorld(Owner.Id); //can't use Owner here, as it goes out of scope
+                        w.Timers.Add(new WorldTimer(TimeoutTime * 1000, (world, t) => //default portal close time * 1000
+                        {
+                            try
+                            {
+                                w.LeaveWorld(entity); 
+                            }
+                            catch //couldn't remove portal, Owner became null. Should be fixed with RealmManager implementation
+                            {
+                                Console.WriteLine("Couldn't despawn portal.");
+                            }
+                        }));                                                        
+                        } break;
+
                     case ActivateEffects.UnlockPortal:
                         break;
+                    //case ActivateEffects.Dye:
+                    //    {
+                    //        if (item.Texture1 != 0)
+                    //        {
+                    //            this.Texture1 = item.Texture1;
+                    //        }
+                    //        if (item.Texture2 != 0)
+                    //        {
+                    //            this.Texture2 = item.Texture2;
+                    //        }
+                    //        this.SaveToCharacter();
+                    //    } break;
+
                 }
             }
             UpdateCount++;
