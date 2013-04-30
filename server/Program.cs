@@ -17,14 +17,13 @@ namespace server
         static readonly object queueLock = new object();
         static readonly ManualResetEvent queueReady = new ManualResetEvent(false);
 
-        const int port = 80;
+        const int port = 8080;
 
         static void Main(string[] args)
         {
             listener = new HttpListener();
             listener.Prefixes.Add("http://*:" + port + "/");
             listener.Start();
-
             listen = new Thread(ListenerCallback);
             listen.Start();
             for (var i = 0; i < workers.Length; i++)
