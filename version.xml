@@ -1,1 +1,1 @@
-<Version date="30/04/2013">2.3.1</version><Lastfix path="\wServer\realm\entities\player\Player.UseItem.cs">Dungeon keys now working!</Lastfix>
+<server><Version date="30/04/2013">2.3.1</Version><Lastfix path="\wServer\realm\entities\player\Player.UseItem.cs">Dungeon keys now working!</Lastfix><Version date="30/04/2013">2.4.0</Version><Lastfix path="\wServer\realm\entities\player\Player.Chat.cs">Added /who, /tell, /server commands!</Lastfix></server>

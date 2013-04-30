@@ -247,6 +247,29 @@ namespace wServer.realm.entities
                     }
                 }, null);
             }
+            //else if (cmd.Equals("teleport", StringComparison.OrdinalIgnoreCase) && args.Length == 1)
+            //{
+            //    if (psr.Player.Name.Equals(args[0], StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        psr.SendPacket(new TextPacket()
+            //        {
+            //            BubbleTime = 0,
+            //            Stars = -1,
+            //            Name = "",
+            //            Text = "You already are at yourself, and always will be!"
+            //        });
+            //    }
+
+            //    foreach (var i in psr.Player.Owner.Players)
+            //    {
+            //        if (i.Value.Name.Equals(args[0], StringComparison.OrdinalIgnoreCase))
+            //        {
+            //            psr.Player.Teleport(timePassed, i.Value.Id);
+            //            return true;
+            //        }
+            //    }
+            //    player.SendInfo(string.Format("Unable to find player: {0}", args));
+            //}
             else if (cmd.Equals("setpiece", StringComparison.OrdinalIgnoreCase) &&
                      CmdReqAdmin() && args.Length == 1)
             {
@@ -278,18 +301,31 @@ namespace wServer.realm.entities
             {
                 if (psr.Player.HasConditionEffect(ConditionEffects.Paused) == false)
                 {
-                    ApplyConditionEffect(new ConditionEffect()
+                    if (psr.Player.Owner.EnemiesCollision.HitTest(psr.Player.X, psr.Player.Y, 8).OfType<Enemy>().Any())
                     {
-                        Effect = ConditionEffectIndex.Paused,
-                        DurationMS = -1
-                    });
-                    psr.SendPacket(new TextPacket()
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Not safe enough to pause!"
+                        });
+                    }
+                    else
                     {
-                        BubbleTime = 0,
-                        Stars = -1,
-                        Name = "",
-                        Text = "Game paused."
-                    });
+                        ApplyConditionEffect(new ConditionEffect()
+                        {
+                            Effect = ConditionEffectIndex.Paused,
+                            DurationMS = -1
+                        });
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Game paused."
+                        });
+                    }
                 }
                 else if (psr.Player.HasConditionEffect(ConditionEffects.Paused) == true)
                 {
@@ -676,53 +712,92 @@ namespace wServer.realm.entities
             }
             else if (cmd.Equals("who", StringComparison.OrdinalIgnoreCase))
             {
-                foreach (var i in RealmManager.Clients.Values)
-                    Console.WriteLine(i.ToString());
-                psr.SendPacket(new TextPacket()
-                {
-                    BubbleTime = 0,
-                    Stars = -1,
-                    Name = "",
-                    Text = RealmManager.Clients.Values.ToString()
-                });
-            }
-            else if (cmd.Equals("tell", StringComparison.OrdinalIgnoreCase))
-            {
-                String TellText = ChatMessage.Substring(6 + args[0].Length + 1);
-                String Recipient = args[0];
-                if (args.Length > 0)
-                {
-                    psr.SendPacket(new TextPacket()
-                    {
-                        BubbleTime = 10,
-                        Stars = psr.Player.Stars,
-                        Name = psr.Player.Name,
-                        Text = TellText,
-                        Recipient = Recipient
-                    });
-                    foreach (var i in RealmManager.Clients.Values)
-                    {
-                        if (psr.Player.Name == Recipient)
-                        {
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = psr.Player.Stars,
-                                Name = psr.Player.Name,
-                                Text = TellText
-                            });
-                        }
-                    }
-                }
-                else
-                {
+                StringBuilder sb = new StringBuilder("Players online: ");
+                var copy = psr.Player.Owner.Players.Values.ToArray();
+                if (copy.Length == 0)
                     psr.SendPacket(new TextPacket()
                     {
                         BubbleTime = 0,
                         Stars = -1,
                         Name = "",
-                        Text = "Error!"
+                        Text = "Nobody else is online"
                     });
+                else
+                {
+                    for (int i = 0; i < copy.Length; i++)
+                    {
+                        if (i != 0) sb.Append(", ");
+                        sb.Append(copy[i].Name);
+                    }
+
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = sb.ToString()
+                    });
+                }
+            }
+            else if (cmd.Equals("server", StringComparison.OrdinalIgnoreCase))
+            {
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Stars = -1,
+                    Name = "",
+                    Text = psr.Player.Owner.Name
+                });
+            }
+            else if (cmd.Equals("tell", StringComparison.OrdinalIgnoreCase))
+            {
+                if (!psr.Player.NameChosen)
+                    {
+                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "Choose a name!"});
+                        return;
+                    }
+                if (args.Length < 1)
+                    {
+                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "Usage: /tell <player name> <text>"});
+                        return;
+                    }
+                string playername = args[0];
+                string msg = ChatMessage.Substring(cmd.Length + args[0].Length + 2);
+                if (psr.Player.Name.ToLower() == playername.ToLower())
+                    {
+                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "You cannot tell yourself!"});
+                        return;
+                    }
+                int clientcount = 0;
+                foreach(var i in RealmManager.Clients.Values)
+                {
+                    if (i.Account.Name.ToLower() == playername.ToLower())
+                    {
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 10,
+                            Stars = psr.Player.Stars,
+                            Recipient = playername,
+                            Text = msg
+                        });
+                        i.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = psr.Player.Stars,
+                            Name = psr.Account.Name,
+                            Recipient = i.Account.Name,
+                            Text = msg
+                        });
+                        return;
+                    }
+                    else
+                    {
+                        clientcount = clientcount + 1;
+                    }
+                };
+                if (clientcount == RealmManager.Clients.Values.ToArray().Length)
+                {
+                    psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = String.Format("{0} not found", playername) });
                 }
             }
             else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase))
