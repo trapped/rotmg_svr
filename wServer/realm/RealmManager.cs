@@ -119,18 +119,18 @@ namespace wServer.realm
 
                 long b = watch.ElapsedMilliseconds;
 
-                if (Console.KeyAvailable)
-                {
-                    switch (Console.ReadKey(true).KeyChar)
-                    {
-                        case 'c':
-                            Console.Clear();
-                            break;
-                        default:
-                            Console.WriteLine("Tick| time:" + times + " dt:" + dt + " count:" + count + " time:" + b + " fps:" + count / (b / 1000.0));
-                            break;
-                    }
-                }
+                //if (Console.KeyAvailable)
+                //{
+                //    switch (Console.ReadKey(true).KeyChar)
+                //    {
+                //        case 'c':
+                //            Console.Clear();
+                //            break;
+                //        default:
+                //            Console.WriteLine("Tick| time:" + times + " dt:" + dt + " count:" + count + " time:" + b + " fps:" + count / (b / 1000.0));
+                //            break;
+                //    }
+                //}
                 count += times;
                 if (times > 3)
                     Console.WriteLine("LAGGED!| time:" + times + " dt:" + dt + " count:" + count + " time:" + b + " fps:" + count / (b / 1000.0));
