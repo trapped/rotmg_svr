@@ -688,7 +688,30 @@ namespace wServer.realm.entities
                         int TimeoutTime = 20;//XmlDatas.PortalDescs[objType].TimeoutTime;
                         
                         Owner.EnterWorld(entity);
+                        ARGB c;
+                        c.A = 0;
+                        c.B = 0;
+                        c.G = 255;
+                        c.R = 0;
+                        //psr.SendPacket(new BuyResultPacket()
+                        //{
+                        //    Color = c,
+                        //    Text = "Opened by " + psr.Account.Name
+                        //});
+                        psr.SendPacket(new NotificationPacket()
+                        {
+                            Color = c,
+                            Text = "Opened by " + psr.Account.Name,
+                            ObjectId = psr.Player.Id
+                        });
                         World w = RealmManager.GetWorld(Owner.Id); //can't use Owner here, as it goes out of scope
+                        w.BroadcastPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = eff.DungeonName + " opened by " + psr.Account.Name
+                        },null);
                         w.Timers.Add(new WorldTimer(TimeoutTime * 1000, (world, t) => //default portal close time * 1000
                         {
                             try
@@ -703,19 +726,23 @@ namespace wServer.realm.entities
                         } break;
 
                     case ActivateEffects.UnlockPortal:
+                        {
+                            break;
+                        }
+                    case ActivateEffects.Dye:
+                        {
+                            if (item.Texture1 != "0")
+                            {
+                                this.Texture1 = db.dyes_hextointmod.hextoint(item.Texture1.ToString(),item.Cloth);
+                            }
+                            if (item.Texture2 != "0")
+                            {
+                                this.Texture1 = db.dyes_hextointmod.hextoint(item.Texture2.ToString(), item.Cloth);
+                            }
+                            this.SaveToCharacter();
+                        } break;
                         break;
-                    //case ActivateEffects.Dye:
-                    //    {
-                    //        if (item.Texture1 != 0)
-                    //        {
-                    //            this.Texture1 = item.Texture1;
-                    //        }
-                    //        if (item.Texture2 != 0)
-                    //        {
-                    //            this.Texture2 = item.Texture2;
-                    //        }
-                    //        this.SaveToCharacter();
-                    //    } break;
+
 
                 }
             }

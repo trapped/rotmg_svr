@@ -187,7 +187,8 @@ public enum ActivateEffects
     UnlockPortal,
     DazeBlast,
     ClearConditionEffectAura,
-    ClearConditionEffectSelf
+    ClearConditionEffectSelf,
+    Dye
 }
 public class ActivateEffect
 {
@@ -280,6 +281,9 @@ public class Item
     public bool Soulbound { get; private set; }
     public float Cooldown { get; private set; }
     public bool Resurrects { get; private set; }
+    public string Texture1 { get; private set; }
+    public string Texture2 { get; private set; }
+    public bool Cloth { get; private set; }
 
     public KeyValuePair<int, int>[] StatsBoost { get; private set; }
     public ActivateEffect[] ActivateEffects { get; private set; }
@@ -309,6 +313,23 @@ public class Item
             MpCost = Utils.FromString(n.Value);
         else
             MpCost = 0;
+        if ((n = elem.Element("Tex1")) != null)
+            Texture1 = n.Value;
+        else
+            Texture1 = "0";
+        if ((n = elem.Element("Tex2")) != null)
+            Texture2 = n.Value;
+        else
+            Texture2 = "0";
+        if ((n = elem.Element("Object")) != null)
+        {
+            if (n.Attribute("id").ToString().EndsWith("Dye"))
+            {
+                Cloth = false;
+            }
+            else
+                Cloth = true;
+        }
         if ((n = elem.Element("FameBonus")) != null)
             FameBonus = Utils.FromString(n.Value);
         else
