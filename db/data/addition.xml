@@ -207,6 +207,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Banana Portal">Create</Activate>
+    <DungeonName>Banana</DungeonName>
   </Object>
   <Object type="0xf26" id="Souleater Skull">
     <Class>Equipment</Class>

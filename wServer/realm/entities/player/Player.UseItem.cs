@@ -686,7 +686,7 @@ namespace wServer.realm.entities
                         var entity = Entity.Resolve(objType);
                         entity.Move(X, Y);
                         int TimeoutTime = 20;//XmlDatas.PortalDescs[objType].TimeoutTime;
-                        
+                        var dungeonname = 0;
                         Owner.EnterWorld(entity);
                         ARGB c;
                         c.A = 0;
@@ -710,7 +710,7 @@ namespace wServer.realm.entities
                             BubbleTime = 0,
                             Stars = -1,
                             Name = "",
-                            Text = eff.DungeonName + " opened by " + psr.Account.Name
+                            Text =  "Opened by " + psr.Account.Name
                         },null);
                         w.Timers.Add(new WorldTimer(TimeoutTime * 1000, (world, t) => //default portal close time * 1000
                         {
