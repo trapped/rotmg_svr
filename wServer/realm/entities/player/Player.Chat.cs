@@ -31,16 +31,31 @@ namespace wServer.realm.entities
                 ProcessCmd(x[0].Trim('/'), x.Skip(1).ToArray());
             }
             else
-                Owner.BroadcastPacket(new TextPacket()
+            {
+                if (psr.Account.Admin == true)
+                    foreach (var i in RealmManager.Clients.Values)
+                        i.SendPacket(new TextPacket()
+                        {
+                            Name = psr.Account.Name,
+                            Stars = psr.Player.Stars,
+                            BubbleTime = 10,
+                            Text = pkt.Text,
+                            Recipient = i.Account.Name
+                        });
+                else
                 {
-                    Name = Name,
-                    ObjectId = Id,
-                    Stars = Stars,
-                    BubbleTime = 5,
-                    Recipient = "",
-                    Text = pkt.Text,
-                    CleanText = pkt.Text
-                }, null);
+                    Owner.BroadcastPacket(new TextPacket()
+                    {
+                        Name = Name,
+                        ObjectId = Id,
+                        Stars = Stars,
+                        BubbleTime = 5,
+                        Recipient = "",
+                        Text = pkt.Text,
+                        CleanText = pkt.Text
+                    }, null);
+                }
+            }
         }
 
         bool CmdReqAdmin()
@@ -72,6 +87,31 @@ namespace wServer.realm.entities
                     Name = "Tutorial",
                     Key = Empty<byte>.Array,
                 });
+            else if (cmd.Equals("a", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
+            {
+                if (psr.Account.Admin == true)
+                {
+                    psr.Account.Admin = false;
+                    UpdateCount++;
+                    using(var db1 = new Database())
+                    {
+                        var sqlcmd = db1.CreateQuery();
+                        sqlcmd.CommandText = "UPDATE accounts SET admin = 0 WHERE id = " +psr.Account.AccountId.ToString()+ ";";
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    psr.Account.Admin = true;
+                    UpdateCount++;
+                    using (var db1 = new Database())
+                    {
+                        var sqlcmd = db1.CreateQuery();
+                        sqlcmd.CommandText = "UPDATE accounts SET admin = 1 WHERE id = " + psr.Account.AccountId.ToString() + ";";
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
+            }
             else if (cmd.Equals("spawn", StringComparison.OrdinalIgnoreCase) &&
                      CmdReqAdmin() && args.Length > 0)
             {
@@ -752,24 +792,24 @@ namespace wServer.realm.entities
             else if (cmd.Equals("tell", StringComparison.OrdinalIgnoreCase))
             {
                 if (!psr.Player.NameChosen)
-                    {
-                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "Choose a name!"});
-                        return;
-                    }
+                {
+                    psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = "Choose a name!" });
+                    return;
+                }
                 if (args.Length < 1)
-                    {
-                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "Usage: /tell <player name> <text>"});
-                        return;
-                    }
+                {
+                    psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = "Usage: /tell <player name> <text>" });
+                    return;
+                }
                 string playername = args[0];
                 string msg = ChatMessage.Substring(cmd.Length + args[0].Length + 2);
                 if (psr.Player.Name.ToLower() == playername.ToLower())
-                    {
-                        psr.SendPacket(new TextPacket(){BubbleTime = 0, Stars = -1, Name = "", Text = "You cannot tell yourself!"});
-                        return;
-                    }
+                {
+                    psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = "You cannot tell yourself!" });
+                    return;
+                }
                 int clientcount = 0;
-                foreach(var i in RealmManager.Clients.Values)
+                foreach (var i in RealmManager.Clients.Values)
                 {
                     if (i.Account.Name.ToLower() == playername.ToLower())
                     {

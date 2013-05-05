@@ -17,6 +17,7 @@ namespace wServer.realm
         public const int VAULT_ID = -5;
         public const int TEST_ID = -6;
         public const int BANANA_ID = -10;
+        public const int ZETA_ID = -11;
 
         protected World()
         {

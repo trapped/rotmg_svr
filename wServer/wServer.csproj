@@ -250,6 +250,7 @@
     <Compile Include="realm\terrain\WorldMapExporter.cs" />
     <Compile Include="realm\worlds\Banana.cs" />
     <Compile Include="realm\worlds\RandRealm.cs" />
+    <Compile Include="realm\worlds\Zeta.cs" />
     <Compile Include="realm\WorldTimer.cs" />
     <Compile Include="realm\Entity.cs" />
     <Compile Include="logic\FameCounter.cs" />
@@ -355,6 +356,7 @@
     <EmbeddedResource Include="realm\worlds\vault.wmap" />
     <EmbeddedResource Include="realm\worlds\world1.wmap" />
     <EmbeddedResource Include="realm\worlds\banana.wmap" />
+    <EmbeddedResource Include="realm\worlds\zeta.jm" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

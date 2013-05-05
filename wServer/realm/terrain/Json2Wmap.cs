@@ -34,6 +34,12 @@ namespace terrain
             var x = Convert(File.ReadAllText(from));
             File.WriteAllBytes(to, x);
         }
+        public static byte[] Convert2(string from)
+        {
+            byte[] to;
+            to = Convert(from);
+            return to;
+        }
         public static byte[] Convert(string json)
         {
             var obj = JsonConvert.DeserializeObject<json_dat>(json);

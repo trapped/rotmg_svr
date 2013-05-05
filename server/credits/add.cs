@@ -25,23 +25,16 @@ namespace server.credits
                 if (id != null)
                 {
                     int amount = int.Parse(query["jwt"]);
-                    cmd = db.CreateQuery();
-                    cmd.CommandText = "UPDATE stats SET credits = credits + @amount WHERE accId=@accId";
-                    cmd.Parameters.AddWithValue("@accId", (int)id);
-                    cmd.Parameters.AddWithValue("@amount", amount);
-                    int result = (int)cmd.ExecuteNonQuery();
-                    if (result > 0)
-                        status = "Your purchase was successful!";
-                    else if (result == -1)
-                        status = "Your purchase was successful!";
-                    else
-                        status = "Internal error!";
-                }
-                else
-                    status = "Account does not exist!";
-            }
-
-            var res = Encoding.UTF8.GetBytes(
+                    string guid = (query["guid"]);
+                    Console.WriteLine(guid);
+                    cmd.CommandText = "UPDATE stats SET credits = credits + "+amount.ToString()+" WHERE accId="+id.ToString();
+                    if (cmd.ExecuteNonQuery() != 1)
+                    {
+                        cmd.CommandText = "INSERT INTO stats VALUES (credits = "+amount.ToString()+", accId = "+id.ToString()+", fame = 0,totalFame = 0, totalCredits = 0)";
+                        if (cmd.ExecuteNonQuery() != 1)
+                        {
+                            status = "Internal Error!";
+                            var res = Encoding.UTF8.GetBytes(
 @"<html>
     <head>
         <title>Purchase!</title>
@@ -52,7 +45,60 @@ namespace server.credits
         </h1>
     </body>
 </html>");
-            context.Response.OutputStream.Write(res, 0, res.Length);
+                            context.Response.OutputStream.Write(res, 0, res.Length);
+                        }
+                        else
+                        {
+                            status = "Purchase successful!";
+                            var res = Encoding.UTF8.GetBytes(
+    @"<html>
+    <head>
+        <title>Purchase!</title>
+    </head>
+    <body style='background: #333333'>
+        <h1 style='color: #EEEEEE; text-align: center'>
+            " + status + @"
+        </h1>
+    </body>
+</html>");
+                            context.Response.OutputStream.Write(res, 0, res.Length);
+                        }
+                    }
+                }
+                else
+                {
+                    status = "Account does not exist!";
+
+                    var res = Encoding.UTF8.GetBytes(
+    @"<html>
+    <head>
+        <title>Purchase!</title>
+    </head>
+    <body style='background: #333333'>
+        <h1 style='color: #EEEEEE; text-align: center'>
+            " + status + @"
+        </h1>
+    </body>
+</html>");
+                    context.Response.OutputStream.Write(res, 0, res.Length);
+                }
+            }
         }
+        //void stata(object id, int amount)
+        //{
+        //    using (var db1 = new Database())
+        //    {
+        //        var cmd = db1.CreateQuery();
+        //        cmd.CommandText = "UPDATE stats SET credits = credits + @amount WHERE accId=@accId";
+        //        cmd.Parameters.AddWithValue("@amount", amount);
+        //        cmd.Parameters.AddWithValue("@accId", id);
+        //        if (cmd.ExecuteNonQuery() != 1)
+        //        {
+        //            cmd.CommandText = "INSERT INTO stats SET credits = credits + @amount WHERE accId=@accId";
+        //            cmd.Parameters.AddWithValue("@amount", amount);
+        //            cmd.Parameters.AddWithValue("@accId", id);
+        //        }
+        //    }
+        //}
     }
 }

@@ -209,6 +209,30 @@
     <Activate id="Banana Portal">Create</Activate>
     <DungeonName>Banana</DungeonName>
   </Object>
+  <Object type="0x234A" id="Grand Zeta Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>Zeta</DungeonName>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0x7c</Index>
+    </Texture>
+  </Object>
+
+  <Object type="0x234B" id="Grand Zeta Key">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0xf0</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A key which opens an entrance to the world of the Grand Zeta.</Description>
+    <Sound>use_key</Sound>
+    <Consumable/>
+    <Soulbound/>
+    <Activate id="Grand Zeta Portal">Create</Activate>
+  </Object>
   <Object type="0xf26" id="Souleater Skull">
     <Class>Equipment</Class>
     <Item/>
