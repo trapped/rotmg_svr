@@ -369,7 +369,8 @@ namespace db
             var cmd = CreateQuery();
             cmd.CommandText = "SELECT IFNULL(MAX(id), 0) + 1 FROM characters WHERE accId=@accId;";
             cmd.Parameters.AddWithValue("@accId", acc.AccountId);
-            var ret = (int)(long)cmd.ExecuteScalar();
+            object ret1 = cmd.ExecuteScalar();
+            int ret = int.Parse(ret1.ToString());
             return ret;
         }
 
@@ -417,7 +418,7 @@ namespace db
             if (cls == null) return null;
             return new Char()
             {
-                ObjectType = type,
+                ObjectType = int.Parse(type.ToString()),
                 CharacterId = chrId,
                 Level = 1,
                 Exp = 0,

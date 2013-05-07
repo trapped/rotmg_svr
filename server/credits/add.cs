@@ -27,14 +27,14 @@ namespace server.credits
                     string guid = (query["guid"]);
                     cmd.CommandText = "UPDATE stats SET credits = credits + "+amount.ToString()+" WHERE accId="+id.ToString();
                     var queryint = cmd.ExecuteNonQuery();
-                    Console.WriteLine(queryint.ToString() + id.ToString() + guid + amount);
+                    //Console.WriteLine(queryint.ToString() + id.ToString() + guid + amount);
                     if (queryint == 0)
                     {
                         using (var db1 = new Database())
                         {
                             var cmd1 = db.CreateQuery();
                             cmd1.CommandText = "INSERT INTO stats(accId,fame,totalFame,credits,totalCredits) VALUES ("+id.ToString() + ",0,0," + (100 + amount) + ",0)";
-                            Console.WriteLine("second try: " + cmd1.ExecuteNonQuery());
+                            //Console.WriteLine("second try: " + cmd1.ExecuteNonQuery());
                             status = "Purchase successful!";
                             var res = Encoding.UTF8.GetBytes(
     @"<html>
@@ -114,10 +114,10 @@ namespace server.credits
                 cmd.Parameters.AddWithValue("@accId", accId);
                 if (cmd.ExecuteScalar() != null)
                 {
-                    Console.WriteLine(accId.ToString() + " => " + creditss.ToString());
+                    //Console.WriteLine(accId.ToString() + " => " + creditss.ToString());
                     return creditss = (int)cmd.ExecuteScalar();
                 }
-                Console.WriteLine(accId.ToString() +" => " +creditss.ToString());
+                //Console.WriteLine(accId.ToString() +" => " +creditss.ToString());
                 return creditss;
             }
         }

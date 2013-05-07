@@ -203,11 +203,11 @@ namespace wServer
         int targetWorld = -1;
         void ProcessHelloPacket(HelloPacket pkt)
         {
-            Console.WriteLine("hello packet rec.");
+            Console.WriteLine("Accepting new client...");
             db = new Database();
             if ((account = db.Verify(pkt.GUID, pkt.Password)) == null)
             {
-                Console.WriteLine("account not verifyed.");
+                Console.WriteLine("Account not verified.");
                 account = Database.CreateGuestAccount(pkt.GUID);
 
                 //Database.SaveCharacter(account, Database.CreateCharacter(782, 1));
@@ -215,7 +215,7 @@ namespace wServer
 
                 if (account == null)
                 {
-                    Console.WriteLine("no account");
+                    Console.WriteLine("Account is null");
                     SendPacket(new svrPackets.FailurePacket()
                     {
                         Message = "Invalid account."
@@ -225,7 +225,7 @@ namespace wServer
                 }
                 
             }
-            Console.WriteLine("trying connect");
+            Console.WriteLine("Client trying to connect");
             if (!RealmManager.TryConnect(this))
             {
                 account = null;
@@ -237,7 +237,7 @@ namespace wServer
             }
             else
             {
-                Console.WriteLine("loading world");
+                Console.WriteLine("Client loading world");
                 World world = RealmManager.GetWorld(pkt.GameId);
                 if (world == null)
                 {
@@ -249,7 +249,7 @@ namespace wServer
                 }
                 else
                 {
-                    Console.WriteLine("In world");
+                    Console.WriteLine("Client joined world " + world.Id.ToString());
                     if (world.Id == -6) //Test World
                         (world as realm.worlds.Test).LoadJson(pkt.MapInfo);
                     else if (world.IsLimbo)
@@ -271,7 +271,7 @@ namespace wServer
                         ExtraXML = world.ExtraXML
                     });
                     stage = ProtocalStage.Handshaked;
-                    Console.WriteLine("end world");
+                    Console.WriteLine("End of client world packet");
                 }
             }
         }
@@ -279,22 +279,25 @@ namespace wServer
         void ProcessCreatePacket(CreatePacket pkt)
         {
 
-            Console.WriteLine("in create packet");
+            Console.WriteLine("Client char create packet");
             int nextCharId = 1;
             nextCharId = db.GetNextCharID(account);
             var cmd = db.CreateQuery();
             cmd.CommandText = "SELECT maxCharSlot FROM accounts WHERE id=@accId;";
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
-            //int maxChar = (int)cmd.ExecuteScalar();
-
+            object maxChar1 = cmd.ExecuteScalar();
+            int maxChar = int.Parse(maxChar1.ToString());
             cmd = db.CreateQuery();
             cmd.CommandText = "SELECT COUNT(id) FROM characters WHERE accId=@accId AND dead = FALSE;";
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
-            //int currChar = (int)(long)cmd.ExecuteScalar();
+            object currChar1 = cmd.ExecuteScalar();
+            int currChar = int.Parse(currChar1.ToString());
 
-           // if (currChar >= maxChar)
-               // Disconnect();
-            Console.WriteLine("in create packet 2");
+            if (currChar >= maxChar)
+            {
+                Disconnect();
+            }
+            Console.WriteLine("Client second char create packet");
 
             character = Database.CreateCharacter(pkt.ObjectType, nextCharId);
 
@@ -317,12 +320,13 @@ namespace wServer
             cmd.Parameters.AddWithValue("@charType", pkt.ObjectType);
             cmd.Parameters.AddWithValue("@items", character._Equipment);
             cmd.Parameters.AddWithValue("@stats", Utils.GetCommaSepString(stats));
-            cmd.CommandText = "INSERT INTO characters (accId, charId, charType, level, exp, fame, items, hp, mp, stats, dead, pet) VALUES (@accId, @charId, @charType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1);";
+            cmd.Parameters.AddWithValue("@fameStats", character.FameStats.ToString());
+            cmd.CommandText = "INSERT INTO characters (accId, charId, charType, level, exp, fame, items, hp, mp, stats, dead, pet, fameStats) VALUES (@accId, @charId, @charType, 1, 0, 0, @items, 100, 100, @stats, FALSE, -1, @fameStats);";
             int v = cmd.ExecuteNonQuery();
             //int v = 1;
             ok = v > 0;
 
-            Console.WriteLine("in create packet 3: "+ok);
+            Console.WriteLine("Client char create packet result: "+ok);
 
             if (ok)
             {
@@ -342,7 +346,7 @@ namespace wServer
 
         void ProcessLoadPacket(LoadPacket pkt)
         {
-            Console.WriteLine("load packet");
+            Console.WriteLine("Client load packet");
             character = db.LoadCharacter(account, pkt.CharacterId);
             if (character != null)
             {

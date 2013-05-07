@@ -157,6 +157,17 @@ namespace wServer.realm.entities
                 else
                 {
                     int c = int.Parse(args[0]);
+                    if (c > 50)
+                    {
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Stars = -1,
+                            Name = "",
+                            Text = "Maximum spawn count is set to 50"
+                        });
+                        return;
+                    }
                     for (int i = 0; i < c; i++)
                     {
                         var entity = Entity.Resolve(objType);
@@ -430,7 +441,7 @@ namespace wServer.realm.entities
             else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
             {
                 string[] args2 = y;
-                Console.WriteLine(y);
+                //Console.WriteLine(y);
                 return;
                 DateTime date1 = DateTime.Parse(DateTime.Now.ToString());
                 String date2 = date1.Year.ToString() + "-" + date1.Month.ToString() + "-" + date1.Day.ToString() + " " + date1.Hour.ToString() + ":" + date1.Minute.ToString() + ":" + date1.Second.ToString();
