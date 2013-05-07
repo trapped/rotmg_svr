@@ -5,4 +5,4 @@ string 4213 - account server IP (like privatehub.pw:8080)
 Then edit the config.cfg files in BOTH server and wServer \bin\Release folders to set the default server (actually it sets up a single server, but I have some ideas for that) like that:
 srv:127.0.0.1
 db:Server=localhost;Database=rotmg;uid=root;password=botmaker
-If you don't have any config.cfg file, the server will use the default settings (the ones above).
+If you don't have any config.cfg file, the server will use the default settings (the ones above)
