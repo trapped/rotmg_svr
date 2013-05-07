@@ -15,7 +15,7 @@ namespace db
         MySqlConnection con;
         public Database()
         {
-            con = new MySqlConnection("Server=localhost;Database=rotmg;uid=root;password=botmaker"); //127.0.0.1
+            con = new MySqlConnection(db.confreader.getservers(true).ToString()); //127.0.0.1
             con.Open();
         }
 

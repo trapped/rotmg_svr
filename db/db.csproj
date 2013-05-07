@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="confreader.cs" />
     <Compile Include="data\Descriptors.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="data\XmlDatas.cs" />

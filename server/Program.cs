@@ -18,9 +18,11 @@ namespace server
         static readonly ManualResetEvent queueReady = new ManualResetEvent(false);
 
         const int port = 8080;
+        static string dbaddr;
 
         static void Main(string[] args)
         {
+            dbaddr = db.confreader.getservers(true);
             listener = new HttpListener();
             listener.Prefixes.Add("http://*:" + port + "/");
             listener.Start();
