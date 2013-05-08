@@ -16,14 +16,20 @@ namespace wServer.realm.entities
         string[] y;
         String AnnounceText;
         String ChatMessage;
+        string[] NewsText;
         public void PlayerText(RealmTime time, PlayerTextPacket pkt)
         {
             if (pkt.Text[0] == '/')
             {
                 string[] x = pkt.Text.Trim().Split(' ');
-                if (x.Length > 1)
+                try
                 {
                     AnnounceText = pkt.Text.Substring(10);
+                    NewsText = pkt.Text.Substring(6).Split(';');
+                }
+                catch
+                {
+                    Console.WriteLine("Error at line 24 of Player.Chat.cs");
                 }
                 ChatMessage = pkt.Text;
                 string[] z = pkt.Text.Trim().Split('|');
@@ -38,7 +44,7 @@ namespace wServer.realm.entities
                         {
                             Name = psr.Account.Name,
                             Stars = psr.Player.Stars,
-                            BubbleTime = 10,
+                            BubbleTime = 5,
                             Text = pkt.Text,
                             Recipient = i.Account.Name
                         });
@@ -60,7 +66,6 @@ namespace wServer.realm.entities
 
         bool CmdReqAdmin()
         {
-            /*
             if (!psr.Account.Admin)
             {
                 psr.SendPacket(new TextPacket()
@@ -73,7 +78,6 @@ namespace wServer.realm.entities
                 return false;
             }
             else
-             */
             return true;
         }
         void ProcessCmd(string cmd, string[] args)
@@ -319,7 +323,13 @@ namespace wServer.realm.entities
             //            return true;
             //        }
             //    }
-            //    player.SendInfo(string.Format("Unable to find player: {0}", args));
+            //    psr.SendPacket(new TextPacket()
+            //    {
+            //        BubbleTime = 0,
+            //        Stars = -1,
+            //        Name = "",
+            //        Text = string.Format("Unable to find player: {0}", args)
+            //    });
             //}
             else if (cmd.Equals("setpiece", StringComparison.OrdinalIgnoreCase) &&
                      CmdReqAdmin() && args.Length == 1)
@@ -394,69 +404,68 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("level", StringComparison.OrdinalIgnoreCase))
+            //else if (cmd.Equals("level", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin()) //DISABLED, NEEDS DEBUG - WILL PROVIDE AN EXP GIFT CHICKEN TEMPORARILY
+            //{
+            //    try
+            //    {
+            //        if (args.Length == 0)
+            //        {
+            //            psr.Character.Level = psr.Character.Level + 1;
+            //            psr.Player.Level = psr.Player.Level + 1;
+            //            psr.Player.CheckLevelUp();
+            //            UpdateCount++;
+            //            psr.SendPacket(new TextPacket()
+            //            {
+            //                BubbleTime = 0,
+            //                Stars = -1,
+            //                Name = "",
+            //                Text = "Success!"
+            //            });
+            //        }
+            //        else if (args.Length == 1)
+            //        {
+            //            psr.Character.Level = int.Parse(args[0]);
+            //            psr.Player.Level = int.Parse(args[0]);
+            //            psr.Player.Experience = GetExpGoal(int.Parse(args[0]));
+            //            psr.Character.Exp = GetExpGoal(int.Parse(args[0]));
+            //            psr.Player.CheckLevelUp();
+            //            UpdateCount++;
+            //            psr.SendPacket(new TextPacket()
+            //            {
+            //                BubbleTime = 0,
+            //                Stars = -1,
+            //                Name = "",
+            //                Text = "Success!"
+            //            });
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        psr.SendPacket(new TextPacket()
+            //        {
+            //            BubbleTime = 0,
+            //            Stars = -1,
+            //            Name = "",
+            //            Text = "Error!"
+            //        });
+            //    }
+            //}
+            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
             {
-                try
-                {
-                    if (args.Length == 0)
-                    {
-                        psr.Character.Level = psr.Character.Level + 1;
-                        psr.Player.Level = psr.Player.Level + 1;
-                        psr.Player.CheckLevelUp();
-                        UpdateCount++;
-                        psr.SendPacket(new TextPacket()
-                        {
-                            BubbleTime = 0,
-                            Stars = -1,
-                            Name = "",
-                            Text = "Success!"
-                        });
-                    }
-                    else if (args.Length == 1)
-                    {
-                        psr.Character.Level = int.Parse(args[0]);
-                        psr.Player.Level = int.Parse(args[0]);
-                        psr.Player.CheckLevelUp();
-                        UpdateCount++;
-                        psr.SendPacket(new TextPacket()
-                        {
-                            BubbleTime = 0,
-                            Stars = -1,
-                            Name = "",
-                            Text = "Success!"
-                        });
-                    }
-                }
-                catch
-                {
-                    psr.SendPacket(new TextPacket()
-                    {
-                        BubbleTime = 0,
-                        Stars = -1,
-                        Name = "",
-                        Text = "Error!"
-                    });
-                }
-            }
-            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase))
-            {
-                string[] args2 = y;
-                //Console.WriteLine(y);
-                return;
-                DateTime date1 = DateTime.Parse(DateTime.Now.ToString());
-                String date2 = date1.Year.ToString() + "-" + date1.Month.ToString() + "-" + date1.Day.ToString() + " " + date1.Hour.ToString() + ":" + date1.Minute.ToString() + ":" + date1.Second.ToString();
+                //Console.WriteLine(NewsText);
+                String date2 = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
                 try
                 {
                     using (var database1 = new Database())
                     {
-                        if (args2.Length == 3)
+                        if (NewsText.Length == 3)
                         {
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args2[0]);
-                            mysqlcommand.Parameters.AddWithValue("@text", args2[1]);
-                            mysqlcommand.Parameters.AddWithValue("@link", args2[2]);
+                            mysqlcommand.Parameters.AddWithValue("@title", NewsText[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", NewsText[1]);
+                            mysqlcommand.Parameters.AddWithValue("@link", NewsText[2]);
                             mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
                             {
@@ -479,13 +488,13 @@ namespace wServer.realm.entities
                                 });
                             }
                         }
-                        else if (args.Length == 2)
+                        else if (NewsText.Length == 2)
                         {
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.CommandText = "INSERT INTO news(icon, title, text, link, date) VALUES (@icon, @title, @text, @link, @date);";
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args2[0]);
-                            mysqlcommand.Parameters.AddWithValue("@text", args2[1]);
+                            mysqlcommand.Parameters.AddWithValue("@title", NewsText[0]);
+                            mysqlcommand.Parameters.AddWithValue("@text", NewsText[1]);
                             mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
                             mysqlcommand.Parameters.AddWithValue("@date", date2);
                             if (mysqlcommand.ExecuteNonQuery() > 0)
@@ -509,11 +518,11 @@ namespace wServer.realm.entities
                                 });
                             }
                         }
-                        else if (args.Length == 1)
+                        else if (NewsText.Length == 1)
                         {
                             var mysqlcommand = database1.CreateQuery();
                             mysqlcommand.Parameters.AddWithValue("@icon", "info");
-                            mysqlcommand.Parameters.AddWithValue("@title", args2[0].ToString());
+                            mysqlcommand.Parameters.AddWithValue("@title", NewsText[0].ToString());
                             mysqlcommand.Parameters.AddWithValue("@text", "Default news text");
                             mysqlcommand.Parameters.AddWithValue("@link", "http://forums.wildshadow.com/");
                             mysqlcommand.Parameters.AddWithValue("@date", date2);
@@ -562,7 +571,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
+            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase) && args.Length == 0 && CmdReqAdmin())
             {
                 try
                 {
@@ -590,7 +599,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("banana", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("banana", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
             {
                 psr.Reconnect(new ReconnectPacket()
                 {
@@ -826,14 +835,14 @@ namespace wServer.realm.entities
                     {
                         psr.SendPacket(new TextPacket()
                         {
-                            BubbleTime = 10,
+                            BubbleTime = 5,
                             Stars = psr.Player.Stars,
                             Recipient = playername,
                             Text = msg
                         });
                         i.SendPacket(new TextPacket()
                         {
-                            BubbleTime = 0,
+                            BubbleTime = 5,
                             Stars = psr.Player.Stars,
                             Name = psr.Account.Name,
                             Recipient = i.Account.Name,
@@ -851,7 +860,7 @@ namespace wServer.realm.entities
                     psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = String.Format("{0} not found", playername) });
                 }
             }
-            else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
             {
 
                 foreach (var i in RealmManager.Clients.Values)
@@ -865,7 +874,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("killall", StringComparison.OrdinalIgnoreCase))
+            else if (cmd.Equals("killall", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
             {
                 foreach (var i in RealmManager.Worlds)
                 {

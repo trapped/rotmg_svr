@@ -182,7 +182,7 @@ namespace wServer.realm.entities
                     {
                         ObjectId = Id,
                         Color = new ARGB(0xFF00FF00),
-                        Text = "Class Quest Complete!"
+                        Text = "Class quest completed!"
                     }, null);
                     Stars = GetStars();
                 }

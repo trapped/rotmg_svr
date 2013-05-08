@@ -733,18 +733,17 @@ namespace wServer.realm.entities
                         {
                             if (item.Texture1 != "0")
                             {
-                                this.Texture1 = db.dyes_hextointmod.hextoint(item.Texture1.ToString(),item.Cloth);
+                                psr.Player.Texture1 = db.dyes_hextointmod.hextoint(item.Texture1.ToString(), item.Cloth);
                             }
                             if (item.Texture2 != "0")
                             {
-                                this.Texture1 = db.dyes_hextointmod.hextoint(item.Texture2.ToString(), item.Cloth);
+                                psr.Player.Texture2 = db.dyes_hextointmod.hextoint(item.Texture2.ToString(), item.Cloth);
                             }
                             this.SaveToCharacter();
-                        } break;
+                            UpdateCount++;
+                        }
                         break;
-
-
-                }
+                  }
             }
             UpdateCount++;
         }

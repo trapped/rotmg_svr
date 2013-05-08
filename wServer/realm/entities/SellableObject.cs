@@ -17,7 +17,7 @@ namespace wServer.realm.entities
         {
             if (objType == 0x0505)  //Vault chest
             {
-                Price = 100;
+                Price = 500;
                 Currency = CurrencyType.Gold;
                 RankReq = 0;
             }
@@ -75,7 +75,7 @@ namespace wServer.realm.entities
                     player.Client.SendPacket(new BuyResultPacket()
                     {
                         Result = 0,
-                        Message = "Vault Chest Get!"
+                        Message = "Vault chest purchased!"
                     });
                 }
                 else

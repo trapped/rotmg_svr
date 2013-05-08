@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.IO;
+using System.Xml.XPath;
+using System.Reflection;
 
 public class XmlDatas
 {
@@ -56,7 +58,7 @@ public class XmlDatas
             IdToType[id] = type;
             TypeToElement[type] = elem;
 
-            if (cls == "Equipment")
+            if (cls == "Equipment" || cls == "Dye" || cls == "Pet")
                 ItemDescs[type] = new Item(elem);
             else if (cls == "Character" || cls == "GameObject" || cls == "Wall" ||
                 cls == "ConnectedWall" || cls == "CaveWall")

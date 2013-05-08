@@ -290,7 +290,15 @@ namespace wServer.realm.entities
             HandleEffects(time);
             fames.Tick(time);
 
-            //psr.Database.SaveCharacter(psr.Account, psr.Character); //YO
+            try
+            {
+                psr.Database.SaveCharacter(psr.Account, psr.Character); //YO
+                UpdateCount++;
+            }
+            catch
+            {
+                Console.WriteLine("Error at line 293 of Player.cs");
+            }
 
             SendUpdate(time);
 
@@ -352,7 +360,7 @@ namespace wServer.realm.entities
                 UpdateCount++;
             }
             Move((float)newX, (float)newY);
-            //psr.Database.SaveCharacter(psr.Account, psr.Character);
+            psr.Database.SaveCharacter(psr.Account, psr.Character);
         }
 
         public void UsePortal(RealmTime time, UsePortalPacket pkt)

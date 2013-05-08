@@ -1392,13 +1392,15 @@
     <BagType>2</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc87" id="Kablem Dildo">
+  <Object type="0xc87" id="Kablem Dildo Dye">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj6</File>
       <Index>0x79</Index>
     </Texture>
+    <Tex1>0xFFFFF</Tex1>
+    <Tex2>0xFFFFF</Tex2>
     <SlotType>3</SlotType>
     <Description>It's a pain in the ass. Literaly.</Description>
     <RateOfFire>6</RateOfFire>
@@ -1415,6 +1417,7 @@
     <FameBonus>1</FameBonus>
     <NumProjectiles>1</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
+    <Activate>Dye</Activate>
   </Object>
   <Object type="0xc88" id="Cloak of the Tutorial">
     <Class>Equipment</Class>
@@ -1435,5 +1438,23 @@
     <Activate effect="Invisible" duration="5.5">ConditionEffectSelf</Activate>
     <Activate maxDistance="20">Teleport</Activate>
     <Cooldown>1</Cooldown>
+  </Object>
+  <Object type="0xc89" id="Test Dye">
+    <Class>Dye</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x10</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A test dye.</Description>
+    <Usable/>
+    <Tex1>0xFFFFF</Tex1>
+    <BagType>4</BagType>
+    <FameBonus>10</FameBonus>
+    <Activate>Dye</Activate>
+    <Soulbound/>
+    <Consumable/>
+    <Sound>use_potion</Sound>
   </Object>
 </Addition>

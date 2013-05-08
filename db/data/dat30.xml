@@ -1124,10 +1124,10 @@
 		<DeathSound>monster/chicken_death</DeathSound>		
 
 			
-		<MaxHitPoints>600</MaxHitPoints>
+		<MaxHitPoints>10</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
-		<XpMult>70</XpMult>
+		<XpMult>700000000</XpMult>
 		
 					
 
