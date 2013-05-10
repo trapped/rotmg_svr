@@ -396,6 +396,13 @@ namespace wServer
 
         void ProcessChooseNamePacket(ChooseNamePacket pkt)
         {
+            bool namechosen = false;
+            var cmdx = db0.CreateQuery();
+            cmdx.CommandText = "SELECT namechosen FROM accounts WHERE id=@accId";
+            cmdx.Parameters.AddWithValue("@accId",account.AccountId);
+            object execx = cmdx.ExecuteScalar();
+            namechosen = bool.Parse(execx.ToString());
+
             if (string.IsNullOrEmpty(pkt.Name) ||
                 pkt.Name.Length > 10)
             {
@@ -421,7 +428,7 @@ namespace wServer
                 else
                 {
                     db0.ReadStats(account);
-                    if (account.NameChosen && account.Credits < 1000)
+                    if (account.Credits < 1000 && namechosen == true)
                         SendPacket(new NameResultPacket()
                         {
                             Success = false,
@@ -429,28 +436,55 @@ namespace wServer
                         });
                     else
                     {
-                        cmd = db0.CreateQuery();
-                        cmd.CommandText = "UPDATE accounts SET name=@name, namechosen=TRUE WHERE id=@accId;";
-                        cmd.Parameters.AddWithValue("@accId", account.AccountId);
-                        cmd.Parameters.AddWithValue("@name", pkt.Name);
-                        if (cmd.ExecuteNonQuery() > 0)
+                        if (account.NameChosen == false)
                         {
-                            entity.Credits = db0.UpdateCredit(account, -1000);
-                            entity.Name = pkt.Name;
-                            entity.NameChosen = true;
-                            entity.UpdateCount++;
-                            SendPacket(new NameResultPacket()
+                            cmd = db0.CreateQuery();
+                            cmd.CommandText = "UPDATE accounts SET name=@name, namechosen=TRUE WHERE id=@accId;";
+                            cmd.Parameters.AddWithValue("@accId", account.AccountId);
+                            cmd.Parameters.AddWithValue("@name", pkt.Name);
+                            if (cmd.ExecuteNonQuery() > 0)
                             {
-                                Success = true,
-                                Message = "Success!"
-                            });
+                                entity.Name = pkt.Name;
+                                entity.NameChosen = true;
+                                entity.UpdateCount++;
+                                SendPacket(new NameResultPacket()
+                                {
+                                    Success = true,
+                                    Message = "Success!"
+                                });
+                            }
+                            else
+                                SendPacket(new NameResultPacket()
+                                {
+                                    Success = false,
+                                    Message = "Internal Error"
+                                });
                         }
                         else
-                            SendPacket(new NameResultPacket()
+                        {
+                            cmd = db0.CreateQuery();
+                            cmd.CommandText = "UPDATE accounts SET name=@name, namechosen=TRUE WHERE id=@accId;";
+                            cmd.Parameters.AddWithValue("@accId", account.AccountId);
+                            cmd.Parameters.AddWithValue("@name", pkt.Name);
+                            if (cmd.ExecuteNonQuery() > 0)
                             {
-                                Success = false,
-                                Message = "Internal Error"
-                            });
+                                entity.Credits = db0.UpdateCredit(account, -1000);
+                                entity.Name = pkt.Name;
+                                entity.NameChosen = true;
+                                entity.UpdateCount++;
+                                SendPacket(new NameResultPacket()
+                                {
+                                    Success = true,
+                                    Message = "Success!"
+                                });
+                            }
+                            else
+                                SendPacket(new NameResultPacket()
+                                {
+                                    Success = false,
+                                    Message = "Internal Error"
+                                });
+                        }
                     }
                 }
             }
