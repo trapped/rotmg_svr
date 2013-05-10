@@ -91,31 +91,31 @@ namespace wServer.realm.entities
                     Name = "Tutorial",
                     Key = Empty<byte>.Array,
                 });
-            else if (cmd.Equals("a", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
-            {
-                if (psr.Account.Admin == true)
-                {
-                    psr.Account.Admin = false;
-                    UpdateCount++;
-                    using(var db1 = new Database())
-                    {
-                        var sqlcmd = db1.CreateQuery();
-                        sqlcmd.CommandText = "UPDATE accounts SET admin = 0 WHERE id = " +psr.Account.AccountId.ToString()+ ";";
-                        sqlcmd.ExecuteNonQuery();
-                    }
-                }
-                else
-                {
-                    psr.Account.Admin = true;
-                    UpdateCount++;
-                    using (var db1 = new Database())
-                    {
-                        var sqlcmd = db1.CreateQuery();
-                        sqlcmd.CommandText = "UPDATE accounts SET admin = 1 WHERE id = " + psr.Account.AccountId.ToString() + ";";
-                        sqlcmd.ExecuteNonQuery();
-                    }
-                }
-            }
+            //else if (cmd.Equals("a", StringComparison.OrdinalIgnoreCase) && args.Length == 0)
+            //{
+            //    if (psr.Account.Admin == true)
+            //    {
+            //        psr.Account.Admin = false;
+            //        UpdateCount++;
+            //        using(var db1 = new Database())
+            //        {
+            //            var sqlcmd = db1.CreateQuery();
+            //            sqlcmd.CommandText = "UPDATE accounts SET admin = 0 WHERE id = " +psr.Account.AccountId.ToString()+ ";";
+            //            sqlcmd.ExecuteNonQuery();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        psr.Account.Admin = true;
+            //        UpdateCount++;
+            //        using (var db1 = new Database())
+            //        {
+            //            var sqlcmd = db1.CreateQuery();
+            //            sqlcmd.CommandText = "UPDATE accounts SET admin = 1 WHERE id = " + psr.Account.AccountId.ToString() + ";";
+            //            sqlcmd.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
             else if (cmd.Equals("spawn", StringComparison.OrdinalIgnoreCase) &&
                      CmdReqAdmin() && args.Length > 0)
             {
@@ -187,6 +187,12 @@ namespace wServer.realm.entities
                     });
                 }
             }
+            //else if (cmd.Equals("guild", StringComparison.OrdinalIgnoreCase)) //made this to test if the guild name thing was working, oh well...
+            //{
+            //    psr.Player.Guild = "gg";//GetGuildName(psr.Account.AccountId);
+            //    psr.Player.GuildRank = 1;
+            //    UpdateCount++;
+            //}
             else if (cmd.Equals("addEff", StringComparison.OrdinalIgnoreCase) &&
                      CmdReqAdmin() && args.Length == 1)
             {

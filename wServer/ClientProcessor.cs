@@ -120,6 +120,8 @@ namespace wServer
                     RealmManager.AddPendingAction(t => entity.GroundDamage(t, pkt as GroundDamagePacket), PendingPriority.Networking);
                 else if (pkt.ID == PacketID.CheckCredits)
                     RealmManager.AddPendingAction(t => entity.CheckCredits(t, pkt as CheckCreditsPacket), PendingPriority.Networking);
+                else if (pkt.ID == PacketID.CreateGuild)
+                    RealmManager.AddPendingAction(t => entity.CreateGuild(pkt as CreateGuildPacket),PendingPriority.Networking);
                 else if (pkt.ID != PacketID.Packet)
                 {
                     Console.WriteLine("Unhandled packet: " + pkt.ToString());
@@ -138,25 +140,25 @@ namespace wServer
             stage = ProtocalStage.Disconnected;
             if (account != null)
                 DisconnectFromRealm();
-            if (db != null && original != ProtocalStage.Ready)
+            if (db0 != null && original != ProtocalStage.Ready)
             {
-                db.Dispose();
-                db = null;
+                db0.Dispose();
+                db0 = null;
             }
             skt.Close();
             sendLock.Set();
         }
         public void Save()
         {
-            if (db != null)
+            if (db0 != null)
             {
                 if (character != null)
                 {
                     entity.SaveToCharacter();
-                    db.SaveCharacter(account, character);
+                    db0.SaveCharacter(account, character);
                 }
-                db.Dispose();
-                db = null;
+                db0.Dispose();
+                db0 = null;
             }
         }
 
@@ -186,14 +188,14 @@ namespace wServer
             }
         }
 
-        Database db;
+        Database db0;
         Account account;
         Char character;
         Player entity;
         bool isGuest = false;
         ProtocalStage stage;
 
-        public Database Database { get { return db; } }
+        public Database Database { get { return db0; } }
         public Char Character { get { return character; } }
         public Account Account { get { return account; } }
         public ProtocalStage Stage { get { return stage; } }
@@ -204,8 +206,8 @@ namespace wServer
         void ProcessHelloPacket(HelloPacket pkt)
         {
             Console.WriteLine("Accepting new client...");
-            db = new Database();
-            if ((account = db.Verify(pkt.GUID, pkt.Password)) == null)
+            db0 = new Database();
+            if ((account = db0.Verify(pkt.GUID, pkt.Password)) == null)
             {
                 Console.WriteLine("Account not verified.");
                 account = Database.CreateGuestAccount(pkt.GUID);
@@ -228,6 +230,17 @@ namespace wServer
             Console.WriteLine("Client trying to connect");
             if (!RealmManager.TryConnect(this))
             {
+                if (CheckAccountInUse(account.AccountId) != false)
+                {
+                    Console.WriteLine("Account in use: " + account.AccountId);
+                    account = null;
+                    SendPacket(new svrPackets.FailurePacket()
+                    {
+                        Message = "Account in use! Retrying..."
+                    });
+                    Disconnect();
+                    return;
+                }
                 account = null;
                 SendPacket(new svrPackets.FailurePacket()
                 {
@@ -281,13 +294,13 @@ namespace wServer
 
             Console.WriteLine("Client char create packet");
             int nextCharId = 1;
-            nextCharId = db.GetNextCharID(account);
-            var cmd = db.CreateQuery();
+            nextCharId = db0.GetNextCharID(account);
+            var cmd = db0.CreateQuery();
             cmd.CommandText = "SELECT maxCharSlot FROM accounts WHERE id=@accId;";
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
             object maxChar1 = cmd.ExecuteScalar();
             int maxChar = int.Parse(maxChar1.ToString());
-            cmd = db.CreateQuery();
+            cmd = db0.CreateQuery();
             cmd.CommandText = "SELECT COUNT(id) FROM characters WHERE accId=@accId AND dead = FALSE;";
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
             object currChar1 = cmd.ExecuteScalar();
@@ -295,6 +308,15 @@ namespace wServer
 
             if (currChar >= maxChar)
             {
+                Disconnect();
+            }
+            if (CheckAccountInUse(account.AccountId) != false)
+            {
+                Console.WriteLine("Account in use: " + account.AccountId);
+                SendPacket(new svrPackets.FailurePacket()
+                {
+                    Message = "Account in use! Retrying..."
+                });
                 Disconnect();
             }
             Console.WriteLine("Client second char create packet");
@@ -314,7 +336,7 @@ namespace wServer
             };
 
             bool ok = true;
-            cmd = db.CreateQuery();
+            cmd = db0.CreateQuery();
             cmd.Parameters.AddWithValue("@accId", account.AccountId);
             cmd.Parameters.AddWithValue("@charId", nextCharId);
             cmd.Parameters.AddWithValue("@charType", pkt.ObjectType);
@@ -330,7 +352,7 @@ namespace wServer
 
             if (ok)
             {
-                SendPacket(new CreateSuccessPacket()
+                SendPacket(new CreateResultPacket()
                 {
                     CharacterID = character.CharacterId,
                     ObjectID = RealmManager.Worlds[targetWorld].EnterWorld(entity = new Player(this))
@@ -347,7 +369,7 @@ namespace wServer
         void ProcessLoadPacket(LoadPacket pkt)
         {
             Console.WriteLine("Client load packet");
-            character = db.LoadCharacter(account, pkt.CharacterId);
+            character = db0.LoadCharacter(account, pkt.CharacterId);
             if (character != null)
             {
                 if (character.Dead)
@@ -357,7 +379,7 @@ namespace wServer
                     });
                 else
                 {
-                    SendPacket(new CreateSuccessPacket()
+                    SendPacket(new CreateResultPacket()
                     {
                         CharacterID = character.CharacterId,
                         ObjectID = RealmManager.Worlds[targetWorld].EnterWorld(entity = new Player(this))
@@ -382,50 +404,54 @@ namespace wServer
                     Success = false,
                     Message = "Invalid name"
                 });
+                return;
             }
-
-            var cmd = db.CreateQuery();
-            cmd.CommandText = "SELECT COUNT(name) FROM accounts WHERE name=@name;";
-            cmd.Parameters.AddWithValue("@name", pkt.Name);
-            if ((int)(long)cmd.ExecuteScalar() > 0)
-                SendPacket(new NameResultPacket()
-                {
-                    Success = false,
-                    Message = "Duplicated name"
-                });
             else
             {
-                db.ReadStats(account);
-                if (account.NameChosen && account.Credits < 1000)
+                var cmd = db0.CreateQuery();
+                cmd.CommandText = "SELECT COUNT(name) FROM accounts WHERE name=@name;";
+                cmd.Parameters.AddWithValue("@name", pkt.Name);
+                object x = cmd.ExecuteScalar();
+                if (int.Parse(x.ToString()) > 0)
                     SendPacket(new NameResultPacket()
                     {
                         Success = false,
-                        Message = "Not enough credits"
+                        Message = "Duplicated name"
                     });
                 else
                 {
-                    cmd = db.CreateQuery();
-                    cmd.CommandText = "UPDATE accounts SET name=@name, namechosen=TRUE WHERE id=@accId;";
-                    cmd.Parameters.AddWithValue("@accId", account.AccountId);
-                    cmd.Parameters.AddWithValue("@name", pkt.Name);
-                    if (cmd.ExecuteNonQuery() > 0)
-                    {
-                        entity.Credits = db.UpdateCredit(account, -1000);
-                        entity.Name = pkt.Name;
-                        entity.NameChosen = true;
-                        entity.UpdateCount++;
-                        SendPacket(new NameResultPacket()
-                        {
-                            Success = true,
-                            Message = ""
-                        });
-                    }
-                    else
+                    db0.ReadStats(account);
+                    if (account.NameChosen && account.Credits < 1000)
                         SendPacket(new NameResultPacket()
                         {
                             Success = false,
-                            Message = "Internal Error"
+                            Message = "Not enough credits"
                         });
+                    else
+                    {
+                        cmd = db0.CreateQuery();
+                        cmd.CommandText = "UPDATE accounts SET name=@name, namechosen=TRUE WHERE id=@accId;";
+                        cmd.Parameters.AddWithValue("@accId", account.AccountId);
+                        cmd.Parameters.AddWithValue("@name", pkt.Name);
+                        if (cmd.ExecuteNonQuery() > 0)
+                        {
+                            entity.Credits = db0.UpdateCredit(account, -1000);
+                            entity.Name = pkt.Name;
+                            entity.NameChosen = true;
+                            entity.UpdateCount++;
+                            SendPacket(new NameResultPacket()
+                            {
+                                Success = true,
+                                Message = "Success!"
+                            });
+                        }
+                        else
+                            SendPacket(new NameResultPacket()
+                            {
+                                Success = false,
+                                Message = "Internal Error"
+                            });
+                    }
                 }
             }
         }
@@ -462,6 +488,93 @@ namespace wServer
                 RealmManager.Disconnect(this);
                 SendPacket(pkt);
             }, PendingPriority.Destruction);
+        }
+        void CreateGuildPacket()
+        {
+
+        }
+        //public bool CheckAccountInUse(string uuid)
+        //{
+        //    int count = 0;
+        //    int accId = 0;
+        //    using(db.Database dbx = new Database())
+        //    {
+        //        var cmd = dbx.CreateQuery();
+        //        cmd.CommandText = "SELECT id FROM accounts WHERE uuid = @uuid";
+        //        cmd.Parameters.AddWithValue("@uuid", uuid);
+        //        if (cmd.ExecuteNonQuery() != 0)
+        //        {
+        //            object id;
+        //            id = cmd.ExecuteScalar();
+        //            accId = int.Parse(id.ToString());
+        //        }
+        //    }
+        //    foreach (var i in RealmManager.Clients.Values)
+        //    {
+        //        if (i.Account.AccountId == accId)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            count = count + 1;
+        //        }
+        //    }
+        //    if (count == RealmManager.Clients.ToArray().Length)
+        //    {
+        //        return false;
+        //    }
+        //    return false;
+        //}
+        //public bool CheckAccountInUse(int accId)
+        //{
+        //    int count = 0;
+        //    foreach (var i in RealmManager.Clients.Values)
+        //    {
+        //        if (i.Account.AccountId == accId)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            count = count + 1;
+        //        }
+        //    }
+        //    if (count == RealmManager.Clients.ToArray().Length)
+        //    {
+        //        return false;
+        //    }
+        //    return false;
+        //}
+        public bool CheckAccountInUse(int accId)
+        {
+            try
+            {
+                World w = RealmManager.GetWorld(World.NEXUS_ID);
+                World v = RealmManager.GetWorld(World.VAULT_ID);
+                int count = 0;
+                foreach (var i in w.Players.Values)
+                {
+                    if (i.AccountId == accId)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        count = count + 1;
+                    }
+                }
+                if (count == w.Players.Values.ToArray().Length)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                Console.WriteLine("Error checking if account "+accId+" is in use, check ClientProcessor.cs");
+                return false;
+            }
         }
     }
 }

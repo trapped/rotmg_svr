@@ -211,10 +211,9 @@ namespace wServer.realm
 
                 //case "Merchant":
                 //    return new StaticObject(id, null, false, false, false);
-                
+
                 case "GuildRegister":
                     return new StaticObject(id, null, false, false, false);
-
 
                 case "GuildHallPortal":
                     return new StaticObject(id, null, false, false, false);

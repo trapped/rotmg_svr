@@ -5,13 +5,13 @@ using System.Text;
 
 namespace wServer.svrPackets
 {
-    public class CreateSuccessPacket : ServerPacket
+    public class CreateResultPacket : ServerPacket
     {
         public int ObjectID { get; set; }
         public int CharacterID { get; set; }
 
         public override PacketID ID { get { return PacketID.Create_Success; } }
-        public override Packet CreateInstance() { return new CreateSuccessPacket(); }
+        public override Packet CreateInstance() { return new CreateResultPacket(); }
 
         protected override void Read(ClientProcessor psr, NReader rdr)
         {

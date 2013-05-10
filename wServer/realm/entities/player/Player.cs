@@ -7,6 +7,7 @@ using wServer.cliPackets;
 using System.Collections.Concurrent;
 using wServer.realm.worlds;
 using wServer.logic;
+using db;
 
 namespace wServer.realm.entities
 {
@@ -35,6 +36,8 @@ namespace wServer.realm.entities
 
         public string Guild { get; set; }
         public int GuildRank { get; set; }
+        public int GuildId { get; set; } //this and the one below are not stats for the client, they are for the server to better handle the guild things
+        public int GuildLevel { get; set; }
 
         public int Credits { get; set; }
         public bool NameChosen { get; set; }
@@ -297,7 +300,7 @@ namespace wServer.realm.entities
             }
             catch
             {
-                Console.WriteLine("Error at line 293 of Player.cs");
+                Console.WriteLine("Error at line 278 of Player.cs");
             }
 
             SendUpdate(time);
@@ -617,6 +620,127 @@ namespace wServer.realm.entities
             });
             Owner.Timers.Add(new WorldTimer(1000, (w, t) => psr.Disconnect()));
             Owner.LeaveWorld(this);
+        }
+        public void CreateGuild(CreateGuildPacket pkt)
+        {
+            bool GuildsActive = false;
+            if (GuildsActive == false)
+            {
+                psr.SendPacket(new CreateGuildResultPacket()
+                {
+                    Success = false,
+                    ResultMessage = "Guilds currently disabled, talk with Trapped on the forums."
+                });
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string name = pkt.Name.ToString();
+                    if (psr.Account.Credits >= 1000)
+                    {
+                        using (Database db1 = new Database())
+                        {
+                            var cmd = db1.CreateQuery();
+
+                            cmd.CommandText = "INSERT INTO guilds (name, members, level) VALUES (@name,@firstMember,1)";
+                            cmd.Parameters.AddWithValue("@name", name);
+                            cmd.Parameters.AddWithValue("@firstMember", "," + psr.Account.AccountId.ToString() + ",");
+                            if (cmd.ExecuteNonQuery() != 0)
+                            {
+                                Console.WriteLine("Created guild {0} with founder {1}", name, psr.Account.AccountId + " " + psr.Account.Name);
+                                psr.SendPacket(new CreateGuildResultPacket()
+                                {
+                                    ResultMessage = "Created guild " + name.ToString() + "!",
+                                    Success = true
+                                });
+                            }
+                            else
+                            {
+                                Console.WriteLine("Error creating guild {0} with founder {1}", name, psr.Account.AccountId + " " + psr.Account.Name);
+                                psr.SendPacket(new CreateGuildResultPacket()
+                                {
+                                    ResultMessage = "Error creating guild!",
+                                    Success = false
+                                });
+                            }
+                            cmd = db1.CreateQuery();
+                            cmd.CommandText = "SELECT id FROM guilds WHERE name = @name";
+                            cmd.Parameters.AddWithValue("@name", name);
+                            object guildId;
+                            if (cmd.ExecuteNonQuery() != 0)
+                            {
+                                guildId = cmd.ExecuteScalar();
+                                GuildId = int.Parse(guildId.ToString());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        psr.SendPacket(new CreateGuildResultPacket()
+                        {
+                            Success = false,
+                            ResultMessage = "Not enough fame!"
+                        });
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Error at line 624 of Player.cs");
+                    psr.SendPacket(new TextPacket()
+                    {
+                        Name = "",
+                        Stars = -1,
+                        BubbleTime = 0,
+                        Text = "Error creating guild!"
+                    });
+                }
+            }
+        }
+        public string GetGuildName(int accId)
+        {
+            try
+            {
+                using (Database db1 = new Database())
+                {
+                    var cmd = db1.CreateQuery();
+                    cmd.CommandText = "SELECT * FROM guilds";
+                    //cmd.Parameters.AddWithValue("@accId", "," + accId + ",");
+                    var rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        string members = rdr.GetString("members");
+                        int id = rdr.GetInt32("id");
+                        if (members.ToString().Contains("," + accId.ToString() + ","))
+                        {
+                            return rdr.GetString("name");
+                        }
+                        else
+                        {
+                            return "";
+                        }
+                    }
+                    return "";
+                    //cmd.CommandText = "SELECT name FROM guilds WHERE members LIKE '%@accId%'";
+                    //cmd.Parameters.AddWithValue("@accId", ","+psr.Account.AccountId.ToString()+",");
+                    //if (cmd.ExecuteNonQuery() != 0)
+                    //{
+                    //    object name;
+                    //    name = cmd.ExecuteScalar();
+                    //    return name.ToString();
+                    //}
+                    //else
+                    //{
+                    //    return "";
+                    //}
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error retrieving guild name: check Player.cs");
+                return "";
+            }
         }
     }
 }

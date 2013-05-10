@@ -1,0 +1,398 @@
+(C) 2012 Anoos: 3
+
+Reverse engineering the protocol game Realm Of The Mad God. / Build ver. 123 (?) /
+
+Server Address: ec2-176-34-240-11.eu-est-1.compute.amazonaws.com (176.34.240.11) / EuNorth /
+
+Addresses of all servers (May 8, 2012, ver. 123.0.0)
++ --------------- + ----------------- + --------------- ------------------------------------------ +
+| Name | IP | hostname |
+| --------------- + ----------------- + --------------- ------------------------------------------ +
+| USWest | 50.18.113.133 | ec2-50-18-113-133.us-west-1.compute.amazonaws.com |
+| USMidWest | 107.22.218.252 | ec2-107-22-218-252.compute-1.amazonaws.com |
+| EUWest | 46.137.187.86 | ec2-46-137-187-86.eu-west-1.compute.amazonaws.com |
+| USEast | 184.72.218.199 | ec2-184-72-218-199.compute-1.amazonaws.com |
+| AsiaSouthEast | 46.137.247.5 | ec2-46-137-247-5.ap-southeast-1.compute.amazonaws.com |
+| USSouth | 107.22.231.55 | ec2-107-22-231-55.compute-1.amazonaws.com |
+| USSouthWest | 50.18.176.194 | ec2-50-18-176-194.us-west-1.compute.amazonaws.com |
+| EUEast | 46.51.176.123 | ec2-46-51-176-123.eu-west-1.compute.amazonaws.com |
+| EUNorth | 176.34.240.11 | ec2-176-34-240-11.eu-west-1.compute.amazonaws.com |
+| EUSouthWest | 176.34.240.126 | ec2-176-34-240-126.eu-west-1.compute.amazonaws.com |
+| EUWest2 | 46.137.143.87 | ec2-46-137-143-87.eu-west-1.compute.amazonaws.com |
+| USEast3 | 50.19.47.160 | ec2-50-19-47-160.compute-1.amazonaws.com |
+| USWest2 | 184.169.130.44 | ec2-184-169-130-44.us-west-1.compute.amazonaws.com |
+| USMidWest2 | 174.129.56.145 | ec2-174-129-56-145.compute-1.amazonaws.com |
+| USEast2 | 23.21.243.164 | ec2-23-21-243-164.compute-1.amazonaws.com |
+| USNorthWest | 184.169.131.108 | ec2-184-169-131-108.us-west-1.compute.amazonaws.com |
+| USSouth2 | 107.20.55.255 | ec2-107-20-55-255.compute-1.amazonaws.com |
+| AsiaEast | 46.137.218.95 | ec2-46-137-218-95.ap-southeast-1.compute.amazonaws.com |
+| USSouth3 | 204.236.195.161 | ec2-204-236-195-161.compute-1.amazonaws.com |
+| EUSouth | 176.34.71.225 | ec2-176-34-71-225.eu-west-1.compute.amazonaws.com |
+| EUNorth2 | 46.137.38.91 | ec2-46-137-38-91.eu-west-1.compute.amazonaws.com |
++ --------------- + ----------------- + --------------- ------------------------------------------ +
+
+Client requests a file from the server crossdomain.xml (http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)
+
+Information on packages == ==
+Packet format:
+[Length] <ID> (DETAILS)
+| 01020304 | 05 | 0xDATA |
+
+Presentation:
+int length # Length includes a 5 byte header (4 bytes in length and one byte for ID), hence the length of the data
+*******************# == Length-5
+ubyte id # ID package
+Vector <byte> data # Data is encrypted RC4, uses two keys:
+                            # 311f80691451c71b09a13a2a6e -> outgoing data
+                            # 72c5583cafb6818995cbd74b80 <- Incoming stream
+
+Package List ========= =======================
+== Presented in the order as the developers ==
+# Srv - server sends a packet
+# Cli - packet sent to the client
+#? - Purpose of the package is unknown
+
+
+------- Format------------ 
+ID NAME
+type field
+type2 field2
+---------------------------
+================================================
+
+0 FAILURE # Srv, an error message
+int errorID # ID error
+String errorDescription # description of the error
+
+59 CREATE_SUCCESS # Srv, object creation is successful
+int objectID # ID of the object
+int charID # ID Team
+
+49 CREATE # Cli, create a game object
+short objectType # ID Object Type
+
+20 PLAYERSHOO T # Cli, shoot
+int timestamp # is fired
+int bulletID # ID texture bullet
+short containerType #???
+Point startingPos # coordinates x, y the shooting
+float angle # degree angle shot in the plane xOy
+
+61 MOVE # Cli, player traffic
+int tickID # ID game timer tick (anti-spidhak?)
+int time # Timestamp start of motion (anti-spidhak?)
+Point newPosition # x, y coordinates of the destination
+short recordsLength #???
+Vector records #???
+
+39 PLAYERTEXT # Cli, send a message to the chat
+String message # UTF-8 string posts
+
+7 TEXT # Srv, chat message
+String name # The name of the message sender (player or bot quest)
+int objectID # ID of the object (?)
+int numStars # The number of asterisks wound (made of class quests), the player who wrote the message
+ubyte bubbleTime # time, how many posts will keep the bubble over the player (in seconds?)
+String recipient # The name of the message recipient (for personal messages)
+String text # text message
+String cleanText # (format?) Text messages
+
+21 SHOOT (_-u5, _-FL) # Srv, shot
+ubyte bulletID # ID texture shot
+int ownerID # ID "owner" of the shot
+short containerType #???
+Point startingPos # initial coordinates x, y shot
+float angle # degree angle shot in the plane xOy
+short damage # damage, which will cause the bullet when hit
+
+31 SHOOT # Srv, process multiple shots at once
+ubyte bulletID # ID texture shot
+int ownerID # ID "owner" of the shot
+short containerType #???
+Point startingPos # initial coordinates x, y shot
+float angle # degree angle shot in the plane xOy
+short damage # damage, which will cause the bullet when hit
+# - Following is a list of shots, if there are more bytes, then:
+# Each following byte is the number of shots
+# Next to it is a float angle that will be fired
+# If no bytes, the number of shots = 1, and the angle = 0
+
+38 DAMAGE # Srv, notification of the damage caused and the effects (blindness, weakness, slow, etc.)
+int targetID # ID purposes
+ubyte length # length of the list of effects
+Vector effects # byte array, ID effects (blind, slow)
+int damageAmount # How harmed
+bool kill # Killed?
+ubyte bulletID # ID bullet
+int objectID # ID of the object (?)
+
+5 UPDATE # Srv, renewal of the world (new chunks (tiles), objects (mobs players?), Drops (bags))
+short length_tiles # A length of tiles
+Vector <_-MV> tiles # The block list for updates (you need to deal with the structure of the object block)
+short length_newObjs # list length newObjs
+Vector <_-Oe> newObjs # List of objects to be updated (----- ~)
+short drops_length # list length drops
+Vector <int> drops # drops list (id drops?)
+
+14?
+
+63 NOTIFICATI ON # Srv, notification
+int objectID
+String text # text alerts
+int color # Text Color
+
+57 NEW_TICK # Srv,?
+int tickID
+int tickTime # unix timestamp (?)
+short length # Length of the following list
+Vector <ObjectStatusData> statuses # List status (?)
+
+65 INVSWAP # Cli, rearrangement of things in inventory
+int time # timestamp permutation (to sync?)
+Point position # Location (coordinates x, y) of the permutation (for drops?)
+Slot slotObject1 # source object slot (for slots is necessary to designate the data structure Slot)
+Slot slotObject2 # The target slot (- ^)
+
+58 USEITEM # Cli, use things (elixir, egg)
+int time # timestamp use (for timing?)
+Slot slotObject # object slot
+Point itemUsePos # The place where the object is used (for pots right out of the bag?)
+
+77 SHOW_EFFECT # Srv, show the effect
+ubyte effectType # type of effect (0-15)
+int targetObjectID # ID purposes
+Point pos1 #???
+Point pos2 #???
+int color # color effect (?)
+
+17 HELLO # Cli, login to the server package
+String buildVersion # version build # 123
+Int gameID # ID game (?)
+String guid # Login
+String password # Password
+String secret # secret
+int keyTime #???
+short keyLength # Key length (?)
+Vector <byte> key # key
+int? length # length of the array
+An array of String utf8bytes # utf-8 bytes
+
+# Login, password and the secret is encrypted using public key PEM.RSA
+# Base64 encoded encrypted data
+# RSA public key is available and within the swf-file
+# ----- BEGIN PUBLIC KEY ----- \ n
+
+
+50 GOTO # Srv, pemereschenie object
+int objectID # ID moving object
+Point pos # kordinaty move
+
+11 INVDROP # Cli, drop a thing of the slot
+Slot slotObject # Property Data from the slot
+
+75 INVRESULT # Srv, the result of action with the inventory
+int result # result code
+
+4 RECONNECT # Srv, reconnect the (other) server
+String name
+String host
+int port
+int gameID
+int keyTime
+short keyLength
+Vector <byte> key
+
+41 PING # Srv
+int serial # Number of pings
+
+27 PONG # Cli
+int serial # sequence number received in the processing of PING, this package should be sent immediately after the PING
+
+37 MAPINFO # Srv, the card information
+int width # Map width (the Nexus 255)
+int height # length cards (the Nexus 255)
+String name # name card (Nexus)
+uint fp #???
+int background # code map background (2 - blue by default)
+bool allowplayertp # Allow teleport players to each other (eg, smoking in the castle oryx)
+
+
+34 LOAD # Cli, download chara
+int charID # ID chara
+
+3 PIC # Srv, download pictures (bitmap)
+int height
+int width
+Vector <byte> byteArray # The data set picture size: (height * width) * 4
+
+28 SETCONDITI ON # Cli, installation conditions (?)
+byte conditionEffect # ID effect
+float conditionDuration # The duration of the effect (seconds?)
+
+23 TELEPORT # Cli, a request to teleport to the object
+int objectID
+
+45 USEPORTAL # Cli, use the portal (or hatch in the dungeon)
+int objectID
+
+47 DEATH # Srv, notification of death
+int accountID
+int charID
+String killedBy
+
+68 BUY # Cli, a request to purchase (from a shop in Nexus)
+int objectID
+
+10 BUYRESULT # Srv, the purchase
+int result # result code
+String resultString # message (error or a successful purchase)
+
+62 AOE # Srv, AoE (Area of ??Effect) damage as a bomb jellyfish.
+Point position # Position of the center
+float radius # Radius effect
+ushort damage # Damage
+ushort origType # Damage type (?) probably bombs, ladders, etc. Khilki
+
+19 GROUNDDAMA GE # Cli, causing damage to land (units)
+int time
+Point position
+
+18 PLAYERHIT # Cli, hit the player
+byte bulletID
+int objectID
+
+24 ENEMYHIT # Cli, hit the enemy
+int time
+byte bulletID
+int targetID
+bool kill
+
+26 AOEACK # Cli
+int time
+Point position
+
+64 SHOOTACK # Cli
+int time
+
+6 OTHERHIT # Cli
+int time
+byte bulletID
+int objectID
+int targetID
+
+16 SQUAREHIT # Cli
+int time
+byte bulletID
+int targetID
+
+51 GOTOACK # Cli
+int time
+
+55 EDITACCOUN TLIST # Cli
+int accountListID
+bool add
+int objectID
+
+66 ACCOUNTLIS T # Srv
+int id
+short listLength
+Vector <int> accountIDs
+
+74 QUESTOBJID # Srv
+int objectID
+
+40 CHOOSENAME # Cli, name change
+String name
+
+67 NAMERESULT # Srv, the result of the name change
+bool success
+String errorText
+
+76 CREATEGUILD # Cli, creating a guild (clan)
+String name # The name of the clan
+
+69 CREATEGUILD RESULT # Srv, the result of a guild (clan)
+bool success
+String errorText
+
+8 GUILDREMOVE # Cli, removing guild (clan)
+String name
+
+22 GUILDINVIT E # Cli, invite to the guild
+String name # The name of the invited players
+
+53 ALLYSHOOT # Srv, shots allies (other players)
+ubyte bulletID
+int ownerID
+short containerType
+float angle
+
+48 REQUESTTRA DE # Cli, a request to trade a player
+String name
+
+36 TRADEREQUE STED # Srv, alert players that want to trade with him
+String name
+
+9 TRADESTART # Srv, start trading
+short myItemsLength # length of the list of things that I'm willing to trade
+Vector <Slot> myItems # list of things
+String yourName # Name (whose?)
+short yourItemsLength # length of the list of things
+Vector <Slot> yourItems # list of things
+
+12 CHANGETRAD E # Cli, change trade boolean list of selected slots
+short offerLength # length of the list of marks
+Vector <bool> offer # List marks true - a slot is selected, false - not selected
+
+44 TRADECHANG ED # Srv, the player changed his sentence
+short offerLength # length of the list marks slots
+Vector <bool> offer # List marks slots
+
+15 ACCEPTTRAD E # Cli, to trade
+short myOfferLength
+Vector <Slot> myOffer
+short yourOfferLength
+Vector <Slot> yourOffer
+
+25 CANCELTRAD E # Cli, cancel trade
+# Data is not passed
+
+42 TRADEDONE # Srv, trade completed
+int code # result code
+String desription # Description
+
+1 TRADEACCEPTED # Srv, trade accepted
+short myOfferLength
+Vector <Slot> myOffer
+short yourOfferLength
+Vector <Slot> yourOffer
+
+46 CLIENTSTAT # Srv, client player stats
+String name # name of the article
+int value # value
+
+30 CHECKCREDI TS # Cli, titles, like pressing a button on the main menu Credits
+# Data is not passed
+
+33 ESCAPE # Cli, teleport to Nexus
+# Data is not passed
+
+56 FILE # Srv, download the file from the server (?)
+String name
+int filesize
+# The following is an array of UTF-8 byte size filesize
+
+35 INVITEDTOG UILD # Srv, notification that the player client was invited to the guild (clan)
+int objectID # ID Guild
+int charID # ID players invited to the guild
+
+52 JOINGUILD # Cli, accept the invitation to the guild
+String guildName # Guild Name
+
+60 CHANGEGUIL DRANK # Cli, change the rank of the player in the guild (guild for admins)
+String name # Player Name
+int guildRank # new rank
+
+13 PLAYSOUND # Srv, play sound
+int ownerID
+ubyte soundID
