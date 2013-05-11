@@ -18,6 +18,7 @@ namespace wServer.realm
         public const int TEST_ID = -6;
         public const int BANANA_ID = -10;
         public const int ZETA_ID = -11;
+        public const int GEE_ID = -12; //map creating tutorial world
 
         protected World()
         {

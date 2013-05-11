@@ -250,6 +250,7 @@
     <Compile Include="realm\terrain\TerrainTile.cs" />
     <Compile Include="realm\terrain\WorldMapExporter.cs" />
     <Compile Include="realm\worlds\Banana.cs" />
+    <Compile Include="realm\worlds\ggtutorial.cs" />
     <Compile Include="realm\worlds\RandRealm.cs" />
     <Compile Include="realm\worlds\Zeta.cs" />
     <Compile Include="realm\WorldTimer.cs" />
@@ -362,6 +363,7 @@
     <EmbeddedResource Include="realm\worlds\world1.wmap" />
     <EmbeddedResource Include="realm\worlds\banana.wmap" />
     <EmbeddedResource Include="realm\worlds\zeta.jm" />
+    <EmbeddedResource Include="realm\worlds\ggtutorial.wmap" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

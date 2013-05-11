@@ -45,14 +45,28 @@ namespace wServer
         AutoResetEvent sendLock = new AutoResetEvent(false);
         public void SendPacket(Packet pkt)
         {
-            pending.Enqueue(pkt);
-            sendLock.Set();
+            try
+            {
+                pending.Enqueue(pkt);
+                sendLock.Set();
+            }
+            catch
+            {
+                Console.WriteLine("Error sending packet with ID "+pkt.ID.ToString());
+            }
         }
         public void SendPackets(IEnumerable<Packet> pkts)
         {
-            foreach (var i in pkts)
-                pending.Enqueue(i);
-            sendLock.Set();
+            try
+            {
+                foreach (var i in pkts)
+                    pending.Enqueue(i);
+                sendLock.Set();
+            }
+            catch
+            {
+                Console.WriteLine("Error sending packets, check ClientProcessor.cs");
+            }
         }
 
         void ReceivePacket(Packet pkt)
@@ -135,18 +149,25 @@ namespace wServer
 
         public void Disconnect()
         {
-            if (stage == ProtocalStage.Disconnected) return;
-            var original = stage;
-            stage = ProtocalStage.Disconnected;
-            if (account != null)
-                DisconnectFromRealm();
-            if (db0 != null && original != ProtocalStage.Ready)
+            try
             {
-                db0.Dispose();
-                db0 = null;
+                if (stage == ProtocalStage.Disconnected) return;
+                var original = stage;
+                stage = ProtocalStage.Disconnected;
+                if (account != null)
+                    DisconnectFromRealm();
+                if (db0 != null && original != ProtocalStage.Ready)
+                {
+                    db0.Dispose();
+                    db0 = null;
+                }
+                skt.Close();
+                sendLock.Set();
             }
-            skt.Close();
-            sendLock.Set();
+            catch
+            {
+                Console.WriteLine("Error disconnecting client, check ClientProcessor.cs");
+            }
         }
         public void Save()
         {

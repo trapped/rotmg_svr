@@ -14,8 +14,8 @@ namespace terrain
         static String filepath = null;
         static void Main()
         {
-            byte[] dis = Convert(File.ReadAllText("C:/map.jm"));
-            File.WriteAllBytes("C:/Users/Ospite/Desktop/map.wmap", dis);
+            byte[] dis = Convert(File.ReadAllText("C:/map.jm")); //open that .jm file
+            File.WriteAllBytes("C:/map.wmap", dis); //and saves it there //NEED TO RUN terrain.exe AS ADMIN!
         }
         private struct obj
         {

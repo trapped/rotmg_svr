@@ -386,6 +386,8 @@ namespace wServer.realm.entities
                         world = RealmManager.AddWorld(new Kitchen()); break;
                     case 0x233D:
                         world = RealmManager.AddWorld(new Banana()); break;
+                    case 0x2553:
+                        world = RealmManager.AddWorld(new Gee()); break; //map creating tutorial world
                 }
                 entity.WorldInstance = world;
             }

@@ -43,6 +43,7 @@ namespace wServer.realm
             Worlds[World.TEST_ID] = new Test();
             Worlds[World.RAND_REALM] = new RandomRealm();
             Worlds[World.BANANA_ID] = new Banana();
+            Worlds[World.GEE_ID] = new Gee(); //map creating tutorial world
 
             Monitor = new RealmPortalMonitor(Worlds[World.NEXUS_ID] as Nexus);
             

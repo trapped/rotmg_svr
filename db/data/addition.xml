@@ -1457,4 +1457,31 @@
     <Consumable/>
     <Sound>use_potion</Sound>
   </Object>
+
+  <Object type="0x2553" id="Gee Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>Gee</DungeonName>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0x7c</Index>
+    </Texture>
+  </Object>
+
+  <Object type="0x2554" id="Gee Key">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0xf0</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A key which opens an entrance to a Gee.</Description>
+    <Sound>use_key</Sound>
+    <Consumable/>
+    <Soulbound/>
+    <Activate id="Gee Portal">Create</Activate>
+    <DungeonName>Gee</DungeonName>
+  </Object>
+  
 </Addition>
