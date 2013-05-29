@@ -19,6 +19,8 @@ namespace wServer.realm
         public const int BANANA_ID = -10;
         public const int ZETA_ID = -11;
         public const int GEE_ID = -12; //map creating tutorial world
+        public const int BEACHZONE_ID = -13;
+        public const int WINECELLAR_ID = -14;
 
         protected World()
         {

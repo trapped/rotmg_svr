@@ -388,6 +388,10 @@ namespace wServer.realm.entities
                         world = RealmManager.AddWorld(new Banana()); break;
                     case 0x2553:
                         world = RealmManager.AddWorld(new Gee()); break; //map creating tutorial world
+                    case 0x0721:
+                        world = RealmManager.AddWorld(new WineCellar()); break;
+                    case 0x0742:
+                        world = RealmManager.AddWorld(new Beachzone()); break;
                 }
                 entity.WorldInstance = world;
             }
