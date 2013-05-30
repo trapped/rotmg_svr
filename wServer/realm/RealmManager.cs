@@ -44,6 +44,8 @@ namespace wServer.realm
             Worlds[World.RAND_REALM] = new RandomRealm();
             Worlds[World.BANANA_ID] = new Banana();
             Worlds[World.GEE_ID] = new Gee(); //map creating tutorial world
+            Worlds[World.BEACHZONE_ID] = new Beachzone();
+            Worlds[World.WINECELLAR_ID] = new WineCellar();
 
             Monitor = new RealmPortalMonitor(Worlds[World.NEXUS_ID] as Nexus);
             
