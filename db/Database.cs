@@ -148,7 +148,7 @@ namespace db
             if (cmd.ExecuteNonQuery() == 0) return null;
 
             cmd = CreateQuery();
-            cmd.CommandText = "INSERT INTO accounts(uuid, password, name, admin, namechosen, verified, guild, guildRank, vaultCount, maxCharSlot, regTime, guest) VALUES(@uuid, SHA1(@password), @name, 0, 0, 0, 0, 0, 1, 1, @regTime, @guest);";
+            cmd.CommandText = "INSERT INTO accounts(uuid, password, name, admin, namechosen, verified, guild, guildRank, vaultCount, maxCharSlot, regTime, guest, whitelisted, banned) VALUES(@uuid, SHA1(@password), @name, 0, 0, 0, 0, 0, 1, 1, @regTime, @guest, 0, 0);";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@name", names[(uint)uuid.GetHashCode() % names.Length]);
@@ -211,7 +211,29 @@ namespace db
             ReadStats(ret);
             return ret;
         }
-
+        public bool isWhitelisted(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT whitelisted FROM accounts WHERE id=@id";
+            cmd.Parameters.AddWithValue("@id", acc.AccountId);
+            object scalar = cmd.ExecuteScalar();
+            if (scalar.ToString() == "1")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool isBanned(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT banned FROM accounts WHERE id=@id";
+            cmd.Parameters.AddWithValue("@id", acc.AccountId);
+            object scalar = cmd.ExecuteScalar();
+            return bool.Parse(scalar.ToString());
+        }
         public int UpdateCredit(Account acc, int amount)
         {
             var cmd = CreateQuery();

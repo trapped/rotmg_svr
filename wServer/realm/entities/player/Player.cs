@@ -631,7 +631,7 @@ namespace wServer.realm.entities
                 psr.SendPacket(new CreateGuildResultPacket()
                 {
                     Success = false,
-                    ResultMessage = "Guilds currently disabled, talk with Trapped on the forums."
+                    ResultMessage = "Guilds currently disabled."
                 });
                 return;
             }
@@ -708,12 +708,10 @@ namespace wServer.realm.entities
                 {
                     var cmd = db1.CreateQuery();
                     cmd.CommandText = "SELECT * FROM guilds";
-                    //cmd.Parameters.AddWithValue("@accId", "," + accId + ",");
                     var rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
                         string members = rdr.GetString("members");
-                        int id = rdr.GetInt32("id");
                         if (members.ToString().Contains("," + accId.ToString() + ","))
                         {
                             return rdr.GetString("name");
@@ -724,18 +722,6 @@ namespace wServer.realm.entities
                         }
                     }
                     return "";
-                    //cmd.CommandText = "SELECT name FROM guilds WHERE members LIKE '%@accId%'";
-                    //cmd.Parameters.AddWithValue("@accId", ","+psr.Account.AccountId.ToString()+",");
-                    //if (cmd.ExecuteNonQuery() != 0)
-                    //{
-                    //    object name;
-                    //    name = cmd.ExecuteScalar();
-                    //    return name.ToString();
-                    //}
-                    //else
-                    //{
-                    //    return "";
-                    //}
                 }
             }
             catch

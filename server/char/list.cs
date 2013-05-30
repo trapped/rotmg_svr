@@ -58,13 +58,20 @@ namespace server.@char
                     db1.GetCharData(chrs.Account, chrs);
                     db1.LoadCharacters(chrs.Account, chrs);
                     chrs.News = db1.GetNews(chrs.Account);
+                    if(db1.isBanned(chrs.Account) == true)
+                    {
+                        chrs = new Chars();
+                    }
+                    if (db1.isWhitelisted(chrs.Account) == false)
+                    {
+                        chrs = Whitelist.whitelisted;
+                    }
                 }
                 else
                 {
                     chrs.Account = Database.CreateGuestAccount(query["guid"]);
                     chrs.News = db1.GetNews(null);
                 }
-
                 MemoryStream ms = new MemoryStream();
                 XmlSerializer serializer = new XmlSerializer(chrs.GetType(), new XmlRootAttribute(chrs.GetType().Name) { Namespace = "" });
 

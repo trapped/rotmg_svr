@@ -312,7 +312,6 @@ namespace wServer
 
         void ProcessCreatePacket(CreatePacket pkt)
         {
-
             Console.WriteLine("Client char create packet");
             int nextCharId = 1;
             nextCharId = db0.GetNextCharID(account);
@@ -338,7 +337,7 @@ namespace wServer
                 {
                     Message = "Account in use! Retrying..."
                 });
-                Disconnect();
+                return;
             }
             Console.WriteLine("Client second char create packet");
 
@@ -605,23 +604,25 @@ namespace wServer
         {
             try
             {
-                World w = RealmManager.GetWorld(World.NEXUS_ID);
-                World v = RealmManager.GetWorld(World.VAULT_ID);
                 int count = 0;
-                foreach (var i in w.Players.Values)
+                for (int i = 0; i < RealmManager.Worlds.Values.Count; i++)
                 {
-                    if (i.AccountId == accId)
+                    World w = RealmManager.GetWorld(i);
+                    foreach (var plr in w.Players.Values)
                     {
-                        return true;
+                        if (plr.AccountId == accId)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            count = count + 1;
+                        }
                     }
-                    else
+                    if (count == w.Players.Values.ToArray().Length)
                     {
-                        count = count + 1;
+                        return false;
                     }
-                }
-                if (count == w.Players.Values.ToArray().Length)
-                {
-                    return false;
                 }
                 return true;
             }
