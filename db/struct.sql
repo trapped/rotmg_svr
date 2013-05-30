@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `rotmg` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `rotmg`;
--- MySQL dump 10.13  Distrib 5.6.10, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.10, for Win64 (x86_64)
 --
 -- Host: localhost    Database: rotmg
 -- ------------------------------------------------------
--- Server version	5.6.10
+-- Server version	5.6.10-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,24 +32,17 @@ CREATE TABLE `accounts` (
   `admin` tinyint(4) NOT NULL DEFAULT '0',
   `namechosen` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
-  `guild` int(11) NOT NULL DEFAULT '0',
+  `guild` int(11) DEFAULT NULL,
   `guildRank` int(11) NOT NULL DEFAULT '0',
   `vaultCount` int(11) NOT NULL DEFAULT '1',
   `maxCharSlot` int(11) NOT NULL DEFAULT '1',
   `regTime` datetime NOT NULL,
   `guest` tinyint(1) NOT NULL DEFAULT '0',
+  `whitelisted` int(11) NOT NULL DEFAULT '0',
+  `banned` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `accounts`
---
-
-LOCK TABLES `accounts` WRITE;
-/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `characters`
@@ -79,17 +72,8 @@ CREATE TABLE `characters` (
   `deathTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `totalFame` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `characters`
---
-
-LOCK TABLES `characters` WRITE;
-/*!40000 ALTER TABLE `characters` DISABLE KEYS */;
-/*!40000 ALTER TABLE `characters` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `classstats`
@@ -106,15 +90,6 @@ CREATE TABLE `classstats` (
   PRIMARY KEY (`accId`,`objType`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `classstats`
---
-
-LOCK TABLES `classstats` WRITE;
-/*!40000 ALTER TABLE `classstats` DISABLE KEYS */;
-/*!40000 ALTER TABLE `classstats` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `death`
@@ -142,13 +117,22 @@ CREATE TABLE `death` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `death`
+-- Table structure for table `guilds`
 --
 
-LOCK TABLES `death` WRITE;
-/*!40000 ALTER TABLE `death` DISABLE KEYS */;
-/*!40000 ALTER TABLE `death` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `guilds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `guilds` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL DEFAULT 'DEFAULT_GUILD',
+  `members` varchar(45) NOT NULL,
+  `level` varchar(45) NOT NULL DEFAULT '1',
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `news`
@@ -165,17 +149,8 @@ CREATE TABLE `news` (
   `link` varchar(256) NOT NULL DEFAULT 'http://forums.wildshadow.com/',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `news`
---
-
-LOCK TABLES `news` WRITE;
-/*!40000 ALTER TABLE `news` DISABLE KEYS */;
-/*!40000 ALTER TABLE `news` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `stats`
@@ -195,15 +170,6 @@ CREATE TABLE `stats` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `stats`
---
-
-LOCK TABLES `stats` WRITE;
-/*!40000 ALTER TABLE `stats` DISABLE KEYS */;
-/*!40000 ALTER TABLE `stats` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `vaults`
 --
 
@@ -217,15 +183,6 @@ CREATE TABLE `vaults` (
   PRIMARY KEY (`accId`,`chestId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vaults`
---
-
-LOCK TABLES `vaults` WRITE;
-/*!40000 ALTER TABLE `vaults` DISABLE KEYS */;
-/*!40000 ALTER TABLE `vaults` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -236,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-05-07 14:50:43
+-- Dump completed on 2013-05-30 16:14:44
