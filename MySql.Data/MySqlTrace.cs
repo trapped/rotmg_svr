@@ -31,7 +31,7 @@ namespace MySql.Data.MySqlClient
 {
   public class MySqlTrace
   {
-    private static string qaHost;
+    //private static string qaHost;
     private static bool qaEnabled = false;
 
 #if !CF

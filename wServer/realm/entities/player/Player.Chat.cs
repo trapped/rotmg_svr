@@ -39,32 +39,50 @@ namespace wServer.realm.entities
             else
             {
                 if (psr.Account.Admin == true)
-                    foreach (var i in RealmManager.Clients.Values)
-                        i.SendPacket(new TextPacket()
-                        {
-                            Name = psr.Account.Name,
-                            Stars = psr.Player.Stars,
-                            BubbleTime = 5,
-                            Text = pkt.Text,
-                            Recipient = i.Account.Name
-                        });
-                else
                 {
                     Owner.BroadcastPacket(new TextPacket()
+                        {
+                            Name = "@" + psr.Account.Name,
+                            Stars = psr.Player.Stars,
+                            BubbleTime = 5,
+                            Text = pkt.Text
+                        }, null);
+                }
+                else
+                {
+                    int role;
+                    using (Database db1 = new Database())
                     {
-                        Name = Name,
-                        ObjectId = Id,
-                        Stars = Stars,
-                        BubbleTime = 5,
-                        Recipient = "",
-                        Text = pkt.Text,
-                        CleanText = pkt.Text
-                    }, null);
+                        role = db1.getRole(psr.Account);
+                    }
+                    if (role >= (int)Database.Roles.Donator)
+                    {
+                        Owner.BroadcastPacket(new TextPacket()
+                        {
+                            Name = "#" + psr.Account.Name,
+                            Stars = psr.Player.Stars,
+                            BubbleTime = 5,
+                            Text = pkt.Text
+                        }, null);
+                    }
+                    else
+                    {
+                        Owner.BroadcastPacket(new TextPacket()
+                        {
+                            Name = Name,
+                            ObjectId = Id,
+                            Stars = Stars,
+                            BubbleTime = 5,
+                            Recipient = "",
+                            Text = pkt.Text,
+                            CleanText = pkt.Text
+                        }, null);
+                    }
                 }
             }
         }
-
-        bool CmdReqAdmin()
+        //admin=1 in the db, may switch it
+        bool CmdReqAdminActive()
         {
             if (!psr.Account.Admin)
             {
@@ -80,6 +98,113 @@ namespace wServer.realm.entities
             else
             return true;
         }
+        //roles
+        bool CmdReqOwner()
+        {
+            using (Database db1 = new Database())
+            {
+                if (db1.getRole(psr.Account) >= (int)db.Database.Roles.Owner)
+                {
+                    return true;
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "You are not an owner!"
+                    });
+                    return false;
+                }
+            }
+        }
+        bool CmdReqAdmin()
+        {
+            using (Database db1 = new Database())
+            {
+                if (db1.getRole(psr.Account) >= (int)db.Database.Roles.Admin)
+                {
+                    return true;
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "You are not an admin!"
+                    });
+                    return false;
+                }
+            }
+        }
+        bool CmdReqGM()
+        {
+            using (Database db1 = new Database())
+            {
+                if (db1.getRole(psr.Account) >= (int)db.Database.Roles.Game_Master)
+                {
+                    return true;
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "You are not a Game Master!"
+                    });
+                    return false;
+                }
+            }
+        }
+        bool CmdReqMod()
+        {
+            using (Database db1 = new Database())
+            {
+                if (db1.getRole(psr.Account) >= (int)db.Database.Roles.Moderator)
+                {
+                    return true;
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "You are not a moderator!"
+                    });
+                    return false;
+                }
+            }
+        }
+        bool CmdReqDonator()
+        {
+            using (Database db1 = new Database())
+            {
+                if (db1.getRole(psr.Account) >= (int)db.Database.Roles.Donator)
+                {
+                    return true;
+                }
+                else
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Stars = -1,
+                        Name = "",
+                        Text = "You are not a donator!"
+                    });
+                    return false;
+                }
+            }
+        }
+
         void ProcessCmd(string cmd, string[] args)
         {
             if (cmd.Equals("tutorial", StringComparison.OrdinalIgnoreCase))
@@ -117,7 +242,7 @@ namespace wServer.realm.entities
             //    }
             //}
             else if (cmd.Equals("spawn", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length > 0)
+                     CmdReqAdminActive() && CmdReqGM() && args.Length > 0)
             {
                 string name = string.Join(" ", args);
                 short objType;
@@ -144,8 +269,24 @@ namespace wServer.realm.entities
                     });
                 }
             }
+            else if (cmd.Equals("g", StringComparison.OrdinalIgnoreCase))
+            {
+                foreach (var i in RealmManager.Clients.Values)
+                {
+                    if (i.Account.Guild.Name == psr.Account.Guild.Name)
+                    {
+                        i.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 5,
+                            Name = ""+psr.Account.Name,
+                            Stars = psr.Player.Stars,
+                            Text = ChatMessage.Substring(3)
+                        });
+                    }
+                }
+            }
             else if (cmd.Equals("spawnx", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length > 1)
+                     CmdReqAdminActive() && CmdReqGM() && args.Length > 1)
             {
                 string name = string.Join(" ", args.Skip(1).ToArray());
                 short objType;
@@ -194,7 +335,7 @@ namespace wServer.realm.entities
             //    UpdateCount++;
             //}
             else if (cmd.Equals("addEff", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length == 1)
+                     CmdReqGM() && args.Length == 1)
             {
                 try
                 {
@@ -223,7 +364,7 @@ namespace wServer.realm.entities
                 }
             }
             else if (cmd.Equals("removeEff", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length == 1)
+                     CmdReqGM() && args.Length == 1)
             {
                 try
                 {
@@ -252,7 +393,7 @@ namespace wServer.realm.entities
                 }
             }
             else if (cmd.Equals("give", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length >= 1)
+                     CmdReqGM() && args.Length >= 1)
             {
                 string name = string.Join(" ", args.ToArray()).Trim();
                 short objType;
@@ -276,7 +417,7 @@ namespace wServer.realm.entities
                     }
             }
             else if (cmd.Equals("tp", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length >= 2)
+                     CmdReqGM() && args.Length >= 2)
             {
                 int x, y;
                 try
@@ -338,7 +479,7 @@ namespace wServer.realm.entities
             //    });
             //}
             else if (cmd.Equals("setpiece", StringComparison.OrdinalIgnoreCase) &&
-                     CmdReqAdmin() && args.Length == 1)
+                     CmdReqAdminActive() && CmdReqGM() && args.Length == 1)
             {
                 try
                 {
@@ -456,7 +597,7 @@ namespace wServer.realm.entities
             //        });
             //    }
             //}
-            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
+            else if (cmd.Equals("news", StringComparison.OrdinalIgnoreCase) && CmdReqMod())
             {
                 //Console.WriteLine(NewsText);
                 String date2 = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
@@ -577,22 +718,46 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase) && args.Length == 0 && CmdReqAdmin())
+            else if (cmd.Equals("admin", StringComparison.OrdinalIgnoreCase) && args.Length == 0 && CmdReqGM())
             {
                 try
                 {
-                    Inventory[0] = XmlDatas.ItemDescs[3840];
-                    Inventory[1] = XmlDatas.ItemDescs[3843];
-                    Inventory[2] = XmlDatas.ItemDescs[3841];
-                    Inventory[3] = XmlDatas.ItemDescs[3845];
-                    UpdateCount++;
-                    psr.SendPacket(new TextPacket()
+                    //switches the admin variable and switches the Invincible (not-hittable) effect
+                    if (psr.Account.Admin == true)
                     {
-                        BubbleTime = 0,
-                        Stars = -1,
-                        Name = "",
-                        Text = "Success!"
-                    });
+                        psr.Account.Admin = false;
+                        ApplyConditionEffect(new ConditionEffect()
+                            {
+                                Effect = ConditionEffectIndex.Invincible,
+                                DurationMS = 0
+                            });
+                        UpdateCount++;
+                    }
+                    else
+                    {
+                        psr.Account.Admin = true;
+                        ApplyConditionEffect(new ConditionEffect()
+                        {
+                            Effect = ConditionEffectIndex.Invincible,
+                            DurationMS = -1
+                        });
+                        UpdateCount++;
+                    }
+
+
+                    //below: obsolete
+                    //Inventory[0] = XmlDatas.ItemDescs[3840];
+                    //Inventory[1] = XmlDatas.ItemDescs[3843];
+                    //Inventory[2] = XmlDatas.ItemDescs[3841];
+                    //Inventory[3] = XmlDatas.ItemDescs[3845];
+                    //UpdateCount++;
+                    //psr.SendPacket(new TextPacket()
+                    //{
+                    //    BubbleTime = 0,
+                    //    Stars = -1,
+                    //    Name = "",
+                    //    Text = "Success!"
+                    //});
                 }
                 catch
                 {
@@ -605,177 +770,177 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("banana", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
-            {
-                psr.Reconnect(new ReconnectPacket()
-                {
-                    Host = "",
-                    Port = 2050,
-                    GameId = World.BANANA_ID,
-                    Name = "Banana",
-                    Key = Empty<byte>.Array,
-                });
-            }
-            else if (cmd.Equals("dye1", StringComparison.OrdinalIgnoreCase))
-            {
-                int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
-                using (var db1 = new Database())
-                {
-                    using (var mysqlcommand = db1.CreateQuery())
-                    {
-                        mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
-                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
-                        mysqlcommand.Parameters.AddWithValue("@tex1", converted);
-                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
-                        if (mysqlcommand.ExecuteNonQuery() > 0)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified dye!"
-                            });
-                        else if (mysqlcommand.ExecuteNonQuery() == -1)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified dye!"
-                            });
-                        else
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Error!"
-                            });
-                    }
-                };
-                psr.Player.Texture1 = converted;
-                UpdateCount++;
-            }
-            else if (cmd.Equals("cloth1", StringComparison.OrdinalIgnoreCase))
-            {
-                int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
-                using (var db1 = new Database())
-                {
-                    using (var mysqlcommand = db1.CreateQuery())
-                    {
-                        mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
-                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
-                        mysqlcommand.Parameters.AddWithValue("@tex1", converted);
-                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
-                        if (mysqlcommand.ExecuteNonQuery() > 0)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified cloth!"
-                            });
-                        else if (mysqlcommand.ExecuteNonQuery() == -1)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified cloth!"
-                            });
-                        else
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Error!"
-                            });
-                    }
-                };
-                psr.Player.Texture1 = converted;
-                UpdateCount++;
-            }
-            else if (cmd.Equals("dye2", StringComparison.OrdinalIgnoreCase))
-            {
-                int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
-                using (var db1 = new Database())
-                {
-                    using (var mysqlcommand = db1.CreateQuery())
-                    {
-                        mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
-                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
-                        mysqlcommand.Parameters.AddWithValue("@tex2", converted);
-                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
-                        if (mysqlcommand.ExecuteNonQuery() > 0)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified dye!"
-                            });
-                        else if (mysqlcommand.ExecuteNonQuery() == -1)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified dye!"
-                            });
-                        else
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Error!"
-                            });
-                    }
-                };
-                psr.Player.Texture2 = converted;
-                UpdateCount++;
-            }
-            else if (cmd.Equals("cloth2", StringComparison.OrdinalIgnoreCase))
-            {
-                int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
-                using (var db1 = new Database())
-                {
-                    using (var mysqlcommand = db1.CreateQuery())
-                    {
-                        mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
-                        mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
-                        mysqlcommand.Parameters.AddWithValue("@tex2", converted);
-                        mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
-                        if (mysqlcommand.ExecuteNonQuery() > 0)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified cloth!"
-                            });
-                        else if (mysqlcommand.ExecuteNonQuery() == -1)
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Modified cloth!"
-                            });
-                        else
-                            psr.SendPacket(new TextPacket()
-                            {
-                                BubbleTime = 0,
-                                Stars = -1,
-                                Name = "",
-                                Text = "Error!"
-                            });
-                    }
-                };
-                psr.Player.Texture2 = converted;
-                UpdateCount++;
-            }
+            //else if (cmd.Equals("banana", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
+            //{
+            //    psr.Reconnect(new ReconnectPacket()
+            //    {
+            //        Host = "",
+            //        Port = 2050,
+            //        GameId = World.BANANA_ID,
+            //        Name = "Banana",
+            //        Key = Empty<byte>.Array,
+            //    });
+            //}
+            //else if (cmd.Equals("dye1", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
+            //    using (var db1 = new Database())
+            //    {
+            //        using (var mysqlcommand = db1.CreateQuery())
+            //        {
+            //            mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
+            //            mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+            //            mysqlcommand.Parameters.AddWithValue("@tex1", converted);
+            //            mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+            //            if (mysqlcommand.ExecuteNonQuery() > 0)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified dye!"
+            //                });
+            //            else if (mysqlcommand.ExecuteNonQuery() == -1)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified dye!"
+            //                });
+            //            else
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Error!"
+            //                });
+            //        }
+            //    };
+            //    psr.Player.Texture1 = converted;
+            //    UpdateCount++;
+            //}
+            //else if (cmd.Equals("cloth1", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
+            //    using (var db1 = new Database())
+            //    {
+            //        using (var mysqlcommand = db1.CreateQuery())
+            //        {
+            //            mysqlcommand.CommandText = "UPDATE characters SET tex1 = @tex1 WHERE accId=@accId AND charId=@charId AND charId=@charId;";
+            //            mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+            //            mysqlcommand.Parameters.AddWithValue("@tex1", converted);
+            //            mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+            //            if (mysqlcommand.ExecuteNonQuery() > 0)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified cloth!"
+            //                });
+            //            else if (mysqlcommand.ExecuteNonQuery() == -1)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified cloth!"
+            //                });
+            //            else
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Error!"
+            //                });
+            //        }
+            //    };
+            //    psr.Player.Texture1 = converted;
+            //    UpdateCount++;
+            //}
+            //else if (cmd.Equals("dye2", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    int converted = dyes_hextointmod.hextoint(args[0].ToString(), false);
+            //    using (var db1 = new Database())
+            //    {
+            //        using (var mysqlcommand = db1.CreateQuery())
+            //        {
+            //            mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
+            //            mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+            //            mysqlcommand.Parameters.AddWithValue("@tex2", converted);
+            //            mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+            //            if (mysqlcommand.ExecuteNonQuery() > 0)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified dye!"
+            //                });
+            //            else if (mysqlcommand.ExecuteNonQuery() == -1)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified dye!"
+            //                });
+            //            else
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Error!"
+            //                });
+            //        }
+            //    };
+            //    psr.Player.Texture2 = converted;
+            //    UpdateCount++;
+            //}
+            //else if (cmd.Equals("cloth2", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    int converted = dyes_hextointmod.hextoint(args[0].ToString(), true);
+            //    using (var db1 = new Database())
+            //    {
+            //        using (var mysqlcommand = db1.CreateQuery())
+            //        {
+            //            mysqlcommand.CommandText = "UPDATE characters SET tex2 = @tex2 WHERE accId=@accId AND charId=@charId;";
+            //            mysqlcommand.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+            //            mysqlcommand.Parameters.AddWithValue("@tex2", converted);
+            //            mysqlcommand.Parameters.AddWithValue("@charId", psr.Character.CharacterId);
+            //            if (mysqlcommand.ExecuteNonQuery() > 0)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified cloth!"
+            //                });
+            //            else if (mysqlcommand.ExecuteNonQuery() == -1)
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Modified cloth!"
+            //                });
+            //            else
+            //                psr.SendPacket(new TextPacket()
+            //                {
+            //                    BubbleTime = 0,
+            //                    Stars = -1,
+            //                    Name = "",
+            //                    Text = "Error!"
+            //                });
+            //        }
+            //    };
+            //    psr.Player.Texture2 = converted;
+            //    UpdateCount++;
+            //}
             else if (cmd.Equals("who", StringComparison.OrdinalIgnoreCase))
             {
                 StringBuilder sb = new StringBuilder("Players online: ");
@@ -866,7 +1031,7 @@ namespace wServer.realm.entities
                     psr.SendPacket(new TextPacket() { BubbleTime = 0, Stars = -1, Name = "", Text = String.Format("{0} not found", playername) });
                 }
             }
-            else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
+            else if (cmd.Equals("announce", StringComparison.OrdinalIgnoreCase) && CmdReqMod())
             {
 
                 foreach (var i in RealmManager.Clients.Values)
@@ -880,7 +1045,7 @@ namespace wServer.realm.entities
                     });
                 }
             }
-            else if (cmd.Equals("killall", StringComparison.OrdinalIgnoreCase) && CmdReqAdmin())
+            else if (cmd.Equals("killall", StringComparison.OrdinalIgnoreCase) && CmdReqGM())
             {
                 foreach (var i in RealmManager.Worlds)
                 {

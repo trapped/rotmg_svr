@@ -176,20 +176,20 @@ namespace MySql.Data.MySqlClient.Authentication
     private string GetTargetName()
     {
       return null;
-      if (AuthData == null) return String.Empty;
+      //if (AuthData == null) return String.Empty;
 
-      int index = -1;
-      for (int i = 0; i < AuthData.Length; i++)
-      {
-        if (AuthData[i] != 0) continue;
-        index = i;
-        break;
-      }
-      if (index == -1)
-        targetName = System.Text.Encoding.UTF8.GetString(AuthData);
-      else
-        targetName = System.Text.Encoding.UTF8.GetString(AuthData, 0, index);
-      return targetName;
+      //int index = -1;
+      //for (int i = 0; i < AuthData.Length; i++)
+      //{
+      //  if (AuthData[i] != 0) continue;
+      //  index = i;
+      //  break;
+      //}
+      //if (index == -1)
+      //  targetName = System.Text.Encoding.UTF8.GetString(AuthData);
+      //else
+      //  targetName = System.Text.Encoding.UTF8.GetString(AuthData, 0, index);
+      //return targetName;
     }
 
     private void AcquireCredentials()

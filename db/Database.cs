@@ -130,15 +130,72 @@ namespace db
                     AccountId = rdr.GetInt32("id"),
                     Admin = rdr.GetBoolean("admin"),
                     BeginnerPackageTimeLeft = 0,
-                    Converted = false,
                     Guild = null,
+                    Converted = false,
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
                     VerifiedEmail = rdr.GetBoolean("verified")
                 };
+                if (rdr.GetString("guild") != null)
+                {
+                    ret.Guild = new Guild()
+                    {
+                        Id = 10, //unknown
+                        Rank = rdr.GetInt32("guildRank"), //rank: 0 = initiate, 10 = member, 20 = officer, 30 = leader, 40 = founder
+                        Name = GetGuildNameByID(rdr.GetInt32("guild")) //name
+                    };
+                }
             }
             ReadStats(ret);
             return ret;
+        }
+        public string GetGuildName(int accId)
+        {
+            try
+            {
+                using (Database db1 = new Database())
+                {
+                    var cmd = db1.CreateQuery();
+                    cmd.CommandText = "SELECT * FROM guilds";
+                    var rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        string members = rdr.GetString("members");
+                        if (members.ToString().Contains("," + accId.ToString() + ","))
+                        {
+                            return rdr.GetString("name");
+                        }
+                        else
+                        {
+                            return "";
+                        }
+                    }
+                    return "";
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error retrieving guild name: check Player.cs");
+                return "";
+            }
+        }
+        public string GetGuildNameByID(int guildId)
+        {
+            try
+            {
+                using (Database dbz = new Database())
+                {
+                    var cmd = dbz.CreateQuery();
+                    cmd.CommandText = "SELECT name FROM guilds WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", guildId);
+                    object scalar = cmd.ExecuteScalar();
+                    return scalar.ToString();
+                }
+            }
+            catch
+            {
+                return "";
+            }
         }
         public object Register(string uuid, string password, bool isGuest)
         {
@@ -232,8 +289,36 @@ namespace db
             cmd.CommandText = "SELECT banned FROM accounts WHERE id=@id";
             cmd.Parameters.AddWithValue("@id", acc.AccountId);
             object scalar = cmd.ExecuteScalar();
-            return bool.Parse(scalar.ToString());
+            if (scalar.ToString() == "0")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
+
+        //role retrieval
+        public int getRole(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT role FROM accounts WHERE id=@id";
+            cmd.Parameters.AddWithValue("@id", acc.AccountId);
+            object scalar = cmd.ExecuteScalar();
+            return int.Parse(scalar.ToString());
+        }
+        public enum Roles : int
+        {
+            User = 0,
+            Donator = 1,
+            Moderator = 2,
+            Game_Master = 3,
+            Admin = 4,
+            Owner = 5
+        }
+
+
         public int UpdateCredit(Account acc, int amount)
         {
             var cmd = CreateQuery();

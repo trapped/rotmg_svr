@@ -485,16 +485,16 @@ namespace MySql.Data.MySqlClient
           procedureCache = new ProcedureCache((int)settings.ProcedureCacheSize);
         }
       }
-      catch (Exception ex)
+      catch
       {
         SetState(ConnectionState.Closed, true);
         throw;
       }
 
       // if the user is using old syntax, let them know
-      if (driver.Settings.UseOldSyntax)
-        MySqlTrace.LogWarning(ServerThread,
-          "You are using old syntax that will be removed in future versions");
+      //if (driver.Settings.UseOldSyntax)
+      //  MySqlTrace.LogWarning(ServerThread,
+      //    "You are using old syntax that will be removed in future versions");
 
       SetState(ConnectionState.Open, false);
       driver.Configure(this);

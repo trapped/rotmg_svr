@@ -704,35 +704,5 @@ namespace wServer.realm.entities
                 }
             }
         }
-        public string GetGuildName(int accId)
-        {
-            try
-            {
-                using (Database db1 = new Database())
-                {
-                    var cmd = db1.CreateQuery();
-                    cmd.CommandText = "SELECT * FROM guilds";
-                    var rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        string members = rdr.GetString("members");
-                        if (members.ToString().Contains("," + accId.ToString() + ","))
-                        {
-                            return rdr.GetString("name");
-                        }
-                        else
-                        {
-                            return "";
-                        }
-                    }
-                    return "";
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Error retrieving guild name: check Player.cs");
-                return "";
-            }
-        }
     }
 }

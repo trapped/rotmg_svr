@@ -53,24 +53,30 @@ namespace server.@char
                         //}
                     }
                 };
+                Account dvh = null;
                 if (chrs.Account != null)
                 {
                     db1.GetCharData(chrs.Account, chrs);
                     db1.LoadCharacters(chrs.Account, chrs);
                     chrs.News = db1.GetNews(chrs.Account);
-                    if(db1.isBanned(chrs.Account) == true)
+                    dvh = chrs.Account;
+                    if (db1.getRole(chrs.Account) >= (int)Database.Roles.Moderator)
                     {
-                        chrs = new Chars();
-                    }
-                    if (db1.isWhitelisted(chrs.Account) == false)
-                    {
-                        chrs = Whitelist.whitelisted;
+                        chrs.Account.Admin = true;
                     }
                 }
                 else
                 {
                     chrs.Account = Database.CreateGuestAccount(query["guid"]);
                     chrs.News = db1.GetNews(null);
+                }
+                if (dvh != null && db1.isWhitelisted(dvh) == false)
+                {
+                    chrs = Whitelist.whitelisted;
+                }
+                if (dvh != null && db1.isBanned(dvh) == true)
+                {
+                    chrs = new Chars();
                 }
                 MemoryStream ms = new MemoryStream();
                 XmlSerializer serializer = new XmlSerializer(chrs.GetType(), new XmlRootAttribute(chrs.GetType().Name) { Namespace = "" });

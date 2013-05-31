@@ -983,7 +983,7 @@ namespace MySql.Data.MySqlClient
       else if (String.Compare(keyword, "Encrypt", true) == 0)
       {
         MySqlTrace.LogWarning(-1, "Encrypt is now obsolete. Use Ssl Mode instead");
-        Encrypt = (bool)value;
+        SslMode = (MySqlSslMode)value;
       }
 #endif
       else if (String.Compare(keyword, "Use Procedure Bodies", true) == 0)
