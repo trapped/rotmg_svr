@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `rotmg` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `rotmg`;
--- MySQL dump 10.13  Distrib 5.6.10, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.10, for Win32 (x86)
 --
 -- Host: localhost    Database: rotmg
 -- ------------------------------------------------------
--- Server version	5.6.10-log
+-- Server version	5.6.10
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,15 +33,16 @@ CREATE TABLE `accounts` (
   `namechosen` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `guild` int(11) DEFAULT NULL,
-  `guildRank` int(11) NOT NULL DEFAULT '0',
+  `guildRank` int(11) DEFAULT NULL,
   `vaultCount` int(11) NOT NULL DEFAULT '1',
   `maxCharSlot` int(11) NOT NULL DEFAULT '1',
   `regTime` datetime NOT NULL,
   `guest` tinyint(1) NOT NULL DEFAULT '0',
   `whitelisted` int(11) NOT NULL DEFAULT '0',
   `banned` int(11) NOT NULL DEFAULT '0',
+  `role` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +73,7 @@ CREATE TABLE `characters` (
   `deathTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `totalFame` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +132,7 @@ CREATE TABLE `guilds` (
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,4 +194,4 @@ CREATE TABLE `vaults` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-05-30 16:14:44
+-- Dump completed on 2013-05-31 21:35:57
