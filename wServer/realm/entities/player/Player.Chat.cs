@@ -280,6 +280,7 @@ namespace wServer.realm.entities
                             BubbleTime = 5,
                             Name = ""+psr.Account.Name,
                             Stars = psr.Player.Stars,
+                            Recipient = psr.Account.Guild.Name,
                             Text = ChatMessage.Substring(3)
                         });
                     }

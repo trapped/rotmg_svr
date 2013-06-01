@@ -37,7 +37,7 @@ namespace wServer
         public void BeginProcess()
         {
             dest = new TcpClient();
-            dest.Connect("dnrotmg.zapto.org", 2050);
+            dest.Connect("mmoe.net", 2050);
 
             cliWkr = new Thread(ProcessCli);
             cliWkr.Start();
