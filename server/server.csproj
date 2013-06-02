@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account\changePassword.cs" />
+    <Compile Include="account\guild\guild.cs" />
     <Compile Include="account\setName.cs" />
     <Compile Include="account\purchaseCharSlot.cs" />
     <Compile Include="account\sendVerifyEmail.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="fame\list.cs" />
     <Compile Include="crossdomain.cs" />
     <Compile Include="IRequestHandler.cs" />
+    <Compile Include="picture\get.cs" />
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>

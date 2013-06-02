@@ -21,6 +21,12 @@ namespace wServer.realm.entities
                 Currency = CurrencyType.Gold;
                 RankReq = 0;
             }
+            if (objType == 0xf00)
+            {
+                Price = 100;
+                Currency = CurrencyType.Gold;
+                RankReq = 0;
+            }
         }
 
         public int Price { get; set; }
@@ -76,6 +82,30 @@ namespace wServer.realm.entities
                     {
                         Result = 0,
                         Message = "Vault chest purchased!"
+                    });
+                }
+                else
+                    player.Client.SendPacket(new BuyResultPacket()
+                    {
+                        Result = BUY_NO_GOLD,
+                        Message = "Not enough gold!"
+                    });
+            }
+            else
+            {
+                if (TryDeduct(player))
+                {
+                    for (int i = 0; i < player.Inventory.Length; i++)
+                    if (player.Inventory[i] == null && i != 0 && i != 1 && i != 2 && i != 3)
+                    {
+                        player.Inventory[i] = XmlDatas.ItemDescs[ObjectType];
+                        UpdateCount++;
+                        return;
+                    }
+                    player.Client.SendPacket(new BuyResultPacket()
+                    {
+                        Result = BUY_NO_GOLD,
+                        Message = "Not enough inventory space!"
                     });
                 }
                 else

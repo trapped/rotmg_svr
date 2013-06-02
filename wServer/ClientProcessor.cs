@@ -248,6 +248,12 @@ namespace wServer
                 }
                 
             }
+            account.Guild = new Guild()
+            {
+                Id = 10,
+                Name = Database.GetGuildName(account.AccountId),
+                Rank = 0
+            };
             Console.WriteLine("Client trying to connect");
             if (!RealmManager.TryConnect(this))
             {
