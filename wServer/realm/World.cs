@@ -16,11 +16,17 @@ namespace wServer.realm
         public const int NEXUS_LIMBO = -4;
         public const int VAULT_ID = -5;
         public const int TEST_ID = -6;
-        public const int BANANA_ID = -10;
-        public const int ZETA_ID = -11;
-        public const int GEE_ID = -12; //map creating tutorial world
+        public const int ABYSS_ID = -7;
+        public const int UDL_ID = -8;
+        public const int PCAVE_ID = -9;
+        public const int SNAKE_ID = -10;
+        public const int SPRITE_ID = -11;
+        public const int DEN_ID = -12;
         public const int BEACHZONE_ID = -13;
         public const int WINECELLAR_ID = -14;
+        public const int GEE_ID = -21;
+        public const int BANANA_ID = -22;
+        public const int ZETA_ID = -23;
 
         protected World()
         {

@@ -9,7 +9,7 @@ namespace wServer.realm.worlds
     {
         public Gee()
         {
-            Id = GEE_ID;
+            Id = -21;
             Name = "Gee";
             Background = 0;
             base.FromWorldMap(typeof(RealmManager).Assembly.GetManifestResourceStream("wServer.realm.worlds.ggtutorial.wmap"));

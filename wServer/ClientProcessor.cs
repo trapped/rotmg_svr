@@ -235,7 +235,7 @@ namespace wServer
 
                 //Database.SaveCharacter(account, Database.CreateCharacter(782, 1));
                  //Database.Register(pkt.GUID, pkt.Password, true);
-
+                
                 if (account == null)
                 {
                     Console.WriteLine("Account is null");
@@ -248,12 +248,26 @@ namespace wServer
                 }
                 
             }
-            account.Guild = new Guild()
+            if (db0.isWhitelisted(db0.Verify(pkt.GUID, pkt.Password)) == false)
             {
-                Id = 10,
-                Name = Database.GetGuildName(account.AccountId),
-                Rank = 0
-            };
+                Console.WriteLine("Not whitelisted account trying to connect.");
+                SendPacket(new svrPackets.FailurePacket()
+                {
+                    Message = "You are not whitelisted!"
+                });
+                //eventual account ban code (assuming you would punish someone for bypassing the webserver and trying to connect throught a proxy or whatever)
+                return;
+            }
+            if (db0.isBanned(db0.Verify(pkt.GUID, pkt.Password)) == true)
+            {
+                Console.WriteLine("Banned account trying to connect.");
+                SendPacket(new svrPackets.FailurePacket()
+                {
+                    Message = "Your account is banned!"
+                });
+                //eventual IP ban code (assuming you would punish someone for bypassing the webserver and trying to connect throught a proxy or whatever)
+                return;
+            }
             Console.WriteLine("Client trying to connect");
             if (!RealmManager.TryConnect(this))
             {

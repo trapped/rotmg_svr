@@ -24,7 +24,7 @@ namespace server.account.guild
             using (db.Database dbx = new db.Database())
             {
                 var cmd = dbx.CreateQuery();
-                cmd.CommandText = "SELECT guild FROM accounts WHERE guid=@guid";
+                cmd.CommandText = "SELECT guild FROM accounts WHERE uuid=@guid";
                 cmd.Parameters.AddWithValue("@guid", guid);
                 guildid = int.Parse(cmd.ExecuteScalar().ToString());
             }
@@ -32,7 +32,14 @@ namespace server.account.guild
             string[] lines;
             try
             {
-                lines = File.ReadAllLines("/guild/board/boardid" + guildid.ToString() + ".txt");
+                using (db.Database dbz = new db.Database())
+                {
+                    var cmd = dbz.CreateQuery();
+                    cmd.CommandText = "SELECT board FROM guilds WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", guildid);
+                    object scalar = cmd.ExecuteScalar();
+                    lines = scalar.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+                }
             }
             catch
             {
@@ -56,6 +63,23 @@ namespace server.account.guild
             //down here goes the code to eventually check the formatting
             byte[] guildboardtext = Encoding.ASCII.GetBytes(boardtext);
             context.Response.OutputStream.Write(guildboardtext, 0, guildboardtext.Length);
+        }
+    }
+    class setBoard : IRequestHandler
+    {
+        public void HandleRequest(HttpListenerContext context)
+        {
+            NameValueCollection query;
+            using (StreamReader rdr = new StreamReader(context.Request.InputStream))
+                query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
+            using (db.Database dbx = new db.Database())
+            {
+                var cmd = dbx.CreateQuery();
+                cmd.CommandText = "UPDATE guilds SET board=@board WHERE id=@id";
+                var acc = dbx.Verify(query["guid"], query["password"]);
+                cmd.Parameters.AddWithValue("@id", acc.Guild.Id);
+                string board = HttpUtility.HtmlDecode(query["board"]);
+            }
         }
     }
     class listMembers : IRequestHandler //struct: num       offset  ignore              guid    password

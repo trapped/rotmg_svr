@@ -210,13 +210,19 @@ namespace wServer.realm
                     return new SellableObject(id);
 
                 case "Merchant":
-                    return new SellableObject(0xa00);
-
+                    
                 case "GuildRegister":
                     return new StaticObject(id, null, false, false, false);
 
                 case "GuildHallPortal":
                     return new StaticObject(id, null, false, false, false);
+
+                case "GuildBoard":
+                    return new StaticObject(id, null, false, false, false);
+
+                case "GuildChronicle":
+                    return new StaticObject(id, null, false, false, false);
+
                 default:
                     Console.WriteLine("Not supported type: " + type);
                     return new Entity(id);

@@ -140,7 +140,7 @@ namespace db
                 {
                     ret.Guild = new Guild()
                     {
-                        Id = 10, //unknown
+                        Id = rdr.GetInt32("guild"), //unknown
                         Rank = rdr.GetInt32("guildRank"), //rank: 0 = initiate, 10 = member, 20 = officer, 30 = leader, 40 = founder
                         Name = GetGuildNameByID(rdr.GetInt32("guild")) //name
                     };

@@ -234,8 +234,12 @@ namespace wServer.realm.entities
             else
                 FameGoal = GetFameGoal(0);
             Glowing = true;
-            Guild = "";
+            Guild = psr.Account.Guild.Name;
             GuildRank = -1;
+            if (psr.Account.Guild.Name != null)
+            {
+                GuildRank = psr.Account.Guild.Rank;
+            }
             HP = psr.Character.HitPoints;
             MP = psr.Character.MagicPoints;
             ConditionEffects = 0;

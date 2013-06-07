@@ -11,7 +11,7 @@ namespace wServer.realm.worlds
     {
         public Zeta()
         {
-            Id = ZETA_ID;
+            Id = -22;
             Name = "Zeta";
             Background = 0;
             FromWorldMap(new MemoryStream(Json2Wmap.Convert2(this.GetType().Assembly.GetManifestResourceStream("wServer.realm.worlds.zeta.jm").ToString())));
