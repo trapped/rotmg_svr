@@ -31,6 +31,7 @@ namespace server
             { "/fame/list", new fame.list() },
             { "/guild/getBoard", new account.guild.getBoard() },
             { "/guild/setBoard", new account.guild.setBoard() },
+            { "/guild/listMembers", new account.guild.listMembers() },
             { "/picture/get", new picture.get() },
         };
     }

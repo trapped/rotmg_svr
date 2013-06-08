@@ -129,6 +129,8 @@ CREATE TABLE `guilds` (
   `name` varchar(45) NOT NULL DEFAULT 'DEFAULT_GUILD',
   `members` varchar(45) NOT NULL,
   `level` varchar(45) NOT NULL DEFAULT '1',
+  `fame` int(11) NOT NULL DEFAULT '0',
+  `totalFame` int(11) NOT NULL DEFAULT '0',
   `board` text,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -195,4 +197,4 @@ CREATE TABLE `vaults` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-06-08  1:42:52
+-- Dump completed on 2013-06-08 14:06:20
