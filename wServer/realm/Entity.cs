@@ -209,7 +209,7 @@ namespace wServer.realm
                 case "GuildMerchant":
                     return new SellableObject(id);
 
-                case "Merchant":
+                //case "Merchant":
                     
                 case "GuildRegister":
                     return new StaticObject(id, null, false, false, false);

@@ -633,7 +633,7 @@ namespace wServer.realm.entities
         }
         public void CreateGuild(CreateGuildPacket pkt)
         {
-            bool GuildsActive = false;
+            bool GuildsActive = true;
             if (GuildsActive == false)
             {
                 psr.SendPacket(new CreateGuildResultPacket()
