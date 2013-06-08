@@ -30,6 +30,7 @@ namespace server
             { "/credits/add", new credits.add() },
             { "/fame/list", new fame.list() },
             { "/guild/getBoard", new account.guild.getBoard() },
+            { "/guild/setBoard", new account.guild.setBoard() },
             { "/picture/get", new picture.get() },
         };
     }

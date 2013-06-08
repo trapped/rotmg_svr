@@ -70,6 +70,7 @@ namespace server.account.guild
         public void HandleRequest(HttpListenerContext context)
         {
             NameValueCollection query;
+            string board;
             using (StreamReader rdr = new StreamReader(context.Request.InputStream))
                 query = HttpUtility.ParseQueryString(rdr.ReadToEnd());
             using (db.Database dbx = new db.Database())
@@ -78,8 +79,33 @@ namespace server.account.guild
                 cmd.CommandText = "UPDATE guilds SET board=@board WHERE id=@id";
                 var acc = dbx.Verify(query["guid"], query["password"]);
                 cmd.Parameters.AddWithValue("@id", acc.Guild.Id);
-                string board = HttpUtility.HtmlDecode(query["board"]);
+                board = HttpUtility.HtmlDecode(query["board"]);
+                cmd.Parameters.AddWithValue("@board", board);
+                cmd.ExecuteNonQuery();
             }
+            board = null;
+            using (db.Database dbz = new db.Database())
+            {
+                var cmd = dbz.CreateQuery();
+                cmd.CommandText = "SELECT board FROM guilds WHERE id=@id";
+                cmd.Parameters.AddWithValue("@id", dbz.Verify(query["guid"], query["password"]).Guild.Id);
+                object scalar = cmd.ExecuteScalar();
+                string[] lines = scalar.ToString().Split(new string[] { "\n", "\r\n" }, StringSplitOptions.None);
+                foreach (var i in lines)
+                {
+                    if (board != null)
+                    {
+                        board = board + i.ToString() + "\n\r";
+                    }
+                    else
+                    {
+                        board = i.ToString() + "\n\r";
+                    }
+                }
+            }
+            //down here goes the code to eventually check the formatting
+            byte[] guildboardtext = Encoding.ASCII.GetBytes(board);
+            context.Response.OutputStream.Write(guildboardtext, 0, guildboardtext.Length);
         }
     }
     class listMembers : IRequestHandler //struct: num       offset  ignore              guid    password
