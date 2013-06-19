@@ -719,7 +719,7 @@ namespace wServer.realm.entities
                                     Text = "Unable to update account data!"
                                 });
                             }
-                            db1.UpdateCredit(psr.Account, -1000);
+                            db1.UpdateFame(psr.Account, -1000);
                             UpdateCount++;
                         }
                     }
