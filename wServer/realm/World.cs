@@ -27,6 +27,7 @@ namespace wServer.realm
         public const int GEE_ID = -21;
         public const int BANANA_ID = -22;
         public const int ZETA_ID = -23;
+        public const int GHALL_ID = -50;
 
         protected World()
         {

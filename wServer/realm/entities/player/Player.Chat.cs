@@ -277,10 +277,10 @@ namespace wServer.realm.entities
                     {
                         i.SendPacket(new TextPacket()
                         {
-                            BubbleTime = 5,
-                            Name = ""+psr.Account.Name,
+                            BubbleTime = 10,
+                            Name = psr.Account.Name,
                             Stars = psr.Player.Stars,
-                            Recipient = psr.Account.Guild.Name,
+                            Recipient = "*Guild*",
                             Text = ChatMessage.Substring(3)
                         });
                     }

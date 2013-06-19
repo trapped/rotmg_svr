@@ -56,6 +56,7 @@ namespace wServer.realm
 
         static int nextWorldId = 0;
         public static readonly ConcurrentDictionary<int, World> Worlds = new ConcurrentDictionary<int, World>();
+        public static readonly ConcurrentDictionary<string, GuildHall> GHalls = new ConcurrentDictionary<string, GuildHall>();
         public static readonly ConcurrentDictionary<int, ClientProcessor> Clients = new ConcurrentDictionary<int, ClientProcessor>();
 
         public static RealmPortalMonitor Monitor { get; private set; }
@@ -82,7 +83,18 @@ namespace wServer.realm
         {
             Clients.TryRemove(psr.Account.AccountId, out psr);
         }
-
+        public static World GHall(string g)
+        {
+            if (!GHalls.ContainsKey(g))
+            {
+                GuildHall gh = (GuildHall)AddWorld(new GuildHall(g));
+                return GHalls.GetOrAdd(g, gh);
+            }
+            else
+            {
+                return GHalls[g];
+            }
+        }
         public static World AddWorld(World world)
         {
             world.Id = Interlocked.Increment(ref nextWorldId);

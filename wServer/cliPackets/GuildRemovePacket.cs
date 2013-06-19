@@ -5,11 +5,12 @@ using System.Text;
 
 namespace wServer.cliPackets
 {
-    public class CreateGuildPacket : ClientPacket
+    public class GuildRemovePacket : ClientPacket
     {
         public string Name { get; set; }
-        public override PacketID ID { get { return PacketID.CreateGuild; } }
-        public override Packet CreateInstance() { return new CreateGuildPacket(); }
+
+        public override PacketID ID { get { return PacketID.GuildRemove; } }
+        public override Packet CreateInstance() { return new GuildRemovePacket(); }
 
         protected override void Read(ClientProcessor psr, NReader rdr)
         {

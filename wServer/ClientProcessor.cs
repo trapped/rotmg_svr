@@ -135,11 +135,21 @@ namespace wServer
                 else if (pkt.ID == PacketID.CheckCredits)
                     RealmManager.AddPendingAction(t => entity.CheckCredits(t, pkt as CheckCreditsPacket), PendingPriority.Networking);
                 else if (pkt.ID == PacketID.CreateGuild)
-                    RealmManager.AddPendingAction(t => entity.CreateGuild(pkt as CreateGuildPacket),PendingPriority.Networking);
+                    RealmManager.AddPendingAction(t => entity.CreateGuild(pkt as CreateGuildPacket), PendingPriority.Networking);
+                else if (pkt.ID == PacketID.JoinGuild)
+                    RealmManager.AddPendingAction(t => entity.JoinGuild(pkt as JoinGuildPacket), PendingPriority.Networking);
+                else if (pkt.ID == PacketID.GuildInvite)
+                    RealmManager.AddPendingAction(t => entity.InviteToGuild(pkt as InviteToGuildPacket), PendingPriority.Networking);
+                else if (pkt.ID == PacketID.ChangeGuildRank)
+                    RealmManager.AddPendingAction(t => entity.ChangeRank(pkt as GuildRankChangePacket), PendingPriority.Networking);
+                else if (pkt.ID == PacketID.GuildRemove)
+                    RealmManager.AddPendingAction(t => entity.RemoveFromGuild(pkt as GuildRemovePacket), PendingPriority.Networking);
                 else if (pkt.ID != PacketID.Packet)
                 {
                     Console.WriteLine("Unhandled packet: " + pkt.ToString());
                 }
+                else
+                    Console.WriteLine(pkt.ID);
             }
             catch
             {

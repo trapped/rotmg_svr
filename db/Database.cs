@@ -149,54 +149,6 @@ namespace db
             ReadStats(ret);
             return ret;
         }
-        public string GetGuildName(int accId)
-        {
-            try
-            {
-                using (Database db1 = new Database())
-                {
-                    var cmd = db1.CreateQuery();
-                    cmd.CommandText = "SELECT * FROM guilds";
-                    var rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        string members = rdr.GetString("members");
-                        if (members.ToString().Contains("," + accId.ToString() + ","))
-                        {
-                            return rdr.GetString("name");
-                        }
-                        else
-                        {
-                            return "";
-                        }
-                    }
-                    return "";
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Error retrieving guild name: check Player.cs");
-                return "";
-            }
-        }
-        public string GetGuildNameByID(int guildId)
-        {
-            try
-            {
-                using (Database dbz = new Database())
-                {
-                    var cmd = dbz.CreateQuery();
-                    cmd.CommandText = "SELECT name FROM guilds WHERE id=@id";
-                    cmd.Parameters.AddWithValue("@id", guildId);
-                    object scalar = cmd.ExecuteScalar();
-                    return scalar.ToString();
-                }
-            }
-            catch
-            {
-                return "";
-            }
-        }
         public object Register(string uuid, string password, bool isGuest)
         {
             var cmd = CreateQuery();
@@ -205,7 +157,7 @@ namespace db
             if (cmd.ExecuteNonQuery() == 0) return null;
 
             cmd = CreateQuery();
-            cmd.CommandText = "INSERT INTO accounts(uuid, password, name, admin, namechosen, verified, guild, guildRank, vaultCount, maxCharSlot, regTime, guest, whitelisted, banned) VALUES(@uuid, SHA1(@password), @name, 0, 0, 0, 0, 0, 1, 1, @regTime, @guest, 0, 0);";
+            cmd.CommandText = "INSERT INTO accounts(uuid, password, name, admin, namechosen, verified, guild, guildRank, vaultCount, maxCharSlot, regTime, guest, whitelisted, banned) VALUES(@uuid, SHA1(@password), @name, 0, 0, 0, 0, -1, 1, 1, @regTime, @guest, 0, 0);";
             cmd.Parameters.AddWithValue("@uuid", uuid);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@name", names[(uint)uuid.GetHashCode() % names.Length]);
@@ -214,7 +166,7 @@ namespace db
             cmd.Parameters.AddWithValue("@regTime", datenow);
 
             int v = cmd.ExecuteNonQuery();
-            bool ret = v > 0;
+            bool ret = v != 0;
 
             if (ret)
             {
@@ -259,7 +211,43 @@ namespace db
                     Admin = rdr.GetBoolean("admin"),
                     BeginnerPackageTimeLeft = 0,
                     Converted = false,
-                    Guild = null,
+                    Guild = new Guild()
+                    {
+                        Id = rdr.GetInt32("guild"),
+                        Name = GetGuildNameByID(rdr.GetInt32("guild")),
+                        Rank = rdr.GetInt32("guildRank")
+                    },
+                    NameChosen = rdr.GetBoolean("namechosen"),
+                    NextCharSlotPrice = 100,
+                    VerifiedEmail = rdr.GetBoolean("verified")
+                };
+            }
+            ReadStats(ret);
+            return ret;
+        }
+        public Account GetAccount(string name)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT id, name, admin, namechosen, verified, guild, guildRank FROM accounts WHERE name=@name;";
+            cmd.Parameters.AddWithValue("@name", name);
+            Account ret;
+            using (var rdr = cmd.ExecuteReader())
+            {
+                if (!rdr.HasRows) return null;
+                rdr.Read();
+                ret = new Account()
+                {
+                    Name = rdr.GetString("name"),
+                    AccountId = rdr.GetInt32("id"),
+                    Admin = rdr.GetBoolean("admin"),
+                    BeginnerPackageTimeLeft = 0,
+                    Converted = false,
+                    Guild = new Guild()
+                    {
+                        Id = rdr.GetInt32("guild"),
+                        Name = GetGuildNameByID(rdr.GetInt32("guild")),
+                        Rank = rdr.GetInt32("guildRank")
+                    },
                     NameChosen = rdr.GetBoolean("namechosen"),
                     NextCharSlotPrice = 100,
                     VerifiedEmail = rdr.GetBoolean("verified")
@@ -318,6 +306,180 @@ namespace db
             Owner = 5
         }
 
+        public int GetGuildIdByName(string name)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT id FROM guilds WHERE name=@name";
+            cmd.Parameters.AddWithValue("@name", name);
+            return int.Parse(cmd.ExecuteScalar().ToString());
+        }
+        public List<int> GetGuildMembers(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "SELECT members FROM guilds WHERE id=@gid";
+            cmd.Parameters.AddWithValue("@gid", acc.Guild.Id);
+            object scalar = cmd.ExecuteScalar();
+            if (scalar.ToString() == null|| scalar.ToString() == "")
+            {
+                return null;
+            }
+            string[] members = scalar.ToString().Split(',');
+            List<int> memberss = new List<int>();
+            foreach (var i in members)
+                if(i != "" && i != null)
+                    memberss.Add(int.Parse(i));
+            return memberss;
+        }
+        public string GetGuildMembersCommasep(Account acc)
+        {
+            var ccc = GetGuildMembers(acc);
+            if (ccc != null)
+                return Utils.GetCommaSepString(ccc.ToArray());
+            else
+                return null;
+        }
+        public bool RemoveFromGuildMembers(Account acc)
+        {
+            var ccc = GetGuildMembers(acc);
+            ccc.Remove(acc.AccountId);
+            var newmembers = Utils.GetCommaSepString<int>(ccc.ToArray());
+            var cmd = CreateQuery();
+            cmd.CommandText = "UPDATE guilds SET members=@members WHERE id=@gid";
+            cmd.Parameters.AddWithValue("@members", newmembers);
+            cmd.Parameters.AddWithValue("@gid", acc.Guild.Id);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool AddToGuildMembers(Account acc, int guildId)
+        {
+            var ccc = GetGuildMembers(acc);
+            ccc.Add(acc.AccountId);
+            var newmembers = Utils.GetCommaSepString<int>(ccc.ToArray());
+            var cmd = CreateQuery();
+            cmd.CommandText = "UPDATE guilds SET members=@members WHERE id=@gid";
+            cmd.Parameters.AddWithValue("@members", newmembers);
+            cmd.Parameters.AddWithValue("@gid", guildId);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool RemoveGuild(Account acc)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "DELETE FROM guilds WHERE id=@gid";
+            cmd.Parameters.AddWithValue("@gid", acc.Guild.Id);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+        public bool ChangeGuildRank(string PlayerName, int rank)
+        {
+            var cmd = CreateQuery();
+            cmd.CommandText = "UPDATE accounts SET guildRank=@rank WHERE name=@name";
+            cmd.Parameters.AddWithValue("@rank", rank);
+            cmd.Parameters.AddWithValue("@name", PlayerName);
+            if (cmd.ExecuteNonQuery() == 0)
+            {
+                return false;
+            }
+            return true;
+        }
+        public string RankIdToName(int id)
+        {
+            switch (id)
+            {
+                case 0:
+                    return "Initiate";
+                case 10:
+                    return "Member";
+                case 20:
+                    return "Officer";
+                case 30:
+                    return "Leader";
+                case 40:
+                    return "Founder";
+                default:
+                    return "";
+            }
+        }
+        public string ChangeRankTextBuilder(Account changer, Account tochange, int newrank)
+        {
+            var text = ChangeRankText(tochange.Guild.Rank, newrank);
+            return changer.Name + text[0] + tochange.Name + text[1] + RankIdToName(newrank) + text[2];
+        }
+        public string[] ChangeRankText(int oldrank, int newrank)
+        {
+            if (oldrank > newrank)
+                return new string[]
+                {
+                    " demoted ",
+                    " to ",
+                    "."
+                };
+            else
+                return new string[]
+                {
+                    " promoted ",
+                    " to ",
+                    "."
+                };
+        }
+        public string GetGuildName(int accId)
+        {
+            try
+            {
+                using (Database db1 = new Database())
+                {
+                    var cmd = db1.CreateQuery();
+                    cmd.CommandText = "SELECT * FROM guilds";
+                    var rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        string members = rdr.GetString("members");
+                        if (members.ToString().Contains("," + accId.ToString() + ","))
+                        {
+                            return rdr.GetString("name");
+                        }
+                        else
+                        {
+                            return "";
+                        }
+                    }
+                    return "";
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Error retrieving guild name: check Player.cs");
+                return "";
+            }
+        }
+        public string GetGuildNameByID(int guildId)
+        {
+            try
+            {
+                using (Database dbz = new Database())
+                {
+                    var cmd = dbz.CreateQuery();
+                    cmd.CommandText = "SELECT name FROM guilds WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", guildId);
+                    object scalar = cmd.ExecuteScalar();
+                    return scalar.ToString();
+                }
+            }
+            catch
+            {
+                return "";
+            }
+        }
 
         public int UpdateCredit(Account acc, int amount)
         {
@@ -351,7 +513,7 @@ namespace db
             cmd.Parameters.AddWithValue("@amount", amount);
             return (int)cmd.ExecuteScalar();
         }
-
+        
         public void ReadStats(Account acc)
         {
             var cmd = CreateQuery();

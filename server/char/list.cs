@@ -31,14 +31,14 @@ namespace server.@char
                     NextCharId = 2,
                     MaxNumChars = 1,
                     Account = db1.Verify(query["guid"], query["password"]),
-                    Servers = new List<ServerItem>()
+                    Servers = new List<ServerItem>() //leave this list empty for the Oryx Sleeping message
                     {
                         new ServerItem()
                         {
-                            Name = "EUSouth",
+                            Name = "Local",
                             Lat = 22.28,
                             Long = 114.16,
-                            DNS = db.confreader.getservers(false).ToString(), //127.0.0.1, CHANGE THIS TO LET YOUR FRIENDS CONNECT
+                            DNS = "127.0.0.1",//db.confreader.getservers(false).ToString(), //127.0.0.1, CHANGE THIS TO LET YOUR FRIENDS CONNECT
                             Usage = 0.2,
                             AdminOnly = false
                         }

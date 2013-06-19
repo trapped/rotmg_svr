@@ -92,6 +92,10 @@
     <Compile Include="cliPackets\CancelTradePacket.cs" />
     <Compile Include="cliPackets\AOEAckPacket.cs" />
     <Compile Include="cliPackets\CheckCreditsPacket.cs" />
+    <Compile Include="cliPackets\GuildRemovePacket.cs" />
+    <Compile Include="cliPackets\GuildRankChangePacket.cs" />
+    <Compile Include="cliPackets\InviteToGuildPacket.cs" />
+    <Compile Include="cliPackets\JoinGuildPacket.cs" />
     <Compile Include="cliPackets\CreateGuildPacket.cs" />
     <Compile Include="cliPackets\GroundDamagePacket.cs" />
     <Compile Include="cliPackets\EditAccountListPacket.cs" />
@@ -259,6 +263,7 @@
     <Compile Include="realm\terrain\WorldMapExporter.cs" />
     <Compile Include="realm\worlds\Banana.cs" />
     <Compile Include="realm\worlds\Beachzone.cs" />
+    <Compile Include="realm\worlds\GuildHall.cs" />
     <Compile Include="realm\worlds\ggtutorial.cs" />
     <Compile Include="realm\worlds\RandRealm.cs" />
     <Compile Include="realm\worlds\WineCellar.cs" />
@@ -286,6 +291,7 @@
     <Compile Include="Structures.cs" />
     <Compile Include="cliPackets\EscapePacket.cs" />
     <Compile Include="svrPackets\AOEPacket.cs" />
+    <Compile Include="svrPackets\GuildInvitePacket.cs" />
     <Compile Include="svrPackets\CreateGuildResultPacket.cs" />
     <Compile Include="svrPackets\RawPacket.cs" />
     <Compile Include="svrPackets\DeathPacket.cs" />
@@ -376,6 +382,7 @@
     <EmbeddedResource Include="realm\worlds\ggtutorial.wmap" />
     <EmbeddedResource Include="realm\worlds\Beachzone.wmap" />
     <EmbeddedResource Include="realm\worlds\WineCellar.wmap" />
+    <EmbeddedResource Include="realm\worlds\ghall3.wmap" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

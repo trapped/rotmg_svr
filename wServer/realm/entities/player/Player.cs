@@ -36,8 +36,7 @@ namespace wServer.realm.entities
 
         public string Guild { get; set; }
         public int GuildRank { get; set; }
-        public int GuildId { get; set; } //this and the one below are not stats for the client, they are for the server to better handle the guild things
-        public int GuildLevel { get; set; }
+        public bool Invited { get; set; }
 
         public int Credits { get; set; }
         public bool NameChosen { get; set; }
@@ -233,7 +232,7 @@ namespace wServer.realm.entities
                 FameGoal = GetFameGoal(state.BestFame);
             else
                 FameGoal = GetFameGoal(0);
-            Glowing = true;
+            Glowing = true; //has to be changed to make it check for the leaderboards
             Guild = psr.Account.Guild.Name;
             GuildRank = -1;
             if (psr.Account.Guild.Name != null)
@@ -372,32 +371,52 @@ namespace wServer.realm.entities
 
         public void UsePortal(RealmTime time, UsePortalPacket pkt)
         {
-            Portal entity = Owner.GetEntity(pkt.ObjectId) as Portal;
+            Entity entity = Owner.GetEntity(pkt.ObjectId);
             if (entity == null || !entity.Usable) return;
-            World world = entity.WorldInstance;
+            Portal portal = null;
+            World world = null;
+            if (entity is Portal)
+            {
+                portal = entity as Portal;
+                world = portal.WorldInstance;
+            }
             if (world == null)
             {
-                switch (entity.ObjectType)
+                if (portal != null)
                 {
-                    case 0x0712:
-                    case 0x071d:
-                        world = RealmManager.GetWorld(World.NEXUS_ID); break;
-                    case 0x071c:
-                        world = RealmManager.Monitor.GetRandomRealm(); break;
-                    case 0x0720:
-                        world = RealmManager.GetWorld(World.VAULT_ID); break;
-                    case 0x071e:
-                        world = RealmManager.AddWorld(new Kitchen()); break;
-                    case 0x233D:
-                        world = RealmManager.AddWorld(new Banana()); break;
-                    case 0x2553:
-                        world = RealmManager.AddWorld(new Gee()); break; //map creating tutorial world
-                    case 0x0721:
-                        world = RealmManager.AddWorld(new WineCellar()); break;
-                    case 0x0742:
-                        world = RealmManager.AddWorld(new Beachzone()); break;
+                    switch (entity.ObjectType)
+                    {
+                        case 0x0712:
+                        case 0x071d:
+                            world = RealmManager.GetWorld(World.NEXUS_ID); break;
+                        case 0x071c:
+                            world = RealmManager.Monitor.GetRandomRealm(); break;
+                        case 0x0720:
+                            world = RealmManager.GetWorld(World.VAULT_ID); break;
+                        case 0x071e:
+                            world = RealmManager.AddWorld(new Kitchen()); break;
+                        case 0x233D:
+                            world = RealmManager.AddWorld(new Banana()); break;
+                        case 0x2553:
+                            world = RealmManager.AddWorld(new Gee()); break; //map creating tutorial world
+                        case 0x0721:
+                            world = RealmManager.AddWorld(new WineCellar()); break;
+                        case 0x0742:
+                            world = RealmManager.AddWorld(new Beachzone()); break;
+                    }
+                    portal.WorldInstance = world;
                 }
-                entity.WorldInstance = world;
+                else
+                {
+                    switch (entity.ObjectType)
+                    {
+                        case 0x072f:
+                            world = RealmManager.GHall(Guild); break;
+                        default:
+                            world = null;
+                            break;
+                    }
+                }
             }
             psr.Reconnect(new ReconnectPacket()
             {
@@ -656,7 +675,7 @@ namespace wServer.realm.entities
 
                             cmd.CommandText = "INSERT INTO guilds (name, members, level) VALUES (@name,@firstMember,1)";
                             cmd.Parameters.AddWithValue("@name", name);
-                            cmd.Parameters.AddWithValue("@firstMember", "," + psr.Account.AccountId.ToString() + ",");
+                            cmd.Parameters.AddWithValue("@firstMember", psr.Account.AccountId);
                             if (cmd.ExecuteNonQuery() != 0)
                             {
                                 Console.WriteLine("Created guild {0} with founder {1}", name, psr.Account.AccountId + " " + psr.Account.Name);
@@ -674,16 +693,34 @@ namespace wServer.realm.entities
                                     ResultMessage = "Error creating guild!",
                                     Success = false
                                 });
+                                return;
                             }
                             cmd = db1.CreateQuery();
                             cmd.CommandText = "SELECT id FROM guilds WHERE name = @name";
                             cmd.Parameters.AddWithValue("@name", name);
-                            object guildId;
-                            if (cmd.ExecuteNonQuery() != 0)
+                            object guildId = cmd.ExecuteScalar();
+                            psr.Account.Guild = new Guild()
                             {
-                                guildId = cmd.ExecuteScalar();
-                                GuildId = int.Parse(guildId.ToString());
+                                Id = int.Parse(guildId.ToString()),
+                                Name = name,
+                                Rank = 40
+                            };
+                            cmd = db1.CreateQuery();
+                            cmd.CommandText = "UPDATE accounts SET guild=@guildid, guildRank='40' WHERE id=@accId";
+                            cmd.Parameters.AddWithValue("@guildid", guildId.ToString());
+                            cmd.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                            if (cmd.ExecuteNonQuery() == 0)
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "Unable to update account data!"
+                                });
                             }
+                            db1.UpdateCredit(psr.Account, -1000);
+                            UpdateCount++;
                         }
                     }
                     else
@@ -706,6 +743,730 @@ namespace wServer.realm.entities
                         Text = "Error creating guild!"
                     });
                 }
+            }
+        }
+        public void LeaveGuild(GuildRemovePacket pkt)
+        {
+            try
+            {
+                if (psr.Account.Guild == null || psr.Account.Guild.Name == "")
+                {
+                    psr.SendPacket(new CreateGuildResultPacket()
+                    {
+                        ResultMessage = "You don't have a guild!",
+                        Success = false
+                    });
+                    return;
+                }
+                using (Database dbx = new Database())
+                {
+                    var cmd = dbx.CreateQuery();
+                    cmd.CommandText = "UPDATE accounts SET guild='0', guildRank='-1' WHERE id=@id";
+                    cmd.Parameters.AddWithValue("@id", psr.Account.AccountId);
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        psr.SendPacket(new CreateGuildResultPacket()
+                        {
+                            ResultMessage = "Unable to remove guild from account data!",
+                            Success = false
+                        });
+                        return;
+                    }
+                    else
+                    {
+                        var members = dbx.GetGuildMembers(psr.Account);
+                        if (!members.Contains(psr.Account.AccountId))
+                        {
+                            psr.SendPacket(new CreateGuildResultPacket()
+                            {
+                                ResultMessage = "Unable to find account in guild's members list!",
+                                Success = false
+                            });
+                            return;
+                        }
+                        members.Remove(psr.Account.AccountId);
+                        var newmembers = Utils.GetCommaSepString<int>(members.ToArray());
+                        if (newmembers.Length == 0)
+                        {
+                            if (dbx.RemoveGuild(psr.Account) == false)
+                            {
+                                psr.SendPacket(new CreateGuildResultPacket()
+                                {
+                                    ResultMessage = "Unable to delete guild!",
+                                    Success = false
+                                });
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            if (dbx.RemoveFromGuildMembers(psr.Account) == false)
+                            {
+                                psr.SendPacket(new CreateGuildResultPacket()
+                                {
+                                    ResultMessage = "Unable to remove account from guild's members list!",
+                                    Success = false
+                                });
+                                return;
+                            }
+                        }
+                        foreach (var i in RealmManager.Clients.Values)
+                        {
+                            if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                            {
+                                i.SendPacket(new TextPacket()
+                                {
+                                    Name = "",
+                                    BubbleTime = 0,
+                                    Stars = -1,
+                                    Text = psr.Account.Name + " left the guild."
+                                });
+                            }
+                        }
+                        psr.Account.Guild = new Guild()
+                            {
+                                Id = 0,
+                                Name = "",
+                                Rank = -1
+                            };
+                        UpdateCount++;
+                        psr.SendPacket(new CreateGuildResultPacket()
+                        {
+                            ResultMessage = "Successfully left the guild!",
+                            Success = true
+                        });
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                psr.SendPacket(new CreateGuildResultPacket()
+                {
+                    ResultMessage = "Error leaving the guild!",
+                    Success = false
+                });
+                return;
+            }
+        }
+        public void JoinGuild(JoinGuildPacket pkt)
+        {
+            if (psr.Account.Guild.Name != "" || psr.Account.Guild.Id != 0 || psr.Account.Guild.Rank != -1 || psr.Account.Guild.Id != 0 && psr.Account.Guild.Rank != -1)
+            {
+                Console.WriteLine(psr.Account.Guild.Name + "!" + psr.Account.Guild.Id + "!" + psr.Account.Guild.Rank);
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Name = "",
+                    Stars = -1,
+                    Text = "You already are in a guild!"
+                });
+                return;
+            }
+            if (psr.Player.Invited == false)
+            {
+                psr.SendPacket(new TextPacket()
+                {
+                    BubbleTime = 0,
+                    Name = "",
+                    Stars = -1,
+                    Text = "You need to be invited to join a guild!"
+                });
+                return;
+            }
+            using (Database dbx = new Database())
+            {
+                var cmd = dbx.CreateQuery();
+                cmd.CommandText = "UPDATE accounts SET guild=@guildId, guildRank='0' WHERE id=@accId";
+                cmd.Parameters.AddWithValue("@accId", psr.Account.AccountId);
+                cmd.Parameters.AddWithValue("@guildId", dbx.GetGuildIdByName(pkt.Name));
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Name = "",
+                        Stars = -1,
+                        Text = "Error changing the guild in the account data!"
+                    });
+                    return;
+                }
+                psr.Account.Guild = new Guild()
+                {
+                    Id = dbx.GetGuildIdByName(pkt.Name),
+                    Name = pkt.Name,
+                    Rank = 0
+                };
+                if(dbx.AddToGuildMembers(psr.Account, dbx.GetGuildIdByName(pkt.Name)) == false)
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Name = "",
+                        Stars = -1,
+                        Text = "Error adding the account to the guild's members list!"
+                    });
+                    return;
+                }
+                foreach (var i in RealmManager.Clients.Values)
+                {
+                    if (i.Account.Guild.Name == psr.Account.Guild.Name)
+                    {
+                        i.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Name = "",
+                            Stars = -1,
+                            Text = psr.Account.Name + " joined the guild."
+                        });
+                    }
+                }
+            }
+        }
+        public void InviteToGuild(InviteToGuildPacket pkt)
+        {
+            int count = 0;
+            foreach (var i in RealmManager.Clients.Values)
+            {
+                if (count == RealmManager.Clients.Values.ToArray().Length)
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Name = "",
+                        Stars = -1,
+                        Text = "Unable to find player named " + pkt.Name
+                    });
+                    return;
+                }
+                if (i.Account.Name == pkt.Name)
+                {
+                    //i.SendPacket(new TextPacket()
+                    //{
+                    //    Text = psr.Account.Name + " invited you to join guild "+psr.Account.Guild.Name+".",
+                    //    BubbleTime = 0,
+                    //    Name = "",
+                    //    Stars = -1
+                    //});
+                    i.SendPacket(new GuildInvitePacket()
+                    {
+                        Guild = psr.Account.Guild.Name,
+                        Name = psr.Account.Name
+                    });
+                    i.Player.Invited = true;
+                    return;
+                }
+                count = count + 1;
+            }
+
+        }
+        public void ChangeRank(GuildRankChangePacket pkt)
+        {
+            using(Database dbx = new Database())
+            {
+                if (psr.Account.Guild.Name == "")
+                {
+                    psr.SendPacket(new TextPacket()
+                    {
+                        BubbleTime = 0,
+                        Name = "",
+                        Stars = -1,
+                        Text = "You don't have a guild!"
+                    });
+                    return;
+                }
+                switch (psr.Account.Guild.Rank)
+                {
+                    case 0:
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Name = "",
+                            Stars = -1,
+                            Text = "Only officers, leaders and founders can promote/demote other members!"
+                        });
+                        return;
+                    case 10:
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Name = "",
+                            Stars = -1,
+                            Text = "Only officers, leaders and founders can promote/demote other members!"
+                       });
+                      return;
+                    case 20:
+                        switch (pkt.Rank)
+                        {
+                            case 0:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 10:
+                                if (dbx.GetAccount(pkt.Name).Guild.Rank == psr.Account.Guild.Rank)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        BubbleTime = 0,
+                                        Name = "",
+                                        Stars = -1,
+                                        Text = "You can't demote members with your same rank!"
+                                    });
+                                    return;
+                                }
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 20:
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "Only leaders and founders can promote other members to officers!"
+                                });
+                                return;
+                            case 30:
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "Only leaders and founders can promote other members to leaders!"
+                                });
+                                return;
+                            case 40:
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "You can't promote someone to founder!"
+                                });
+                                return;
+                        }
+                        return;
+                    case 30:
+                        switch (pkt.Rank)
+                        {
+                            case 0:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 10:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 20:
+                                if (dbx.GetAccount(pkt.Name).Guild.Rank == psr.Account.Guild.Rank)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        BubbleTime = 0,
+                                        Name = "",
+                                        Stars = -1,
+                                        Text = "You can't demote members with your same rank!"
+                                    });
+                                    return;
+                                }
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 30:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 40:
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "You can't promote someone to founder!"
+                                });
+                                return;
+                        }
+                        return;
+                    case 40:
+                        switch (pkt.Rank)
+                        {
+                            case 0:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 10:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 20:
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 30:
+                                if (dbx.GetAccount(pkt.Name).Guild.Rank == psr.Account.Guild.Rank)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        BubbleTime = 0,
+                                        Name = "",
+                                        Stars = -1,
+                                        Text = "You can't demote members with your same rank!"
+                                    });
+                                    return;
+                                }
+                                dbx.ChangeGuildRank(pkt.Name, pkt.Rank);
+                                foreach (var i in RealmManager.Clients.Values)
+                                {
+                                    if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                    {
+                                        psr.SendPacket(new TextPacket()
+                                        {
+                                            BubbleTime = 0,
+                                            Name = "",
+                                            Stars = -1,
+                                            Text = dbx.ChangeRankTextBuilder(psr.Account, dbx.GetAccount(pkt.Name), pkt.Rank)
+                                        });
+                                    }
+                                }
+                                return;
+                            case 40:
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "You can't promote someone to founder!"
+                                });
+                                return;
+                        }
+                        return;
+                  }
+             }
+        }
+        public void RemoveFromGuild(GuildRemovePacket pkt)
+        {
+            try
+            {
+                if (pkt.Name != psr.Account.Name)
+                {
+                    if (psr.Account.Guild == null || psr.Account.Guild.Name == "")
+                    {
+                        psr.SendPacket(new TextPacket()
+                        {
+                            Name = "",
+                            Stars = -1,
+                            BubbleTime = 0,
+                            Text = "You don't have a guild!"
+                        });
+                        return;
+                    }
+                    using (Database dbx = new Database())
+                    {
+                        var cmd = dbx.CreateQuery();
+                        cmd.CommandText = "UPDATE accounts SET guild='0', guildRank='-1' WHERE id=@id";
+                        cmd.Parameters.AddWithValue("@id", dbx.GetAccount(pkt.Name).AccountId);
+                        if (cmd.ExecuteNonQuery() == 0)
+                        {
+                            psr.SendPacket(new TextPacket()
+                            {
+                                Name = "",
+                                Stars = -1,
+                                BubbleTime = 0,
+                                Text = "Unable to remove guild from account data!"
+                            });
+                            return;
+                        }
+                        else
+                        {
+                            var members = dbx.GetGuildMembers(psr.Account);
+                            if (!members.Contains(dbx.GetAccount(pkt.Name).AccountId))
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    Name = "",
+                                    Stars = -1,
+                                    BubbleTime = 0,
+                                    Text = "Unable to find account in guild's members list!"
+                                });
+                                return;
+                            }
+                            members.Remove(dbx.GetAccount(pkt.Name).AccountId);
+                            var newmembers = Utils.GetCommaSepString<int>(members.ToArray());
+                            if (members.Count == 0)
+                            {
+                                if (dbx.RemoveGuild(psr.Account) == false)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        Name = "",
+                                        Stars = -1,
+                                        BubbleTime = 0,
+                                        Text = "Unable to delete guild!"
+                                    });
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (dbx.RemoveFromGuildMembers(psr.Account) == false)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        Name = "",
+                                        Stars = -1,
+                                        BubbleTime = 0,
+                                        Text = "Unable to remove account from guild's members list!"
+                                    });
+                                    return;
+                                }
+                            }
+                            foreach (var i in RealmManager.Clients.Values)
+                            {
+                                if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                {
+                                    i.SendPacket(new TextPacket()
+                                    {
+                                        Name = "",
+                                        BubbleTime = 0,
+                                        Stars = -1,
+                                        Text = pkt.Name + " has been removed from the guild by " + psr.Account.Name + "."
+                                    });
+                                }
+                            }
+                            psr.Account.Guild = new Guild()
+                            {
+                                Id = 0,
+                                Name = "",
+                                Rank = -1
+                            };
+                            UpdateCount++;
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (psr.Account.Guild == null || psr.Account.Guild.Name == "")
+                    {
+                        psr.SendPacket(new TextPacket()
+                        {
+                            BubbleTime = 0,
+                            Name = "",
+                            Stars = -1,
+                            Text = "You don't have a guild!"
+                        });
+                        return;
+                    }
+                    using (Database dbx = new Database())
+                    {
+                        var cmd = dbx.CreateQuery();
+                        cmd.CommandText = "UPDATE accounts SET guild='0', guildRank='-1' WHERE id=@id";
+                        cmd.Parameters.AddWithValue("@id", psr.Account.AccountId);
+                        if (cmd.ExecuteNonQuery() == 0)
+                        {
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Name = "",
+                                Stars = -1,
+                                Text = "Unable to remove guild from account data!"
+                            });
+                            return;
+                        }
+                        else
+                        {
+                            var members = dbx.GetGuildMembers(psr.Account);
+                            if (!members.Contains(psr.Account.AccountId))
+                            {
+                                psr.SendPacket(new TextPacket()
+                                {
+                                    BubbleTime = 0,
+                                    Name = "",
+                                    Stars = -1,
+                                    Text = "Unable to find account in guild's members list!"
+                                });
+                                return;
+                            }
+                            members.Remove(psr.Account.AccountId);
+                            var newmembers = Utils.GetCommaSepString<int>(members.ToArray());
+                            if (newmembers.Length == 0)
+                            {
+                                if (dbx.RemoveGuild(psr.Account) == false)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        BubbleTime = 0,
+                                        Name = "",
+                                        Stars = -1,
+                                        Text = "Unable to delete guild!"
+                                    });
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                if (dbx.RemoveFromGuildMembers(psr.Account) == false)
+                                {
+                                    psr.SendPacket(new TextPacket()
+                                    {
+                                        BubbleTime = 0,
+                                        Name = "",
+                                        Stars = -1,
+                                        Text = "Unable to remove account from guild's members list!"
+                                    });
+                                    return;
+                                }
+                            }
+                            foreach (var i in RealmManager.Clients.Values)
+                            {
+                                if (i.Account.Guild.Name == psr.Account.Guild.Name && i.Account.Guild.Id == psr.Account.Guild.Id)
+                                {
+                                    i.SendPacket(new TextPacket()
+                                    {
+                                        Name = "",
+                                        BubbleTime = 0,
+                                        Stars = -1,
+                                        Text = psr.Account.Name + " left the guild."
+                                    });
+                                }
+                            }
+                            psr.Account.Guild = new Guild()
+                            {
+                                Id = 0,
+                                Name = "",
+                                Rank = -1
+                            };
+                            UpdateCount++;
+                            psr.SendPacket(new TextPacket()
+                            {
+                                BubbleTime = 0,
+                                Name = "",
+                                Stars = -1,
+                                Text = "You left the guild."
+                            });
+                            return;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                psr.SendPacket(new TextPacket()
+                {
+                    Name = "",
+                    Stars = -1,
+                    BubbleTime = 0,
+                    Text = "Error removing the player from the guild!"
+                });
+                return;
             }
         }
     }

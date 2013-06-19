@@ -32,6 +32,8 @@ namespace wServer.realm
                 projectiles = new Projectile[256];
                 effects = new int[EFFECT_COUNT];
             }
+            if (objType == 0x072f)
+                Usable = true;
         }
 
 
@@ -39,7 +41,7 @@ namespace wServer.realm
         public ObjectDesc ObjectDesc { get { return desc; } }
 
         public World Owner { get; internal set; }
-
+        public bool Usable { get; set; }
         public int UpdateCount { get; set; }
 
         public short ObjectType { get; private set; }

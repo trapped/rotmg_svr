@@ -166,6 +166,7 @@ namespace server.account.guild
             }
             byte[] bytes = Encoding.ASCII.GetBytes(doc.ToString());
             context.Response.OutputStream.Write(bytes, 0, bytes.Length);
+            context.Response.Close();
         }
     }
 }
