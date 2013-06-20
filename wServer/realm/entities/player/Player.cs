@@ -372,7 +372,16 @@ namespace wServer.realm.entities
         public void UsePortal(RealmTime time, UsePortalPacket pkt)
         {
             Entity entity = Owner.GetEntity(pkt.ObjectId);
-            if (entity == null || !entity.Usable) return;
+            if (entity == null) return;
+            try
+            {
+                var eport = (Portal)entity;
+                if (!eport.Usable) return;
+            }
+            catch
+            {
+                //the only error occurs when the player enters the guild hall: it's a static object
+            }
             Portal portal = null;
             World world = null;
             if (entity is Portal)

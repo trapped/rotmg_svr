@@ -25,7 +25,10 @@ namespace wServer.realm
             Size = 100;
             XmlDatas.ObjectDescs.TryGetValue(objType, out desc);
             BehaviorDb.ResolveBehavior(this);
-
+            if (this is Portal)
+            {
+                this.Usable = true;
+            }
             if (interactive)
             {
                 posHistory = new Position[256];
