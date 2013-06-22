@@ -10,7 +10,6 @@ namespace wServer.realm
     class StatsManager
     {
         Player player;
-        float damagereceived;
         public StatsManager(Player player)
         {
             this.player = player;
@@ -71,7 +70,7 @@ namespace wServer.realm
             if (player.HasConditionEffect(ConditionEffects.Invulnerable) ||
                 player.HasConditionEffect(ConditionEffects.Invincible))
                 ret = 0;
-            AddRage(dmg);
+            //AddRage(dmg);
             return ret;
         }
         public float GetSpeed()
@@ -91,26 +90,27 @@ namespace wServer.realm
             var vit = GetStats(5);
             if (player.HasConditionEffect(ConditionEffects.Sick))
                 vit = 0;
-            if (player.ObjectType == 797)
-            {
-                dis = 2.5f;
-                return 1 + vit / dis;
-            }
-            else if (player.ObjectType == 798)
-            {
-                dis = 2.5f;
-                return 1 + vit / dis;
-            }
-            else if (player.ObjectType == 805)
-            {
-                dis = 3f;
-                return 1 + vit / dis;
-            }
-            else
-            {
-                dis = 8f;
-                return 1 + vit / dis;
-            }
+            //vitality buffs
+            //if (player.ObjectType == 797)
+            //{
+            //    dis = 2.5f;
+            //    return 1 + vit / dis;
+            //}
+            //else if (player.ObjectType == 798)
+            //{
+            //    dis = 2.5f;
+            //    return 1 + vit / dis;
+            //}
+            //else if (player.ObjectType == 805)
+            //{
+            //    dis = 3f;
+            //    return 1 + vit / dis;
+            //}
+            //else
+            //{
+            dis = 8f;
+            return 1 + vit / dis;
+            //}
         }
         public float GetMPRegen()
         {
@@ -118,26 +118,27 @@ namespace wServer.realm
             float dis;
             if (player.HasConditionEffect(ConditionEffects.Quiet))
                 return 0;
-            if (player.ObjectType == 784)
-            {
-                dis = 8f;
-                return 0.6f + wis / dis;
-            }
-            else if (player.ObjectType == 799)
-            {
-                dis = 8f;
-                return 0.6f + wis / dis;
-            }
-            else if (player.ObjectType == 798)
-            {
-                dis = 16.7f;
-                return 0.6f + wis / dis;
-            }
-            else
-            {
-                dis = 16.7f;
-                return 0.6f + wis / dis;
-            }
+            //wisdom buffs
+            //if (player.ObjectType == 784)
+            //{
+            //    dis = 8f;
+            //    return 0.6f + wis / dis;
+            //}
+            //else if (player.ObjectType == 799)
+            //{
+            //    dis = 8f;
+            //    return 0.6f + wis / dis;
+            //}
+            //else if (player.ObjectType == 798)
+            //{
+            //    dis = 16.7f;
+            //    return 0.6f + wis / dis;
+            //}
+            //else
+            //{
+            dis = 16.7f;
+            return 0.6f + wis / dis;
+            //}
         }
         public float GetDex()
         {
