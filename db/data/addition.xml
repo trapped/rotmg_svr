@@ -28,6 +28,29 @@
     <OldSound>magicShoot</OldSound>
     <Soulbound/>
   </Object>
+  <Object type="0xf08" id="Void stick">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0x30</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Tier>0</Tier>
+    <Description>Void.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/blunt_sword</Sound>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>1</MinDamage>
+      <MaxDamage>1</MaxDamage>
+      <LifetimeMS>700</LifetimeMS>
+    </Projectile>
+    <ConditionEffect duration="0.3" chance ="30">Stasis</ConditionEffect>
+    <BagType>0</BagType>
+    <OldSound>bladeSwing</OldSound>
+  </Object>
   <Object type="0xf07" id="Yolo">
     <Class>Equipment</Class>
     <Item/>

@@ -334,8 +334,19 @@ namespace wServer.realm
                     HasConditionEffect(ConditionEffects.StasisImmune))
                     continue;
                 effects[(int)i.Effect] = i.DurationMS;
-                if (i.DurationMS != 0)
+                if (i.DurationMS != 0 && i.Chance == 100)
+                {
                     ConditionEffects |= (ConditionEffects)(1 << (int)i.Effect);
+                }
+                else if (i.DurationMS != 0 && i.Chance != 100)
+                {
+                    Random r = new Random();
+                    int ix = r.Next(0, 100);
+                    if (ix <= i.Chance)
+                    {
+                        ConditionEffects |= (ConditionEffects)(1 << (int)i.Effect);
+                    }
+                }
             }
             tickingEffects = true;
             UpdateCount++;

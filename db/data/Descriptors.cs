@@ -73,6 +73,7 @@ public class ConditionEffect
     public ConditionEffectIndex Effect { get; set; }
     public int DurationMS { get; set; }
     public float Range { get; set; }
+    public int Chance { get; set; }
     public ConditionEffect() { }
     public ConditionEffect(XElement elem)
     {
@@ -81,6 +82,10 @@ public class ConditionEffect
             DurationMS = (int)(float.Parse(elem.Attribute("duration").Value) * 1000); //error: wrong parse input
         if (elem.Attribute("range") != null)
             Range = float.Parse(elem.Attribute("range").Value);
+        if (elem.Attribute("chance") != null)
+            Chance = int.Parse(elem.Attribute("chance").Value);
+        else
+            Chance = 100;
     }
 }
 
