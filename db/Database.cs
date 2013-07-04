@@ -513,7 +513,59 @@ namespace db
             cmd.Parameters.AddWithValue("@amount", amount);
             return (int)cmd.ExecuteScalar();
         }
-        
+
+        public bool isTopWeek(Account acc)
+        {
+            using (Database dbx = new Database())
+            {
+                var cmd = dbx.CreateQuery();
+                cmd.CommandText = "SELECT accId FROM death WHERE (time >= DATE_SUB(NOW(), INTERVAL 1 WEEK)) ORDER BY totalFame DESC LIMIT 10";
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetInt32("accId") == acc.AccountId)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        public bool isTopMonth(Account acc)
+        {
+            using (Database dbx = new Database())
+            {
+                var cmd = dbx.CreateQuery();
+                cmd.CommandText = "SELECT accId FROM death WHERE (time >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) ORDER BY totalFame DESC LIMIT 10";
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetInt32("accId") == acc.AccountId)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        public bool isTopAll(Account acc)
+        {
+            using (Database dbx = new Database())
+            {
+                var cmd = dbx.CreateQuery();
+                cmd.CommandText = "SELECT accId FROM death WHERE TRUE ORDER BY totalFame DESC LIMIT 10";
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetInt32("accId") == acc.AccountId)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
         public void ReadStats(Account acc)
         {
             var cmd = CreateQuery();
