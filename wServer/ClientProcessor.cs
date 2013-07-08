@@ -149,7 +149,7 @@ namespace wServer
                     Console.WriteLine("Unhandled packet: " + pkt.ToString());
                 }
                 else
-                    Console.WriteLine(pkt.ID);
+                    Console.WriteLine((int)pkt.ID);
             }
             catch
             {

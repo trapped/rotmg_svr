@@ -1,0 +1,27 @@
+/picture/list ? num=TOTxPAGE & ignore=INT & guid=CREATOR (administrator@wildshadow.com for wildshadow, guid = myguid for mine, giud = null for all)& myGUID=HASH (hwid?)
+	returns:
+		<Pics offset="INT"> //offset (page number, add 24 for another page)
+			<Pic id="INT"><PicName>STRING</PicName><DataType>INT</DataType><Tags>COMMASEPSTRING</Tags></Pic> //the datatype is the object class:
+																													3 = environment
+																													2 = item
+																													1 = character
+																													4 = projectile
+																													5 = textile (cloths, dyes)
+																													6 = interface
+																													7 = miscellaneous
+		</Pics>
+
+/picture/get ? ignore=INT & id=INT
+	returns:
+		a png image
+		
+/picture/save POSTREQUEST
+	guid=CREATOR (hwid?)
+	password=STRING (empty for guest account)
+	secret=STRING? (empty)
+	name=Art Name
+	dataType=INT (see up)
+	tags=COMMASEPSTRING
+	overwrite=on
+	Filename=Foo.png (wut)
+	

@@ -33,7 +33,7 @@ namespace db
         {
             return (int)(dateTime - new DateTime(1970, 1, 1).ToLocalTime()).TotalSeconds;
         }
-         
+        
         public List<NewsItem> GetNews(Account acc)
         {
             var cmd = CreateQuery();

@@ -33,6 +33,22 @@ namespace server
             { "/guild/setBoard", new account.guild.setBoard() },
             { "/guild/listMembers", new account.guild.listMembers() },
             { "/picture/get", new picture.get() },
+            { "/picture/list", new picture.list() },
+            //{ "/picture/save", new picture.save() },
+            { "/version.txt", new flversion() },
+            { "/TextureMakerTRAPPED.swf", new geteditor() },
+            { "/app/getLanguageStrings", new lang() },
+            { "/sfx/button_click.mp3", new sfx() },
+            { "/music/sorc.mp3", new music() },
+            { "/sfx/death_screen.mp3", new sfx() },
+            { "/sfx/enter_realm.mp3", new sfx() },
+            { "/sfx/error.mp3", new sfx() },
+            { "/sfx/inventory_move_item.mp3", new sfx() },
+            { "/sfx/level_up.mp3", new sfx() },
+            { "/sfx/loot_appears.mp3", new sfx() },
+            { "/sfx/no_mana.mp3", new sfx() },
+            { "/sfx/use_key.mp3", new sfx() },
+            { "/sfx/use_potion.mp3", new sfx() },
         };
     }
 }

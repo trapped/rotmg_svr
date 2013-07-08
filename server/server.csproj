@@ -79,11 +79,16 @@
     <Compile Include="char\fame.cs" />
     <Compile Include="char\list.cs" />
     <Compile Include="char\delete.cs" />
+    <Compile Include="sfx.cs" />
+    <Compile Include="lang.cs" />
+    <Compile Include="geteditor.cs" />
+    <Compile Include="version.cs" />
     <Compile Include="credits\add.cs" />
     <Compile Include="credits\getoffers.cs" />
     <Compile Include="fame\list.cs" />
     <Compile Include="crossdomain.cs" />
     <Compile Include="IRequestHandler.cs" />
+    <Compile Include="picture\list.cs" />
     <Compile Include="picture\get.cs" />
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
